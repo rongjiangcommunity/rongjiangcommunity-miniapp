@@ -1,0 +1,42 @@
+{
+  "name": "测试",
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/me/me",
+    "pages/book/book",
+    "pages/registerAndLogin/registerAndLogin"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4e85c6",
+    "navigationBarTitleText": "揭阳一中校友通",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#888",
+    "selectedColor": "#4e85c6",
+    "backgroundColor": "fff",
+    "position": "bottom",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icons/index.png",
+        "selectedIconPath": "images/icons/index-active.png"
+      },
+      {
+        "text": "校友录",
+        "pagePath": "pages/book/book",
+        "iconPath": "images/icons/book.png",
+        "selectedIconPath": "images/icons/book-active.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/me/me",
+        "iconPath": "images/icons/me.png",
+        "selectedIconPath": "images/icons/me-active.png"
+      }
+    ]
+  }
+}

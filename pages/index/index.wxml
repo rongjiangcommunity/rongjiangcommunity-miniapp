@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{hasUserInfo}}">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+    <text wx:else>
+      加载中...
+    </text>
+  </view>
+  <view>
+    <button bindtap="gotoRegisterAndLogin">进入注册页</button>
+  </view>
+</view>
