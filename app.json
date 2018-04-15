@@ -8,7 +8,8 @@
     "pages/registerAndLogin/registerAndLogin",
     "pages/schoolmates/schoolmates",
     "pages/me/feedback/feedback",
-    "pages/me/department/department"
+    "pages/me/department/department",
+    "pages/index/messagecenter/messagecenter"
   ],
   "window": {
     "backgroundTextStyle": "light",

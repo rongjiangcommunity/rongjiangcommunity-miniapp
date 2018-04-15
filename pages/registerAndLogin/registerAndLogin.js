@@ -1,5 +1,35 @@
 // pages/registerAndLogin/registerAndLogin.js
+
+var initData = {
+  pageState: 'register', // register, login, modifyPwd, error, loading
+  registerInfo: {
+    phonenumber: 11111111111,
+    password1: '',
+    password2: '',
+    verificationCode: ''
+  },
+  modifyPwdInfo: {
+    phonenumber: 11111111111,
+    password1: '',
+    password2: '',
+    verificationCode: ''
+  },
+  loginInfo: {
+    phonenumber: 11111111111,
+    password: '',
+    verificationCode: ''
+  },
+
+};
+
+
+
 Page({
+
+  // 回调函数
+  submitForm: function () {
+    console.log('submitForm');
+  },
 
   /**
    * 页面的初始数据

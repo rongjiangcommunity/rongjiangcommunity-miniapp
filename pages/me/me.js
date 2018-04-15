@@ -5,8 +5,8 @@ var initData = {
   pageState: 'me',
   userInfo: { // 用户信息
     userId: 1, // 用户id
-    avatar_url: '', // 头像url，如果没有注册则为微信头像
-    name: '', // 姓名
+    avatarUrl: '', // 头像url，如果没有注册则为微信头像
+    nickname: '', // 姓名
     city: '', // 城市
     college: '', // 大学
     compony: '', // 公司
@@ -24,8 +24,8 @@ var debugData = {
   pageState: 'me',
   userInfo: { // 用户信息
     userId: 1, // 用户id
-    avatar_url: '', // 头像url，如果没有注册则为微信头像
-    name: '', // 姓名
+    avatarUrl: '', // 头像url，如果没有注册则为微信头像
+    nickname: '', // 姓名
     city: '', // 城市
     college: '', // 大学
     compony: '', // 公司
