@@ -5,7 +5,10 @@
     "pages/logs/logs",
     "pages/me/me",
     "pages/book/book",
-    "pages/registerAndLogin/registerAndLogin"
+    "pages/registerAndLogin/registerAndLogin",
+    "pages/schoolmates/schoolmates",
+    "pages/me/feedback/feedback",
+    "pages/me/department/department"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -4,6 +4,7 @@ var initData = {
   // 页面状态： loading 加载中 error错误 me个人页面 modify编辑个人资料页面 
   pageState: 'me',
   userInfo: { // 用户信息
+    userId: 1, // 用户id
     avatar_url: '', // 头像url，如果没有注册则为微信头像
     name: '', // 姓名
     city: '', // 城市
@@ -15,23 +16,26 @@ var initData = {
   },
   isShowBussnessCard: false, // 是否显示名片：名片以弹出层的形式出现
   isShowAboutUs: false, // 是否显示“关于我们”模块 也是弹出层
+  isShowBussinessCard: false // 是否显示“名片”
 }
 
 var debugData = {
   // 页面状态： loading 加载中 error错误 me个人页面 modify编辑个人资料页面 
   pageState: 'me',
   userInfo: { // 用户信息
+    userId: 1, // 用户id
     avatar_url: '', // 头像url，如果没有注册则为微信头像
     name: '', // 姓名
     city: '', // 城市
     college: '', // 大学
     compony: '', // 公司
-    isSectorMember: false, // 是否为校友会部门成员
+    isDepartmentMember: false, // 是否为校友会部门成员
     bussinessCardUrl: '', // 名片ur
   },
   isShowBussnessCard: false, // 是否显示名片：名片以弹出层的形式出现
   isShowAboutUs: false, // 是否显示“关于我们”模块 也是弹出层
-}
+  isShowBussinessCard: false // 是否显示“名片”
+};
 
 Page({
 
@@ -47,12 +51,25 @@ Page({
     console.log('logout')
   },
 
+  jumpToModify: function () { // 跳到“编辑资料”界面
+    this.setData({
+      'pageState': 'modify'
+    });
+    console.log('jumpToModify');
+  },
+
   completeModify: function () { // 修改资料页面的【确定】
-    console.log('completeModify')
+    this.setData({
+      'pageState': 'me'
+    });
+    console.log('completeModify');
   },
 
   backToMe: function () { // 返回“我的“页面
-    console.log('backToMe')
+    this.setData({
+      'pageState': 'me'
+    });
+    console.log('backToMe');
   },
 
   jumpToSchoolmates: function () { // 跳转到“我的校友圈“页面
