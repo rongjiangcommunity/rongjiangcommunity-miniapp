@@ -1,2 +1,13 @@
 <!--pages/index/messagecenter/messagecenter.wxml-->
-<text>pages/index/messagecenter/messagecenter.wxml</text>
+<view>
+  <view>
+    <image src=""></image>
+    <view><button bindtap="jumpToMsgDetail" >系统消息</button></view>
+  </view> 
+</view>
+<view>
+  <view>
+    <image src=""></image>
+    <view><button>私信消息</button></view>
+  </view>
+</view>
