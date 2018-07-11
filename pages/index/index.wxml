@@ -1,11 +1,10 @@
 <!--index.wxml-->
+<block wx:if="{{hasUserInfo}}">
 <view class="container">
   <view class="userinfo">
-    <block wx:if="{{hasUserInfo}}">
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"     background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-    <text wx:else>
+    <text>
       加载中...
     </text>
   </view>
@@ -13,3 +12,5 @@
     <button bindtap="gotoRegisterAndLogin">进入注册页</button>
   </view>
 </view>
+</block>
+<button hidden="{{hasUserInfo}}" open-type="getUserInfo" bindopensetting="checkSetting">请点击授权使用揭阳一中校友通</button>

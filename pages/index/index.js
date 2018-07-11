@@ -7,8 +7,7 @@ Page({
     /** @type {'index' | ''} 页面状态 */
     tab:'index',
     userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    hasUserInfo : true
   },
   //事件处理函数
   gotoRegisterAndLogin: function() {
@@ -16,40 +15,32 @@ Page({
       url: '../registerAndLogin/registerAndLogin'
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
+  checkSetting : function(){
+    console.log('checkSetting');
+    wx.getSetting({
+      success: (setting) => {
+        if (setting.authSetting['scope.userInfo']) {
+          this.setData({ hasUserInfo: true });
         }
-      })
-    }
+      }
+    });
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+  onLoad: function () {
+    console.log(app);
+    wx.getSetting({
+      success: (setting) => {
+        console.log(setting);
+        if (setting.authSetting['scope.userInfo']) {
+          this.setData({hasUserInfo : true});
+          if(true){//未认证
+            wx.navigateTo({
+              url: '../registerAndLogin/registerAndLogin'
+            })
+          }
+        }else{
+          this.setData({ hasUserInfo: false });
+        }
+      }
+    });
   }
 })
