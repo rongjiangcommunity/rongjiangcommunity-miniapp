@@ -141,6 +141,9 @@ var debugData = {
 
 Page({
   data: debugData,
+  onGotUserInfo: function(e) {
+    console.log(e.detail)
+  },
   //事件处理函数
   gotoRegisterAndLogin: function() {
     wx.navigateTo({

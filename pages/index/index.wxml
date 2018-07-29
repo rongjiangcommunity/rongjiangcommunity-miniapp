@@ -9,6 +9,8 @@
       加载中...
     </text>
   </view>
+  <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+
   <view>
     <button bindtap="gotoRegisterAndLogin">进入注册页</button>
   </view>
