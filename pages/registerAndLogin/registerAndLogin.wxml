@@ -1,2 +1,107 @@
-<!--pages/registerAndLogin/registerAndLogin.wxml-->
-<text>pages/registerAndLogin/registerAndLogin.wxml</text>
+<form class="register-form" bindsubmit="formSubmit">
+  <view class="section">
+    <view class="item-left">姓名</view>
+    <input name="input" class="item-right" placeholder="输入您的真实姓名" />
+  </view>
+  <view class="section">
+    <view class="item-left">性别</view>
+    <radio-group class="item-right" name="radio-group">
+      <label class="sex-label"><radio value="0"/>男</label>
+      <label class="sex-label"><radio value="1"/>女</label>
+    </radio-group>
+  </view>
+  <view class="section">
+    <view class="item-left">手机号码</view>
+    <input name="input" class="item-right"/>
+  </view>
+  <view class="section">
+    <view class="item-left">届别</view>
+    <input name="number" class="item-right" placeholder="格式为数字，如89届填89"/>
+  </view>
+  <view class="section">
+    <view class="item-left">高三班级</view>
+    <input name="number" class="item-right" placeholder="格式为数字，如三班填3"/>
+    <image mode="scaleToFill" class="arrow" src="../../images/icons/{{isShowGrade?'up':'down'}}.png" bindtap="toggleArrow"></image>
+  </view>
+  <view class="section" hidden="{{!isShowGrade}}">
+    <view class="item-left">高二班级</view>
+    <input name="number" class="item-right" placeholder="选填"/>
+  </view>
+  <view class="section" hidden="{{!isShowGrade}}">
+    <view class="item-left">高一班级</view>
+    <input name="number" class="item-right" placeholder="选填"/>
+  </view>
+  <view class="section">
+    <view class="item-left">所在区域</view>
+    <picker class="item-right" mode="region" bindchange="bindRegionChange">
+      <view class="item-select">
+        {{region[0]}}，{{region[1]}}，{{region[2]}}
+      </view>
+    </picker>
+  </view>
+  <view class="section">
+    <view class="item-left">居住地址</view>
+    <textarea class="item-right address"/>
+  </view>
+  <view class="section">
+    <view class="item-left">学历</view>
+    <picker class="item-right" bindchange="bindEducationChange" value="{{idxEdu}}" range="{{arrEdu}}">
+      <view class="item-select">
+        {{arrEdu[idxEdu]}}
+      </view>
+    </picker>
+  </view>
+  <view class="section">
+    <view class="item-left">毕业院校</view>
+    <picker class="item-right" bindchange="bindSchoolChange" value="{{idxSch}}" range="{{arrSch}}">
+      <view class="item-select">
+        {{arrSch[idxSch]}}
+      </view>
+    </picker>
+  </view>
+  <view class="extend_title">扩展信息</view>
+  <view class="section">
+    <view class="item-left">常用邮箱</view>
+    <input name="input" class="item-right" />
+  </view>
+  <view class="section">
+    <view class="item-left">微信号</view>
+    <input name="input" class="item-right" />
+  </view>
+  <view class="section">
+    <view class="item-left">爱好</view>
+    <input name="input" class="item-right" />
+  </view>
+  <view wx:for="{{workExperience}}">
+    <view class="extend_title">工作经历</view>
+    <view class="btn-del" data-idx="{{index}}" bindtap="delWorkExperience">删除</view>
+    <view class="section">
+      <view class="item-left">所属行业</view>
+      <picker class="item-right" data-idx="{{index}}" id="work-industry" bindchange="bindWorkChange" value="{{item['work-industry']}}" range="{{arrInd}}">
+        <view class="item-select">
+          {{arrInd[item['work-industry']]}}
+        </view>
+      </picker>
+    </view>
+    <view class="section">
+      <view class="item-left">工作单位</view>
+      <input name="input" data-idx="{{index}}" id="work-place" bindinput="bindWorkChange" class="item-right" value="{{item['work-place']}}"/>
+    </view>
+    <view class="section">
+      <view class="item-left">单位职务</view>
+      <input name="input" data-idx="{{index}}" id="work-post" bindinput="bindWorkChange" class="item-right" value="{{item['work-post']}}"/>
+    </view>
+  </view>
+  <view class="work-section bottom-section" bindtap="addWorkExperience" hidden="{{workExperience.length==3}}">
+    添加工作经历+
+  </view>
+  <view class="id-card-section bottom-section">
+    上传身份证证明资料
+  </view>
+  <view class="bottom-section tip">
+    工作经历与扩展信息为可选项，可为您推荐相关的校友，认证信息越多，审核通过率越高。
+  </view>
+  <view class="btn-area">
+    <button class="btn-submit" formType="submit">提交审核</button>
+  </view>
+</form>

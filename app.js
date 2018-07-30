@@ -1,6 +1,7 @@
 //app.js
 
 const serverUrl = 'https://eudemonia.me';
+const appName = 'yiz';
 
 App({
   onLaunch: function() {
@@ -8,51 +9,65 @@ App({
     const credentials = wx.getStorageSync('credentials');
 
     if (!credentials) {
-      this.login({
-        cb: app.getUserInfo
+      app.login().catch(err=> {
+        console.error(err);
       });
     } else {
       wx.checkSession({
         success: function () {
-          app.getUserInfo()
+          app.getUserInfo();
         },
-      fail: function () {
+        fail: function () {
           app.expireCredentials();
-          app.login({
-            cb: app.getUserInfo
-          });
+          app.login();
         }
       })
     }
   },
-  login: function ({ cb }){
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        if (res && res.code) {
-          wx.request({
-            url: `${serverUrl}/api/wechat/redeem`,
-            header: {
-              'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            data: {
-              app: 'yiz',
-              code: res.code
-            },
-            success: function (res) {
-              if (res && res.statusCode === 200) {
-                wx.setStorageSync('credentials', res.data.credentials);
-                cb && cb();
-              }
-            }
-          })
-        }
-      }
+  login: function (){
+    const app = this;
+  
+    return new Promise((resolve, reject) => {
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          if (res && res.code) {
+            wx.request({
+              url: `${serverUrl}/api/wechat/redeem`,
+              header: {
+                'Content-Type': 'application/json'
+              },
+              method: 'POST',
+              data: {
+                app: appName,
+                code: res.code
+              },
+              success: function (res) {
+                if (res && res.statusCode === 200) {
+                  app.setCredentials(res.data.credentials);
+                  app.getUserInfo();
+                  return resolve();
+                }
+                reject(new Error('redeem credentials error!'));
+              },
+              fail: reject
+            });
+          } else {
+            reject(new Error('wx.login error!'));
+          }
+        },
+        fail: reject
+      });
     });
   },
+  setCredentials: function(credentials) {
+    wx.setStorageSync('credentials', credentials);
+  },
+  getCredentials: function(){
+    return wx.getStorageSync('credentials');
+  },
   expireCredentials: function() {
-    const credentials = wx.getStorageSync('credentials');
+    const credentials = this.getCredentials();
     if (!credentials) {
       return;
     }
@@ -70,6 +85,7 @@ App({
       method: 'POST',
       data: {
         credentials,
+        app: appName,
       },
       success: function (res) {
         if (res && res.statusCode === 200) {
@@ -79,14 +95,18 @@ App({
     });
   },
   getUserInfo: function(){
-    wx.getUserInfo({
-      success: res => {
-        this.globalData.userInfo = res.userInfo
-        if (this.userInfoReadyCallback) {
-          this.userInfoReadyCallback(res)
+    return new Promise(resolve => {
+      wx.getUserInfo({
+        success: res => {
+          this.globalData.userInfo = res.userInfo
+
+          if (this.userInfoReadyCallback) {
+            this.userInfoReadyCallback(res)
+          }
+          resolve();
         }
-      }
-    })
+      })
+    });
   },
   globalData: {
     userInfo: null
