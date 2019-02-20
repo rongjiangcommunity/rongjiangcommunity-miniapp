@@ -1,17 +1,20 @@
 {
-  "name": "测试",
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
     "pages/me/me",
     "pages/book/book",
-    "pages/registerAndLogin/registerAndLogin"
+    
+    "pages/registerAndLogin/registerAndLogin",
+    "pages/schoolmates/schoolmates",
+    "pages/me/feedback/feedback",
+    "pages/me/department/department",
+    "pages/index/messagecenter/messagecenter"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#4e85c6",
     "navigationBarTitleText": "揭阳一中校友通",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#888",
@@ -38,5 +41,6 @@
         "selectedIconPath": "images/icons/me-active.png"
       }
     ]
-  }
+  },
+  "debug": true
 }

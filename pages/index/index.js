@@ -3,53 +3,73 @@
 const app = getApp()
 
 Page({
+  pageState: 'index', // index, loading, error
+  tab: 'index',
   data: {
-    /** @type {'index' | ''} 页面状态 */
-    tab:'index',
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  gotoRegisterAndLogin: function() {
-    wx.navigateTo({
-      url: '../registerAndLogin/registerAndLogin'
+  onLoad: function() {
+    const ctx = this;
+    // 查看是否授权
+    wx.getSetting({
+      success: function(res){
+        if (res.authSetting['scope.userInfo']) {
+          ctx.getUserInfo();
+        }
+      }
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
+  bindGetUserInfo: function(e) {
+    const ctx = this;
+    if (e.detail.userInfo){
+      //用户按了允许授权按钮
+      ctx.getUserInfo();
     } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+      //用户按了拒绝按钮
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
-})
+  getUserInfo: function() {
+    const ctx = this;
+    wx.getUserInfo({
+      success: function(res) {
+        //用户已经授权过
+        ctx.setData({
+          hasUserInfo: true,
+          userInfo: res.userInfo,
+        });
+      }
+    });
+  },
+
+
+
+  //事件处理函数
+  gotoRegisterAndLogin: function(){
+    wx.navigateTo({
+      url: '../registerAndLogin/registerAndLogin'
+    });
+  },
+  jumpToMsgCenter: function(){ // 跳到消息中心，也就是右上角的泡泡图标
+    console.log('jumpToMsgCenter');
+  },
+  checkApproved: function(){
+    new Promise((resolve, reject) => {
+      wx.request({
+        method: 'POST',
+        header: {
+          'Content-Type': 'application/json'
+        },
+        data: {
+          credentials: '',
+        },
+        success(res) {
+          if (res && res.statusCode === 200) {
+              
+          }
+        }
+      })
+    });
+  },
+});

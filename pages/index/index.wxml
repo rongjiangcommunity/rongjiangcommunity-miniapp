@@ -1,15 +1,19 @@
 <!--index.wxml-->
+<block wx:if="{{hasUserInfo}}">
 <view class="container">
   <view class="userinfo">
-    <block wx:if="{{hasUserInfo}}">
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-    <text wx:else>
-      加载中...
-    </text>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"/>
+    <text class="userinfo-nickname">Hi, {{userInfo.nickName}}</text>
   </view>
-  <view>
+  <!-- <view>
     <button bindtap="gotoRegisterAndLogin">进入注册页</button>
-  </view>
+  </view> -->
 </view>
+</block>
+<button 
+  wx:if="{{canIUse}}" 
+  hidden="{{hasUserInfo}}"
+  open-type="getUserInfo"
+  bindgetuserinfo="bindGetUserInfo">授权登录</button>
+
+<view wx:else>请升级微信版本</view>
