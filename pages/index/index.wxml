@@ -2,17 +2,18 @@
 <block wx:if="{{hasUserInfo}}">
 <view class="container">
   <view class="userinfo">
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"     background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    <text>
-      加载中...
-    </text>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"/>
+    <text class="userinfo-nickname">Hi, {{userInfo.nickName}}</text>
   </view>
-  <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
-
-  <view>
+  <!-- <view>
     <button bindtap="gotoRegisterAndLogin">进入注册页</button>
-  </view>
+  </view> -->
 </view>
 </block>
-<button hidden="{{hasUserInfo}}" open-type="getUserInfo" bindopensetting="checkSetting">请点击授权使用揭阳一中校友通</button>
+<button 
+  wx:if="{{canIUse}}" 
+  hidden="{{hasUserInfo}}"
+  open-type="getUserInfo"
+  bindgetuserinfo="bindGetUserInfo">授权登录</button>
+
+<view wx:else>请升级微信版本</view>

@@ -1,10 +1,12 @@
 //app.js
 
-const serverUrl = 'https://eudemonia.me';
+const serverUrl = 'https://www.rongjiangcommunity.cn';
 const appName = 'yiz';
 
 App({
   onLaunch: function() {
+    // @TODO
+    // wx.app = this;
     const app = this;
     const credentials = wx.getStorageSync('credentials');
 
@@ -15,18 +17,18 @@ App({
     } else {
       wx.checkSession({
         success: function () {
-          app.getUserInfo();
         },
         fail: function () {
           app.expireCredentials();
-          app.login();
+          app.login().catch(err=> {
+            console.error(err);
+          });
         }
       })
     }
   },
   login: function (){
     const app = this;
-  
     return new Promise((resolve, reject) => {
       wx.login({
         success: res => {
@@ -45,7 +47,6 @@ App({
               success: function (res) {
                 if (res && res.statusCode === 200) {
                   app.setCredentials(res.data.credentials);
-                  app.getUserInfo();
                   return resolve();
                 }
                 reject(new Error('redeem credentials error!'));
@@ -59,12 +60,6 @@ App({
         fail: reject
       });
     });
-  },
-  setCredentials: function(credentials) {
-    wx.setStorageSync('credentials', credentials);
-  },
-  getCredentials: function(){
-    return wx.getStorageSync('credentials');
   },
   expireCredentials: function() {
     const credentials = this.getCredentials();
@@ -94,21 +89,12 @@ App({
       }
     });
   },
-  getUserInfo: function(){
-    return new Promise(resolve => {
-      wx.getUserInfo({
-        success: res => {
-          this.globalData.userInfo = res.userInfo
-
-          if (this.userInfoReadyCallback) {
-            this.userInfoReadyCallback(res)
-          }
-          resolve();
-        }
-      })
-    });
+  setCredentials: function(credentials) {
+    wx.setStorageSync('credentials', credentials);
+  },
+  getCredentials: function(){
+    return wx.getStorageSync('credentials');
   },
   globalData: {
-    userInfo: null
   }
 });

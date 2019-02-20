@@ -2,35 +2,59 @@
 //获取应用实例
 const app = getApp()
 
-var initData = {
+Page({
   pageState: 'index', // index, loading, error
   tab: 'index',
-  userInfo: {},
-  hasUserInfo: false,
+  data: {
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    userInfo: {},
+    hasUserInfo: false,
+  },
+  onLoad: function() {
+    const ctx = this;
+    // 查看是否授权
+    wx.getSetting({
+      success: function(res){
+        if (res.authSetting['scope.userInfo']) {
+          ctx.getUserInfo();
+        }
+      }
+    })
+  },
+  bindGetUserInfo: function(e) {
+    const ctx = this;
+    if (e.detail.userInfo){
+      //用户按了允许授权按钮
+      ctx.getUserInfo();
+    } else {
+      //用户按了拒绝按钮
+    }
+  },
+  getUserInfo: function() {
+    const ctx = this;
+    wx.getUserInfo({
+      success: function(res) {
+        //用户已经授权过
+        ctx.setData({
+          hasUserInfo: true,
+          userInfo: res.userInfo,
+        });
+      }
+    });
+  },
+
+
+
   //事件处理函数
-  gotoRegisterAndLogin: function () {
+  gotoRegisterAndLogin: function(){
     wx.navigateTo({
       url: '../registerAndLogin/registerAndLogin'
     });
   },
-  jumpToMsgCenter: function () { // 跳到消息中心，也就是右上角的泡泡图标
+  jumpToMsgCenter: function(){ // 跳到消息中心，也就是右上角的泡泡图标
     console.log('jumpToMsgCenter');
   },
-  checkAuth: function () {
-    return new Promise((resolve, reject) => {
-      wx.getSetting({
-        success: (setting) => {
-          if (setting.authSetting['scope.userInfo']) {
-            resolve(true);
-          } else {
-            resolve(false);
-          }
-        },
-        fail: reject
-      });
-    });
-  },
-  checkApproved: function () {
+  checkApproved: function(){
     new Promise((resolve, reject) => {
       wx.request({
         method: 'POST',
@@ -48,17 +72,4 @@ var initData = {
       })
     });
   },
-  onLoad: async function () {
-    const result = await this.checkAuth().catch(() => (false));
-    if (result) {
-      this.setData({ hasUserInfo: true });
-
-      wx.navigateTo({
-        url: '../registerAndLogin/registerAndLogin'
-      })
-
-    }
-  }
-};
-
-Page(initData);
+});
