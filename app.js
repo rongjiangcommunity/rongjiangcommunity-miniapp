@@ -72,22 +72,6 @@ App({
     } catch (e) {
       console.error(e);
     }
-    wx.request({
-      url: `${serverUrl}/api/wechat/expire`,
-      header: {
-        'Content-Type': 'application/json'
-      },
-      method: 'POST',
-      data: {
-        credentials,
-        app: appName,
-      },
-      success: function (res) {
-        if (res && res.statusCode === 200) {
-          console.log('rm remote credentials success!');
-        }
-      }
-    });
   },
   setCredentials: function(credentials) {
     wx.setStorageSync('credentials', credentials);
