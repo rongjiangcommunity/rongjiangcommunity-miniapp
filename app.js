@@ -1,7 +1,7 @@
 //app.js
 
 const serverUrl = 'https://www.rongjiangcommunity.cn';
-const appName = 'yiz';
+const appid = 'yiz';
 
 App({
   onLaunch: function() {
@@ -41,7 +41,7 @@ App({
               },
               method: 'POST',
               data: {
-                app: appName,
+                appid: appid,
                 code: res.code
               },
               success: function (res) {
