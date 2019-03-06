@@ -45,8 +45,8 @@ App({
                 code: res.code
               },
               success: function (res) {
-                if (res && res.statusCode === 200) {
-                  app.setCredentials(res.data.credentials);
+                if (res && res.statusCode === 200 && res.data) {
+                  app.setCredentials(res.data.data);
                   return resolve();
                 }
                 reject(new Error('redeem credentials error!'));
