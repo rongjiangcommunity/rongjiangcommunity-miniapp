@@ -43,8 +43,6 @@ Page({
     });
   },
 
-
-
   //事件处理函数
   gotoRegisterAndLogin: function(){
     wx.navigateTo({

@@ -1,35 +1,35 @@
 <form class="register-form" bindsubmit="formSubmit">
   <view class="section">
     <view class="item-left">姓名</view>
-    <input name="name" class="item-right" placeholder="输入您的真实姓名" />
+    <input name="name" class="item-right" value="{{name}}" placeholder="输入您的真实姓名" />
   </view>
   <view class="section">
     <view class="item-left">性别</view>
-    <radio-group class="item-right" name="gender">
-      <label class="sex-label"><radio value="male"/>男</label>
-      <label class="sex-label"><radio value="female"/>女</label>
+    <radio-group class="item-right" name="gender" value="{{gender}}">
+      <label class="sex-label"><radio value="male" checked="{{gender==='male'}}"/>男</label>
+      <label class="sex-label"><radio value="female" checked="{{gender==='female'}}"/>女</label>
     </radio-group>
   </view>
   <view class="section">
     <view class="item-left">手机号码</view>
-    <input name="mobile" class="item-right"/>
+    <input name="mobile" value="{{mobile}}" class="item-right"/>
   </view>
   <view class="section">
     <view class="item-left">届别</view>
-    <input name="period" class="item-right" placeholder="格式为数字，如89届填89"/>
+    <input name="period" value="{{period}}" class="item-right" placeholder="格式为数字，如89届填89"/>
   </view>
   <view class="section">
     <view class="item-left">高三班级</view>
-    <input name="g3" class="item-right" placeholder="格式为数字，如三班填3"/>
+    <input name="g3" value="{{g3}}" class="item-right" placeholder="格式为数字，如三班填3"/>
     <image mode="scaleToFill" class="arrow" src="../../images/icons/{{isShowGrade?'up':'down'}}.png" bindtap="toggleArrow"></image>
   </view>
   <view class="section" hidden="{{!isShowGrade}}">
     <view class="item-left">高二班级</view>
-    <input name="g2" class="item-right" placeholder="选填"/>
+    <input name="g2" value="{{g2}}" class="item-right" placeholder="选填"/>
   </view>
   <view class="section" hidden="{{!isShowGrade}}">
     <view class="item-left">高一班级</view>
-    <input name="g1" class="item-right" placeholder="选填"/>
+    <input name="g1" value="{{g1}}" class="item-right" placeholder="选填"/>
   </view>
   <view class="section">
     <view class="item-left">所在区域</view>
@@ -41,11 +41,11 @@
   </view>
   <view class="section">
     <view class="item-left">居住地址</view>
-    <textarea name="residence" class="item-right address"/>
+    <textarea name="residence" value="{{residence}}" class="item-right address"/>
   </view>
   <view class="section">
     <view class="item-left">学历</view>
-    <picker name="degree" class="item-right" bindchange="bindEducationChange" value="{{idxEdu}}" range="{{arrEdu}}">
+    <picker name="degree" value="{{degree}}" class="item-right" bindchange="bindEducationChange" range="{{arrEdu}}">
       <view class="item-select">
         {{arrEdu[idxEdu]}}
       </view>
@@ -58,20 +58,20 @@
         {{arrSch[idxSch]}}
       </view>
     </picker> -->
-    <input name="university" class="item-right" />
+    <input name="university" value="{{university}}" class="item-right" />
   </view>
   <view class="extend_title">扩展信息</view>
   <view class="section">
     <view class="item-left">常用邮箱</view>
-    <input name="email" class="item-right" />
+    <input name="email" value="{{email}}" class="item-right" />
   </view>
   <view class="section">
     <view class="item-left">微信号</view>
-    <input name="wechat" class="item-right" />
+    <input name="wechat" value="{{wechat}}" class="item-right" />
   </view>
   <view class="section">
     <view class="item-left">爱好</view>
-    <input name="hobby" class="item-right" />
+    <input name="hobby" value="{{hobby}}" class="item-right" />
   </view>
   <view wx:for="{{workExperience}}">
     <view class="extend_title">工作经历</view>
@@ -104,6 +104,6 @@
     工作经历与扩展信息为可选项，可为您推荐相关的校友，认证信息越多，审核通过率越高。
   </view>
   <view class="btn-area">
-    <button class="btn-submit" formType="submit">提交审核</button>
+    <button class="btn-submit" formType="submit">提交修改</button>
   </view>
 </form>

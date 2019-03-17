@@ -1,0 +1,74 @@
+/* pages/registerAndLogin/registerAndLogin.wxss */
+page{
+  background-color: #f6f8f9;
+  padding-top: 15rpx;
+  font-size:26rpx;
+}
+.sex-label{
+  margin-right: 25rpx;
+}
+.flex-item {
+  display: inline-block;
+  vertical-align: middle;
+} 
+.register-form .section .item-left{
+  display: inline-block;
+  vertical-align: middle;
+  width:150rpx;
+  padding-left: 10rpx;
+}
+.register-form .section .item-right{
+  display: inline-block;
+  vertical-align: middle;
+}
+.section {
+  background-color:#fff;
+  margin:6rpx 10rpx 1rpx 10rpx;
+  line-height: 80rpx;
+}
+.bottom-section{
+  margin:30rpx 100rpx 30rpx 100rpx;
+  text-align:center;
+}
+.work-section{
+  line-height: 80rpx;
+  background-color:#fff;
+}
+.id-card-section{
+  line-height: 80rpx;
+  background-color:#C0C0C0;
+}
+.tip{
+  line-height: 40rpx;
+}
+.arrow{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin: 12rpx 20rpx 0rpx 0rpx;
+}
+.address{
+  width : 550rpx;
+  height: 150rpx;
+}
+.extend_title{
+  margin:20rpx 10rpx 20rpx 10rpx;
+  width:200rpx;
+  display: inline-block;
+}
+picker .item-select{
+  width:500rpx;
+}
+.btn-submit{
+  background-color: #4e85c6;
+  color:#fff;
+  width: 500rpx;
+}
+.btn-area{
+  background-color:#fff;
+  padding:20rpx 0rpx 20rpx 0rpx;
+}
+.btn-del{
+  display: inline-block;
+  margin-left: 450rpx;
+}

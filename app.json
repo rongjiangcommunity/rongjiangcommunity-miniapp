@@ -1,11 +1,17 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/me/me",
-    "pages/book/book",
-    
+    "pages/me_changeInfo/me_changeInfo",
     "pages/registerAndLogin/registerAndLogin",
+    "pages/me/me",
+    "pages/me_card/me_card",
+    "pages/me_relationship/me_relationship",
+    "pages/me_feedback/me_feedback",
+    "pages/me_about/me_about",
+    "pages/me_department/me_department",
     "pages/schoolmates/schoolmates",
+    "pages/approve/approve",
+    "pages/book/book",
     "pages/me/feedback/feedback",
     "pages/me/department/department",
     "pages/index/messagecenter/messagecenter"

@@ -1,2 +1,44 @@
 <!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<view class="header-block">
+  <navigator url="../me_changeInfo/me_changeInfo">
+    <view class="header-edit">编辑</view>
+  </navigator>
+  <image
+    class="header-img"
+    src="../../images/test.jpg"
+  ></image>
+  <view class="header-name">妞妞</view>
+  <view class="header-info">广州 · 广州大学 · 网易游戏</view>
+</view>
+<view class="info-block">
+  <view class="info-list">
+    <navigator url="../me_card/me_card">
+      <view class="list-title">我的名片</view>
+      <image class="list-icon" src="../../images/icons/ecode.jpg"></image>
+    </navigator>
+  </view>
+  <view class="info-list">
+    <navigator url="../me_relationship/me_relationship">
+      <view class="list-title">我的校友圈</view>
+    </navigator>
+  </view>
+  <view class="info-list">
+    <view class="list-title">我的部门</view>
+  </view>
+</view>
+<view class="about-block">
+ <view class="info-list">
+    <navigator url="../me_about/me_about">
+      <view class="list-title">关于我们</view>
+    </navigator>
+  </view>
+  <view class="info-list">
+    <view class="list-title">联系我们</view>
+    <image class="list-icon" src="../../images/icons/wxcode.jpg"></image>
+  </view>
+  <view class="info-list">
+    <navigator url="../me_feedback/me_feedback">
+      <view class="list-title">反馈建议</view>
+    </navigator>
+  </view>
+</view>
