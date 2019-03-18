@@ -1,0 +1,11 @@
+<!--pages/me_about/me_about.wxml-->
+<view class="page">
+  <view class="info-block">
+    <view class="info-about">关于我们</view>
+    <view class="info-detail">关于我们关于我们关于我们关于我们关于我们关于我们关于我们
+    关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们
+    关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们
+    关于我们关于我们关于我们关于我们关于我们
+    关于我们关于我们关于我们</view>
+  </view>
+</view>

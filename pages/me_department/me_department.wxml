@@ -1,0 +1,116 @@
+<!--pages/me_department/me_department.wxml-->
+<view class="page">
+  <view class="info-department">
+    <view class="department-title">广州校友团体 - 文体活动组</view>
+    <view class="department-list">
+      <image class="department-image" src="../../images/test.jpg"></image>
+      <view class="department-info">
+        <view class="info-title">校友甲</view>
+        <view class="info-pro">高三91届11班</view>
+        <view class="info-new">广州 · 广州大学 · 网易游戏</view>
+      </view>
+      <view class="info-button">
+        <button size="mini">已关注</button>
+      </view>
+    </view>
+
+    <view class="department-list">
+      <image class="department-image" src="../../images/test.jpg"></image>
+      <view class="department-info">
+        <view class="info-title">校友乙</view>
+        <view class="info-pro">高三91届11班</view>
+        <view class="info-new">广州 · 广州大学 · 网易游戏</view>
+      </view>
+      <view class="info-button">
+        <button size="mini">相互关注</button>
+      </view>
+    </view>
+
+    <view class="department-list">
+      <image class="department-image" src="../../images/test.jpg"></image>
+      <view class="department-info">
+        <view class="info-title">校友丁</view>
+        <view class="info-pro">高三91届11班</view>
+        <view class="info-new">广州 · 广州大学 · 网易游戏</view>
+      </view>
+      <view class="info-button">
+        <button class="nosee" size="mini">点击关注</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="info-department">
+    <view class="department-title">我的校友</view>
+    <view class="department-list">
+      <image class="department-image" src="../../images/test.jpg"></image>
+      <view class="department-info">
+        <view class="info-title">校友甲</view>
+        <view class="info-pro">高三91届11班</view>
+        <view class="info-new">广州 · 广州大学 · 网易游戏</view>
+      </view>
+      <view class="info-button">
+        <button size="mini">已关注</button>
+      </view>
+    </view>
+
+    <view class="department-list">
+      <image class="department-image" src="../../images/test.jpg"></image>
+      <view class="department-info">
+        <view class="info-title">校友乙</view>
+        <view class="info-pro">高三91届11班</view>
+        <view class="info-new">广州 · 广州大学 · 网易游戏</view>
+      </view>
+      <view class="info-button">
+        <button size="mini">相互关注</button>
+      </view>
+    </view>
+
+    <view class="department-list">
+      <image class="department-image" src="../../images/test.jpg"></image>
+      <view class="department-info">
+        <view class="info-title">校友丁</view>
+        <view class="info-pro">高三91届11班</view>
+        <view class="info-new">广州 · 广州大学 · 网易游戏</view>
+      </view>
+      <view class="info-button">
+        <button class="nosee" size="mini">点击关注</button>
+      </view>
+    </view>
+
+    <view class="department-list">
+      <image class="department-image" src="../../images/test.jpg"></image>
+      <view class="department-info">
+        <view class="info-title">校友丁</view>
+        <view class="info-pro">高三91届11班</view>
+        <view class="info-new">广州 · 广州大学 · 网易游戏</view>
+      </view>
+      <view class="info-button">
+        <button class="nosee" size="mini">点击关注</button>
+      </view>
+    </view>
+
+    <view class="department-list">
+      <image class="department-image" src="../../images/test.jpg"></image>
+      <view class="department-info">
+        <view class="info-title">校友丁</view>
+        <view class="info-pro">高三91届11班</view>
+        <view class="info-new">广州 · 广州大学 · 网易游戏</view>
+      </view>
+      <view class="info-button">
+        <button class="nosee" size="mini">点击关注</button>
+      </view>
+    </view>
+
+    <view class="department-list">
+      <image class="department-image" src="../../images/test.jpg"></image>
+      <view class="department-info">
+        <view class="info-title">校友丁</view>
+        <view class="info-pro">高三91届11班</view>
+        <view class="info-new">广州 · 广州大学 · 网易游戏</view>
+      </view>
+      <view class="info-button">
+        <button class="nosee" size="mini">点击关注</button>
+      </view>
+    </view>
+  </view>
+</view>

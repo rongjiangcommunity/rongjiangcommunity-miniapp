@@ -1,0 +1,9 @@
+<!--pages/me_feedback/me_feedback.wxml-->
+<view class="page">
+  <view class="info-block">
+    <view class="info-about">反馈建议</view>
+    <textarea class="info-input" maxlength="1000" placeholder="请输入反馈建议(1000字以内)"></textarea>
+    <button class="info-submit" size="mini">提交反馈</button>
+  </view>
+</view>
+

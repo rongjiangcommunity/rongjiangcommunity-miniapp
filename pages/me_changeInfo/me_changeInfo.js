@@ -23,9 +23,7 @@ var initData = {
 };
 
 
-
 Page({
-
   // 回调函数
   submitForm: function () {
     console.log('submitForm');
@@ -35,36 +33,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-    region : ['广东省', '广州市', '天河区'],
+    region: ['广东省', '广州市', '天河区'],
     // arrSch : ['中山大学','揭阳一中'],
     arrEdu: ['大学生', '研究生', '博士生', '高中生'],
     idxEdu : 0,
     // idxSch : 0,
     // idxInd : 0,
-    isShowGrade : false,
-    workExperience :[]
+    isShowGrade: false,
+    workExperience: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this;
     wx.setNavigationBarTitle({
-      title: '校友认证'
+      title: '信息完善'
+    })
+    wx.request({
+      url: getApp().serverUrl + '/api/user/' + wx.getStorageSync('credentials'),
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success(res) {
+        console.log(res.data)
+        let { country, province, city,work} = res.data.data
+        if (res.data.success) {
+          that.setData({ region: [country, province, city],
+            workExperience: JSON.parse(work),
+          ...res.data.data})
+        } else {
+          this.failAlert("请求失败！");
+        }
+      },
+      fail() {
+        this.failAlert("请求失败！");
+      }
     })
   },
-  // chooseImage: function(){
-  // wx.chooseImage({
-  //   count: 1,
-  //   sizeType: ['original', 'compressed'],
-  //   sourceType: ['album', 'camera'],
-  //   success(res) {
-  //     // tempFilePath可以作为img标签的src属性显示图片
-  //     const tempFilePaths = res.tempFilePaths
-  //   }
-  // })
-  // },
-  failAlert: function(str){
+  failAlert: function (str) {
     wx.showToast({
       title: str,
       icon: 'none',
@@ -74,25 +83,24 @@ Page({
   formSubmit: function (e) {
     var data = e.detail.value;
     console.log('form发生了submit事件，携带数据为：', data, this.data.workExperience);
-    return;
     var workExperience = this.data.workExperience;
-    if (!data.name) { this.failAlert('请输入姓名！');return}
-    if (!data.gender) { this.failAlert('请选择性别！');return}
-    if (!data.mobile) { this.failAlert('请输入手机号！');return}
-    if (!data.period) { this.failAlert('请输入届别！');return}
-    if (!data.g3 || !data.g2 || !data.g1) { this.failAlert('请输入高中班级！');return}
-    if (data.region.length<3) { this.failAlert('请选择所在区域！');return}
-    if (!data.residence) { this.failAlert('请输入居住地址！');return}
-    if (!data.degree) { this.failAlert('请选择学历！');return}
-    if (!data.email) { this.failAlert('请输入邮箱！');return}
-    if (!data.wechat) { this.failAlert('请输入微信号！');return}
+    if (!data.name) { this.failAlert('请输入姓名！'); return }
+    if (!data.gender) { this.failAlert('请选择性别！'); return }
+    if (!data.mobile) { this.failAlert('请输入手机号！'); return }
+    if (!data.period) { this.failAlert('请输入届别！'); return }
+    if (!data.g3 && !data.g2 && !data.g1) { this.failAlert('请输入高中班级！'); return }
+    if (data.region.length < 3) { this.failAlert('请选择所在区域！'); return }
+    if (!data.residence) { this.failAlert('请输入居住地址！'); return }
+    if (data.degree<0) { this.failAlert('请选择学历！'); return }
+    if (!data.email) { this.failAlert('请输入邮箱！'); return }
+    if (!data.wechat) { this.failAlert('请输入微信号！'); return }
     if (!(/^1[34578]\d{9}$/.test(data.mobile))) {
       this.failAlert("手机号码有误，请重填");
       return false;
-    } 
-    if (workExperience.length>0){
-      for (var i = 0; i < workExperience.length;i++){
-        if (!workExperience[i]['work-place'] || !workExperience[i]['work-industry'] || !workExperience[i]['work-post']){
+    }
+    if (workExperience.length > 0) {
+      for (var i = 0; i < workExperience.length; i++) {
+        if (!workExperience[i]['work-place'] || !workExperience[i]['work-industry'] || !workExperience[i]['work-post']) {
           this.failAlert("请完善工作信息！");
           return;
         }
@@ -143,25 +151,25 @@ Page({
       }
     })
   },
-  toggleArrow : function(){
+  toggleArrow: function () {
     this.setData({
       isShowGrade: !this.data.isShowGrade
     });
   },
-  delWorkExperience : function(e){
-    var idx  = e.target.dataset.idx;
+  delWorkExperience: function (e) {
+    var idx = e.target.dataset.idx;
     var exps = this.data.workExperience;
     exps.splice(idx, 1);
     this.setData({
       workExperience: exps
     });
   },
-  addWorkExperience : function(){
+  addWorkExperience: function () {
     var exps = this.data.workExperience;
     exps.push({
-      'work-place'    : '',
-      'work-industry' : '',
-      'work-post'     : ''
+      'work-place': '',
+      'work-industry': '',
+      'work-post': ''
     });
     this.setData({
       workExperience: exps
@@ -178,7 +186,7 @@ Page({
       workExperience: exps
     });
   },
-  bindRegionChange: function (e){
+  bindRegionChange: function (e) {
     this.setData({
       region: e.detail.value
     });
@@ -188,7 +196,7 @@ Page({
       idxSch: e.detail.value
     });
   },
- 
+
   bindEducationChange: function (e) {
     this.setData({
       idxEdu: e.detail.value
@@ -226,18 +234,18 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

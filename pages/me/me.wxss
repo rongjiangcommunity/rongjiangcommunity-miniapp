@@ -1,1 +1,69 @@
 /* pages/me/me.wxss */
+page{
+  background: #d7d7d7;
+}
+.header-block{
+  position: relative;
+  height: 240rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.header-edit{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  font-size: 20rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #666;
+  border:1px solid #666;
+  padding: 0 5rpx;
+  border-radius: 15rpx;
+}
+.header-img{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 25rpx;
+  transform: translateX(-50%);
+}
+.header-name{
+  font-size: 30rpx;
+  font-weight: bolder;
+  position: absolute;
+  left: 50%;
+  top: 155rpx;
+  transform: translateX(-50%);
+}
+.header-info{
+  width: 100%;
+  font-size: 24rpx;
+  color: rgb(100, 100, 100);
+  position: absolute;
+  top: 200rpx;
+  text-align: center;
+}
+
+.info-block, .about-block{
+  background: #fff;
+  color: #666;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  margin-bottom: 20rpx;
+}
+.info-list{
+  padding: 0 25rpx;
+  height: 80rpx;
+  border-bottom: 1rpx solid #d7d7d7;
+}
+.list-title{
+  display: inline-block;
+}
+.list-icon{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin-top: 20rpx;
+}

@@ -1,0 +1,27 @@
+/* pages/me_card.wxss */
+.info-block{
+  margin: 20rpx;
+  width: 670rpx;
+  height: calc(100vh - 165rpx);
+  padding: 10rpx 20rpx;
+  border: 1px solid #333;
+  background: #eee;
+  overflow: scroll;
+  position: relative;
+}
+.info-text{
+  color: #333;
+}
+.info-ecode{
+  width: 120rpx;
+  height: 120rpx;
+  position: fixed;
+  right: 25rpx;
+  bottom: 125rpx;
+}
+.info-submit{
+  background: #4e85c6;
+  color: #fff;
+  width: 300rpx;
+  margin-left: 225rpx;
+}
