@@ -62,7 +62,7 @@ Page({
         let { country, province, city,work} = res.data.data
         if (res.data.success) {
           that.setData({ region: [country, province, city],
-            workExperience: JSON.parse(work),
+            workExperience: work ? JSON.parse(work) : [],
           ...res.data.data})
         } else {
           this.failAlert("请求失败！");
