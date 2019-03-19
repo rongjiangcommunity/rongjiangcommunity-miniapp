@@ -33,9 +33,9 @@
   </view>
   <view class="section">
     <view class="item-left">所在区域</view>
-    <picker name="region" class="item-right" mode="region" value="{{region}}" bindchange="bindRegionChange">
+    <picker name="area" class="item-right" mode="region" value="{{area}}" bindchange="bindRegionChange">
       <view class="item-select">
-        {{region[0]}}，{{region[1]}}，{{region[2]}}
+        {{area[0]}}，{{area[1]}}，{{area[2]}}
       </view>
     </picker>
   </view>

@@ -4,6 +4,7 @@ const serverUrl = 'https://www.rongjiangcommunity.cn';
 const appid = 'yiz';
 
 App({
+  userInfo:{},
   testUrl: 'http://127.0.0.1:7001',
   serverUrl: 'https://www.rongjiangcommunity.cn',
   onLaunch: function() {

@@ -39,6 +39,7 @@ Page({
           hasUserInfo: true,
           userInfo: res.userInfo,
         });
+        getApp().userInfo = res.userInfo;
       }
     });
   },

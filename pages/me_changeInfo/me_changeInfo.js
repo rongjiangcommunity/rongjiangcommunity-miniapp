@@ -33,7 +33,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    region: ['广东省', '广州市', '天河区'],
+    area: ['广东省', '广州市', '天河区'],
     // arrSch : ['中山大学','揭阳一中'],
     arrEdu: ['大学生', '研究生', '博士生', '高中生'],
     idxEdu : 0,
@@ -58,18 +58,17 @@ Page({
         'Content-Type': 'application/json'
       },
       success(res) {
-        console.log(res.data)
         let { country, province, city,work} = res.data.data
         if (res.data.success) {
-          that.setData({ region: [country, province, city],
+          that.setData({ area: [country, province, city],
             workExperience: work ? JSON.parse(work) : [],
           ...res.data.data})
         } else {
-          this.failAlert("请求失败！");
+          that.failAlert("请求失败！");
         }
       },
       fail() {
-        this.failAlert("请求失败！");
+        that.failAlert("请求失败！");
       }
     })
   },
@@ -81,6 +80,7 @@ Page({
     })
   },
   formSubmit: function (e) {
+    let that = this;
     var data = e.detail.value;
     console.log('form发生了submit事件，携带数据为：', data, this.data.workExperience);
     var workExperience = this.data.workExperience;
@@ -89,7 +89,7 @@ Page({
     if (!data.mobile) { this.failAlert('请输入手机号！'); return }
     if (!data.period) { this.failAlert('请输入届别！'); return }
     if (!data.g3 && !data.g2 && !data.g1) { this.failAlert('请输入高中班级！'); return }
-    if (data.region.length < 3) { this.failAlert('请选择所在区域！'); return }
+    if (data.area.length < 3) { this.failAlert('请选择所在区域！'); return }
     if (!data.residence) { this.failAlert('请输入居住地址！'); return }
     if (data.degree<0) { this.failAlert('请选择学历！'); return }
     if (!data.email) { this.failAlert('请输入邮箱！'); return }
@@ -121,9 +121,9 @@ Page({
         mobile: data.mobile,
         period: data.period,
         g3: data.g3,
-        country: data.region[0],
-        province: data.region[1],
-        city: data.region[2],
+        country: data.area[0],
+        province: data.area[1],
+        city: data.area[2],
         email: data.email,
         wechat: data.wechat,
         g2: data.g2,
@@ -143,11 +143,11 @@ Page({
             duration: 4000
           })
         } else {
-          this.failAlert("请求失败！");
+          that.failAlert("请求失败！");
         }
       },
       fail() {
-        this.failAlert("请求失败！");
+        that.failAlert("请求失败！");
       }
     })
   },
@@ -188,7 +188,7 @@ Page({
   },
   bindRegionChange: function (e) {
     this.setData({
-      region: e.detail.value
+      area: e.detail.value
     });
   },
   bindSchoolChange: function (e) {

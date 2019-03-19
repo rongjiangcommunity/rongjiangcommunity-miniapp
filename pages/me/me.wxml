@@ -5,10 +5,10 @@
   </navigator>
   <image
     class="header-img"
-    src="../../images/test.jpg"
+    src="{{userInfo.avatarUrl}}"
   ></image>
-  <view class="header-name">妞妞</view>
-  <view class="header-info">广州 · 广州大学 · 网易游戏</view>
+  <view class="header-name">{{name}}</view>
+  <view class="header-info">{{university}} - {{work}}</view>
 </view>
 <view class="info-block">
   <view class="info-list">
