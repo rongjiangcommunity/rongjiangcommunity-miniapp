@@ -27,6 +27,11 @@
   </view>
 </view>
 <view class="about-block">
+   <view class="info-list">
+    <navigator url="../checklist/checklist">
+      <view class="list-title">审核列表</view>
+    </navigator>
+  </view>
  <view class="info-list">
     <navigator url="../me_about/me_about">
       <view class="list-title">关于我们</view>

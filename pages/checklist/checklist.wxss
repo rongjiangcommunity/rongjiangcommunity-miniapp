@@ -1,0 +1,67 @@
+page {
+  background: #d7d7d7;
+}
+
+/* items-list */
+.items-list{
+  background: #d7d7d7;
+}
+
+.check-item{
+  background: #fff;
+  margin-top: 10rpx;
+}
+
+.check-item{
+  overflow: hidden;
+  padding: 30rpx;
+}
+
+.check-body{
+  margin-left: 120rpx;
+}
+.check-body2{
+  clear: both;
+  margin-top: 25rpx;
+  font-size: 26rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+
+.check-name{
+  width: 120rpx;
+  float: left;
+  color: #212121;
+  font-size: 34rpx;
+  line-height: 1;
+}
+.check-class{
+  color: #666;
+  font-size: 28rpx;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.check-class-mate-title{
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1;
+}
+
+.check-class-mate-name{
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1;
+}
+
+.check-button{
+  font-size: 28rpx;
+  float: right;
+  width: 180rpx;
+  margin-top: 30rpx;
+  background-color: #4e85c6;
+  color: #FFF;
+}

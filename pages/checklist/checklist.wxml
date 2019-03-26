@@ -1,0 +1,13 @@
+  <view class='item-list'>
+  <view class='check-item' wx:for="{{proList}}" bindtap='toDetail' data-index='{{index}}'>
+    <text class='check-name'>{{item.name}}</text>
+    <button class='check-button'>快速审核</button>
+    <view class='check-body'>
+      <view class='check-class'>{{item.className}}</view>
+    </view>
+    <view class='check-body2'>
+        <text class='check-class-mate-title'>{{item.classMateTitle}}</text>
+        <text class='check-class-mate-name'>{{item.classMateName}}</text>
+    </view>
+  </view>
+</view>
