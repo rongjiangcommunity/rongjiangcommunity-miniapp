@@ -14,7 +14,8 @@
     "pages/book/book",
     "pages/me/feedback/feedback",
     "pages/me/department/department",
-    "pages/index/messagecenter/messagecenter"
+    "pages/index/messagecenter/messagecenter",
+    "pages/checklist/checklist"
   ],
   "window": {
     "backgroundTextStyle": "light",
