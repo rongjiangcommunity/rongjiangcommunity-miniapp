@@ -88,7 +88,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let that = this;
+    this.setData({ userInfo: getApp().userInfo});
+    wx.request({
+      url: getApp().serverUrl + '/api/user/' + wx.getStorageSync('credentials'),
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success(res) {
+        if (res.data.success) {
+          const { name, university, work } = res.data.data;
+          let nowwork = JSON.parse(work);
+          if(nowwork.length>0){
+            nowwork = nowwork[0]["work-place"];
+          }else {
+            nowwork = '';
+          }
+          that.setData({ name, university, work:nowwork});
+        } else {
+          that.failAlert("请求失败！");
+        }
+      },
+      fail() {
+        that.failAlert("请求失败！");
+      }
+    })
   },
 
   /**
