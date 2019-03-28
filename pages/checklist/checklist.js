@@ -5,35 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    proList: [
-      {
-        img: '/images/icons/book.png',
-        title: '测试车市',
-        shortDesc: '我就是详情',
-        name: '陈灿贵',
-        className: '90届11班',
-        classMateTitle: '同班同学：',
-        classMateName: '撒贝宁、王鸥、小白'
-      },
-      {
-        img: '/images/icons/book.png',
-        title: '测试车市',
-        shortDesc: '我就是详情',
-        name: '陈灿贵',
-        className: '90届11班',
-        classMateTitle: '同班同学：',
-        classMateName: '撒贝宁、王鸥、小白'
-      },
-      {
-        img: '/images/icons/book.png',
-        title: '测试车市',
-        shortDesc: '我就是详情',
-        name: '陈灿贵',
-        className: '90届11班',
-        classMateTitle: '同班同学：',
-        classMateName: '撒贝宁、王鸥、小白'
-      },
-    ],
+    proList: []
   },
 
   /**
@@ -100,17 +72,23 @@ Page({
   getProList: function () {
     var self = this;
     wx.request({
-      url: app.globalData.host,
+      url: getApp().serverUrl + '/api/user/reviewlist/yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597',
       method: 'GET',
       success: function (res) {
         console.log(res);
         self.setData({
-          proList: res.data,
+          proList: res.data.data,
         })
       },
       fail: function () {
 
       }
     })
+  },
+  toDetail: function (e) {
+    console.log(e);
+    wx.navigateTo({
+      url: '../audit_form/audit_form?uid=' + e.target.dataset.uid
+    });
   }
 })

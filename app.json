@@ -14,8 +14,10 @@
     "pages/book/book",
     "pages/me/feedback/feedback",
     "pages/me/department/department",
+    "pages/audit_form/audit_form",
     "pages/index/messagecenter/messagecenter",
     "pages/checklist/checklist"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
