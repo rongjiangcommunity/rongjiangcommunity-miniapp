@@ -12,10 +12,24 @@
   border-radius: 50%;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.userinfo-nickname,.welcom, .tipInfo {
+  font-size: 32rpx;
 }
-
-.usermotto {
-  margin-top: 200px;
+.tipInfo{
+  position: absolute;
+  bottom: 250rpx;
+  margin-top: 100rpx;
+}
+.tip{
+  position: absolute;
+  bottom: 200rpx;
+  font-size:30rpx;
+  color:grey;
+}
+.register_btn{
+  position: absolute;
+  bottom: 130rpx;
+  background: #4e85c6;
+  color: #fff;
+  letter-spacing: 5rpx;
 }

@@ -19,7 +19,6 @@ var initData = {
     password: '',
     verificationCode: ''
   },
-
 };
 
 
@@ -36,10 +35,10 @@ Page({
    */
   data: {
     region : ['广东省', '广州市', '天河区'],
-    // arrSch : ['中山大学','揭阳一中'],
+    arrSch: [['广东省', '海南省'], ['中山大学', '海南大学']],
     arrEdu: ['大学生', '研究生', '博士生', '高中生'],
     idxEdu : 0,
-    // idxSch : 0,
+    idxSch : [0,0],
     // idxInd : 0,
     isShowGrade : false,
     workExperience :[]
@@ -71,33 +70,48 @@ Page({
       duration: 3000
     })
   },
+  isNumber: function(val){
+    var regPos = /^\d+(\.\d+)?$/; //非负浮点数
+    var regNeg = /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //负浮点数
+    if(regPos.test(val) || regNeg.test(val)){
+      return true;
+    }else {
+      return false;
+    }
+  },
   formSubmit: function (e) {
     var data = e.detail.value;
-    console.log('form发生了submit事件，携带数据为：', data, this.data.workExperience);
-    return;
+    console.log('form发生了submit事件，携带数据为：', data);
     var workExperience = this.data.workExperience;
     if (!data.name) { this.failAlert('请输入姓名！');return}
     if (!data.gender) { this.failAlert('请选择性别！');return}
     if (!data.mobile) { this.failAlert('请输入手机号！');return}
-    if (!data.period) { this.failAlert('请输入届别！');return}
-    if (!data.g3 || !data.g2 || !data.g1) { this.failAlert('请输入高中班级！');return}
-    if (data.region.length<3) { this.failAlert('请选择所在区域！');return}
-    if (!data.residence) { this.failAlert('请输入居住地址！');return}
-    if (!data.degree) { this.failAlert('请选择学历！');return}
-    if (!data.email) { this.failAlert('请输入邮箱！');return}
-    if (!data.wechat) { this.failAlert('请输入微信号！');return}
     if (!(/^1[34578]\d{9}$/.test(data.mobile))) {
       this.failAlert("手机号码有误，请重填");
       return false;
     } 
-    if (workExperience.length>0){
-      for (var i = 0; i < workExperience.length;i++){
-        if (!workExperience[i]['work-place'] || !workExperience[i]['work-industry'] || !workExperience[i]['work-post']){
-          this.failAlert("请完善工作信息！");
-          return;
-        }
-      }
+    if (!data.period) { this.failAlert('请输入届别！');return}
+    if (!this.isNumber(data.period)) {
+      this.failAlert('请输入数字表示届别！'); return
     }
+    if (!data.g3) { this.failAlert('请输入高三班级！');return}
+    if (!this.isNumber(data.g3)) {
+      this.failAlert('请输入数字表示高三班级！'); return
+    }
+    if (!data.classmate1 || !data.classmate2 || !data.classmate3) { this.failAlert('请输入三位同学姓名！'); return }
+    // if (data.region.length<3) { this.failAlert('请选择所在区域！');return}
+    // if (!data.residence) { this.failAlert('请输入居住地址！');return}
+    // if (!data.degree) { this.failAlert('请选择学历！');return}
+    // if (!data.email) { this.failAlert('请输入邮箱！');return}
+    // if (!data.wechat) { this.failAlert('请输入微信号！');return}
+    // if (workExperience.length>0){
+    //   for (var i = 0; i < workExperience.length;i++){
+    //     if (!workExperience[i]['work-place'] || !workExperience[i]['work-industry'] || !workExperience[i]['work-post']){
+    //       this.failAlert("请完善工作信息！");
+    //       return;
+    //     }
+    //   }
+    // }
     wx.showLoading({
       title: '加载中',
     })
@@ -113,18 +127,20 @@ Page({
         mobile: data.mobile,
         period: data.period,
         g3: data.g3,
-        country: data.region[0],
-        province: data.region[1],
-        city: data.region[2],
-        email: data.email,
-        wechat: data.wechat,
-        g2: data.g2,
-        g1: data.g1,
-        degree: data.degree,
-        university: data.university,
-        residence: data.residence,
-        hobby: data.hobby,
-        work: JSON.stringify(this.data.workExperience)
+        classmates: [data.classmate1,data.classmate2,data.classmate3].join(','),
+        field: data.field
+        // country: data.region[0],
+        // province: data.region[1],
+        // city: data.region[2],
+        // email: data.email,
+        // wechat: data.wechat,
+        // g2: data.g2,
+        // g1: data.g1,
+        // degree: data.degree,
+        // university: data.university,
+        // residence: data.residence,
+        // hobby: data.hobby,
+        // work: JSON.stringify(this.data.workExperience)
       },
       success(res) {
         console.log(res.data)
@@ -134,6 +150,12 @@ Page({
             icon: 'success',
             duration: 4000
           })
+          setTimeout(function(){
+            wx.navigateBack({
+              delta: 1
+            })
+          },4000)
+         
         } else {
           this.failAlert("请求失败！");
         }
@@ -142,6 +164,12 @@ Page({
         this.failAlert("请求失败！");
       }
     })
+  },
+  bindMultiPickerColumnChange: function(e){
+    console.log('修改的列为', e.detail.column, '，值为', e.detail.value)
+    let idxSch = this.data.idxSch;
+    idxSch[e.detail.column] = e.detail.value;
+    this.setData({ idxSch });
   },
   toggleArrow : function(){
     this.setData({

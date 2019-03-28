@@ -4,6 +4,9 @@ page{
   padding-top: 15rpx;
   font-size:26rpx;
 }
+input{
+  width: 550rpx;
+}
 .sex-label{
   margin-right: 25rpx;
 }
@@ -71,4 +74,11 @@ picker .item-select{
 .btn-del{
   display: inline-block;
   margin-left: 450rpx;
+}
+
+.center{
+  display: block;
+  width: 100%;
+  margin: 5rpx 0;
+  text-align: center;
 }

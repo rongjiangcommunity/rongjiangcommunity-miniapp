@@ -16,14 +16,31 @@
   </view>
   <view class="section">
     <view class="item-left">届别</view>
-    <input name="period" class="item-right" placeholder="格式为数字，如89届填89"/>
+    <input name="period" type="number" class="item-right" placeholder="格式为数字，如89届填89"/>
   </view>
   <view class="section">
     <view class="item-left">高三班级</view>
-    <input name="g3" class="item-right" placeholder="格式为数字，如三班填3"/>
-    <image mode="scaleToFill" class="arrow" src="../../images/icons/{{isShowGrade?'up':'down'}}.png" bindtap="toggleArrow"></image>
+    <input name="g3" type="number" class="item-right" placeholder="格式为数字，如三班填3"/>
+    <!-- <image mode="scaleToFill" class="arrow" src="../../images/icons/{{isShowGrade?'up':'down'}}.png" bindtap="toggleArrow"></image> -->
   </view>
-  <view class="section" hidden="{{!isShowGrade}}">
+  <text class="center">请填写3个高三同班同学证明身份</text>
+  <view class="section">
+    <view class="item-left">同学一</view>
+    <input name="classmate1" class="item-right" placeholder="请输入同学姓名"/>
+  </view>
+  <view class="section">
+    <view class="item-left">同学二</view>
+    <input name="classmate2" class="item-right" placeholder="请输入同学姓名"/>
+  </view>
+  <view class="section">
+    <view class="item-left">同学三</view>
+    <input name="classmate3" class="item-right" placeholder="请输入同学姓名"/>
+  </view>
+  <view class="section">
+    <view class="item-left">备注</view>
+    <input name="field" class="item-right"placeholder="请输入备注信息(非必填）"/>
+  </view>
+  <!-- <view class="section" hidden="{{!isShowGrade}}">
     <view class="item-left">高二班级</view>
     <input name="g2" class="item-right" placeholder="选填"/>
   </view>
@@ -53,12 +70,11 @@
   </view>
   <view class="section">
     <view class="item-left">毕业院校</view>
-    <!-- <picker name="graduated" class="item-right" bindchange="bindSchoolChange" value="{{idxSch}}" range="{{arrSch}}">
+    <picker name="graduated" class="item-right" bindchange="bindSchoolChange" mode="multiSelector" bindcolumnchange="bindMultiPickerColumnChange" value="{{idxSch}}" range="{{arrSch}}">
       <view class="item-select">
-        {{arrSch[idxSch]}}
+        {{arrSch[0][idxSch[0]]}}，{{arrSch[1][idxSch[1]]}}
       </view>
-    </picker> -->
-    <input name="university" class="item-right" />
+    </picker>
   </view>
   <view class="extend_title">扩展信息</view>
   <view class="section">
@@ -78,11 +94,6 @@
     <view class="btn-del" data-idx="{{index}}" bindtap="delWorkExperience">删除</view>
     <view class="section">
       <view class="item-left">所属行业</view>
-      <!-- <picker class="item-right" data-idx="{{index}}" id="work-industry" bindchange="bindWorkChange" value="{{item['work-industry']}}" range="{{arrInd}}">
-        <view class="item-select">
-          {{arrInd[item['work-industry']]}}
-        </view>
-      </picker> -->
       <input name="workIndustry" class="item-right" data-idx="{{index}}" id="work-industry" bindchange="bindWorkChange" value="{{item['work-industry']}}"/>
     </view>
     <view class="section">
@@ -97,12 +108,12 @@
   <view class="work-section bottom-section" bindtap="addWorkExperience" hidden="{{workExperience.length==3}}">
     添加工作经历+
   </view>
-  <!-- <button bindtap="chooseImage" class="id-card-section bottom-section">
-    上传身份证证明资料
-  </button> -->
+  
   <view class="bottom-section tip">
     工作经历与扩展信息为可选项，可为您推荐相关的校友，认证信息越多，审核通过率越高。
   </view>
+
+   -->
   <view class="btn-area">
     <button class="btn-submit" formType="submit">提交审核</button>
   </view>

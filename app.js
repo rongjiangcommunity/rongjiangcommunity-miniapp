@@ -1,8 +1,8 @@
 //app.js
-
+const schoolInfo = require('./utils/schoolInfo.js');
 const serverUrl = 'https://www.rongjiangcommunity.cn';
 const appid = 'yiz';
-
+console.log(schoolInfo);
 App({
   userInfo:{},
   testUrl: 'http://127.0.0.1:7001',
