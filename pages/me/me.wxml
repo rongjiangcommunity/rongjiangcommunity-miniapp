@@ -27,6 +27,11 @@
   </view>
 </view> -->
 <view class="about-block">
+   <view class="info-list">
+    <navigator url="../checklist/checklist">
+      <view class="list-title">审核列表</view>
+    </navigator>
+  </view>
  <view class="info-list">
     <navigator url="../me_about/me_about">
       <view class="list-title">关于我们</view>
@@ -35,6 +40,11 @@
   <!-- <view class="info-list">
     <view class="list-title">联系我们</view>
     <image class="list-icon" src="../../images/icons/wxcode.jpg"></image>
+  </view>
+  <view class="info-list">
+    <navigator url="../audit_form/audit_form">
+      <view class="list-title">审核详情页面</view>
+    </navigator>
   </view>
   <view class="info-list">
     <navigator url="../me_feedback/me_feedback">
