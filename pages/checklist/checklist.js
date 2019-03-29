@@ -72,7 +72,7 @@ Page({
   getProList: function () {
     var self = this;
     wx.request({
-      url: getApp().serverUrl + '/api/user/reviewlist/yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597',
+      url: getApp().serverUrl + '/api/user/reviewlist/' + wx.getStorageSync('credentials'),
       method: 'GET',
       success: function (res) {
         console.log(res);
