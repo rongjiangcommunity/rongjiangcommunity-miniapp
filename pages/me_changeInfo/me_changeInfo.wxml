@@ -53,12 +53,11 @@
   </view>
   <view class="section">
     <view class="item-left">毕业院校</view>
-    <!-- <picker name="graduated" class="item-right" bindchange="bindSchoolChange" value="{{idxSch}}" range="{{arrSch}}">
+    <picker name="graduated" class="item-right" bindchange="bindSchoolChange" mode="multiSelector" bindcolumnchange="bindMultiPickerColumnChange" value="{{idxSch}}" range="{{arrSch}}">
       <view class="item-select">
-        {{arrSch[idxSch]}}
+        {{arrSch[0][idxSch[0]]}}，{{arrSch[1][idxSch[1]]}}
       </view>
-    </picker> -->
-    <input name="university" value="{{university}}" class="item-right" />
+    </picker>
   </view>
   <view class="extend_title">扩展信息</view>
   <view class="section">

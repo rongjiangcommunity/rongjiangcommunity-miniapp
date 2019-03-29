@@ -34,7 +34,7 @@ Page({
    */
   data: {
     area: ['广东省', '广州市', '天河区'],
-    // arrSch : ['中山大学','揭阳一中'],
+    arrSch: [['广东省', '海南省'], ['中山大学', '海南大学']],
     arrEdu: ['大学生', '研究生', '博士生', '高中生'],
     idxEdu : 0,
     // idxSch : 0,
@@ -142,6 +142,11 @@ Page({
             icon: 'success',
             duration: 4000
           })
+          setTimeout(function(){
+            wx.navigateBack({
+              delta: 1
+            })
+          },4000)
         } else {
           that.failAlert("请求失败！");
         }
@@ -196,7 +201,12 @@ Page({
       idxSch: e.detail.value
     });
   },
-
+  bindMultiPickerColumnChange: function (e) {
+    console.log('修改的列为', e.detail.column, '，值为', e.detail.value)
+    let idxSch = this.data.idxSch;
+    idxSch[e.detail.column] = e.detail.value;
+    this.setData({ idxSch });
+  },
   bindEducationChange: function (e) {
     this.setData({
       idxEdu: e.detail.value

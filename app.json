@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/registerAndLogin/registerAndLogin",
     "pages/me_changeInfo/me_changeInfo",
+    "pages/registerAndLogin/registerAndLogin",
+    "pages/index/index",
     "pages/me/me",
     "pages/me_card/me_card",
     "pages/me_relationship/me_relationship",

@@ -10,7 +10,7 @@
   <view class="header-name">{{name}}</view>
   <view class="header-info">{{university}} - {{work}}</view>
 </view>
-<view class="info-block">
+<!-- <view class="info-block">
   <view class="info-list">
     <navigator url="../me_card/me_card">
       <view class="list-title">我的名片</view>
@@ -25,14 +25,14 @@
   <view class="info-list">
     <view class="list-title">我的部门</view>
   </view>
-</view>
+</view> -->
 <view class="about-block">
  <view class="info-list">
     <navigator url="../me_about/me_about">
       <view class="list-title">关于我们</view>
     </navigator>
   </view>
-  <view class="info-list">
+  <!-- <view class="info-list">
     <view class="list-title">联系我们</view>
     <image class="list-icon" src="../../images/icons/wxcode.jpg"></image>
   </view>
@@ -40,5 +40,5 @@
     <navigator url="../me_feedback/me_feedback">
       <view class="list-title">反馈建议</view>
     </navigator>
-  </view>
+  </view> -->
 </view>
