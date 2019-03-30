@@ -1,7 +1,7 @@
   <view class='item-list'>
   <view class='check-item' wx:for="{{proList}}" bindtap='toDetail' data-uid='{{item.uid}}' data-index='{{index}}'>
     <text class='check-name'>{{item.name}}</text>
-    <button class='check-button'>快速审核</button>
+    <button class='check-button' data-check='{{item}}' catchtap='toQuickCheck'>快速审核</button>
     <view class='check-body'>
       <view class='check-class'>{{item.period}}届{{item.g3}}班</view>
     </view>
@@ -11,3 +11,21 @@
     </view>
   </view>
 </view>
+
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+
+<view class="modal-dialog shenhe-modal" wx:if="{{showModal}}">
+  <view class="modal-title">校友审核</view>
+  <view class="modal-content">
+    <view class="modal-input">
+      <radio-group  name="radio-group"  bindchange="radioChange">
+        <label><radio value="1"/>通过</label>
+        <label><radio value="0"/>不通过</label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm" data-checkData="{{checkData}}" data-checkItem="{{radioItem}}">确定</view>
+  </view>
+  </view>
