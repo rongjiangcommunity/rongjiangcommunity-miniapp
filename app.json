@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/registerAndLogin/registerAndLogin",
     "pages/me_feedback/me_feedback",
     "pages/me_changeInfo/me_changeInfo",
-    "pages/registerAndLogin/registerAndLogin",
     "pages/me/me",
     "pages/me_card/me_card",
     "pages/me_relationship/me_relationship",
