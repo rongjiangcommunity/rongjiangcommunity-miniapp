@@ -78,7 +78,7 @@ Page({
       url: getApp().serverUrl + '/api/user/reviewlist/' + sid,
       method: 'GET',
       success: function (res) {
-        console.log(res);
+        console.log("getProList", res);
         self.setData({
           proList: res.data.data,
         })
@@ -95,6 +95,7 @@ Page({
     });
   },
   checkSubmit: function (e) {
+    var that = this;
     var data = e.target.dataset;
     var status = data.status;
     var checkItem = data.checkdata;
@@ -113,7 +114,7 @@ Page({
           'Content-Type': 'application/json'
         },
         data: {
-          comment: "优秀",
+          comment: "快速审核",
           approved: radioItem,
           uid: checkItem.uid,
         },
@@ -122,21 +123,18 @@ Page({
           wx.hideLoading();
           if (res.data.success) {
             wx.showToast({
-              title: '上传成功',
+              title: '保存成功',
               icon: 'success',
               duration: 4000
-            })
-            setTimeout(function () {
-
-            }, 4000)
-
+            }),
+            that.onLoad();
           } else {
-            this.failAlert("请求失败！");
+            that.failAlert("请求失败！");
           }
         },
         fail() {
           wx.hideLoading();
-          this.failAlert("请求失败！");
+          that.failAlert("请求失败！");
         }
       })
     }
@@ -189,4 +187,3 @@ Page({
     this.checkSubmit(e);
   },
 })
->>>>>>> 审核接口和快速审核功能

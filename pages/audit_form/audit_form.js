@@ -4,8 +4,10 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
+    var sid = wx.getStorageSync('credentials');
+    // sid = "yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597";
     wx.request({
-      url: getApp().serverUrl + '/api/user/review/yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597/' + option.uid,
+      url: getApp().serverUrl + '/api/user/review/' + sid + '/' + option.uid,
       method: 'GET',
       header: {
         'Content-Type': 'application/json'
