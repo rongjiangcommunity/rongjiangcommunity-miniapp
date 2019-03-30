@@ -89,6 +89,8 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    let collegeObj = getApp().collegeObj;
+    let provinceArr = getApp().provinceArr;
     this.setData({ userInfo: getApp().userInfo});
     wx.request({
       url: getApp().serverUrl + '/api/user/' + wx.getStorageSync('credentials'),
@@ -105,7 +107,12 @@ Page({
           }else {
             nowwork = '';
           }
-          that.setData({ name, university, work:nowwork});
+          universityArr = university.split(',') 
+          console.log(universityArr)
+          let provinceSch = provinceArr[universityArr[0]]
+          console.log(provinceSch)
+          let school = collegeObj[provinceSch][universityArr[0]]
+          that.setData({ name, university: '('+provinceSch + ')' + school, work:nowwork});
         } else {
           that.failAlert("请求失败！");
         }

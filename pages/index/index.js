@@ -10,7 +10,14 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     showRegisterBtn: false,
-    status:undefined
+    status:undefined,
+    gotoRegisterAndLogin: false
+  },
+  onShow: function(){
+    if(this.data.gotoRegisterAndLogin){ //注册完返回时得重新获取用户信息
+      this.setData({gotoRegisterAndLogin:false});
+      this.checkInfo();
+    }
   },
   onLoad: function() {
     const ctx = this;
@@ -22,55 +29,25 @@ Page({
         }
       }
     })
-
+    this.checkInfo();
+  },
+  checkInfo: function(){
+    let that = this;
     Promise.all([this.checkIfregister(),this.getRegisterStatus()]).then(function (posts) {
       // ...
       console.log(posts);
       let pendData = posts[1].data.data;
       let approvedData = posts[0].data.data;
       if(pendData.status){
-        ctx.setData({ status: pendData.status })
+        that.setData({ status: pendData.status })
       }
-      if (posts[1].data.data.approved || posts[1].data.data.approved === true) { 
-        ctx.setData({ approved: true })
+      if (disabled.approved || disabled.approved === true) { 
+        that.setData({ approved: true })
       }
     }).catch(function (reason) {
       // ...
       console.log(reason)
     });
-
-    // wx.request({
-    //   url: getApp().serverUrl + '/api/user/apply/' + wx.getStorageSync('credentials'),
-    //   method: 'GET',
-    //   header: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   success(res) {
-    //     console.log(res)
-    //   },
-    //   fail() {
-    //     that.failAlert("请求失败！");
-    //   }
-    // })
-
-    // wx.request({
-    //   url: getApp().serverUrl + '/api/user/apply/' + wx.getStorageSync('credentials'),
-    //   method: 'post',
-    //   header: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   data:{
-    //     name:"林晓洪", 
-    //     period:91, g3:11, wechat:"lin446440084", mobile:"13435604116", classmates:"林志辉",
-    //   },
-    //   success(res) {
-    //     console.log(res)
-    //   },
-    //   fail() {
-    //     that.failAlert("请求失败！");
-    //   }
-    // })
-
   },
   getRegisterStatus: function () {
     return new Promise(function (resolve, reject) {
@@ -107,27 +84,6 @@ Page({
         }
       })
     });
-    // let that = this;
-    // wx.request({
-    //   url: getApp().serverUrl + '/api/user/' + wx.getStorageSync('credentials'),
-    //   method: 'GET',
-    //   header: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   success(res) {
-    //     if (res.data.success) {
-    //       if(!res.data.data.approved || !res.data.data.approved === true){
-    //         console.log('goto register')
-    //         that.setData({ showRegisterBtn: true})
-    //       }
-    //     } else {
-    //       that.failAlert("请求失败！");
-    //     }
-    //   },
-    //   fail() {
-    //     that.failAlert("请求失败！");
-    //   }
-    // })
   },
 
   bindGetUserInfo: function(e) {
@@ -155,29 +111,12 @@ Page({
 
   //事件处理函数
   gotoRegisterAndLogin: function(){
+    this.setData({ gotoRegisterAndLogin: true})
     wx.navigateTo({
       url: '../registerAndLogin/registerAndLogin'
     });
   },
   jumpToMsgCenter: function(){ // 跳到消息中心，也就是右上角的泡泡图标
     console.log('jumpToMsgCenter');
-  },
-  checkApproved: function(){
-    new Promise((resolve, reject) => {
-      wx.request({
-        method: 'POST',
-        header: {
-          'Content-Type': 'application/json'
-        },
-        data: {
-          credentials: '',
-        },
-        success(res) {
-          if (res && res.statusCode === 200) {
-              
-          }
-        }
-      })
-    });
-  },
+  }
 });

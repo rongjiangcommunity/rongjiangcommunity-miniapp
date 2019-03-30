@@ -22,7 +22,6 @@ var initData = {
 
 };
 
-
 Page({
   // 回调函数
   submitForm: function () {
@@ -34,10 +33,10 @@ Page({
    */
   data: {
     area: ['广东省', '广州市', '天河区'],
-    // arrSch : ['中山大学','揭阳一中'],
+    arrSch: [['广东省', '海南省'], ['中山大学', '海南大学']],
     arrEdu: ['大学生', '研究生', '博士生', '高中生'],
     idxEdu : 0,
-    // idxSch : 0,
+    idxSch : [0, 0],
     // idxInd : 0,
     isShowGrade: false,
     workExperience: []
@@ -48,6 +47,12 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+
+    // 初始化学校选择器
+    let collegeObj = getApp().collegeObj;
+    let provinceArr = getApp().provinceArr;
+    this.setData({ arrSch: [provinceArr, collegeObj[provinceArr[0]]] })
+
     wx.setNavigationBarTitle({
       title: '信息完善'
     })
@@ -58,10 +63,11 @@ Page({
         'Content-Type': 'application/json'
       },
       success(res) {
-        let { country, province, city,work} = res.data.data
+        let { country, province, city,work, university} = res.data.data
         if (res.data.success) {
           that.setData({ area: [country, province, city],
             workExperience: work ? JSON.parse(work) : [],
+            idxSch: university.split(','),
           ...res.data.data})
         } else {
           that.failAlert("请求失败！");
@@ -71,6 +77,26 @@ Page({
         that.failAlert("请求失败！");
       }
     })
+  },
+  bindSchoolChange: function (e) {
+    this.setData({
+      idxSch: e.detail.value
+    });
+  },
+  bindMultiPickerColumnChange: function (e) {
+    console.log('修改的列为', e.detail.column, '，值为', e.detail.value)
+    let idxSch = this.data.idxSch;
+    let arrSch = this.data.arrSch;
+    if (e.detail.column===0){
+      console.log(getApp().collegeObj[getApp().provinceArr[e.detail.value]] )
+      arrSch[1] = getApp().collegeObj[getApp().provinceArr[e.detail.value]]
+      idxSch[0] = e.detail.value;
+    } else if (e.detail.column === 1){
+      idxSch[1] = e.detail.value;
+    }
+    
+    // idxSch[e.detail.column] = e.detail.value;
+    this.setData({ idxSch, arrSch });
   },
   failAlert: function (str) {
     wx.showToast({
@@ -129,7 +155,7 @@ Page({
         g2: data.g2,
         g1: data.g1,
         degree: data.degree,
-        university: data.university,
+        university: that.data.idxSch,
         residence: data.residence,
         hobby: data.hobby,
         work: JSON.stringify(this.data.workExperience)
@@ -142,6 +168,11 @@ Page({
             icon: 'success',
             duration: 4000
           })
+          setTimeout(function(){
+            wx.navigateBack({
+              delta: 1
+            })
+          },4000)
         } else {
           that.failAlert("请求失败！");
         }
@@ -191,12 +222,7 @@ Page({
       area: e.detail.value
     });
   },
-  bindSchoolChange: function (e) {
-    this.setData({
-      idxSch: e.detail.value
-    });
-  },
-
+  
   bindEducationChange: function (e) {
     this.setData({
       idxEdu: e.detail.value

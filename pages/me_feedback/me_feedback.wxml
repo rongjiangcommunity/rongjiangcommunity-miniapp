@@ -2,8 +2,8 @@
 <view class="page">
   <view class="info-block">
     <view class="info-about">反馈建议</view>
-    <textarea class="info-input" maxlength="1000" placeholder="请输入反馈建议(1000字以内)"></textarea>
-    <button class="info-submit" size="mini">提交反馈</button>
+    <textarea bindinput="handleInput" value="{{inputText}}" class="info-input" maxlength="1000" placeholder="请输入反馈建议(1000字以内)"></textarea>
+    <button bindtap="handleSubmit" disabled="{{disabled}}" class="info-submit">提交反馈</button>
   </view>
 </view>
 

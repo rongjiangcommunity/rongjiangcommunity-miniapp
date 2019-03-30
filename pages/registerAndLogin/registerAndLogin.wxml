@@ -3,16 +3,20 @@
     <view class="item-left">姓名</view>
     <input name="name" class="item-right" placeholder="输入您的真实姓名" />
   </view>
-  <view class="section">
+  <!-- <view class="section">
     <view class="item-left">性别</view>
     <radio-group class="item-right" name="gender">
       <label class="sex-label"><radio value="male"/>男</label>
       <label class="sex-label"><radio value="female"/>女</label>
     </radio-group>
-  </view>
+  </view> -->
   <view class="section">
     <view class="item-left">手机号码</view>
     <input name="mobile" class="item-right"/>
+  </view>
+  <view class="section">
+    <view class="item-left">微信号</view>
+    <input name="wechat" class="item-right" />
   </view>
   <view class="section">
     <view class="item-left">届别</view>
@@ -82,10 +86,6 @@
     <input name="email" class="item-right" />
   </view>
   <view class="section">
-    <view class="item-left">微信号</view>
-    <input name="wechat" class="item-right" />
-  </view>
-  <view class="section">
     <view class="item-left">爱好</view>
     <input name="hobby" class="item-right" />
   </view>
@@ -115,6 +115,6 @@
 
    -->
   <view class="btn-area">
-    <button class="btn-submit" formType="submit">提交审核</button>
+    <button disabled='{{disabled}}' class="btn-submit" formType="submit">提交审核</button>
   </view>
 </form>

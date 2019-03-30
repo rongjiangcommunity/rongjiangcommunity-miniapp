@@ -34,14 +34,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    region : ['广东省', '广州市', '天河区'],
-    arrSch: [['广东省', '海南省'], ['中山大学', '海南大学']],
-    arrEdu: ['大学生', '研究生', '博士生', '高中生'],
-    idxEdu : 0,
-    idxSch : [0,0],
-    // idxInd : 0,
-    isShowGrade : false,
-    workExperience :[]
+    disabled: false
   },
 
   /**
@@ -80,11 +73,13 @@ Page({
     }
   },
   formSubmit: function (e) {
+    let that = this;
     var data = e.detail.value;
     console.log('form发生了submit事件，携带数据为：', data);
+    this.setData({ disabled: true});
     var workExperience = this.data.workExperience;
     if (!data.name) { this.failAlert('请输入姓名！');return}
-    if (!data.gender) { this.failAlert('请选择性别！');return}
+    // if (!data.gender) { this.failAlert('请选择性别！');return}
     if (!data.mobile) { this.failAlert('请输入手机号！');return}
     if (!(/^1[34578]\d{9}$/.test(data.mobile))) {
       this.failAlert("手机号码有误，请重填");
@@ -103,7 +98,7 @@ Page({
     // if (!data.residence) { this.failAlert('请输入居住地址！');return}
     // if (!data.degree) { this.failAlert('请选择学历！');return}
     // if (!data.email) { this.failAlert('请输入邮箱！');return}
-    // if (!data.wechat) { this.failAlert('请输入微信号！');return}
+    if (!data.wechat) { this.failAlert('请输入微信号！');return}
     // if (workExperience.length>0){
     //   for (var i = 0; i < workExperience.length;i++){
     //     if (!workExperience[i]['work-place'] || !workExperience[i]['work-industry'] || !workExperience[i]['work-post']){
@@ -112,28 +107,29 @@ Page({
     //     }
     //   }
     // }
+    this.setData({ disabled: true})
     wx.showLoading({
       title: '加载中',
     })
     wx.request({
-      url: getApp().serverUrl + '/api/user/' + wx.getStorageSync('credentials'),
+      url: getApp().serverUrl + '/api/user/apply/' + wx.getStorageSync('credentials'),
       method: 'POST',
       header: {
         'Content-Type': 'application/json'
       },
       data: {
+        // gender: data.gender,
         name: data.name,
-        gender: data.gender,
         mobile: data.mobile,
-        period: data.period,
-        g3: data.g3,
+        period: parseInt(data.period),
+        g3: parseInt(data.g3),
         classmates: [data.classmate1,data.classmate2,data.classmate3].join(','),
-        field: data.field
+        message: data.field,
+        wechat: data.wechat,
         // country: data.region[0],
         // province: data.region[1],
         // city: data.region[2],
         // email: data.email,
-        // wechat: data.wechat,
         // g2: data.g2,
         // g1: data.g1,
         // degree: data.degree,
@@ -144,6 +140,7 @@ Page({
       },
       success(res) {
         console.log(res.data)
+        that.setData({ disabled: false});
         if (res.data.success) {
           wx.showToast({
             title: '上传成功',
@@ -155,13 +152,13 @@ Page({
               delta: 1
             })
           },4000)
-         
         } else {
-          this.failAlert("请求失败！");
+          that.failAlert("请求失败！");
         }
       },
       fail() {
-        this.failAlert("请求失败！");
+        disabled
+        that.failAlert("请求失败！");
       }
     })
   },
