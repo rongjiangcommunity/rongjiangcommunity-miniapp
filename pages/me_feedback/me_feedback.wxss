@@ -15,6 +15,7 @@
 .info-input{
   border: 1px solid #ccc;
   width: 640rpx;
+  height:400rpx;
   padding: 20rpx;
   font-size: 30rpx;
   margin-top: 20rpx;

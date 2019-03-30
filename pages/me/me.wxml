@@ -45,10 +45,10 @@
     <navigator url="../audit_form/audit_form">
       <view class="list-title">审核详情页面</view>
     </navigator>
-  </view>
+  </view> -->
   <view class="info-list">
     <navigator url="../me_feedback/me_feedback">
       <view class="list-title">反馈建议</view>
     </navigator>
-  </view> -->
+  </view>
 </view>
