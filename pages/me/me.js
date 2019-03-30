@@ -10,6 +10,7 @@ var initData = {
     city: '', // 城市
     college: '', // 大学
     compony: '', // 公司
+    role: '', //是否管理员
     isSectorMember: false, // 是否为校友会部门成员
     bussinessCardUrl: '', // 名片url
     followList: [1, 2, 3] // 关注的校友的ID
@@ -31,6 +32,7 @@ var debugData = {
     compony: '', // 公司
     isDepartmentMember: false, // 是否为校友会部门成员
     bussinessCardUrl: '', // 名片ur
+    role: '', //是否管理员,
   },
   isShowBussnessCard: false, // 是否显示名片：名片以弹出层的形式出现
   isShowAboutUs: false, // 是否显示“关于我们”模块 也是弹出层
@@ -92,15 +94,19 @@ Page({
     let collegeObj = getApp().collegeObj;
     let provinceArr = getApp().provinceArr;
     this.setData({ userInfo: getApp().userInfo});
+    var sid = wx.getStorageSync('credentials');
+    // sid = "yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597"
     wx.request({
-      url: getApp().serverUrl + '/api/user/' + wx.getStorageSync('credentials'),
+      url: getApp().serverUrl + '/api/user/' + sid,
       method: 'GET',
       header: {
         'Content-Type': 'application/json'
       },
       success(res) {
         if (res.data.success) {
-          const { name, university, work } = res.data.data;
+          console.log("userInfo", res);
+          const { name, university, work} = res.data.data;
+          var role = res.data.data.role;
           let nowwork = JSON.parse(work);
           if(nowwork.length>0){
             nowwork = nowwork[0]["work-place"];
@@ -109,10 +115,11 @@ Page({
           }
           universityArr = university.split(',') 
           console.log(universityArr)
-          let provinceSch = provinceArr[universityArr[0]]
+          let provinceSch = res.data.data.province
           console.log(provinceSch)
-          let school = collegeObj[provinceSch][universityArr[0]]
-          that.setData({ name, university: '('+provinceSch + ')' + school, work:nowwork});
+          // let school = collegeObj[provinceSch][universityArr[0]]
+          let school = universityArr;
+          that.setData({ name, university: '(' + provinceSch + ')' + school, work: nowwork, role: role});
         } else {
           that.failAlert("请求失败！");
         }
@@ -127,14 +134,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
@@ -169,6 +176,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })
