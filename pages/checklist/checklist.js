@@ -7,7 +7,7 @@ Page({
   data: {
     proList: [],
     checkData: {},
-    radioItem:{}
+    radioItem: null,
   },
 
   /**
@@ -99,6 +99,15 @@ Page({
     var data = e.target.dataset;
     var status = data.status;
     var checkItem = data.checkdata;
+    if (data.checkitem == null) {
+      wx.showModal({
+        title: '审核提示',
+        content: '请先选择处理方式',
+        canceColor: '#666',
+        confirmColor: '#ec5300'
+      })
+      return;
+    }
     var radioItem = data.checkitem == 0 ? false : true;
     var sid = wx.getStorageSync('credentials');
     // sid = "yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597";

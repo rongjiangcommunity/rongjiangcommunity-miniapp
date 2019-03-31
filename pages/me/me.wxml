@@ -27,7 +27,7 @@
   </view>
 </view> -->
 <view class="about-block">
-   <view class="info-list" wx:if="{{role==='admin'}}">
+   <view class="info-list" wx:if="{{role==='admin' || role==='CADMIN' || role==='GADMIN' || role==='ADMIN'}}">
     <navigator url="../checklist/checklist">
       <view class="list-title">审核列表</view>
     </navigator>
