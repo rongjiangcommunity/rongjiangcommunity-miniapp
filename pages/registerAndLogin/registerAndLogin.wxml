@@ -12,7 +12,7 @@
   </view> -->
   <view class="section">
     <view class="item-left">手机号码</view>
-    <input name="mobile" class="item-right"/>
+    <input type="number" name="mobile" class="item-right"/>
   </view>
   <view class="section">
     <view class="item-left">微信号</view>

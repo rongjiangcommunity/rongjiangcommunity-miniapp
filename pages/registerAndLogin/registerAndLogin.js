@@ -76,7 +76,6 @@ Page({
     let that = this;
     var data = e.detail.value;
     console.log('form发生了submit事件，携带数据为：', data);
-    this.setData({ disabled: true});
     var workExperience = this.data.workExperience;
     if (!data.name) { this.failAlert('请输入姓名！');return}
     // if (!data.gender) { this.failAlert('请选择性别！');return}
@@ -109,7 +108,7 @@ Page({
     // }
     this.setData({ disabled: true})
     wx.showLoading({
-      title: '加载中',
+      title: '上传中',
     })
     wx.request({
       url: getApp().serverUrl + '/api/user/apply/' + wx.getStorageSync('credentials'),
@@ -157,7 +156,7 @@ Page({
         }
       },
       fail() {
-        disabled
+        this.setData({ disabled: false})
         that.failAlert("请求失败！");
       }
     })
