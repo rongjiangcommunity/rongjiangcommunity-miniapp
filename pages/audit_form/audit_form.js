@@ -4,7 +4,12 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
+    this.setData({
+      uid: option.uid,
+    })
+    console.log('option', this.data.uid)
     var sid = wx.getStorageSync('credentials');
+
     // sid = "yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597";
     wx.request({
       url: getApp().serverUrl + '/api/user/review/' + sid + '/' + option.uid,
@@ -47,7 +52,17 @@ Page({
    */
   data: {
     showModal: false,
-    student : {}
+    student : {},
+    radioItem: null,
+    uid:'',
+  },
+  radioChange: function (e) {
+    var radioItem = e.detail.value;
+    this.setData({
+      showModal: true,
+      radioItem: radioItem,
+    })
+    console.log('radio发生change事件，携带value值为：', radioItem)
   },
   /**
    * 弹窗
@@ -75,11 +90,70 @@ Page({
    */
   onCancel: function () {
     this.hideModal();
+
+  },
+
+  checkSubmit: function (e) {
+    var that = this;
+    var data = e.target.dataset;
+    var status = data.status;
+    var checkItem = data.checkdata;
+    var uid = that.data.uid;
+    console.log('checkSubmit ', data.checkitem);
+    if (data.checkitem == null) {
+      wx.showModal({
+        title: '审核提示',
+        content: '请先选择处理方式',
+        canceColor: '#666',
+        confirmColor: '#ec5300'
+      })
+      return;
+    }
+    var radioItem = data.checkitem == 0 ? false : true;
+    var sid = wx.getStorageSync('credentials');
+    // sid = "yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597";
+    console.log('checkSubmit ', radioItem);
+    if (status != "cancel") {
+      wx.showLoading({
+        title: '加载中',
+      })
+      wx.request({
+        url: getApp().serverUrl + '/api/user/review/' + sid + '/' + uid,
+        method: 'POST',
+        header: {
+          'Content-Type': 'application/json'
+        },
+        data: {
+          comment: "快速审核",
+          approved: radioItem,
+          uid: uid,
+        },
+        success(res) {
+          console.log(res.data)
+          wx.hideLoading();
+          if (res.data.success) {
+            wx.showToast({
+              title: '保存成功',
+              icon: 'success',
+              duration: 4000
+            }),
+              that.onLoad();
+          } else {
+            that.failAlert("请求失败！");
+          }
+        },
+        fail() {
+          wx.hideLoading();
+          that.failAlert("请求失败！");
+        }
+      })
+    }
   },
   /**
    * 对话框确认按钮点击事件
    */
-  onConfirm: function () {
+  onConfirm: function (e) {
     this.hideModal();
-  }
+    this.checkSubmit(e);
+  },
 })

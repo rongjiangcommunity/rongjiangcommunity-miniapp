@@ -107,14 +107,20 @@ Page({
           console.log("userInfo", res);
           const { name, university, work} = res.data.data;
           var role = res.data.data.role;
-          let nowwork = JSON.parse(work);
+          let nowwork = '';
+          if (work != null) {
+            nowwork = JSON.parse(work)
+          }
           if(nowwork.length>0){
             nowwork = nowwork[0]["work-place"];
           }else {
             nowwork = '';
           }
-          universityArr = university.split(',') 
-          console.log(universityArr)
+          universityArr = '';
+          if (university != null) {
+            universityArr = university.split(',') 
+            console.log(universityArr)
+          }
           let provinceSch = res.data.data.province
           console.log(provinceSch)
           // let school = collegeObj[provinceSch][universityArr[0]]

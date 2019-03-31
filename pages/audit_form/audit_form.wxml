@@ -54,7 +54,7 @@
   <view class="modal-title">校友审核</view>
   <view class="modal-content">
     <view class="modal-input">
-      <radio-group  name="radio-group">
+      <radio-group  name="radio-group" bindchange="radioChange">
         <label><radio value="1"/>通过</label>
         <label><radio value="0"/>不通过</label>
       </radio-group>
@@ -62,7 +62,7 @@
   </view>
   <view class="modal-footer">
     <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
-    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    <view class="btn-confirm" bindtap="onConfirm" data-checkItem="{{radioItem}}" data-checkData="{{student}}" data-status="confirm">确定</view>
   </view>
   </view>
 </form>
