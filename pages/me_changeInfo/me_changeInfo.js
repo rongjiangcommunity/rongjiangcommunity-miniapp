@@ -1,4 +1,3 @@
-// pages/registerAndLogin/registerAndLogin.js
 
 var initData = {
   pageState: 'register', // register, login, modifyPwd, error, loading

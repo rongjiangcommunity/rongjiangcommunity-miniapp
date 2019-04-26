@@ -1,0 +1,75 @@
+<form bindsubmit="formSubmit">
+  <view class="weui-cells__title">基本信息</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-label">姓名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="name" class="weui-input" placeholder="输入您的真实姓名" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">微信</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="wechat" class="weui-input" placeholder="输入您的微信" />
+        </view>
+      </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">手机号码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input type="number" name="mobile" class="weui-input" placeholder="输入您的手机" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-label">届</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="period" type="number" placeholder="格式为数字，如89届填89" class="weui-input" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-label">班级</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="g3" type="number" placeholder="格式为数字，如三班填3" class="weui-input" />
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__title">请填写3个高三同班同学证明身份</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-label">同学一</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="classmate1" class="weui-input" placeholder="请输入同学姓名"/>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-label">同学二</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="classmate2" class="weui-input" placeholder="请输入同学姓名"/>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">同学一</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="classmate3" class="weui-input" placeholder="请输入同学姓名"/>
+        </view>
+      </view>
+  </view>
+  <view class="weui-btn-area">
+    <button formType="submit" disabled='{{disabled}}' class="weui-btn" type="primary">提交审核</button>
+  </view>
+</form>

@@ -5,18 +5,29 @@
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"/>
     <text class="userinfo-nickname">Hi, {{userInfo.nickName}}</text>
     <text class="welcom">欢迎来到榕江社区</text>
-    
-    <text class="tip" wx:if="{{!status}}" class="tipInfo">榕江社区即将上线，认证校友抢先体验</text>
-    <text class="tip" wx:if="{{status==='pending'}}">正在认证中，请等候工作人员完成认证。</text>
-    <text class="tip" wx:if="{{status==='notok'}}">认证失败，请重新填写信息再次提交认证。</text>
-    <text class="tip" wx:if="{{status==='ok'}}">已认证</text>
-    <button wx:if="{{status!=='pending' && status!=='ok'}}" bindtap="gotoRegisterAndLogin" class="register_btn" size="mini">
-      去认证
-    </button>
   </view>
-  <!-- <view>
-    <button bindtap="gotoRegisterAndLogin">进入注册页</button>
-  </view> -->
+
+  <view class='bottom-action' wx:if="{{approved}}">
+    <text class="tip">已认证</text>
+  </view>
+
+  <view class='bottom-action' wx:if="{{!approved}}">
+    <view class="weui-flex" wx:if="{{status==='pending'}}">
+      <text>正在认证中，请等候工作人员完成认证。</text>
+    </view>
+    <view class="weui-flex" wx:if="{{status==='notok'}}">
+      <text >认证失败，请重新填写信息再次提交认证。</text>
+    </view>
+    <!-- 未提交 -->
+    <view wx:if="{{status!=='pending' && status!=='notok'}}">
+      <view class="weui-flex">
+        <text>榕江社区即将上线，认证校友抢先体验</text>
+      </view>
+      <view class="weui-flex">
+        <button bindtap="gotoRegister" class="register_btn weui-btn mini-btn" size="mini" type="primary">去认证</button>
+      </view>
+    </view>
+  </view>
 </view>
 </block>
 <button 

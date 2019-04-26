@@ -1,54 +1,56 @@
 <!--pages/me/me.wxml-->
-<view class="header-block">
-  <navigator url="../me_changeInfo/me_changeInfo">
-    <view class="header-edit">编辑</view>
+<navigator url="../me_info/me_info" class="">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="{{userInfo.avatarUrl}}" style="width: 50px; height: 50px; display: block"/>
+      </view>
+      <view class="weui-cell__bd">
+        <view>{{name}}</view>
+        <view style="font-size: 13px;color: #888888;">
+          <view wx:if="{{approved}}">
+            <icon type='success' size="15"></icon>
+            <text> 已认证</text>
+          </view>
+          <view wx:if="{{!approved}}">
+            <view wx:if="{{status==='pending'}}">
+              <icon type='waiting' size="15"></icon>
+              <text> 认证中</text>
+            </view>
+            <view wx:if="{{status==='notok'}}">
+              <navigator url="../register/register">
+                <view class='weui-flex'>
+                  <icon type="warn" size="15"></icon>
+                  <text> 认证失败</text>
+                  <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
+                </view>
+              </navigator>
+            </view>
+            <navigator wx:if="{{status!=='pending'&&status!=='notok'}}" url="../register/register">
+              <view class='weui-flex'>
+                <text>去认证</text>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+              </view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+</navigator>
+
+<view class="weui-cells weui-cells_after-title">
+  <navigator url="../checklist/checklist" class="weui-cell weui-cell_access" wx:if="{{role==='admin' || role==='CADMIN' || role==='GADMIN' || role==='ADMIN'}}">
+      <view class="weui-cell__bd">审核列表</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
-  <image
-    class="header-img"
-    src="{{userInfo.avatarUrl}}"
-  ></image>
-  <view class="header-name">{{name}}</view>
-  <view class="header-info">{{university}} - {{work}}</view>
-</view>
-<!-- <view class="info-block">
-  <view class="info-list">
-    <navigator url="../me_card/me_card">
-      <view class="list-title">我的名片</view>
-      <image class="list-icon" src="../../images/icons/ecode.jpg"></image>
-    </navigator>
-  </view>
-  <view class="info-list">
-    <navigator url="../me_relationship/me_relationship">
-      <view class="list-title">我的校友圈</view>
-    </navigator>
-  </view>
-  <view class="info-list">
-    <view class="list-title">我的部门</view>
-  </view>
-</view> -->
-<view class="about-block">
-   <view class="info-list" wx:if="{{role==='admin' || role==='CADMIN' || role==='GADMIN' || role==='ADMIN'}}">
-    <navigator url="../checklist/checklist">
-      <view class="list-title">审核列表</view>
-    </navigator>
-  </view>
- <view class="info-list">
-    <navigator url="../me_about/me_about">
-      <view class="list-title">关于我们</view>
-    </navigator>
-  </view>
-  <!-- <view class="info-list">
-    <view class="list-title">联系我们</view>
-    <image class="list-icon" src="../../images/icons/wxcode.jpg"></image>
-  </view>
-  <view class="info-list">
-    <navigator url="../audit_form/audit_form">
-      <view class="list-title">审核详情页面</view>
-    </navigator>
-  </view> -->
-  <view class="info-list">
-    <navigator url="../me_feedback/me_feedback">
-      <view class="list-title">反馈建议</view>
-    </navigator>
-  </view>
+  <navigator url="../me_feedback/me_feedback" class="weui-cell weui-cell_access">
+      <view class="weui-cell__bd">反馈建议</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+  <navigator url="../me_about/me_about" class="weui-cell weui-cell_access">
+      <view class="weui-cell__bd">关于我们</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
 </view>

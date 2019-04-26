@@ -50,18 +50,18 @@ Page({
         message
       },
       success(res) {
-        that.setData({ disabled: false,inputText:''});
         if (res.data.success) {
           wx.showToast({
             title: '提交成功',
             icon: 'success',
             duration: 2000
-          })
+          });
           setTimeout(function () {
+            that.setData({ disabled: false,inputText:''});
             wx.navigateBack({
               delta: 1
-            })
-          }, 4000)
+            });
+          }, 2000);
         } else {
           that.failAlert("请求失败！");
         }

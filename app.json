@@ -1,29 +1,26 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/registerAndLogin/registerAndLogin",
-    "pages/me_feedback/me_feedback",
-    "pages/me_changeInfo/me_changeInfo",
     "pages/me/me",
-    "pages/me_card/me_card",
-    "pages/me_relationship/me_relationship",
-    
+    "pages/register/register",
+    "pages/me_info/me_info",
+    "pages/me_feedback/me_feedback",
     "pages/me_about/me_about",
-    "pages/me_department/me_department",
-    "pages/schoolmates/schoolmates",
+    "pages/me_info/email/email",
+    "pages/me_info/wechat/wechat",
+    "pages/me_info/address/address",
+    "pages/me_info/education/education",
+    "pages/checklist/checklist",
+
+    "pages/me_changeInfo/me_changeInfo",
     "pages/approve/approve",
-    "pages/book/book",
-    "pages/me/feedback/feedback",
-    "pages/me/department/department",
-    "pages/audit_form/audit_form",
-    "pages/index/messagecenter/messagecenter",
-    "pages/checklist/checklist"
+    "pages/audit_form/audit_form"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#4e85c6",
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "榕江社区",
-    "navigationBarTextStyle": "white"
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#f8f8f8"
   },
   "tabBar": {
     "color": "#888",
@@ -45,5 +42,6 @@
       }
     ]
   },
-  "debug": true
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
 }
