@@ -1,4 +1,3 @@
-/* pages/registerAndLogin/registerAndLogin.wxss */
 page{
   background-color: #f6f8f9;
   padding-top: 15rpx;

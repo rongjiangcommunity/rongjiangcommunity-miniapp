@@ -1,72 +1,42 @@
-page {
+/* page {
   background: #d7d7d7;
-}
+} */
 
 /* items-list */
-.items-list{
+/* .items-list{
   background: #d7d7d7;
-}
+} */
 
-.check-item{
+.ant-empty {
+  height: 40px; 
+  display: block;
+  margin: 8px 0;
+  text-align: center;
+}
+.ant-empty__img{
+  display: inline;
+}
+.ant-empty__description{
+  color: #00000040;
+  text-align: center;
+}
+.check-item {
+  position: relative;
   background: #fff;
-  margin-top: 10rpx;
-}
-
-.check-item{
-  overflow: hidden;
+  margin-bottom: 10rpx;
   padding: 30rpx;
+  overflow: hidden;
 }
 
 .check-body{
-  margin-left: 120rpx;
+  margin-top: 16rpx;
 }
-.check-body2{
-  clear: both;
-  margin-top: 25rpx;
-  font-size: 26rpx;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  margin-bottom: 10rpx;
-}
-
-.check-name{
-  width: 120rpx;
-  float: left;
-  color: #212121;
-  font-size: 34rpx;
-  line-height: 1;
-}
-.check-class{
-  color: #666;
-  font-size: 28rpx;
-  line-height: 1;
-  overflow: hidden;
-}
-
-.check-class-mate-title{
-  font-size: 28rpx;
-  color: #666;
-  line-height: 1;
-}
-
-.check-class-mate-name{
-  font-size: 28rpx;
-  color: #666;
-  line-height: 1;
-}
-
 .check-button{
-  font-size: 28rpx;
-  float: right;
-  width: 180rpx;
-  margin-top: 30rpx;
-  background-color: #4e85c6;
-  color: #FFF;
+  position: absolute;
+  top: 32rpx;
+  right: 30rpx;
+  margin-top: 0;
 }
-
-
 .modal-mask {
   width: 100%;
   height: 100%;

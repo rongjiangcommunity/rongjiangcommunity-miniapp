@@ -1,7 +1,10 @@
 //app.js
 const serverUrl = 'https://www.rongjiangcommunity.cn';
 const appid = 'yiz';
+const miniAppId = 'wx6ceb2515d7e20fa3';
 App({
+  appid,
+  serverUrl,
   collegeObj: {
     "广东省": [
       "中山大学",
@@ -880,32 +883,42 @@ App({
     ]
   },
   provinceArr: ["广东省","北京市","天津市","河北省","山西省","内蒙古自治区","辽宁省","吉林省","黑龙江省","上海市","江苏省","浙江省","安徽省","福建省","江西省","山东省","河南省","湖北省","湖南省","广西壮族自治区","海南省","重庆市","四川省","贵州省","云南省","陕西省","甘肃省","军队武警院校","境外院校","其他院校（省内）"],
-  userInfo:{},
-  testUrl: 'http://127.0.0.1:7001',
-  serverUrl: 'https://www.rongjiangcommunity.cn',
-  onLaunch: function() {
-    // @TODO
-    // wx.app = this;
-    const app = this;
-    const credentials = wx.getStorageSync('credentials');
 
-    if (!credentials) {
-      app.login().catch(err=> {
-        console.error(err);
-      });
-    } else {
-      wx.checkSession({
-        success: function () {
-        },
-        fail: function () {
-          app.expireCredentials();
-          app.login().catch(err=> {
-            console.error(err);
-          });
-        }
-      })
-    }
+  onLaunch: function() {
+    return this.appReady();
   },
+  appReady: function() {
+    const app = this;
+    const credentials = this.getCredentials();
+
+    this.appReadyPromise = this.appReadyPromise || new Promise((resolve,reject) => {
+      if (!credentials) {
+        app.login().then(() => {
+          resolve();
+        }).catch(err=> {
+          reject(err);
+        });
+      } else {
+        wx.checkSession({
+          success: function () {
+            resolve();
+          },
+          fail: function () {
+            app.expireCredentials();
+            app.login().then(()=>{
+              resolve();
+            }).catch(err=> {
+              reject(err);
+            });
+          }
+        });
+      }
+    });
+    return this.appReadyPromise;
+  },
+  /**
+   * 微信登录，返回自定义session
+   */
   login: function (){
     const app = this;
     return new Promise((resolve, reject) => {
@@ -940,6 +953,9 @@ App({
       });
     });
   },
+  /**
+   * 清除 session
+   */
   expireCredentials: function() {
     const credentials = this.getCredentials();
     if (!credentials) {
@@ -952,12 +968,168 @@ App({
       console.error(e);
     }
   },
+  /**
+   * 缓存 session 到本地
+   */
   setCredentials: function(credentials) {
     wx.setStorageSync('credentials', credentials);
   },
+  /**
+   * 从本地取出 session
+   */
   getCredentials: function(){
     return wx.getStorageSync('credentials');
   },
-  globalData: {
-  }
+  /**
+   * 获取用户微信信息
+   */
+  getWxUserInfo: function() {
+    const app = this;
+    return new Promise((resolve,reject) => {
+      wx.getUserInfo({
+        success: function(res) {
+          resolve(res.userInfo);
+        }
+      });
+    });
+  },
+  /**
+   * 同步用户微信信息
+   */
+  synWxInfo: function(userInfo) {
+    const app = this;
+    if (!userInfo) {
+      return Promise.resolve();
+    }
+    return this.appReady().then(() => {
+      const onError = () => {
+        throw new Error('redeem credentials error!');
+      }
+      const credentials = app.getCredentials();
+      wx.request({
+        url: `${serverUrl}/api/user/${credentials}`,
+        header: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        data: {
+          wxinfo: userInfo
+        },
+        success: function (res) {
+          if (!res || res.statusCode !== 200) {
+            onError();
+          }
+        },
+        fail: onError,
+      });
+    });
+  },
+  /**
+   * 获取用户认证状态
+   */
+  getApplyInfo: function () {
+    const credentials = this.getCredentials();
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: `${this.serverUrl}/api/user/apply/${credentials}`,
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success(res) {
+          const data = res && res.data && res.data.success ? res.data.data : null;
+          resolve(data);
+        },
+        fail(err) {
+          reject(err);
+        }
+      });
+    });
+  },
+  wxDecrypt: function(encryptedData, iv) {
+    const credentials = this.getCredentials();
+    return new Promise((resolve,reject) => {
+      wx.request({
+        url: `${serverUrl}/api/wechat/${credentials}/decrypt`,
+        header: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        data: {
+          encryptedData,
+          iv,
+          appId: miniAppId,
+        },
+        success: function (res) {
+          if (res && res.statusCode === 200 && res.data) {
+            return resolve(res.data.data);
+          }
+          reject(new Error('decrypt data error!'));
+        },
+        fail: reject
+      });
+    });
+  },
+  /**
+   * 获取用户信息
+   */
+  getUserInfo: function(){
+    const credentials = this.getCredentials();
+    console.log(credentials);
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: `${this.serverUrl}/api/user/${credentials}`,
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success(res) {
+          console.log(res)
+          const data = res && res.data && res.data.success ? res.data.data : null;
+          resolve(data);
+        },
+        fail(err) {
+          console.error(err)
+          reject(err);
+        }
+      })
+    });
+  },
+  /**
+   * 修改用户信息
+   */
+  saveUserInfo(data) {
+    const ctx = this;
+    const credentials = this.getCredentials();
+    return new Promise((resolve,reject) => {
+      wx.request({
+        url: `${this.serverUrl}/api/user/${credentials}`,
+        method: 'POST',
+        header: {
+          'Content-Type': 'application/json'
+        },
+        data,
+        success(res) {
+          const {success,msg} = res.data;
+          if (!success) {
+            ctx.failAlert("请求失败！错误：" + msg);
+            reject();
+          } else {
+            resolve();
+          }
+        },
+        fail() {
+          ctx.failAlert("请求失败！");
+          reject();
+        }
+      });
+    });
+  },
+  failAlert: function (str) {
+    wx.showToast({
+      title: str,
+      icon: 'warn',
+      duration: 3000
+    })
+  },
 });

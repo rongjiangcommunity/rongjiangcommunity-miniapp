@@ -81,7 +81,7 @@ Page({
         console.log("getProList", res);
         self.setData({
           proList: res.data.data,
-        })
+        });
       },
       fail: function () {
 
@@ -89,7 +89,6 @@ Page({
     })
   },
   toDetail: function (e) {
-    console.log(e);
     wx.navigateTo({
       url: '../audit_form/audit_form?uid=' + e.target.dataset.uid
     });

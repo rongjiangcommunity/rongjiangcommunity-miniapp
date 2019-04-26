@@ -1,19 +1,1 @@
 /* pages/me_about/me_about.wxss */
-.info-block{
-  margin: 20rpx;
-  width: 670rpx;
-  height: calc(100vh - 65rpx);
-  padding: 10rpx 20rpx;
-  overflow: scroll;
-  position: relative;
-}
-.info-about{
-  font-size: 40rpx;
-  font-weight: bolder;
-  text-align: center;
-}
-.info-detail{
-  font-size: 30rpx;
-  line-height: 40rpx;
-  margin-top: 20rpx;
-}
