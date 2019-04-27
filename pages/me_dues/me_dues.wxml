@@ -1,0 +1,25 @@
+<!--pages/me_about/me_about.wxml-->
+<view class="weui-article">
+  <view class="weui-article__h1">揭阳一中广州校友会会费缴纳方式</view>
+  <view class="weui-article__p">
+    根据《广州市揭阳一中校友会章程》第十一条规定”本会严格按照《社会团体登记管理条例》和《民政部、财政部关于进一步明确社会团体会费政策的通知》等有关规定，认真履行会费标准制定程序，以自愿为原则，由全体会员的三分之二以上表决通过，并载入章程。所有会员缴纳会费的标准为：100 元/年。” 
+  </view>
+  <view class="weui-article__h2">一、结合校友会的实际情况，现采取如下的会员会费缴纳方式。</view>
+  <view class="weui-article__p">
+    方式 1：每五年缴纳一次，每次缴纳 5 年会费共 500 元，每届理事会换届后的一年内一次性缴齐。
+  </view>
+  <view class="weui-article__p">
+    方式 2：分两次缴纳，首次于每届理事会换届后一年内缴纳 2 年会费共 200 元，第二次于理事会届中缴纳 3 年会费共 300 元。
+  </view>
+  <view class="weui-article__h2">二、缴纳方式</view>
+  <view class="weui-article__h3">1、通过微信由年级联络员收取后统一汇入校友会账户：</view>
+  <view class="weui-article__p">账户名：广州市揭阳一中校友会</view>
+  <view class="weui-article__p">开户行：广州银行股份有限公司昌岗路支行</view>
+  <view class="weui-article__p">账号：800228498409019</view>
+
+  <view class="weui-article__h3">2、通过榕江社区微信小程序缴纳</view>
+  <view class="weui-article__p">榕江社区小程序将提供一个会费缴费入口，校友可以通过页面的指引进行支付缴纳会费。</view>
+  <view>
+  <image class="weui-article__img" src="../../images/huifei.jpeg" mode="aspectFit" />
+  </view>
+</view>

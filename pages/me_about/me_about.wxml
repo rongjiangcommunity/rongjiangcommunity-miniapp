@@ -1,6 +1,6 @@
 <!--pages/me_about/me_about.wxml-->
 <view class="weui-article">
-  <view class="weui-article__h1">关于我们</view>
+  <!-- <view class="weui-article__h1">关于我们</view> -->
   <view class="weui-article__p">
   “榕江社区”是揭阳一中广州校友会自主开发、运营的小程序，旨在借助区块链技术，为广大校友营造一个合作共赢、信息共享、组织管理高效的虚拟空间。
   展现给您的这个社区，遵循去中心化思维，让成员在社交网络中发挥自主权，从输入个人资料，到身份确认；从寻找目标，到对方应答；从发起邀约，到交易完成；各项操作均由社区成员自主合作完成。

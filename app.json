@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/me/me",
+    "pages/me_dues/me_dues",
     "pages/register/register",
     "pages/me_info/me_info",
     "pages/me_feedback/me_feedback",

@@ -1,6 +1,6 @@
 <!--pages/me/me.wxml-->
 <navigator url="../me_info/me_info" class="">
-  <view class="weui-cells weui-cells_after-title">
+  <view class="weui-cells">
     <view class="weui-cell">
       <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
         <image src="{{userInfo.avatarUrl}}" style="width: 50px; height: 50px; display: block"/>
@@ -40,7 +40,7 @@
   </view>
 </navigator>
 
-<view class="weui-cells weui-cells_after-title">
+<view class="weui-cells">
   <navigator url="../checklist/checklist" class="weui-cell weui-cell_access" wx:if="{{role==='admin' || role==='CADMIN' || role==='GADMIN' || role==='ADMIN'}}">
       <view class="weui-cell__bd">审核列表</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
@@ -49,8 +49,15 @@
       <view class="weui-cell__bd">反馈建议</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
+</view>
+
+<view class="weui-cells">
+  <navigator url="../me_dues/me_dues" class="weui-cell weui-cell_access">
+    <view class="weui-cell__bd">会费说明</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
   <navigator url="../me_about/me_about" class="weui-cell weui-cell_access">
-      <view class="weui-cell__bd">关于我们</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    <view class="weui-cell__bd">关于我们</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
 </view>
