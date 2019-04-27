@@ -1,44 +1,45 @@
 <!--pages/me/me.wxml-->
-<navigator url="../me_info/me_info" class="">
-  <view class="weui-cells">
-    <view class="weui-cell">
-      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+
+<view class="weui-cells">
+  <view class="weui-cell">
+    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+      <navigator url="../me_info/me_info">
         <image src="{{userInfo.avatarUrl}}" style="width: 50px; height: 50px; display: block"/>
-      </view>
-      <view class="weui-cell__bd">
-        <view>{{name}}</view>
-        <view style="font-size: 13px;color: #888888;">
-          <view wx:if="{{approved}}">
-            <icon type='success' size="15"></icon>
-            <text> 已认证</text>
+      </navigator>
+    </view>
+    <view class="weui-cell__bd">
+      <view>{{name}}</view>
+      <view style="font-size: 13px;color: #888888;">
+        <view wx:if="{{approved}}">
+          <icon type='success' size="15"></icon>
+          <text> 已认证</text>
+        </view>
+        <view wx:if="{{!approved}}">
+          <view wx:if="{{status==='pending'}}">
+            <icon type='waiting' size="15"></icon>
+            <text> 认证中</text>
           </view>
-          <view wx:if="{{!approved}}">
-            <view wx:if="{{status==='pending'}}">
-              <icon type='waiting' size="15"></icon>
-              <text> 认证中</text>
-            </view>
-            <view wx:if="{{status==='notok'}}">
-              <navigator url="../register/register">
-                <view class='weui-flex'>
-                  <icon type="warn" size="15"></icon>
-                  <text> 认证失败</text>
-                  <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
-                </view>
-              </navigator>
-            </view>
-            <navigator wx:if="{{status!=='pending'&&status!=='notok'}}" url="../register/register">
+          <view wx:if="{{status==='notok'}}">
+            <navigator url="../register/register">
               <view class='weui-flex'>
-                <text>去认证</text>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                <icon type="warn" size="15"></icon>
+                <text> 认证失败</text>
+                <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
               </view>
             </navigator>
           </view>
+          <navigator wx:if="{{status!=='pending'&&status!=='notok'}}" url="../register/register">
+            <view class='weui-flex'>
+              <text>去认证</text>
+              <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+          </navigator>
         </view>
       </view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </view>
+    <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
   </view>
-</navigator>
+</view>
 
 <view class="weui-cells">
   <navigator url="../checklist/checklist" class="weui-cell weui-cell_access" wx:if="{{role==='admin' || role==='CADMIN' || role==='GADMIN' || role==='ADMIN'}}">
