@@ -62,7 +62,7 @@
     </view>
     <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
-            <view class="weui-label">同学一</view>
+            <view class="weui-label">同学三</view>
         </view>
         <view class="weui-cell__bd">
           <input name="classmate3" class="weui-input" placeholder=""/>
