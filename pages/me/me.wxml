@@ -6,6 +6,13 @@
         <image src="{{userInfo.avatarUrl}}" style="width: 50px; height: 50px; display: block"/>
       </navigator>
     </view>
+
+    <view class="weui-cell__hd my-info">
+      <navigator url="../me_info/me_info">
+        <view>我的资料</view>
+      </navigator>
+    </view>
+    
     <view class="weui-cell__bd">
       <view>{{name}}</view>
       <view style="font-size: 13px;color: #888888;">
