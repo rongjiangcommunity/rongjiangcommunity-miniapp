@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/me_info/education/list/list",
+    "pages/me_info/me_info",
     "pages/me/me",
     "pages/register/register",
     "pages/me_dues/me_dues",
-    "pages/me_info/me_info",
     "pages/me_feedback/me_feedback",
     "pages/me_about/me_about",
     "pages/me_info/email/email",
@@ -12,8 +13,9 @@
     "pages/me_info/address/address",
     "pages/me_info/education/education",
     "pages/checklist/checklist",
+    "pages/me_info/education/add/add",
+    "pages/me_info/education/edit/edit",
 
-    "pages/me_changeInfo/me_changeInfo",
     "pages/approve/approve",
     "pages/audit_form/audit_form"
   ],
