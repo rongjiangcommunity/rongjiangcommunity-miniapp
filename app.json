@@ -1,8 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/me_info/education/list/list",
+    
     "pages/me_info/me_info",
+    
+    "pages/me_info/workInfo/add/add",
+    "pages/me_info/workInfo/edit/edit",
+    "pages/me_info/workInfo/list/list",
     "pages/me/me",
     "pages/register/register",
     "pages/me_dues/me_dues",
@@ -11,10 +15,10 @@
     "pages/me_info/email/email",
     "pages/me_info/wechat/wechat",
     "pages/me_info/address/address",
-    "pages/me_info/education/education",
     "pages/checklist/checklist",
     "pages/me_info/education/add/add",
     "pages/me_info/education/edit/edit",
+    "pages/me_info/education/list/list",
 
     "pages/approve/approve",
     "pages/audit_form/audit_form"

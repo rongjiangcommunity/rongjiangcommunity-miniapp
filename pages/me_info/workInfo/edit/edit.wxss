@@ -1,0 +1,35 @@
+.page{
+  overflow: hidden;
+  background: #eee;
+  height: 100vh;
+}
+.listItem {
+  position: relative;
+  background:#fff;
+  font-size: 26rpx;
+  padding: 20rpx 30rpx;
+  height: 40rpx;
+  margin-top: 2px;
+}
+.right{
+  float:right;
+  text-align: right;
+}
+.picker{
+  float: right;
+}
+.picker1{
+  display: inline-block;
+}
+.submit{
+  position: absolute;
+  margin-top: 100rpx;
+  left: 50%;
+  width: 300rpx;
+  transform: translateX(-50%);
+  background: #4e85c6;
+  color: #fff;
+}
+.weui-cell__bd {
+  font-size:16px;
+}
