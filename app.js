@@ -890,7 +890,6 @@ App({
   appReady: function() {
     const app = this;
     const credentials = this.getCredentials();
-
     this.appReadyPromise = this.appReadyPromise || new Promise((resolve,reject) => {
       if (!credentials) {
         app.login().then(() => {
@@ -1075,7 +1074,6 @@ App({
    */
   getUserInfo: function(){
     const credentials = this.getCredentials();
-    console.log(credentials);
     return new Promise((resolve, reject) => {
       wx.request({
         url: `${this.serverUrl}/api/user/${credentials}`,
@@ -1084,7 +1082,6 @@ App({
           'Content-Type': 'application/json'
         },
         success(res) {
-          console.log(res)
           const data = res && res.data && res.data.success ? res.data.data : null;
           resolve(data);
         },

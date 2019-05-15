@@ -18,9 +18,6 @@ Page({
   },
   onShow: function(){
     this.checkInfo();
-    // wx.navigateTo({
-    //   url: '../me_info/me_info'
-    // });
   },
   onLoad: function() {
     const ctx = this;
