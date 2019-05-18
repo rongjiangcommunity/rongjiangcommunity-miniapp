@@ -6,7 +6,7 @@ Page({
   pageState: 'index', // index, loading, error
   tab: 'index',
   data: {
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    canIUseButtonOpenType: wx.canIUse('button.open-type.getUserInfo'),
     hasUserInfo: false,
     userInfo: null,
     user: null,
@@ -15,6 +15,11 @@ Page({
     status: '',
   },
   onReady() {
+    const ctx = this;
+    const supported = wx.canIUse('button.open-type.getUserInfo');
+    if (!supported) {
+      this.getWxUserInfo();
+    }
   },
   onShow: function(){
     this.checkInfo();
@@ -52,23 +57,24 @@ Page({
         });
     });
   },
-  
 
   bindGetUserInfo: function(e) {
-    const ctx = this;
     if (e.detail.userInfo){
-      app.getWxUserInfo().then(userInfo => {
-        app.synWxInfo(userInfo);
-        ctx.setData({
-          hasUserInfo: true,
-          userInfo: userInfo,
-        });
-      });
+      return this.getWxUserInfo();
     } else {
       //用户按了拒绝按钮
     }
   },
-
+  getWxUserInfo() {
+    const ctx = this;
+    return app.getWxUserInfo().then(userInfo => {
+      app.synWxInfo(userInfo);
+      ctx.setData({
+        hasUserInfo: true,
+        userInfo: userInfo,
+      });
+    });
+  },
   //事件处理函数
   gotoRegister: function(){
     wx.navigateTo({

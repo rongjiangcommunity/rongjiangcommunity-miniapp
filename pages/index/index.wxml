@@ -1,9 +1,22 @@
 <!--index.wxml-->
+<!-- https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html -->
+<!-- https://developers.weixin.qq.com/miniprogram/dev/component/open-data.html -->
+
+<button
+  wx:if="{{canIUseButtonOpenType}}"
+  hidden="{{hasUserInfo}}"
+  open-type="getUserInfo"
+  bindgetuserinfo="bindGetUserInfo">授权登录</button>
+
 <block wx:if="{{hasUserInfo}}">
 <view class="container">
   <view class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"/>
-    <text class="userinfo-nickname">Hi, {{userInfo.nickName}}</text>
+    <view  class="userinfo-avatar" style="overflow:hidden;">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="userinfo-nickname">Hi,<open-data type="userNickName"></open-data></view>
+    <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"/> -->
+    <!-- <text class="userinfo-nickname">Hi, {{userInfo.nickName}}</text> -->
     <text class="welcom">欢迎来到榕江社区</text>
   </view>
 
@@ -41,10 +54,4 @@
   </view>
 </view>
 </block>
-<button 
-  wx:if="{{canIUse}}" 
-  hidden="{{hasUserInfo}}"
-  open-type="getUserInfo"
-  bindgetuserinfo="bindGetUserInfo">授权登录</button>
 
-<view wx:else>请升级微信版本</view>
