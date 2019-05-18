@@ -20,11 +20,11 @@
 </view>
 
 <view class="weui-cells">
-  <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+  <navigator url="./education/list/list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
     <view class="weui-cell__bd">教育经历</view>
     <view class="weui-cell__ft weui-cell__ft_in-access"><text wx:if="{{!address || !region}}">去完善</text></view>
   </navigator>
-  <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+  <navigator url="./workInfo/list/list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
       <view class="weui-cell__bd">工作经历</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"><text wx:if="{{!address || !region}}">去完善</text></view>
     </navigator>

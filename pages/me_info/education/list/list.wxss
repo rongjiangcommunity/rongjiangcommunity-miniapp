@@ -1,0 +1,48 @@
+.page{
+  overflow: hidden;
+  background: #eee;
+  height: 100vh;
+}
+.listItem {
+  position: relative;
+  background:#fff;
+  padding: 30rpx;
+  height: 80rpx;
+  margin-top: 10rpx;
+}
+.school{
+  font-size: 30rpx;
+}
+.bachelor{
+  font-size: 24rpx;
+  color: #999;
+}
+.timeRange{
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+.editIcon{
+  position: absolute;
+  right: 30rpx;
+  top: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  padding: 20rpx;
+}
+.deleteIcon{
+  position: absolute;
+  right: 30rpx;
+  top: 70rpx;
+  width: 30rpx;
+  height: 30rpx;
+  padding: 20rpx;
+}
+.submit{
+  position: absolute;
+  margin-top: 100rpx;
+  left: 50%;
+  width: 300rpx;
+  transform: translateX(-50%);
+  background: #4e85c6;
+  color: #fff;
+}
