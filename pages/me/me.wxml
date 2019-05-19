@@ -48,7 +48,7 @@
 </view>
 
 <view class="weui-cells">
-  <navigator url="../checklist/checklist" class="weui-cell weui-cell_access" wx:if="{{role==='admin' || role==='CADMIN' || role==='GADMIN' || role==='ADMIN'}}">
+  <navigator url="../checklist/checklist" class="weui-cell weui-cell_access" wx:if="{{role==='admin' || role==='cadmin' || role==='gadmin'}}">
       <view class="weui-cell__bd">审核列表</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>

@@ -6,7 +6,7 @@
           <view class="weui-label">姓名</view>
       </view>
       <view class="weui-cell__bd">
-        <input name="name" disabled='{{editable}}' class="weui-input" placeholder="{{applyInfo.name||'真实姓名'}}" />
+        <input name="name" disabled='{{!editable}}' class="weui-input" placeholder="{{applyInfo.name||'真实姓名'}}" />
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -14,7 +14,7 @@
             <view class="weui-label">微信</view>
         </view>
         <view class="weui-cell__bd">
-          <input name="wechat" disabled='{{editable}}' class="weui-input" placeholder="{{applyInfo.wechat||'微信号码'}}" />
+          <input name="wechat" disabled='{{!editable}}' class="weui-input" placeholder="{{applyInfo.wechat||'微信号码'}}" />
         </view>
       </view>
     <view class="weui-cell weui-cell_input">
@@ -22,7 +22,7 @@
         <view class="weui-label">手机号码</view>
       </view>
       <view class="weui-cell__bd">
-        <input type="number" disabled='{{editable}}' name="mobile" class="weui-input" placeholder="{{applyInfo.mobile||'手机号码'}}" />
+        <input type="number" disabled='{{!editable}}' name="mobile" class="weui-input" placeholder="{{applyInfo.mobile||'手机号码'}}" />
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -30,7 +30,7 @@
           <view class="weui-label">届</view>
       </view>
       <view class="weui-cell__bd">
-        <input name="period" disabled='{{editable}}' type="number" placeholder="{{applyInfo.period||'数字，如89届填89'}}" class="weui-input" />
+        <input name="period" disabled='{{!editable}}' type="number" placeholder="{{applyInfo.period||'数字，如89届填89'}}" class="weui-input" />
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -38,7 +38,7 @@
           <view class="weui-label">高三班级</view>
       </view>
       <view class="weui-cell__bd">
-        <input name="g3" type="number" disabled='{{editable}}'  placeholder="{{applyInfo.g3||'数字，如三班填3'}}" class="weui-input" />
+        <input name="g3" type="number" disabled='{{!editable}}'  placeholder="{{applyInfo.g3||'数字，如三班填3'}}" class="weui-input" />
       </view>
     </view>
   </view>
@@ -49,7 +49,7 @@
           <view class="weui-label">同学一</view>
       </view>
       <view class="weui-cell__bd">
-        <input name="classmate1" disabled='{{editable}}' class="weui-input" placeholder="{{classMates[0] ||'同学'}}"/>
+        <input name="classmate1" disabled='{{!editable}}' class="weui-input" placeholder="{{classMates[0] ||'同学'}}"/>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -57,7 +57,7 @@
           <view class="weui-label">同学二</view>
       </view>
       <view class="weui-cell__bd">
-        <input name="classmate2" disabled='{{editable}}' class="weui-input" placeholder="{{classMates[1] ||'同学'}}"/>
+        <input name="classmate2" disabled='{{!editable}}' class="weui-input" placeholder="{{classMates[1] ||'同学'}}"/>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -65,7 +65,7 @@
           <view class="weui-label">同学三</view>
       </view>
       <view class="weui-cell__bd">
-        <input name="classmate3" disabled='{{editable}}' class="weui-input"  placeholder="{{classMates[2] ||'同学'}}"/>
+        <input name="classmate3" disabled='{{!editable}}' class="weui-input"  placeholder="{{classMates[2] ||'同学'}}"/>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -73,7 +73,7 @@
           <view class="weui-label">备注信息</view>
       </view>
       <view class="weui-cell__bd">
-        <input name="message" disabled='{{editable}}' placeholder="{{applyInfo.message ||'请输入备注信息(非必填）'}}" class="weui-input" />
+        <input name="message" disabled='{{!editable}}' placeholder="{{applyInfo.message ||'请输入备注信息(非必填）'}}" class="weui-input" />
       </view>
     </view>
   </view>
@@ -83,3 +83,4 @@
     <button wx:if="{{status==='pending'}}" disabled class="weui-btn" type="primary">审核中</button>
   </view>
 </form>
+
