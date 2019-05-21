@@ -2,6 +2,8 @@
 const serverUrl = 'https://www.rongjiangcommunity.cn';
 const appid = 'yiz';
 const miniAppId = 'wx6ceb2515d7e20fa3';
+let credentials = '';
+
 App({
   appid,
   serverUrl,
@@ -1071,28 +1073,31 @@ App({
    * 清除 session
    */
   expireCredentials: function() {
-    const credentials = this.getCredentials();
-    if (!credentials) {
-      return;
-    }
-    try {
-      wx.removeStorageSync('credentials');
-      console.log('rm local credentials success!');
-    } catch (e) {
-      console.error(e);
-    }
+    credentials = '';
+    // const credentials = this.getCredentials();
+    // if (!credentials) {
+    //   return;
+    // }
+    // try {
+    //   wx.removeStorageSync('credentials');
+    //   console.log('rm local credentials success!');
+    // } catch (e) {
+    //   console.error(e);
+    // }
   },
   /**
    * 缓存 session 到本地
    */
   setCredentials: function(credentials) {
-    wx.setStorageSync('credentials', credentials);
+    credentials = credentials;
+    // wx.setStorageSync('credentials', credentials);
   },
   /**
    * 从本地取出 session
    */
   getCredentials: function(){
-    return wx.getStorageSync('credentials');
+    return credentials;
+    // return wx.getStorageSync('credentials');
   },
   /**
    * 获取用户微信信息
