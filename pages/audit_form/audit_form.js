@@ -1,3 +1,5 @@
+const app = getApp()
+
 Page({
   onLoad : function(option){
     var self = this;
@@ -8,7 +10,7 @@ Page({
       uid: option.uid,
     })
     console.log('option', this.data.uid)
-    var sid = wx.getStorageSync('credentials');
+    var sid = app.getCredentials();
 
     // sid = "yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597";
     wx.request({
@@ -110,7 +112,7 @@ Page({
       return;
     }
     var radioItem = data.checkitem == 0 ? false : true;
-    var sid = wx.getStorageSync('credentials');
+    var sid = app.getCredentials();
     // sid = "yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597";
     console.log('checkSubmit ', radioItem);
     if (status != "cancel") {

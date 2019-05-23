@@ -1,5 +1,5 @@
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
   /**
@@ -66,7 +66,7 @@ Page({
       title: '上传中',
     })
     wx.request({
-      url: getApp().serverUrl + '/api/user/apply/' + wx.getStorageSync('credentials'),
+      url: getApp().serverUrl + '/api/user/apply/' + app.getCredentials(),
       method: 'POST',
       header: {
         'Content-Type': 'application/json'
@@ -106,6 +106,7 @@ Page({
     })
   },
 
+
   checkInfo: function () {
     app.appReady().then(() => {
       Promise.all([app.getUserInfo(), app.getApplyInfo()])
@@ -119,7 +120,7 @@ Page({
             approved,
             status,
           });
-          this.setClassMates(applyInfo.classmates);
+          this.setClassMates(applyInfo && applyInfo.classmates);
           this.checkIfEditable(approved, status);
         }).catch((err) => {
           console.log(err);

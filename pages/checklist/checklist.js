@@ -1,4 +1,6 @@
 // pages/checklist/checklist.js
+const app = getApp();
+
 Page({
 
   /**
@@ -71,14 +73,11 @@ Page({
 
   getProList: function () {
     var self = this;
-    var sid = wx.getStorageSync('credentials');
-    // sid = "yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597";
-    console.log("getProList ", sid)
+    var sid = app.getCredentials();
     wx.request({
       url: getApp().serverUrl + '/api/user/reviewlist/' + sid,
       method: 'GET',
       success: function (res) {
-        console.log("getProList", res);
         self.setData({
           proList: res.data.data,
         });
@@ -108,7 +107,7 @@ Page({
       return;
     }
     var radioItem = data.checkitem == 0 ? false : true;
-    var sid = wx.getStorageSync('credentials');
+    var sid = app.getCredentials();
     // sid = "yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597";
     console.log('checkSubmit ', radioItem);
     if (status != "cancel") {

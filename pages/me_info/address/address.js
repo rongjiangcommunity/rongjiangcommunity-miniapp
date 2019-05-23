@@ -6,7 +6,6 @@ Page({
     address: '',
   },
   handleInput: function(e){
-    console.log(e.detail.value);
     this.setData({ address: e.detail.value})
   },
   handleSubmit: function(){
