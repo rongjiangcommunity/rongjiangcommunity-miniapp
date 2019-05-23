@@ -48,9 +48,15 @@ Page({
     app.appReady().then(_ => {
       return app.getUserInfo().then(data => {
         if(data) {
+          const o = {};
+          if (data.personalStatus) {
+            o.statusIndex = data.personalStatus;
+          }
+          if (data.gender) {
+            o.genderIndex = genderValues[data.gender];
+          }
           this.setData({
-            statusIndex: data.personalStatus,
-            genderIndex: genderValues[data.gender],
+            ...o,
             ...data
           });
         }
@@ -59,7 +65,6 @@ Page({
   },
 
   getPhoneNumber(e) {
-    console.dir(e);
     if (e.detail.encryptedData && e.detail.iv) {
       app.wxDecrypt(e.detail.encryptedData, e.detail.iv).then(data => {
         if (data) {

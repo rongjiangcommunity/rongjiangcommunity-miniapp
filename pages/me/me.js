@@ -25,7 +25,7 @@ Page({
         const approved = user && user.approved === 'true';
         const status = applyInfo ? applyInfo.status : '';
         const name = user && user.name || applyInfo && applyInfo.name || '';
-        const role = user && user.role;
+        const role = user && user.role || '';
         ctx.setData({
           approved,
           status,

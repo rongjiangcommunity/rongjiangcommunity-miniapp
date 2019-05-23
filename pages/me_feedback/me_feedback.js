@@ -1,4 +1,5 @@
 // pages/me_feedback/me_feedback.js
+const app = getApp();
 Page({
 
   /**
@@ -19,7 +20,6 @@ Page({
     // this.subFeed()
   },
   handleInput: function(e){
-    console.log(e.detail)
     this.setData({ inputText:e.detail.value})
   },
   handleSubmit: function(){
@@ -41,7 +41,7 @@ Page({
   subFeed: function(message){
     let that = this;
     wx.request({
-      url: getApp().serverUrl + '/api/user/feedback/' + wx.getStorageSync('credentials'),
+      url: getApp().serverUrl + '/api/user/feedback/' + app.getCredentials(),
       method: 'POST',
       header: {
         'Content-Type': 'application/json'

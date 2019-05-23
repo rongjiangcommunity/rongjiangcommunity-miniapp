@@ -2,9 +2,9 @@
 const serverUrl = 'https://www.rongjiangcommunity.cn';
 const appid = 'yiz';
 const miniAppId = 'wx6ceb2515d7e20fa3';
-let credentials = '';
 
 App({
+  credentials: '',
   appid,
   serverUrl,
   collegeObj: {
@@ -1073,7 +1073,7 @@ App({
    * 清除 session
    */
   expireCredentials: function() {
-    credentials = '';
+    this.credentials = '';
     // const credentials = this.getCredentials();
     // if (!credentials) {
     //   return;
@@ -1089,14 +1089,14 @@ App({
    * 缓存 session 到本地
    */
   setCredentials: function(credentials) {
-    credentials = credentials;
+    this.credentials = credentials;
     // wx.setStorageSync('credentials', credentials);
   },
   /**
    * 从本地取出 session
    */
   getCredentials: function(){
-    return credentials;
+    return this.credentials;
     // return wx.getStorageSync('credentials');
   },
   /**
