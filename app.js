@@ -1074,30 +1074,18 @@ App({
    */
   expireCredentials: function() {
     this.credentials = '';
-    // const credentials = this.getCredentials();
-    // if (!credentials) {
-    //   return;
-    // }
-    // try {
-    //   wx.removeStorageSync('credentials');
-    //   console.log('rm local credentials success!');
-    // } catch (e) {
-    //   console.error(e);
-    // }
   },
   /**
    * 缓存 session 到本地
    */
   setCredentials: function(credentials) {
     this.credentials = credentials;
-    // wx.setStorageSync('credentials', credentials);
   },
   /**
    * 从本地取出 session
    */
   getCredentials: function(){
     return this.credentials;
-    // return wx.getStorageSync('credentials');
   },
   /**
    * 获取用户微信信息
