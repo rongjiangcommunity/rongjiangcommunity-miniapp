@@ -19,7 +19,9 @@
     "pages/me_info/education/add/add",
     "pages/me_info/education/edit/edit",
     "pages/me_info/education/list/list",
-
+    "pages/appointment/list",
+    "pages/appointment/form",
+    "pages/appointment/content",
     "pages/approve/approve",
     "pages/audit_form/audit_form"
   ],
