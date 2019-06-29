@@ -8,7 +8,7 @@
 </view>
 <view style='display:{{displays}}'>
   <view class='item-list'>
-    <view class='check-item' wx:for="{{proList}}" wx:key="{{item.uid}}" data-color='{{item.color}}' data-id='{{item.uid}}' data-index='{{index}}' bindtap='toDetail'>
+    <view class='check-item' wx:for="{{bookList}}" wx:key="{{item.uid}}" data-color='{{item.color}}' data-id='{{item.uid}}' data-index='{{index}}' bindtap='toDetail'>
       <view class='weui-article__title'>{{item.user.name}} {{item.user.period}}届</view>
       <view class="check-body">
         <view class="weui-media-box__desc">预约医生：{{item.dr_name}}</view>
@@ -21,7 +21,7 @@
     </view>
   </view>
 
-  <view wx:if="{{!proList||!proList.length}}">
+  <view wx:if="{{!bookList||!bookList.length}}">
     <view class='ant-empty'>
       <image class='ant-empty__img' src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTg0IiBoZWlnaHQ9IjE1MiIgdmlld0JveD0iMCAwIDE4NCAxNTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI0IDMxLjY3KSI+CiAgICAgIDxlbGxpcHNlIGZpbGwtb3BhY2l0eT0iLjgiIGZpbGw9IiNGNUY1RjciIGN4PSI2Ny43OTciIGN5PSIxMDYuODkiIHJ4PSI2Ny43OTciIHJ5PSIxMi42NjgiLz4KICAgICAgPHBhdGggZD0iTTEyMi4wMzQgNjkuNjc0TDk4LjEwOSA0MC4yMjljLTEuMTQ4LTEuMzg2LTIuODI2LTIuMjI1LTQuNTkzLTIuMjI1aC01MS40NGMtMS43NjYgMC0zLjQ0NC44MzktNC41OTIgMi4yMjVMMTMuNTYgNjkuNjc0djE1LjM4M2gxMDguNDc1VjY5LjY3NHoiIGZpbGw9IiNBRUI4QzIiLz4KICAgICAgPHBhdGggZD0iTTEwMS41MzcgODYuMjE0TDgwLjYzIDYxLjEwMmMtMS4wMDEtMS4yMDctMi41MDctMS44NjctNC4wNDgtMS44NjdIMzEuNzI0Yy0xLjU0IDAtMy4wNDcuNjYtNC4wNDggMS44NjdMNi43NjkgODYuMjE0djEzLjc5Mmg5NC43NjhWODYuMjE0eiIgZmlsbD0idXJsKCNsaW5lYXJHcmFkaWVudC0xKSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTMuNTYpIi8+CiAgICAgIDxwYXRoIGQ9Ik0zMy44MyAwaDY3LjkzM2E0IDQgMCAwIDEgNCA0djkzLjM0NGE0IDQgMCAwIDEtNCA0SDMzLjgzYTQgNCAwIDAgMS00LTRWNGE0IDQgMCAwIDEgNC00eiIgZmlsbD0iI0Y1RjVGNyIvPgogICAgICA8cGF0aCBkPSJNNDIuNjc4IDkuOTUzaDUwLjIzN2EyIDIgMCAwIDEgMiAyVjM2LjkxYTIgMiAwIDAgMS0yIDJINDIuNjc4YTIgMiAwIDAgMS0yLTJWMTEuOTUzYTIgMiAwIDAgMSAyLTJ6TTQyLjk0IDQ5Ljc2N2g0OS43MTNhMi4yNjIgMi4yNjIgMCAxIDEgMCA0LjUyNEg0Mi45NGEyLjI2MiAyLjI2MiAwIDAgMSAwLTQuNTI0ek00Mi45NCA2MS41M2g0OS43MTNhMi4yNjIgMi4yNjIgMCAxIDEgMCA0LjUyNUg0Mi45NGEyLjI2MiAyLjI2MiAwIDAgMSAwLTQuNTI1ek0xMjEuODEzIDEwNS4wMzJjLS43NzUgMy4wNzEtMy40OTcgNS4zNi02LjczNSA1LjM2SDIwLjUxNWMtMy4yMzggMC01Ljk2LTIuMjktNi43MzQtNS4zNmE3LjMwOSA3LjMwOSAwIDAgMS0uMjIyLTEuNzlWNjkuNjc1aDI2LjMxOGMyLjkwNyAwIDUuMjUgMi40NDggNS4yNSA1LjQydi4wNGMwIDIuOTcxIDIuMzcgNS4zNyA1LjI3NyA1LjM3aDM0Ljc4NWMyLjkwNyAwIDUuMjc3LTIuNDIxIDUuMjc3LTUuMzkzVjc1LjFjMC0yLjk3MiAyLjM0My01LjQyNiA1LjI1LTUuNDI2aDI2LjMxOHYzMy41NjljMCAuNjE3LS4wNzcgMS4yMTYtLjIyMSAxLjc4OXoiIGZpbGw9IiNEQ0UwRTYiLz4KICAgIDwvZz4KICAgIDxwYXRoIGQ9Ik0xNDkuMTIxIDMzLjI5MmwtNi44MyAyLjY1YTEgMSAwIDAgMS0xLjMxNy0xLjIzbDEuOTM3LTYuMjA3Yy0yLjU4OS0yLjk0NC00LjEwOS02LjUzNC00LjEwOS0xMC40MDhDMTM4LjgwMiA4LjEwMiAxNDguOTIgMCAxNjEuNDAyIDAgMTczLjg4MSAwIDE4NCA4LjEwMiAxODQgMTguMDk3YzAgOS45OTUtMTAuMTE4IDE4LjA5Ny0yMi41OTkgMTguMDk3LTQuNTI4IDAtOC43NDQtMS4wNjYtMTIuMjgtMi45MDJ6IiBmaWxsPSIjRENFMEU2Ii8+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDkuNjUgMTUuMzgzKSIgZmlsbD0iI0ZGRiI+CiAgICAgIDxlbGxpcHNlIGN4PSIyMC42NTQiIGN5PSIzLjE2NyIgcng9IjIuODQ5IiByeT0iMi44MTUiLz4KICAgICAgPHBhdGggZD0iTTUuNjk4IDUuNjNIMEwyLjg5OC43MDR6TTkuMjU5LjcwNGg0Ljk4NVY1LjYzSDkuMjU5eiIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cg=="/>
     </view>
@@ -29,9 +29,9 @@
   </view>
 </view>
 <view class="{{selected_0?'show':'hidden'}}">
-  <checkbox-group>
-    <label wx:for="{{status}}" wx:key="name" class="status_item">
-      <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+  <checkbox-group bindtap="checkboxChange" >
+    <label data-status="{{key}}" wx:for="{{statusRef}}" wx:key="this" class="status_item" wx:for-index='key'>
+      <checkbox value="{{key}}" checked="{{item.checked}}"/>{{item.label}}
     </label>
   </checkbox-group>
   <view class="weui-btn-area">
@@ -39,13 +39,13 @@
   </view>
 </view>
 <view class="{{selected_1?'show':'hidden'}}">
-  <picker mode="date" class="date-picker" value="{{beginDate}}" id="beginDate" bindchange="bindDateChange">
+  <picker mode="date" class="date-picker" value="{{beginDate}}" id="beginDate" bindchange="dateChange">
     <view class="picker">
       开始日期: {{beginDate}}
     </view>
     <image src='/images/icons/date.png' class='.icon-date' mode='scaleToFill'></image>
   </picker>
-  <picker mode="date" class="date-picker" value="{{endDate}}" id="endDate" bindchange="bindDateChange">
+  <picker mode="date" class="date-picker" value="{{endDate}}" id="endDate" bindchange="dateChange">
     <view class="picker">
       结束日期: {{endDate}}
     </view>
