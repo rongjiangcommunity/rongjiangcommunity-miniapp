@@ -71,3 +71,23 @@ page{
   margin-top: 100rpx;
   color: #22cc22;
 }
+
+.item_wait{
+  color : #169BD5;
+}
+
+.item_active{
+  color : #169BD5;
+}
+
+.item_completed{
+  color : #009966;
+}
+
+.item_failed{
+  color : #FF4D57;
+}
+
+.item_cancel{
+  color : #666666;
+}

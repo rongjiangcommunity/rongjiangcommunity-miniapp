@@ -14,9 +14,9 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-//字符串日期格式 yyyy-MM-dd       
+//字符串日期格式转为时间戳 yyyy-MM-dd       
 const stringToTimestamp = strTime => {
-  new Date(Date.parse(strTime.replace(/-/g, "/")));
+  return new Date(Date.parse(strTime.replace(/-/g, "/"))).getTime();
 }
 
 module.exports = {

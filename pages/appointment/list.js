@@ -2,7 +2,6 @@ const app = getApp();
 const timeUtil = require('../../utils/util.js');
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -11,7 +10,7 @@ Page({
     displays   : 'block', // 显示列表页标识
     selected_0 : false,   // 显示状态筛选标识
     selected_1 : false,   // 显示时间筛选标识
-    statusRef  : {
+    statusRef  : {        // label为后台传来状态值对应中文名,checked为默认查询状态
       wait      : {
         label   : '待受理',
         checked : true,
@@ -33,13 +32,13 @@ Page({
         checked : true,
       }, 
     },
-    beginDate   : '',//开始日期
-    endDate     : '',//结束日期
+    beginDate   : '', // 查询开始日期
+    endDate     : '', // 查询结束日期
   },
   onLoad: function (options) {
     this.getBookList();
   },
-  //获取预约数据 todo
+  //获取预约数据 
   getBookList: function () {
     var self  = this;
     var sid   = app.getCredentials();
@@ -63,10 +62,10 @@ Page({
   getQueryParam : function(){
     var res = {};
     if (this.data.beginDate){
-      res.start = timeUtil.stringToTimestamp(this.beginDate);
+      res.start = timeUtil.stringToTimestamp(this.data.beginDate);
     }
     if (this.data.endDate) {
-      res.end = timeUtil.stringToTimestamp(this.endDate);
+      res.end = timeUtil.stringToTimestamp(this.data.endDate);
     }
     const arr = [];
     for (var k in this.data.statusRef){
@@ -76,11 +75,6 @@ Page({
     }
     res.status = arr.join(',');
     return res;
-  },
-  toDetail: function (e) {
-    wx.navigateTo({
-      url: '../audit_form/audit_form?uid=' + e.target.dataset.uid
-    });
   },
   //隐藏查询区域
   hideNav: function () {
@@ -93,6 +87,7 @@ Page({
       this.getBookList();
     }
   },
+  //检查是否有选择状态进行查询
   checkStatus : function(){
     for (var k in this.data.statusRef){
       if (this.data.statusRef[k].checked){
@@ -128,9 +123,10 @@ Page({
   toDetail : function(e){
     const dataset = e.currentTarget.dataset;
     wx.navigateTo({
-      url: 'form?id=' + dataset.id + '&color=' + dataset.color
+      url: 'form?id=' + dataset.id + '&jsonStr=' + JSON.stringify(this.data.statusRef)
     });
   },
+  //多选框事件
   checkboxChange : function(e){
     const status = e.target.dataset.status;
     if (status){
@@ -140,6 +136,7 @@ Page({
       })
     }
   },
+  //日期控件改变事件
   dateChange : function(e){
     this.setData({
       [e.currentTarget.id]: e.detail.value

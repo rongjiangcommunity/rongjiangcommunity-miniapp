@@ -1,23 +1,23 @@
 <form class="audit-form" bindsubmit="formSubmit">
   <view class="section">
     <view class="item-left">已选医生</view>
-    <view class="item-right">蔡医师 教授</view>
+    <view class="item-right">{{appointment.dr_name}}</view>
   </view>
   <view class="section">
     <view class="item-left">所属医院</view>
-    <view class="item-right">中山大学附属第三医院</view>
+    <view class="item-right">{{appointment.dr_hospital}}</view>
   </view>
   <view class="section">
     <view class="item-left">所属科室</view>
-    <view class="item-right">超声介入专科</view>
+    <view class="item-right">{{appointment.dr_department}}</view>
   </view>
   <view class="section">
     <view class="item-left">预约人</view>
-    <view class="item-right">黄少雄</view>
+    <view class="item-right">{{appointment.user.name}}</view>
   </view>
   <view class="section">
     <view class="item-left">届别</view>
-    <view class="item-right">89</view>
+    <view class="item-right">{{appointment.user.period}}</view>
   </view>
   <view class="section">
     <view class="item-left">预约类型</view>
@@ -25,13 +25,11 @@
   </view>
   <view class="section">
     <view class="item-left">预约时间</view>
-    <view class="item-right">2019-05-25 10：00：00</view>
+    <view class="item-right">{{appointment.reg_date}}</view>
   </view>
   <view class="section">
     <view class="item-left">需求描述</view>
-    <textarea>
-      这是需求描述这是需求描述这是需求描述这是需求描述这是需求描述这是需求描述这是需求描述这是需求描述这是需求描述
-    </textarea>
+    <textarea value='{{appointment.note}}'/>
   </view>
   <view class="section close" bindtap="closeContent">
     关闭

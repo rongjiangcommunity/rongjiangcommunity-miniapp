@@ -1,34 +1,27 @@
-const app = getApp()
+const app = getApp();
 
 Page({
   onLoad : function(option){
-    //todo
     var self = this;
     wx.showLoading({
       title: '加载中',
     })
-    this.setData({
-      id   : option.id,
-      color: option.color
+    self.setData({
+      id        : option.id,
+      statusRef : JSON.parse(option.jsonStr)
     })
     var sid = app.getCredentials();
     wx.request({
-      url: getApp().serverUrl + '/api/user/review/' + sid + '/' + option.id,
+      url: getApp().serverUrl + '/api/doctor/admin/booking/' + sid + '/' + option.id,
       method: 'GET',
-      header: {
-        'Content-Type': 'application/json'
-      },
       success(res) {
         wx.hideLoading();
         console.log(res.data)
         if (res.data.success) {
-          var student = res.data.data;
-          var friends = student.classmates.split(',');
-          for(var i=0;i<friends.length;i++){
-            student['f' + (i + 1)] = friends[i];
-          }
+          var appointment = res.data.data;
+          appointment.statusLabel = self.data.statusRef[appointment.status].label;
           self.setData({
-            student: student,
+            appointment: appointment,
           })
         } else {
           wx.showToast({
@@ -52,11 +45,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showModal: false,
-    student : {},
+    appointment : {},
+    statusRef   : {},
     radioItem: null,
-    id:'',
-    color : '#000'
+    id:''
   },
   //拨打医生电话
   phoneCall : function(e){
@@ -65,7 +57,7 @@ Page({
     })
   },
   //撤销申请todo
-  cancelAppoinment : function(){
+  cancelAppointment : function(){
     wx.showModal({
       title       : '撤销申请',
       cancelText  : '再想想',
@@ -77,7 +69,7 @@ Page({
     })
   },
   //更新受理结果todo
-  updateAppoinment: function () {
+  updateAppointment: function () {
     wx.showModal({
       title: '更新受理结果',
       cancelText: '再想想',
@@ -91,7 +83,7 @@ Page({
   //去内容页todo
   toContent: function (e) {
     wx.navigateTo({
-      url: 'content'
+      url: 'content?jsonStr=' + JSON.stringify(this.data.appointment)
     });
   },
 })
