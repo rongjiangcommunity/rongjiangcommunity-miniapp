@@ -50,11 +50,12 @@ page{
 .btn-submit{
   width:280rpx;
   display:inline-block;
-  margin:20rpx auto 0rpx 50rpx;
+  margin:2rpx;
 }
 
 .btn-area{
   background-color:#fff;
+  text-align:center;
 }
 
 .tip{

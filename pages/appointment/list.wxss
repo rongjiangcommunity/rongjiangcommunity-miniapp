@@ -21,7 +21,7 @@
 
 .check-body{
   margin-top: 16rpx;
-  width: 80%;
+  width: 75%;
   display: inline-block;
   vertical-align: top;
 }
@@ -67,7 +67,7 @@
   background-color:#3EAF0E;
 }
 .check-right{
-  width: 20%;
+  width: 25%;
   display: inline-block;
   vertical-align: top;
 }

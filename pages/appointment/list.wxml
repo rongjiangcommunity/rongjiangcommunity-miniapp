@@ -8,7 +8,7 @@
 </view>
 <view style='display:{{displays}}'>
   <view class='item-list'>
-    <view class='check-item' wx:for="{{bookList}}" wx:key="{{item.id}}" data-color='{{item.color}}' data-id='{{item.id}}' data-index='{{index}}' bindtap='toDetail'>
+    <view class='check-item' wx:for="{{bookList}}" wx:key="{{item.id}}" data-id='{{item.id}}' data-index='{{index}}' bindtap='toDetail'>
       <view class='weui-article__title'>{{item.user.name}} {{item.user.period}}届</view>
       <view class="check-body">
         <view class="weui-media-box__desc">预约医生：{{item.dr_name}}</view>

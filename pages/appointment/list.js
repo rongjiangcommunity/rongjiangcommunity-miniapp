@@ -1,5 +1,5 @@
 const app = getApp();
-const timeUtil = require('../../utils/util.js');
+const util = require('../../utils/util.js');
 
 Page({
   /**
@@ -35,7 +35,7 @@ Page({
     beginDate   : '', // 查询开始日期
     endDate     : '', // 查询结束日期
   },
-  onLoad: function (options) {
+  onShow: function (options) {
     this.getBookList();
   },
   //获取预约数据 
@@ -62,10 +62,10 @@ Page({
   getQueryParam : function(){
     var res = {};
     if (this.data.beginDate){
-      res.start = timeUtil.stringToTimestamp(this.data.beginDate);
+      res.start = util.stringToTimestamp(this.data.beginDate);
     }
     if (this.data.endDate) {
-      res.end = timeUtil.stringToTimestamp(this.data.endDate);
+      res.end = util.stringToTimestamp(this.data.endDate);
     }
     const arr = [];
     for (var k in this.data.statusRef){

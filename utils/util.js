@@ -19,7 +19,40 @@ const stringToTimestamp = strTime => {
   return new Date(Date.parse(strTime.replace(/-/g, "/"))).getTime();
 }
 
+const send = param =>{
+  wx.showLoading({
+    title: param.loading||'加载中',
+  })
+  wx.request({
+    url    : getApp().serverUrl + param.url,
+    method : param.method,
+    data   : param.data||{},
+    success(res) {
+      wx.hideLoading();
+      console.log(res);
+      if (res.data.success) {
+        param.callback(res);
+      } else {
+        wx.showToast({
+          title: param.errorMess,
+          icon: 'none',
+          duration: 3000
+        })
+      }
+    },
+    fail() {
+      wx.hideLoading();
+      wx.showToast({
+        title: param.errorMess||'请求失败',
+        icon: 'none',
+        duration: 3000
+      })
+    }
+  });
+} 
+
 module.exports = {
-  formatTime: formatTime,
-  stringToTimestamp: stringToTimestamp
+  formatTime        : formatTime,
+  stringToTimestamp : stringToTimestamp,
+  send              : send,
 }
