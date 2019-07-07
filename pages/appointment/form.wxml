@@ -1,6 +1,7 @@
 <form class="audit-form" bindsubmit="formSubmit">
   <view class="section">
     <view class="item-left">预约人</view>
+<<<<<<< HEAD
     <view class="item-right">{{student.name}}</view>
   </view>
   <view class="section">
@@ -18,12 +19,36 @@
   <view class="section">
     <view class="item-left">医生电话</view>
     <view class="item-right" bindtap='phoneCall' data-phone='13631315179'>13631315179(点击联系)</view>
+=======
+    <view class="item-right">{{appointment.user.name}}</view>
+  </view>
+  <view class="section">
+    <view class="item-left">手机号</view>
+    <view class="item-right" bindtap='phoneCall' data-phone='{{appointment.user.phoneNumber}}'>{{appointment.user.phoneNumber}}(点击联系)</view>
+  </view>
+  <view class="section">
+    <view class="item-left">预约状态</view>
+    <view class="item-right  {{'item_'+appointment.status}}">{{appointment.statusLabel}}</view>
+  </view>
+  <view class="section">
+    <view class="item-left">预约时间</view>
+    <view class="item-right">{{appointment.reg_date}}</view>
+  </view>
+  <view class="section">
+    <view class="item-left">申请时间</view>
+    <view class="item-right">{{appointment.create_time}}</view>
+  </view>
+  <view class="section">
+    <view class="item-left">医生电话</view>
+    <view class="item-right" bindtap='phoneCall' data-phone='{{appointment.dr_mobile}}'>{{appointment.dr_mobile}}(点击联系)</view>
+>>>>>>> f9a1ac965600287056fdc41c9b19609afad36447
   </view>
   <view class="section">
     <view class="item-left">预约内容</view>
     <view class="item-right" bindtap='toContent'>查看></view>
   </view>
   <view class="blank-line"><view class="tip-left">受理结果</view></view>
+<<<<<<< HEAD
   <view class="tip">最新更新时间：2019-05-25 10：00：00</view>
   <radio-group>
   <view class="section">
@@ -37,13 +62,35 @@
   <view class="section">
     <view class="item-left">预约失败(约不到医生)</view>
     <radio class="item-right"/>
+=======
+  <view class="tip">最新更新时间：{{appointment.update_time}}</view>
+  <radio-group bindchange="statusChange">
+  <view class="section">
+    <view class="item-left">受理中(表示接受申请)</view>
+    <radio class="item-right" value="active" checked = "{{appointment.status == 'active'}}"/>
+  </view>
+  <view class="section">
+    <view class="item-left">预约成功(已预约到医生)</view>
+    <radio class="item-right" value="completed" checked = "{{appointment.status == 'completed'}}"/>
+  </view>
+  <view class="section">
+    <view class="item-left">预约失败(约不到医生)</view>
+    <radio class="item-right" value="failed" checked = "{{appointment.status == 'failed'}}" />
+>>>>>>> f9a1ac965600287056fdc41c9b19609afad36447
   </view>
   </radio-group>
   <view class="blank-line"><view class="tip-left">受理反馈</view></view>
   <view class="tip">每次更新受理结果都会同步最新的受理内容</view>
+<<<<<<< HEAD
   <textarea class="remarks" maxlength="-1" placeholder="请输入当前的受理反馈，对方将看到您的受理反馈"/>
   <view class="btn-area">
     <button class="btn-submit btn-cancel" bindtap="cancelAppoinment">撤销申请</button>
     <button class="btn-submit btn-confirm" bindtap="updateAppoinment">更新受理结果</button>
+=======
+  <textarea class="remarks" maxlength="-1" placeholder="请输入当前的受理反馈，对方将看到您的受理反馈" value='{{appointment.fb_note}}' bindinput="noteChange"/>
+  <view class="btn-area">
+    <button class="btn-submit btn-cancel" bindtap="cancelAppointment" wx:if="{{appointment.status == 'wait'||appointment.status == 'active'}}">撤销申请</button>
+    <button class="btn-submit btn-confirm" bindtap="updateAppointment">更新受理结果</button>
+>>>>>>> f9a1ac965600287056fdc41c9b19609afad36447
   </view>
 </form>

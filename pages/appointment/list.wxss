@@ -21,7 +21,11 @@
 
 .check-body{
   margin-top: 16rpx;
+<<<<<<< HEAD
   width: 80%;
+=======
+  width: 75%;
+>>>>>>> f9a1ac965600287056fdc41c9b19609afad36447
   display: inline-block;
   vertical-align: top;
 }
@@ -67,7 +71,11 @@
   background-color:#3EAF0E;
 }
 .check-right{
+<<<<<<< HEAD
   width: 20%;
+=======
+  width: 25%;
+>>>>>>> f9a1ac965600287056fdc41c9b19609afad36447
   display: inline-block;
   vertical-align: top;
 }
@@ -95,4 +103,27 @@
 
 .date-picker{
   position:relative;
+<<<<<<< HEAD
+=======
+}
+
+.item_wait{
+  color : #169BD5;
+}
+
+.item_active{
+  color : #169BD5;
+}
+
+.item_completed{
+  color : #009966;
+}
+
+.item_failed{
+  color : #FF4D57;
+}
+
+.item_cancel{
+  color : #666666;
+>>>>>>> f9a1ac965600287056fdc41c9b19609afad36447
 }

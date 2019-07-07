@@ -50,11 +50,19 @@ page{
 .btn-submit{
   width:280rpx;
   display:inline-block;
+<<<<<<< HEAD
   margin:20rpx auto 0rpx 50rpx;
+=======
+  margin:2rpx;
+>>>>>>> f9a1ac965600287056fdc41c9b19609afad36447
 }
 
 .btn-area{
   background-color:#fff;
+<<<<<<< HEAD
+=======
+  text-align:center;
+>>>>>>> f9a1ac965600287056fdc41c9b19609afad36447
 }
 
 .tip{
@@ -71,3 +79,26 @@ page{
   margin-top: 100rpx;
   color: #22cc22;
 }
+<<<<<<< HEAD
+=======
+
+.item_wait{
+  color : #169BD5;
+}
+
+.item_active{
+  color : #169BD5;
+}
+
+.item_completed{
+  color : #009966;
+}
+
+.item_failed{
+  color : #FF4D57;
+}
+
+.item_cancel{
+  color : #666666;
+}
+>>>>>>> f9a1ac965600287056fdc41c9b19609afad36447
