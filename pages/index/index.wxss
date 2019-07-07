@@ -2,14 +2,40 @@
 
 .bottom-action {
   position: absolute;
+  width:90%;
+  text-align:center;
   bottom: 200rpx;
   color: #999;
 }
-.register_btn{
-  /* color:rgba(255, 255, 255, 0.6); */
-  /* background-color:#179B16; */
-  /* letter-spacing: 5rpx; */
-  /* text-align: center; */
+.doctor-box{
+  position: relative;
+  height: 150rpx;
+  background: #fff;
+}
+.doctor-img{
+  width: 90rpx;
+  height: 90rpx;
+  margin: 30rpx;
+  float: left;
+}
+.doctor-title{
+  position: absolute;
+  top: 30rpx;
+  left: 150rpx;
+  font-size: 34rpx;
+}
+.doctor-detail{
+  position: absolute;
+  top: 80rpx;
+  left: 150rpx;
+  font-size: 28rpx;
+}
+.doctor-raw{
+  position: absolute;
+  right: 30rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28rpx;
 }
 
 .userinfo {
@@ -25,23 +51,4 @@
   border-radius: 50%;
 }
 
-/* .userinfo-nickname,.welcom, .tipInfo {
-  font-size: 32rpx;
-} */
-/* .tipInfo{
-  position: absolute;
-  bottom: 250rpx;
-  margin-top: 100rpx;
-}
-.tip{
-  font-size:30rpx;
-  color:grey;
-} */
-/* .register_btn{
-  position: absolute;
-  bottom: 130rpx;
-  background: #4e85c6;
-  color: #fff;
-  letter-spacing: 5rpx;
-} */
 

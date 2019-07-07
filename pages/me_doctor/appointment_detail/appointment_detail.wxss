@@ -1,0 +1,45 @@
+.text{
+  font-size: 20rpx;
+  margin-left: 35rpx;
+}
+.submit{
+  display: block;
+  width: 400rpx;
+  height: 80rpx;
+  margin: 50rpx auto;
+  background: rgba(22, 155, 213, 1);
+  color: #ffffff;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  letter-spacing: 2px;
+}
+.me_appoint_time{
+  display: inline-block;
+  font-size: 24rpx;
+  margin-left: 30rpx;
+}
+.me_appoint_info{
+  font-size: 24rpx;
+}
+.me_appoint_title{
+  font-size: 24rpx;
+}
+.me_appoint_p{
+  font-size: 22rpx;
+}
+.me_appoint_mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6)
+}
+.close_mask{
+  text-align:center;
+  padding:25rpx;
+}
+.me_appoint_mask_content{
+  position: absolute;
+  bottom: 0;
+}

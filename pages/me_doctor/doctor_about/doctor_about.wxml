@@ -1,0 +1,24 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">说明 :</view>
+                    <view class="weui-article__p">
+                        一、揭阳一中在广州医疗系统有二百多位校友，其中不乏专家名医，他们热心用自己精湛医术为校友或校友亲朋戚友提供帮助。而广大校友时不时有寻访名医的需求，或遇上挂不到专家号的窘况。为此，“榕江社区”小程序开设“寻医问药板块”提供对接服务。首期有十二位校友医生自愿报名，后续将有更多医生加入。
+                    </view>
+                    <view class="weui-article__p">
+                        二、如果有需要看病的校友在其它渠道上无法挂到上述十二位医生的号，或需要通过这些医生去寻找其它名医，可以通过“榕江社区微信小程序”在“寻医问药板块”上进行登记预约。
+                    </view>
+                    <view class="weui-article__p">
+                        三、校友会秘书处通过查看后台，负责与校友医生沟通，沟通之后由患者自行至医院挂号看病。医院挂号、药费等由患者自行按就诊医院规定办理。
+四、医生们不收取患者任何钱物，他们将“以自己的精湛医术为广大校友做公益”。
+                    </view>
+                    <view class="weui-article__p">
+                        四、温馨提示：通过“寻医问药”获得满意服务者，自愿捐款每人每次100元左右用于平台维护及其它公益。收到捐款后将开出由财政部门监制的正式“捐款收据”，详情请与黄汉光联系。
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

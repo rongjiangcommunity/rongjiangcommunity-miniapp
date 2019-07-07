@@ -1,0 +1,15 @@
+.text{
+  font-size: 20rpx;
+  margin-left: 35rpx;
+}
+.submit{
+  display: block;
+  width: 400rpx;
+  height: 80rpx;
+  margin: 50rpx auto;
+  background: rgba(22, 155, 213, 1);
+  color: #ffffff;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  letter-spacing: 2px;
+}
