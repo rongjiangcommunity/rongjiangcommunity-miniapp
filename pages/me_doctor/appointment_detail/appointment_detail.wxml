@@ -1,0 +1,127 @@
+<!--pages/me_feedback/me_feedback.wxml-->
+<view class="page">
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">预约状态</view>
+            <view class="weui-cell__ft">{{dictionary[appointment.status]}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">预约时间</view>
+            <view class="weui-cell__ft">{{appointment.reg_date}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">创建时间</view>
+            <view class="weui-cell__ft">{{appointment.create_time}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">预约内容</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access" bindtap='onShowMask'>查看</view>
+        </view>
+    </view>
+
+    <view class="weui-cell">
+        受理结果
+        <view class="me_appoint_time">最新更新时间：{{appointment.update_time}}</view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title" wx:if="{{appointment.fb_note}}">
+        <view class="weui-cell me_appoint_info">
+            {{appointment.fb_note}}
+        </view>
+    </view>
+
+    
+    <button class="weui-btn submit" bindtap='onCancel' wx:if="{{appointment.status==='wait' || appointment.status==='active'}}">撤销预约</button>
+    <button class="weui-btn submit" bindtap='onRebook' wx:if="{{appointment.status==='failed'}}">重新预约</button>
+  
+    <view class="weui-article">
+        <view class="me_appoint_title">状态说明：</view>
+        <view class="weui-article__p me_appoint_p">
+            1.状态流程为：待受理-->受理中-->预约成功/预约失败，另外有已撤销；
+        </view>
+        <view class="weui-article__p me_appoint_p">
+            2.待受理、受理中可撤销（受理中按钮点击弹出弹窗提醒联系管理员，如下方所示），此页面显示“撤销预约”按钮；    
+        </view>
+        <view class="weui-article__p me_appoint_p">
+            3.“预约成功”、“已撤销”本页面不显示按钮，仅在状态字段显示；   
+        </view>
+        <view class="weui-article__p me_appoint_p">
+            4.“预约失败”显示“重新预约”按钮，点击进入预约申请页面，除预约时间外其他内容按原表单默认填入；   
+        </view>
+    </view>
+
+    <text class="text">注：预约提交后工作人员会尽快帮助您联系校友医生并反馈结果。</text>
+
+    <view class="me_appoint_mask" wx:if="{{showMask}}">
+        <view  class="me_appoint_mask_content">
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">已选医生</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入已选医生" value="{{appointment.dr_name}}" disabled/>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input weui-cell_vcode">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">所属医院</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入所属医院" value="{{appointment.dr_department}}" disabled/>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input weui-cell_vcode">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">所属科室</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入所属科室" value="{{appointment.dr_hospital}}" disabled/>
+                    </view>
+                </view>
+            </view>
+
+            <!-- <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">预约人</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入预约人" value="{{userInfo.name}}" disabled/>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input weui-cell_vcode">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">届别</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入届别" value="{{userInfo.period}}" disabled/>
+                    </view>
+                </view>
+            </view> -->
+
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input weui-cell_vcode">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">预约内容</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="note" class="weui-input" placeholder="请输入预约内容" value="{{appointment.note}}" disabled/>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">预约时间</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="note" class="weui-input" placeholder="请输入时间" value="{{appointment.reg_date}}" disabled/>
+                    </view>
+                </view>
+            </view>  
+            <view class="weui-cells weui-cells_after-title">
+                <view class="close_mask" bindtap='onHideMask'>关闭</view>
+            </view>
+        </view> 
+    </view>
+</view>
+

@@ -7,8 +7,19 @@
     <text class="welcom">欢迎来到榕江社区</text>
   </view>
 
-  <view class='bottom-action' wx:if="{{approved}}">
+  <!-- <view class='bottom-action' wx:if="{{approved}}">
     <text class="tip">已认证</text>
+  </view> -->
+  <view class='bottom-action' wx:if="{{approved}}">
+    <navigator url="../me_doctor/me_doctor">
+      <view class="doctor-box">
+        <image class="doctor-img" src="../../images/icons/doctor.png" background-size="cover"/>
+        <text class="doctor-title">寻医问药</text>
+        <text class="doctor-detail">名医校友为你服务</text>
+        <text class="doctor-raw">免费挂号 > </text>
+      </view>
+    </navigator>
+
   </view>
 
   <view class='bottom-action' wx:if="{{!approved}}">

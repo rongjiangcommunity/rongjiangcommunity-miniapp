@@ -1230,10 +1230,12 @@ App({
       });
     });
   },
+  /**
+   * 错误提示框
+   */
   failAlert: function (str) {
     wx.showToast({
       title: str,
-      icon: 'warn',
       duration: 3000
     })
   },

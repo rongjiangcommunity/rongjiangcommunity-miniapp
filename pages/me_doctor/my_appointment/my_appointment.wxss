@@ -1,0 +1,70 @@
+.page{
+  overflow: hidden;
+  background: #eee;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.weui-media-box{
+  position: relative;
+  height: 120rpx;
+}
+
+.doctor_info{
+  position: absolute;
+  left: 40rpx;
+  top: 40rpx;
+  width: 560rpx;
+  font-size: 26rpx;
+}
+
+.weui-cell__ft_in-access{
+  margin-top: 40rpx;
+}
+.wait{
+  color: #169BD5;
+}
+.active{
+  color: #169BD5;
+}
+.completed{
+  color: #009966;
+}
+.failed{
+  color: #FF4D57;
+}
+.cancel{
+  color: #666666;
+}
+.doctor_name{
+  font-size: 34rpx;
+}
+.doctor_info1{
+  position: absolute;
+  top: 0rpx;
+}
+.doctor_info1>text{
+  margin-right: 15rpx;
+}
+.doctor_info2{
+  position: absolute;
+  top: 46rpx;
+}
+.doctor_info3{
+  position: absolute;
+  top: 82rpx;
+}
+.no_working{
+  position: absolute;
+  right: 40rpx;
+  top:50rpx;
+  font-size: 22rpx;
+  color: #f00;
+}
+.working{
+  position: absolute;
+  right: 40rpx;
+  top:50rpx;
+  font-size: 22rpx;
+  color: green;
+}
