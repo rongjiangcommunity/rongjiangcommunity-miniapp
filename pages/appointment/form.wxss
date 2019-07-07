@@ -1,0 +1,94 @@
+page{
+  background-color: #f6f8f9;
+  padding-top: 15rpx;
+  font-size:26rpx;
+}
+.section {
+  background-color:#fff;
+  margin:6rpx 10rpx 1rpx 10rpx;
+  line-height: 80rpx;
+  padding-right: 30rpx;
+}
+.audit-form .section .item-right{
+  display: inline-block;
+  vertical-align: middle;
+  float:right;
+}
+.audit-form .section .item-left{
+  display: inline-block;
+  vertical-align: middle;
+  width:300rpx;
+  padding-left: 10rpx;
+}
+
+.sex-label{
+  margin-left: 25rpx;
+}
+
+.blank-line{
+  height: 20rpx;
+}
+
+.remarks{
+  width : 700rpx;
+  height: 250rpx;
+  margin: 30rpx;
+  background-color:#fff; 
+  border:1px solid gray;
+}
+
+.btn-cancel{
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-confirm{
+  background-color: rgba(22, 155, 213, 1);
+  color:#fff;
+}
+
+.btn-submit{
+  width:280rpx;
+  display:inline-block;
+  margin:2rpx;
+}
+
+.btn-area{
+  background-color:#fff;
+  text-align:center;
+}
+
+.tip{
+  text-align:center;
+  margin: 20rpx;
+}
+
+.tip-left{
+  padding-left:20rpx;
+  padding-top:10rpx;
+}
+
+.show-btn {
+  margin-top: 100rpx;
+  color: #22cc22;
+}
+
+.item_wait{
+  color : #169BD5;
+}
+
+.item_active{
+  color : #169BD5;
+}
+
+.item_completed{
+  color : #009966;
+}
+
+.item_failed{
+  color : #FF4D57;
+}
+
+.item_cancel{
+  color : #666666;
+}

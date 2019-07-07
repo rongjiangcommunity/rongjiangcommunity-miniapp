@@ -1,0 +1,118 @@
+.ant-empty {
+  height: 40px; 
+  display: block;
+  margin: 8px 0;
+  text-align: center;
+}
+.ant-empty__img{
+  display: inline;
+}
+.ant-empty__description{
+  color: #00000040;
+  text-align: center;
+}
+.check-item {
+  position: relative;
+  background: #fff;
+  margin-bottom: 10rpx;
+  padding: 30rpx;
+  overflow: hidden;
+}
+
+.check-body{
+  margin-top: 16rpx;
+  width: 75%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.query-area{
+  background-color:#fff;
+  border-bottom:1rpx solid #a09b9b;
+  border-top:1rpx solid #a09b9b;
+}
+
+.query-cond{
+  display:inline-block;
+  height:70rpx;
+  text-align:center;
+  line-height:70rpx;
+  font-size:30rpx;
+}
+
+.query-cond-left{
+  width:49%;
+  border-right:1px solid #a09b9b;
+}
+
+.query-cond-right{
+  width:50%;
+}
+
+
+.show {
+  display: block;
+}
+ 
+.hidden {
+  display: none;
+}
+
+.status_item{
+  display:block;
+  padding: 10rpx;
+}
+
+.query-btn{
+  background-color:#3EAF0E;
+}
+.check-right{
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+}
+.item-status{
+  margin-top: 0;
+  margin-right: 15rpx;
+  display: inline-block;
+}
+.item-arrow{
+  color:#ccc;
+  display: inline-block;
+}
+
+.picker{
+  padding:30rpx;
+}
+
+.icon-date{
+  position:absolute;
+  width:40rpx;
+  height:40rpx;
+  right:27rpx;
+  top:31rpx;
+}
+
+.date-picker{
+  position:relative;
+}
+
+.item_wait{
+  color : #169BD5;
+}
+
+.item_active{
+  color : #169BD5;
+}
+
+.item_completed{
+  color : #009966;
+}
+
+.item_failed{
+  color : #FF4D57;
+}
+
+.item_cancel{
+  color : #666666;
+}
