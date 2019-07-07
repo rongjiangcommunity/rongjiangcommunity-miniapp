@@ -31,7 +31,7 @@
 <view class="{{selected_0?'show':'hidden'}}">
   <checkbox-group bindtap="checkboxChange" >
     <label data-status="{{key}}" wx:for="{{statusRef}}" wx:key="this" class="status_item" wx:for-index='key'>
-      <checkbox value="{{key}}" checked="{{item.checked}}"/>{{item.label}}
+      <checkbox data-status="{{key}}" value="{{key}}" checked="{{item.checked}}"/>{{item.label}}
     </label>
   </checkbox-group>
   <view class="weui-btn-area">

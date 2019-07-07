@@ -19,6 +19,11 @@ const stringToTimestamp = strTime => {
   return new Date(Date.parse(strTime.replace(/-/g, "/"))).getTime();
 }
 
+//日期字符串比较
+const compareDateStr = (date1,date2) => {
+  return stringToTimestamp(date1) - stringToTimestamp(date2);
+}
+
 const send = param =>{
   wx.showLoading({
     title: param.loading||'加载中',
@@ -34,7 +39,7 @@ const send = param =>{
         param.callback(res);
       } else {
         wx.showToast({
-          title: param.errorMess,
+          title: param.errorMess||'服务器返回失败',
           icon: 'none',
           duration: 3000
         })
@@ -54,5 +59,6 @@ const send = param =>{
 module.exports = {
   formatTime        : formatTime,
   stringToTimestamp : stringToTimestamp,
+  compareDateStr    : compareDateStr,
   send              : send,
 }

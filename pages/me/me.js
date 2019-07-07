@@ -1,5 +1,5 @@
 // pages/me/me.js
-
+const util = require('../../utils/util.js');
 const app = getApp();
 const data = {
   userInfo: null,
@@ -9,6 +9,7 @@ const data = {
   applyInfo: null,
   name: '',
   role: '',
+  undoneNum : 0, //寻医预约代办数目
 };
 
 Page({
@@ -34,6 +35,19 @@ Page({
           name,
           role,
         });
+      }).then(() => {
+        // 获取寻医待办数目
+        if (ctx.data.role=='admin'){
+          util.send({
+            url: '/api/doctor/admin/booking/count/undone/' + app.getCredentials(),
+            method: 'GET',
+            callback: function (res) {
+              ctx.setData({
+                undoneNum: res.data.data
+              })
+            }
+          });
+        }
       }).catch((err) => {
         ctx.failAlert(err.message);
       });

@@ -12,38 +12,22 @@ Page({
       statusRef : JSON.parse(option.jsonStr)
     })
     var sid = app.getCredentials();
-    wx.request({
-      url: getApp().serverUrl + '/api/doctor/admin/booking/' + sid + '/' + option.id,
+    util.send({
+      url: '/api/doctor/admin/booking/' + sid + '/' + option.id,
       method: 'GET',
-      success(res) {
-        wx.hideLoading();
-        if (res.data.success) {
-          var appointment = res.data.data;
-          appointment.statusLabel = self.data.statusRef[appointment.status].label;
-          self.setData({
-            appointment: appointment,
-            postData : {
-              status : appointment.status,
-              fbNote : appointment.fb_note
-            }
-          })
-        } else {
-          wx.showToast({
-            title: '获取详情信息失败',
-            icon: 'none',
-            duration: 3000
-          })
-        }
-      },
-      fail() {
-        wx.hideLoading();
-        wx.showToast({
-          title: '请求失败',
-          icon: 'none',
-          duration: 3000
+      callback: function (res) {
+        var appointment = res.data.data;
+        appointment.statusLabel = self.data.statusRef[appointment.status].label;
+        self.setData({
+          appointment: appointment,
+          postData: {
+            status: appointment.status,
+            fbNote: appointment.fb_note
+          }
         })
       }
     });
+   
   },
   /**
    * 页面的初始数据

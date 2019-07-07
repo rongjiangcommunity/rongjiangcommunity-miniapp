@@ -43,20 +43,19 @@ Page({
     var self  = this;
     var sid   = app.getCredentials();
     var param = this.getQueryParam();
-    wx.request({
-      url    : getApp().serverUrl + '/api/doctor/admin/booking/' + sid,
-      method : 'GET',
-      data   : param,
-      success: function (res) {
-        console.log(res);
+    util.send({
+      url : '/api/doctor/admin/booking/' + sid,
+      data: param,
+      method: 'GET',
+      callback: function (res) {
         self.setData({
-          bookList: res.data.data.map(x=>{
+          bookList: res.data.data.map(x => {
             x.statusLabel = self.data.statusRef[x.status].label;
             return x;
           }),
         });
       }
-    })
+    });
   },
   //构建参数
   getQueryParam : function(){
@@ -78,7 +77,7 @@ Page({
   },
   //隐藏查询区域
   hideNav: function () {
-    if (this.checkStatus()){
+    if (this.checkStatus()&&this.checkDate()){
       this.setData({
         displays: "block",
         selected_0: false,
@@ -100,6 +99,18 @@ Page({
       duration : 2000
     });
     return false;
+  },
+  //检查日期
+  checkDate : function(){
+    if (util.compareDateStr(this.data.beginDate,this.data.endDate)>0){
+      wx.showToast({
+        title: '日期起始错误',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+    return true;
   },
   // 显示查询条件
   tabNav: function (e) {
