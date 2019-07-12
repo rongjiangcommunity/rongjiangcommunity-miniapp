@@ -4,13 +4,16 @@ const app = getApp()
 
 Page({
   data:{
-    doctorInfo:{},
+    doctorInfo:{
+      detail: [],
+    },
     info:{},
     approved: false
   },
   onLoad: function (options) {
-    console.log(JSON.parse(options.info))
-    this.setData({ doctorInfo: JSON.parse(options.info), info: options.info })
+    const doctorInfo = JSON.parse(options.info);
+    doctorInfo.detail = doctorInfo.detail ? doctorInfo.detail.split('\n') : [];
+    this.setData({ doctorInfo: doctorInfo, info: options.info })
     wx.setNavigationBarTitle({
       title: '医生详情'
     })
