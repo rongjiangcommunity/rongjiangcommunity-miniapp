@@ -42,4 +42,6 @@
 .me_appoint_mask_content{
   position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
 }
