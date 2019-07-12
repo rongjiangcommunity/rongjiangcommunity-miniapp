@@ -1091,7 +1091,6 @@ App({
    * 获取用户微信信息
    */
   getWxUserInfo: function() {
-    const app = this;
     return new Promise((resolve,reject) => {
       wx.getUserInfo({
         success: function(res) {
