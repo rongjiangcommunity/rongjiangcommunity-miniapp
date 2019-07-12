@@ -17,6 +17,9 @@ Page({
       method: 'GET',
       callback: function (res) {
         var appointment = res.data.data;
+        appointment.create_time = toLocalString(appointment.create_time);
+        appointment.update_time = toLocalString(appointment.update_time);
+
         appointment.statusLabel = self.data.statusRef[appointment.status].label;
         self.setData({
           appointment: appointment,
@@ -121,3 +124,7 @@ Page({
     });
   },
 })
+
+function toLocalString(dateStr) {
+  return new Date(dateStr).toLocaleString();
+}
