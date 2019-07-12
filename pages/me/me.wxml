@@ -51,6 +51,10 @@
       <view class="weui-cell__bd">审核列表</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
+  <navigator url="../me_doctor/me_doctor" class="weui-cell weui-cell_access">
+    <view class="weui-cell__bd">寻医问药</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
   <navigator url="../appointment/list" class="weui-cell weui-cell_access" wx:if="{{role==='admin'}}">
       <view class="weui-cell__bd">寻医预约</view>
       <view class="weui-cell__ft weui-cell__ft_in-access">{{undoneNum}}</view>
@@ -66,11 +70,8 @@
     <view class="weui-cell__bd">会费说明</view>
     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
-  <navigator url="../me_doctor/me_doctor" class="weui-cell weui-cell_access">
-    <view class="weui-cell__bd">寻医问药</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-  </navigator>
-  <navigator url="../me_find/me_about" class="weui-cell weui-cell_access">
+  
+  <navigator url="../me_about/me_about" class="weui-cell weui-cell_access">
     <view class="weui-cell__bd">关于我们</view>
     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
