@@ -10,6 +10,7 @@ const data = {
   name: '',
   role: '',
   undoneNum : 0, //寻医预约代办数目
+  reviewCount: 0, // 待审核校友数
 };
 
 Page({
@@ -57,6 +58,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const ctx = this;
+    const credentials = app.getCredentials();
     app.getWxUserInfo().then((userInfo) => {
       if (userInfo) {
         const data = {
@@ -66,6 +69,23 @@ Page({
           data.name = userInfo.nickName || '';
         }
         this.setData(data);
+      }
+    });
+    wx.request({
+      url: `${app.serverUrl}/api/user/reviewcount/${credentials}`,
+      header: {
+        'Content-Type': 'application/json'
+      },
+      method: 'GET',
+      success: function (res) {
+        if (res && res.statusCode === 200 && res.data) {
+          ctx.setData({
+            reviewCount: res.data.data || '',
+          });
+        }
+      },
+      fail: () => {
+
       }
     });
   },
