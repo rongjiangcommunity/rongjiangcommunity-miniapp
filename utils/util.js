@@ -34,7 +34,6 @@ const send = param =>{
     data   : param.data||{},
     success(res) {
       wx.hideLoading();
-      console.log(res);
       if (res.data.success) {
         param.callback(res);
       } else {

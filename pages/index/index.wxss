@@ -1,5 +1,9 @@
 /**index.wxss**/
 
+.flex-content-center {
+  justify-content:center;
+}
+
 .bottom-action {
   position: absolute;
   width:90%;
