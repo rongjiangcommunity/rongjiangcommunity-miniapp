@@ -1,5 +1,4 @@
 // pages/me/me.js
-const util = require('../../utils/util.js');
 const app = getApp();
 const data = {
   userInfo: null,
@@ -14,11 +13,7 @@ const data = {
 };
 
 Page({
-  /**
-   * 页面的初始数据
-   */
   data,
-
   fetchUserInfo: function(){
     const ctx = this;
     return app.appReady().then(() => {
@@ -36,19 +31,6 @@ Page({
           name,
           role,
         });
-      }).then(() => {
-        // 获取寻医待办数目
-        if (ctx.data.role=='admin'){
-          util.send({
-            url: '/api/doctor/admin/booking/count/undone/' + app.getCredentials(),
-            method: 'GET',
-            callback: function (res) {
-              ctx.setData({
-                undoneNum: res.data.data
-              })
-            }
-          });
-        }
       }).catch((err) => {
         ctx.failAlert(err.message);
       });
@@ -58,8 +40,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const ctx = this;
-    const credentials = app.getCredentials();
     app.getWxUserInfo().then((userInfo) => {
       if (userInfo) {
         const data = {
@@ -69,23 +49,6 @@ Page({
           data.name = userInfo.nickName || '';
         }
         this.setData(data);
-      }
-    });
-    wx.request({
-      url: `${app.serverUrl}/api/user/reviewcount/${credentials}`,
-      header: {
-        'Content-Type': 'application/json'
-      },
-      method: 'GET',
-      success: function (res) {
-        if (res && res.statusCode === 200 && res.data) {
-          ctx.setData({
-            reviewCount: res.data.data || '',
-          });
-        }
-      },
-      fail: () => {
-
       }
     });
   },
@@ -101,9 +64,43 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.fetchUserInfo();
-  },
+    const ctx = this;
+    const credentials = app.getCredentials();
 
+    this.fetchUserInfo().then(() => {
+      // 获取寻医待办数目
+      if (ctx.data.role==='admin'){
+        wx.request({
+          url: `${app.serverUrl}/api/doctor/admin/booking/count/undone/${credentials}`,
+          header: {
+            'Content-Type': 'application/json'
+          },
+          method: 'GET',
+          success: function (res) {
+            if (res && res.statusCode === 200 && res.data) {
+              ctx.setData({
+                undoneNum: res.data.data || '',
+              });
+            }
+          },
+        });
+        wx.request({
+          url: `${app.serverUrl}/api/user/reviewcount/${credentials}`,
+          header: {
+            'Content-Type': 'application/json'
+          },
+          method: 'GET',
+          success: function (res) {
+            if (res && res.statusCode === 200 && res.data) {
+              ctx.setData({
+                reviewCount: res.data.data || '',
+              });
+            }
+          },
+        });
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
