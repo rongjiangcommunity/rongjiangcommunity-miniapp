@@ -16,7 +16,9 @@
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__hd">具体资料：</view>
             <view class="weui-panel__bd">
-              <view class="weui-media-box weui-media-box_text">{{doctorInfo.detail}}</view>
+              <view class="weui-media-box weui-media-box_text">
+                <view wx:for="{{doctorInfo.detail}}">{{item}}</view>
+              </view>
             </view>
         </view>
 
