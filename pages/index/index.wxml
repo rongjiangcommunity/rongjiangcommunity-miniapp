@@ -19,7 +19,6 @@
         <text class="doctor-raw">免费挂号 > </text>
       </view>
     </navigator>
-
   </view>
 
   <view class='bottom-action' wx:if="{{!approved}}">
@@ -32,7 +31,7 @@
     <!-- 未提交 -->
     <view wx:if="{{status!=='pending' && status!=='notok'}}">
       <view class="weui-flex flex-content-center" style="justify-content:center;">
-        <text>榕江社区即将上线，认证校友抢先体验</text>
+        <text>Hi, 认证校友抢先体验寻医问药新功能</text>
       </view>
       <view class="weui-flex flex-content-center">
         <button bindtap="gotoRegister" class="register_btn weui-btn mini-btn" size="mini" type="primary">去认证</button>
