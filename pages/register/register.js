@@ -1,13 +1,16 @@
 //获取应用实例
 const app = getApp();
-
+const approved = wx.getStorageSync('isXiaoyou');
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     disabled: false,
-    editable: false
+    editable: false,
+    applyInfo: {},
+    approved,
+    status: '',
   },
   /**
      * 生命周期函数--监听页面显示
@@ -132,7 +135,7 @@ Page({
     this.setData({ classMates })
   },
   checkIfEditable: function ( approved, status  ){
-    if ( approved || status==='ok' ){
+    if ( approved ){
       this.setData({ editable: false })
     } else {
       this.setData({ editable: true })

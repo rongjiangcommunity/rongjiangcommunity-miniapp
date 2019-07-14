@@ -23,18 +23,18 @@
   </view>
 
   <view class='bottom-action' wx:if="{{!approved}}">
-    <view class="weui-flex" wx:if="{{status==='pending'}}">
+    <view class="weui-flex flex-content-center" wx:if="{{status==='pending'}}">
       <text>正在认证中，请等候工作人员完成认证。</text>
     </view>
-    <view class="weui-flex" wx:if="{{status==='notok'}}">
+    <view class="weui-flex flex-content-center" wx:if="{{status==='notok'}}">
       <text >认证失败，请重新填写信息再次提交认证。</text>
     </view>
     <!-- 未提交 -->
     <view wx:if="{{status!=='pending' && status!=='notok'}}">
-      <view class="weui-flex">
+      <view class="weui-flex flex-content-center" style="justify-content:center;">
         <text>榕江社区即将上线，认证校友抢先体验</text>
       </view>
-      <view class="weui-flex">
+      <view class="weui-flex flex-content-center">
         <button bindtap="gotoRegister" class="register_btn weui-btn mini-btn" size="mini" type="primary">去认证</button>
       </view>
     </view>
