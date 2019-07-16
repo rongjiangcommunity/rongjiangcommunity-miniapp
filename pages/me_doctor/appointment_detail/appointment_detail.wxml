@@ -31,7 +31,7 @@
     </view>
 
     
-    <button class="weui-btn submit" bindtap='onCancel' wx:if="{{appointment.status==='wait' || appointment.status==='active'}}">撤销预约</button>
+    <button class="weui-btn submit" bindtap='onCancel' wx:if="{{appointment.status==='wait'}}">撤销预约</button>
     <button class="weui-btn submit" bindtap='onRebook' wx:if="{{appointment.status==='failed'}}">重新预约</button>
   
     <view class="weui-article">
@@ -40,7 +40,7 @@
             1.状态流程为：待受理-->受理中-->预约成功/预约失败，另外有已撤销；
         </view>
         <view class="weui-article__p me_appoint_p">
-            2.待受理、受理中可撤销（受理中按钮点击弹出弹窗提醒联系管理员，如下方所示），此页面显示“撤销预约”按钮；    
+            2.待受理状态下可撤销预约（受理中按钮点击弹出弹窗提醒联系管理员，如下方所示），此页面显示“撤销预约”按钮；    
         </view>
         <view class="weui-article__p me_appoint_p">
             3.“预约成功”、“已撤销”本页面不显示按钮，仅在状态字段显示；   
@@ -101,13 +101,16 @@
             </view> -->
 
             <view class="weui-cells weui-cells_after-title">
-                <view class="weui-cell weui-cell_input weui-cell_vcode">
-                    <view class="weui-cell__hd">
+                <view class="weui-cell weui-cell_input weui-cell_vcode" style="align-items:start">
+                    <view class="weui-cell__hd" style="padding-top:20rpx;">
                         <view class="weui-label">预约内容</view>
                     </view>
-                    <view class="weui-cell__bd">
+                    <!-- <view class="weui-cell__bd" style="padding-top:20rpx;">
                         <input name="note" class="weui-input" placeholder="请输入预约内容" value="{{appointment.note}}" disabled/>
-                    </view>
+                    </view> -->
+                    <view class="weui-cell__bd">
+                    <textarea name="note" class="weui-textarea note" placeholder="请输入预约内容" value="{{appointment.note}}" disabled/>
+                  </view>
                 </view>
                 <view class="weui-cell weui-cell_input">
                     <view class="weui-cell__hd">

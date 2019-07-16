@@ -49,12 +49,12 @@
         <input name="drid" class="weui-input" value="{{doctorInfo.id}}" style="display:none;"/>
 
         <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell weui-cell_input weui-cell_vcode">
-                <view class="weui-cell__hd">
+            <view class="weui-cell weui-cell_input weui-cell_vcode" style="align-items:start">
+                <view class="weui-cell__hd" style="padding-top:20rpx;">
                     <view class="weui-label">预约内容</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input name="note" class="weui-input" placeholder="请输入预约内容" />
+                  <textarea name="note" class="weui-textarea note" placeholder="请输入预约内容" />
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">
