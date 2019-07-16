@@ -16,7 +16,8 @@ Page({
   data:{
     appointment: {},
     dictionary: dictionary,
-    showMask: false
+    showMask: false,
+    showRebook: false
   },
   Dateformat: function(day){
     let date = new Date(day);
@@ -46,6 +47,12 @@ Page({
   onHideMask: function(){
     this.setData({showMask: false})
   },
+
+  bindDateChange: function (e) {
+    this.setData({
+      regDate: e.detail.value
+    })
+  },
   onCancel: function(){
     let bid = this.data.id;
     const ctx = this;
@@ -73,17 +80,29 @@ Page({
       }
     });
   },
-  onRebook: function(){
+  onOpenRebook: function(){
+    this.setData({ showRebook: true})
+  },
+  onCloseRebook: function () {
+    this.setData({ showRebook: false })
+  },
+  onRebook: function(e){
     let bid = this.data.id;
     const ctx = this;
     const credentials = app.getCredentials();
+    var data = e.detail.value;
+    if (!data.note || !this.data.note) { app.failAlert('请输入预约内容'); return }
+    if (!data.regDate || !this.data.regDate) { app.failAlert('请选择预约时间'); return }
     wx.request({
       url: `https://www.rongjiangcommunity.cn/api/doctor/booking/rebook/${credentials}/${bid}`,
       method: 'POST',
       header: {
         'Content-Type': 'application/json'
       },
-  
+      data: { 
+        regDate: data.regDate, 
+        note: data.note
+      },
       success(res) {
         if(res.data.success){
           app.failAlert("重新提交预约，请等候预约进度！");
@@ -113,16 +132,16 @@ Page({
       header: {
         'Content-Type': 'application/json'
       },
-  
       success(res) {
-        
         if(res.data.success){
           let appointment = res.data.data;
           appointment.update_time = ctx.Dateformat(appointment.update_time)
           appointment.create_time = ctx.Dateformat(appointment.create_time)
           ctx.setData({
             appointment: res.data.data,
-            id: options.id
+            id: options.id,
+            regDate: res.data.data.reg_date,
+            note: res.data.data.note
           })
         }
       },

@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/me_doctor/appointment_detail/appointment_detail",
     "pages/me_doctor/doctor_appointment/doctor_appointment",
     "pages/me_doctor/me_doctor",
     "pages/me_doctor/my_appointment/my_appointment",
-    "pages/me_doctor/appointment_detail/appointment_detail",
     "pages/me_doctor/doctor_detail/doctor_detail",
     "pages/me_doctor/doctor_about/doctor_about",
     "pages/me_doctor/doctor_help/doctor_help",

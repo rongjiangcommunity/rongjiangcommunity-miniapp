@@ -2,6 +2,29 @@
   font-size: 20rpx;
   margin-left: 35rpx;
 }
+.cancel{
+  display: block;
+  width: 270rpx;
+  height: 80rpx;
+  color: #000;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  letter-spacing: 2px;
+  left: 30rpx;
+  bottom: 30rpx;
+}
+.rebook{
+  display: block;
+  width: 400rpx;
+  height: 80rpx;
+  background: rgba(22, 155, 213, 1);
+  color: #ffffff;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  letter-spacing: 2px;
+  right: 30rpx; 
+  bottom: 30rpx;
+}
 .submit{
   display: block;
   width: 400rpx;
@@ -16,6 +39,7 @@
 .note{
   height:5em;
   width: 93%;
+  border: 1rpx solid #ccc;
   margin:30rpx 30rpx 30rpx 0;
 }
 .me_appoint_time{
@@ -49,4 +73,12 @@
   bottom: 0;
   left: 0;
   right: 0;
+  background: #fff;
+}
+.mask_btn_box{
+  position: relative;
+  height: 150rpx;
+}
+.mask_btn_box button{
+  position: absolute;
 }

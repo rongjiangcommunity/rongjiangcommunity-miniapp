@@ -68,17 +68,7 @@
                 </view>
             </view>
         </view>
-        <!-- <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cells__title weui-label" style="padding:10px 15px 0;color:#000;margin-top:0;">需求描述</view>
-            <view class="weui-cells weui-cells_after-title">
-                <view class="weui-cell">
-                    <view class="weui-cell__bd">
-                        <textarea class="weui-textarea" placeholder="请输入咨询/挂号需求的详细描述，便于校友医生提前了解情况（不超过300字）。" style="height: 3.3em" />
-                        <view class="weui-textarea-counter">0/200</view>
-                    </view>
-                </view>
-            </view>   
-        </view> -->
+       
         <text class="text">注：预约提交后工作人员会尽快帮助您联系校友医生并反馈结果。</text>
         <button formType="submit" class="weui-btn submit">预约挂号</button>
     </form>
