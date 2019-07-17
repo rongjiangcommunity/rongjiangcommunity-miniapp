@@ -71,7 +71,7 @@ Page({
             })
           },3000)
         }else{
-          app.failAlert("请求失败！");
+          app.failAlert("请求失败！"+res.data.mes);
         }
       },
       fail() {
