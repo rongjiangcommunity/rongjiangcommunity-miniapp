@@ -32,24 +32,8 @@
 
     
     <button class="weui-btn submit" bindtap='onCancel' wx:if="{{appointment.status==='wait'}}">撤销预约</button>
-    <button class="weui-btn submit" wx:if="{{appointment.status==='active'}}">当前处理中，请等待</button>
+    <!-- <button class="weui-btn submit" wx:if="{{appointment.status==='active'}}">当前处理中，请等待</button> -->
     <button class="weui-btn submit" bindtap='onRebook' wx:if="{{appointment.status==='failed'}}">重新预约</button>
-  
-    <view class="weui-article">
-        <view class="me_appoint_title">状态说明：</view>
-        <view class="weui-article__p me_appoint_p">
-            1.状态流程为：待受理-->受理中-->预约成功/预约失败，另外有已撤销；
-        </view>
-        <view class="weui-article__p me_appoint_p">
-            2.待受理、受理中可撤销（受理中按钮点击弹出弹窗提醒联系管理员，如下方所示），此页面显示“撤销预约”按钮；    
-        </view>
-        <view class="weui-article__p me_appoint_p">
-            3.“预约成功”、“已撤销”本页面不显示按钮，仅在状态字段显示；   
-        </view>
-        <view class="weui-article__p me_appoint_p">
-            4.“预约失败”显示“重新预约”按钮，点击进入预约申请页面，除预约时间外其他内容按原表单默认填入；   
-        </view>
-    </view>
 
     <text class="text">注：预约提交后工作人员会尽快帮助您联系校友医生并反馈结果。</text>
 

@@ -3,7 +3,7 @@
 const app = getApp()
 let dictionary = {
   wait: '待受理',
-  active: '处理中',
+  active: '受理中',
   completed: '预约成功',
   failed: '预约失败',
   cancel: '已撤销'
