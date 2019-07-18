@@ -100,7 +100,15 @@ Page({
         wx.showToast({
           title: '更新成功',
           icon: 'success',
-          duration: 3000
+          duration: 3000,
+          //更新后跳回列表页
+          complete : function(){
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 3000)
+          }
         });
       }
     });
