@@ -41,7 +41,6 @@
   top: 50rpx;
   width: 90rpx;
   height: 90rpx;
-  background: #ccc;
 }
 .doctor_info{
   position: absolute;

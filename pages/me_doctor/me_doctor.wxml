@@ -30,7 +30,7 @@
   <view class="weui-panel weui-panel_access">
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_text" wx:for="{{doctorArr}}" bindtap='gotoDocotrInfo' data-info="{{item}}">
-        <image class="doctor_icon" src="{{item.avatar}}" />
+        <image mode="aspectFit" class="doctor_icon" src="{{item.avatar}}" />
         <view class="doctor_info" data-info="{{item}}">
           <view class="doctor_info1">
             <text class="doctor_name">{{item.name}}</text> 
