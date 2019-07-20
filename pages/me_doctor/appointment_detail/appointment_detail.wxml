@@ -32,6 +32,7 @@
 
     
     <button class="weui-btn submit" bindtap='onCancel' wx:if="{{appointment.status==='wait'}}">撤销预约</button>
+    <button class="weui-btn submit" bindtap='onOpenRebook' wx:if="{{appointment.status==='wait'}}">修改预约内容</button>
     <!-- <button class="weui-btn submit" wx:if="{{appointment.status==='active'}}">当前处理中，请等待</button> -->
     <button class="weui-btn submit" bindtap='onOpenRebook' wx:if="{{appointment.status==='failed'}}">重新预约</button>
 
