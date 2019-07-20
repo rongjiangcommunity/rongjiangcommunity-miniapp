@@ -51,6 +51,8 @@ page{
   width:280rpx;
   display:inline-block;
   margin:2rpx;
+  font-size: 34rpx;
+  margin: 10px;
 }
 
 .btn-area{
