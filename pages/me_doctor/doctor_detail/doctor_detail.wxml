@@ -2,7 +2,7 @@
 <view class="page">
     <view class="page__bd">
         <view class="weui-panel weui-panel_access doctor_card">
-            <image class="doctor_icon" src="{{doctorInfo.avatar}}"></image>
+            <image mode="aspectFit" class="doctor_icon" src="{{doctorInfo.avatar}}"></image>
             <view class="doctor_name">{{doctorInfo.name}}</view>
             <view>{{doctorInfo.title}} - {{doctorInfo.department}}</view>
             <view>{{doctorInfo.hospital}}</view>
