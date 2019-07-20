@@ -1235,7 +1235,7 @@ App({
   failAlert: function (str) {
     wx.showToast({
       title: str,
-      // icon: 'warn',
+      icon: 'none',
       duration: 3000
     })
   },

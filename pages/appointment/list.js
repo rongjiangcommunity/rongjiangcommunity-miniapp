@@ -21,15 +21,15 @@ Page({
       },
       completed: {
         label   : '预约成功',
-        checked : true,
+        checked : false,
       }, 
       failed: {
         label   : '预约失败',
-        checked : true,
+        checked : false,
       }, 
       cancel: {
         label   : '已撤销',
-        checked : true,
+        checked : false,
       }, 
     },
     beginDate   : '', // 查询开始日期

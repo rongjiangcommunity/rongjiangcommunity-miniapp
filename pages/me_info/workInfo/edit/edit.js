@@ -47,6 +47,7 @@ Page({
       startDate: when[0],
       endDate: when[1],
       multiIndex: [multiIndex0, multiIndex1],
+      recordMultiIndex: [multiIndex0, multiIndex1],
       multiArray: [getApp().firstINdustry, getApp().secondIndustry[multiIndex0]],
       what: what,
       where: where
@@ -95,16 +96,38 @@ Page({
   bindMultiPickerChange(e) {
     console.log('picker发送选择改变，携带值为：：：', e.detail)
     this.setData({
-      multiIndex: e.detail.value
+      multiIndex: e.detail.value,
+      recordMultiIndex: e.detail.value
     })
   },
   bindMultiPickerColumnChange(e) {
     console.log('修改的列为', e.detail.column, '，值为', e.detail)
     let column = e.detail.column;
     let value = e.detail.value;
+    let multiIndex = this.data.multiIndex
     if (column === 0) {
+      multiIndex[0] = e.detail.value
       this.setData({
-        multiArray: [getApp().firstINdustry, getApp().secondIndustry[value]]
+        multiArray: [getApp().firstINdustry, getApp().secondIndustry[value]],
+        multiIndex: multiIndex
+      })
+    } else {
+      multiIndex[1] = e.detail.value
+      this.setData({
+        multiIndex: multiIndex
+      })
+    }
+  },
+  bindMultiPickercancel(e) {
+    let recordMultiIndex = this.data.recordMultiIndex
+    if (recordMultiIndex) {
+      this.setData({
+        multiArray: [getApp().firstINdustry, getApp().secondIndustry[recordMultiIndex[0]]],
+        multiIndex: recordMultiIndex
+      });
+    } else {
+      this.setData({
+        recordMultiIndex: this.data.multiIndex
       })
     }
   }

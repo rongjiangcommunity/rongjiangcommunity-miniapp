@@ -9,6 +9,7 @@
           mode="multiSelector"
           bindchange="bindMultiPickerChange"
           bindcolumnchange="bindMultiPickerColumnChange"
+          bindcancel="bindMultiPickercancel"
           value="{{multiIndex}}"
           range="{{multiArray}}"
         >
