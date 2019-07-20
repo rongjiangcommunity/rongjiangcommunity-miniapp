@@ -1,11 +1,9 @@
 <!--pages/me_feedback/me_feedback.wxml-->
 <view class="page">
-  <view class="weui-cells__title">反馈建议</view>
   <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
           <view class="weui-cell__bd">
-              <textarea bindinput="handleInput" value="{{inputText}}" maxlength="1000" class="weui-textarea"  placeholder="请输入反馈建议(1000字以内)" style="height: 3.3em" />
-              <view class="weui-textarea-counter">0/200</view>
+              <textarea bindinput="handleInput" value="{{inputText}}" maxlength="1000" class="weui-textarea"  placeholder="请输入反馈建议(1000字以内)" style="height: 10em" />
           </view>
       </view>
   </view>

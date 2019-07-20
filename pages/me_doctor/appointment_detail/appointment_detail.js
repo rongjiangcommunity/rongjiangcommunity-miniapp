@@ -111,6 +111,8 @@ Page({
               delta: 1
             })
           }, 3000)
+        } else {
+          app.failAlert("提交失败，请向管理员反馈问题！");
         }
       },
       fail() {
