@@ -33,7 +33,7 @@
     
     <button class="weui-btn submit" bindtap='onCancel' wx:if="{{appointment.status==='wait'}}">撤销预约</button>
     <!-- <button class="weui-btn submit" wx:if="{{appointment.status==='active'}}">当前处理中，请等待</button> -->
-    <button class="weui-btn submit" bindtap='onRebook' wx:if="{{appointment.status==='failed'}}">重新预约</button>
+    <button class="weui-btn submit" bindtap='onOpenRebook' wx:if="{{appointment.status==='failed'}}">重新预约</button>
 
     <text class="text">注：预约提交后工作人员会尽快帮助您联系校友医生并反馈结果。</text>
 
@@ -66,33 +66,14 @@
                 </view>
             </view>
 
-            <!-- <view class="weui-cells weui-cells_after-title">
-                <view class="weui-cell weui-cell_input">
-                    <view class="weui-cell__hd">
-                        <view class="weui-label">预约人</view>
-                    </view>
-                    <view class="weui-cell__bd">
-                        <input class="weui-input" placeholder="请输入预约人" value="{{userInfo.name}}" disabled/>
-                    </view>
-                </view>
-                <view class="weui-cell weui-cell_input weui-cell_vcode">
-                    <view class="weui-cell__hd">
-                        <view class="weui-label">届别</view>
-                    </view>
-                    <view class="weui-cell__bd">
-                        <input class="weui-input" placeholder="请输入届别" value="{{userInfo.period}}" disabled/>
-                    </view>
-                </view>
-            </view> -->
-
             <view class="weui-cells weui-cells_after-title">
-                <view class="weui-cell weui-cell_input weui-cell_vcode">
-                    <view class="weui-cell__hd">
+                <view class="weui-cell weui-cell_input weui-cell_vcode" style="align-items:start">
+                    <view class="weui-cell__hd" style="padding-top:20rpx;">
                         <view class="weui-label">预约内容</view>
                     </view>
                     <view class="weui-cell__bd">
-                        <input name="note" class="weui-input" placeholder="请输入预约内容" value="{{appointment.note}}" disabled/>
-                    </view>
+                    <textarea name="note" class="weui-textarea note" placeholder="请输入预约内容" value="{{appointment.note}}" disabled/>
+                  </view>
                 </view>
                 <view class="weui-cell weui-cell_input">
                     <view class="weui-cell__hd">
@@ -107,6 +88,37 @@
                 <view class="close_mask" bindtap='onHideMask'>关闭</view>
             </view>
         </view> 
+    </view>
+
+    <view class="me_appoint_mask" wx:if="{{showRebook}}">
+      <form bindsubmit="onRebook">
+        <view  class="me_appoint_mask_content">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input weui-cell_vcode" style="align-items:start">
+                <view class="weui-cell__hd" style="padding-top:20rpx;">
+                    <view class="weui-label">预约内容</view>
+                </view>
+                <view class="weui-cell__bd">
+                  <textarea name="note" class="weui-textarea note" placeholder="{{'请输入预约内容'}}" value="{{note}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">预约时间</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="date" name="regDate"  value="{{regDate}}" start="{{startTime}}" bindchange="bindDateChange" placeholder="请输入预约时间" >
+                        <view class="weui-input">{{regDate||"请选择预约时间"}}</view>
+                    </picker>
+                </view>
+            </view>
+          </view>
+          <view class="mask_btn_box">
+            <button class="weui-btn cancel" bindtap='onCloseRebook'>取消</button>
+            <button class="weui-btn rebook" formType="submit">重新预约</button>
+          </view>
+        </view> 
+      </form>
     </view>
 </view>
 

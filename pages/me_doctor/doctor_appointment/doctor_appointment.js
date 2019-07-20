@@ -66,12 +66,12 @@ Page({
         if(res.data.success){
           app.failAlert("预约成功");
           setTimeout(()=>{
-            wx.navigateTo({
-              url: '../me_doctor',
+            wx.navigateBack({
+              delta: 1
             })
           },3000)
         }else{
-          app.failAlert("请求失败！");
+          app.failAlert("请求失败！"+res.data.mes);
         }
       },
       fail() {
