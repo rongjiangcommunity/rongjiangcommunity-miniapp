@@ -51,6 +51,8 @@ page{
   width:280rpx;
   display:inline-block;
   margin:2rpx;
+  padding-left:4rpx;
+  padding-right:4rpx;
 }
 
 .btn-area{
