@@ -3,7 +3,7 @@
 <view class="container">
   <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"/>
-    <text class="userinfo-nickname">Hi, {{userInfo.nickName}}</text>
+    <text class="userinfo-nickname">Hi, {{user && user.name || userInfo.nickName}}</text>
     <text class="welcom">欢迎来到榕江社区</text>
   </view>
 
