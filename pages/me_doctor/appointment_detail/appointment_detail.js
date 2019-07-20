@@ -107,8 +107,8 @@ Page({
         if(res.data.success){
           app.failAlert("重新提交预约，请等候预约进度！");
           setTimeout(function(){
-            wx.navigateTo({
-              url: '../my_appointment/my_appointment',
+            wx.navigateBack({
+              delta: 1
             })
           }, 3000)
         }
