@@ -134,5 +134,5 @@ Page({
 })
 
 function toLocalString(dateStr) {
-  return new Date(dateStr).toLocaleString();
+  return util.formatTime(new Date(dateStr));
 }
