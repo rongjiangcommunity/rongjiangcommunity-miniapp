@@ -5,11 +5,10 @@
 }
 
 .bottom-action {
-  position: absolute;
   width:90%;
   text-align:center;
-  bottom: 200rpx;
   color: #999;
+  margin-top:30rpx;
 }
 .doctor-box{
   position: relative;

@@ -11,6 +11,22 @@
     <text class="tip">已认证</text>
   </view> -->
   <view class='bottom-action' wx:if="{{approved}}">
+    <navigator url="../me_info/me_info">
+      <view class="doctor-box">
+        <image class="doctor-img" src="../../images/icons/member.png" background-size="cover"/>
+        <text class="doctor-title">会员资料</text>
+        <text class="doctor-detail"></text>
+        <text class="doctor-raw"> > </text>
+      </view>
+    </navigator>
+    <navigator url="../me_dues/me_dues">
+      <view class="doctor-box">
+        <image class="doctor-img" src="../../images/icons/pay.png" background-size="cover"/>
+        <text class="doctor-title">缴纳会费</text>
+        <text class="doctor-detail"></text>
+        <text class="doctor-raw"> > </text>
+      </view>
+    </navigator>
     <navigator url="../me_doctor/me_doctor">
       <view class="doctor-box">
         <image class="doctor-img" src="../../images/icons/doctor.png" background-size="cover"/>
@@ -19,6 +35,12 @@
         <text class="doctor-raw">免费挂号 > </text>
       </view>
     </navigator>
+      <view class="doctor-box" bindtap='toCompany'>
+        <image class="doctor-img" src="../../images/icons/company.png" background-size="cover"/>
+        <text class="doctor-title">校友企业</text>
+        <text class="doctor-detail">建设中</text>
+        <text class="doctor-raw"> > </text>
+      </view>
   </view>
 
   <view class='bottom-action' wx:if="{{!approved}}">
