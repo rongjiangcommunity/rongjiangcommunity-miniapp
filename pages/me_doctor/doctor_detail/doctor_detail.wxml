@@ -21,6 +21,14 @@
               </view>
             </view>
         </view>
+        <view class="weui-panel weui-panel_access ">
+            <view class="weui-panel__hd">专家信息：</view>
+            <view class="weui-panel__bd">
+              <view class="weui-media-box weui-media-box_text">
+                <view>{{doctorInfo.moreinfo}}</view>
+              </view>
+            </view>
+        </view>
 
         <!-- <navigator url="../doctor_appointment/doctor_appointment"> -->
             <button bindtap='gotoAppointment' class="weui-btn submit" wx:if="{{doctorInfo.status===1}}">预约挂号</button>

@@ -10,20 +10,27 @@
   font-size: 26rpx;
   padding: 20rpx;
 }
+.page__bd>.weui-panel:nth-last-child(2){
+  margin-bottom: 120rpx;
+}
 .doctor_name{
   font-size: 34rpx;
   color: #333;
 }
 .submit{
   display: block;
-  width: 400rpx;
-  height: 80rpx;
-  margin: 50rpx auto;
+  width: 650rpx;
+  height: 90rpx;
   background: rgba(22, 155, 213, 1);
   color: #ffffff;
-  line-height: 80rpx;
+  line-height: 90rpx;
   font-size: 32rpx;
   letter-spacing: 2px;
+  position: fixed;
+  left: 50%;
+  bottom: 20rpx;
+  margin-left: -325rpx;
+  margin-top:130rpx;
 }
 .nosubmit{
   display: block;
