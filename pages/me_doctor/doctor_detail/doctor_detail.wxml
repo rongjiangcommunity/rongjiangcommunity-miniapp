@@ -29,11 +29,8 @@
             </view>
           </view>
       </view>
-
-      <!-- <navigator url="../doctor_appointment/doctor_appointment"> -->
-          <button bindtap='gotoAppointment' class="weui-btn submit" wx:if="{{doctorInfo.status===1}}">预约挂号</button>
-      <!-- </navigator> -->
     </view>
     <button class="weui-btn nosubmit" wx:if="{{doctorInfo.status===0}}">不可预约</button>
+    <button bindtap='gotoAppointment' class="weui-btn submit" wx:if="{{doctorInfo.status===1}}">预约挂号</button>
 </view>
 
