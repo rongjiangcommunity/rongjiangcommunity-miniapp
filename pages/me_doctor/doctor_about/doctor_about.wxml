@@ -19,6 +19,9 @@
                     <view class="weui-article__p">
                         五、温馨提示：通过“寻医问药”获得满意服务者，可自愿捐款用于平台维护及其它公益。收到捐款后将开出由财政部门监制的正式“捐款收据”，详情请与黄汉光联系。
                     </view>
+                    <view class="weui-article__p">
+                        六、如预约挂号有任何疑问，请与校友会办公室黄汉光联系（微信号：jyyzgz，手机号码：<view class="telephone" data-phone='13903013645' bindtap='callphone'>13903013645</view>）
+                    </view>
                 </view>
             </view>
         </view>

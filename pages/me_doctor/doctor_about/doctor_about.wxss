@@ -25,3 +25,9 @@
   font-size: 32rpx;
   letter-spacing: 2px;
 }
+
+.telephone{
+  display:inline-block;
+  text-decoration:underline;
+  color:rgb(23, 36, 219);
+}
