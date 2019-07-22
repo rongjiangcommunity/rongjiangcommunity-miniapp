@@ -75,6 +75,14 @@ Page({
       url: '../register/register'
     });
   },
+  //企业
+  toCompany : function(){
+    wx.showToast({
+      title: '敬请期待',
+      icon: 'none',
+      duration: 3000,
+    });
+  },
   jumpToMsgCenter: function(){ // 跳到消息中心，也就是右上角的泡泡图标
     console.log('jumpToMsgCenter');
   }
