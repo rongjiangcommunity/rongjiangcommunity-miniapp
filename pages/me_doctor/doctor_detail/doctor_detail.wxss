@@ -1,5 +1,5 @@
-.page__bd {
-  margin-bottom: 120rpx;
+.page {
+  padding-bottom: 120rpx;
 }
 .doctor_icon{
   display: block;
