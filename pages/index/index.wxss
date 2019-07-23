@@ -10,30 +10,30 @@
   color: #999;
   margin-top:30rpx;
 }
-.doctor-box{
+.item-box{
   position: relative;
   height: 150rpx;
   background: #fff;
 }
-.doctor-img{
+.item-img{
   width: 90rpx;
   height: 90rpx;
   margin: 30rpx;
   float: left;
 }
-.doctor-title{
+.item-title{
   position: absolute;
-  top: 30rpx;
+  top: 50rpx;
   left: 150rpx;
   font-size: 34rpx;
 }
-.doctor-detail{
+.item-detail{
   position: absolute;
   top: 80rpx;
   left: 150rpx;
   font-size: 28rpx;
 }
-.doctor-raw{
+.item-raw{
   position: absolute;
   right: 30rpx;
   top: 50%;
@@ -55,6 +55,6 @@
 }
 
 .container{
-  padding:100rpx 0;
+  padding:20rpx 0;
 }
 

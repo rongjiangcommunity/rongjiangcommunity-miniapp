@@ -12,34 +12,35 @@
   </view> -->
   <view class='bottom-action' wx:if="{{approved}}">
     <navigator url="../me_info/me_info">
-      <view class="doctor-box">
-        <image class="doctor-img" src="../../images/icons/member.png" background-size="cover"/>
-        <text class="doctor-title">会员资料</text>
-        <text class="doctor-detail"></text>
-        <text class="doctor-raw"> > </text>
+      <view class="item-box">
+        <image class="item-img" src="../../images/icons/member.png" background-size="cover"/>
+        <text class="item-title">会员资料</text>
+        <text class="item-raw"> > </text>
       </view>
     </navigator>
     <navigator url="../me_dues/me_dues">
-      <view class="doctor-box">
-        <image class="doctor-img" src="../../images/icons/pay.png" background-size="cover"/>
-        <text class="doctor-title">缴纳会费</text>
-        <text class="doctor-detail"></text>
-        <text class="doctor-raw"> > </text>
+      <view class="item-box">
+        <image class="item-img" src="../../images/icons/pay.png" background-size="cover"/>
+        <text class="item-title">缴纳会费</text>
+        <text class="item-raw"> > </text>
       </view>
     </navigator>
     <navigator url="../me_doctor/me_doctor">
-      <view class="doctor-box">
-        <image class="doctor-img" src="../../images/icons/doctor.png" background-size="cover"/>
-        <text class="doctor-title">寻医问药</text>
-        <text class="doctor-detail">名医校友为你服务</text>
-        <text class="doctor-raw">免费挂号 > </text>
+      <view class="item-box">
+        <image class="item-img" src="../../images/icons/doctor.png" background-size="cover"/>
+        <text class="item-title">寻医问药</text>
+        <text class="item-raw"> > </text>
       </view>
     </navigator>
-      <view class="doctor-box" bindtap='toCompany'>
-        <image class="doctor-img" src="../../images/icons/company.png" background-size="cover"/>
-        <text class="doctor-title">校友企业</text>
-        <text class="doctor-detail">建设中</text>
-        <text class="doctor-raw"> > </text>
+      <view class="item-box" bindtap='expect'>
+        <image class="item-img" src="../../images/icons/company.png" background-size="cover"/>
+        <text class="item-title">社区集市</text>
+        <text class="item-raw"> > </text>
+      </view>
+      <view class="item-box" bindtap='expect'>
+        <image class="item-img" src="../../images/icons/marrige.png" background-size="cover"/>
+        <text class="item-title">鹊桥相会</text>
+        <text class="item-raw"> > </text>
       </view>
   </view>
 
