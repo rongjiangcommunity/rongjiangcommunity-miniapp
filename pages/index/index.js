@@ -52,8 +52,6 @@ Page({
         });
     });
   },
-  
-
   bindGetUserInfo: function(e) {
     const ctx = this;
     if (e.detail.userInfo){
@@ -68,15 +66,14 @@ Page({
       //用户按了拒绝按钮
     }
   },
-
   //事件处理函数
   gotoRegister: function(){
     wx.navigateTo({
       url: '../register/register'
     });
   },
-  //企业
-  toCompany : function(){
+  //未开通入口
+  expect : function(){
     wx.showToast({
       title: '敬请期待',
       icon: 'none',
