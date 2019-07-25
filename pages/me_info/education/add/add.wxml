@@ -18,6 +18,24 @@
           </view>
         </picker>
       </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd weui-label">专业名称</view>
+        <picker
+          class="picker weui-cell__bd"
+          mode="multiSelector"
+          bindchange="bindMultiMajorPickerChange"
+          bindcolumnchange="bindMultiMajorPickerColumnChange"
+          bindcancel="bindMultiMajorPickercancel"
+          value="{{multiMajorIndex}}"
+          range="{{multiMajorArray}}"
+        >
+          <view>
+            {{multiMajorArray[0][multiMajorIndex[0]]}}，{{multiMajorArray[1][multiMajorIndex[1]]}}，{{multiMajorArray[2][multiMajorIndex[2]]}}
+          </view>
+        </picker>
+      </view>
+
       <view class="weui-cell">
         <view class="weui-cell__hd weui-label">毕业学历</view>
         <picker class="picker weui-cell__bd" bindchange="bindPickerChange" value="{{degreeIndex}}" range="{{degreeArr}}">
