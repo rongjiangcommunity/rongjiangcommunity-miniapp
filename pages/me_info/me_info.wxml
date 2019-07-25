@@ -20,46 +20,74 @@
 </view>
 
 <view class="weui-cells">
-  <navigator url="./education/list/list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-    <view class="weui-cell__bd">教育经历</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access"><text wx:if="{{!address || !region}}">去完善</text></view>
-  </navigator>
-  <navigator url="./workInfo/list/list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd">工作经历</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"><text wx:if="{{!address || !region}}">去完善</text></view>
-    </navigator>
-</view>
-
-<view class="weui-cells">
   <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">
       <view class="weui-label">性别</view>
     </view>
     <view class="weui-cell__bd">
-      <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{genders}}">
+      <picker range="{{genders}}" value="{{genderIndex}}" bindchange="bindIndexChange"
+        data-name='gender' data-range='genders'>
         <view class="weui-input">{{genders[genderIndex]}}</view>
       </picker>
     </view>
   </view>
-</view>
-
-<view class="weui-cells">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">生活区域</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker range="{{areas}}" value="{{livingAreaIndex}}" bindchange="bindIndexChange"
+        data-name='livingArea' data-range='areas'>
+        <view class="weui-input">{{areas[livingAreaIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">工作区域</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker range="{{areas}}" value="{{workingAreaIndex}}" bindchange="bindIndexChange"
+        data-name='workingArea' data-range='areas'>
+        <view class="weui-input">{{areas[workingAreaIndex]}}</view>
+      </picker>
+    </view>
+  </view>
   <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">
       <view class="weui-label">感情状况</view>
     </view>
     <view class="weui-cell__bd">
-      <picker bindchange="bindPersonalChange" value="{{statusIndex}}" range="{{personalStatuses}}">
-        <view class="weui-input">{{personalStatuses[statusIndex]}}</view>
+      <picker value="{{personalStatusIndex}}" range="{{personalStatuses}}" bindchange="bindIndexChange"
+      data-name='personalStatus' data-range='personalStatuses'>
+        <view class="weui-input">{{personalStatuses[personalStatusIndex]}}</view>
       </picker>
     </view>
   </view>
 </view>
 
-
 <view class="weui-cells">
-    <navigator url="./address/address" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd">我的住址</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"><text wx:if="{{!address || !region}}">去完善</text></view>
-    </navigator>
+  <navigator url="./education/list/list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">教育经历</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"><text wx:if="{{!address || !region}}">去完善</text></view>
+  </navigator>
+  <navigator url="./workInfo/list/list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">工作经历</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"><text wx:if="{{!address || !region}}">去完善</text></view>
+  </navigator>
+
+  <view class="weui-cell weui-cell_switch">
+    <view class="weui-cell__bd">是否博士</view>
+    <view class="weui-cell__ft">
+      <switch checked wx:if="{{isPhd==='true'}}" bindchange="bindBoolChange" data-name='isPhd' />
+      <switch wx:else bindchange="bindBoolChange" data-name='isPhd' />
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_switch">
+    <view class="weui-cell__bd">是否自主创业</view>
+    <view class="weui-cell__ft">
+      <switch checked wx:if="{{selfEmployed==='true'}}" bindchange="bindBoolChange" data-name='selfEmployed' />
+      <switch wx:else bindchange="bindBoolChange" data-name='selfEmployed' />
+    </view>
+  </view>
 </view>
