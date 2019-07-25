@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '会费说明'
+      title: '缴纳会费'
     })
   },
 

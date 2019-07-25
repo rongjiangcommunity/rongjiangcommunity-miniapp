@@ -4,7 +4,7 @@
   <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"/>
     <text class="userinfo-nickname">Hi, {{user && user.name || userInfo.nickName}}</text>
-    <text class="welcom">欢迎来到融水情</text>
+    <text class="welcom">欢迎来到{{productName}}</text>
   </view>
 
   <!-- <view class='bottom-action' wx:if="{{approved}}">

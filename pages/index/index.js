@@ -13,6 +13,7 @@ Page({
     applyInfo: null,
     approved: wx.getStorageSync('isXiaoyou'),
     status: '',
+    productName: getApp().productName
   },
   onReady() {
   },

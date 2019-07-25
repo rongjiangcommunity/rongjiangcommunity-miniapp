@@ -2,11 +2,13 @@
 const serverUrl = 'https://www.rongjiangcommunity.cn';
 const appid = 'yiz';
 const miniAppId = 'wx6ceb2515d7e20fa3';
+const productName = '榕水长';
 
 App({
   credentials: '',
   appid,
   serverUrl,
+  productName,
   collegeObj: {
     "广东省": [
       "中山大学",
