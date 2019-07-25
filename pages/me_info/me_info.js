@@ -1,10 +1,17 @@
 const app = getApp();
+
 const personalStatuses = ['单身', '恋爱中', '已婚'];
 const genders = ['male', 'female'];
+const areas = ["越秀区", "海珠区", "荔湾区", "天河区", "白云区", "黄埔区", "花都区", "番禺区", "南沙区", "从化区", "增城区"];
 const genderValues = {
   male: 0,
   female: 1,
 };
+const ranges = {
+  areas,
+  genders,
+  personalStatuses,
+}
 Page({
   // 回调函数
   submitForm: function () {
@@ -15,15 +22,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    personalStatuses: ['单身', '恋爱', '已婚'],
-    statusIndex: undefined,
+    areas,
+    personalStatuses,
     genders: ['♂️', '♀️'],
-    genderIndex: undefined,
-    region: null,
-    address: '',
 
     email: '',
     wechat: '',
+
+    personalStatusIndex: undefined,
+    genderIndex: undefined,
+    livingAreaIndex: undefined,
+    workingAreaIndex: undefined,
+
+    region: null,
+    address: '',
+  
+    isPhd: '',
+    selfEmployed: '',
+    origin: '',
   },
 
   /**
@@ -50,14 +66,24 @@ Page({
         if(data) {
           const o = {};
           if (data.personalStatus) {
-            o.statusIndex = data.personalStatus;
+            if (Number(data.personalStatus) >= 0) {
+              o.personalStatusIndex = data.personalStatus;
+            } else {
+              o.personalStatusIndex = personalStatuses.indexOf(data.personalStatus);
+            }
+          }
+          if (data.livingArea) {
+            o.livingAreaIndex = areas.indexOf(data.livingArea);
+          }
+          if (data.workingArea) {
+            o.workingAreaIndex = areas.indexOf(data.workingArea);
           }
           if (data.gender) {
             o.genderIndex = genderValues[data.gender];
           }
           this.setData({
+            ...data,
             ...o,
-            ...data
           });
         }
       });
@@ -79,17 +105,20 @@ Page({
       });
     }
   },
-  bindPersonalChange(e) {
-    this.setData({
-      statusIndex: e.detail.value,
-    });
-    app.saveUserInfo({personalStatus: e.detail.value});
+  bindIndexChange(e) {
+    const {name, range} = e.currentTarget.dataset;
+    if (name) {
+      this.setData({
+        [`${name}Index`]: e.detail.value,
+      });
+      const value = ranges[range][e.detail.value];
+      app.saveUserInfo({[name]: value});
+    }
   },
-  bindGenderChange(e) {
-    this.setData({
-      genderIndex: e.detail.value,
-    });
-    const gender = genders[e.detail.value];
-    app.saveUserInfo({gender});
-  },
-})
+  bindBoolChange(e) {
+    const {name} = e.currentTarget.dataset;
+    if (name) {
+      app.saveUserInfo({[name]: `${e.detail.value}`});
+    }
+  }
+});
