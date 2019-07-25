@@ -3,6 +3,9 @@
 const app = getApp()
 
 Page({
+  data: {
+    productName: getApp().productName
+  },
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '关于寻医问药'
