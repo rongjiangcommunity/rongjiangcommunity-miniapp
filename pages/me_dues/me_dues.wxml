@@ -14,8 +14,8 @@
   <view class="weui-article__p">开户行：广州银行股份有限公司昌岗路支行</view>
   <view class="weui-article__p">账号：800228498409019</view>
 
-  <view class="weui-article__h3">2、通过榕江社区微信小程序缴纳</view>
-  <view class="weui-article__p">榕江社区小程序将提供一个会费缴费入口，校友可以通过页面的指引进行支付缴纳会费。</view>
+  <view class="weui-article__h3">2、通过融水情微信小程序缴纳</view>
+  <view class="weui-article__p">融水情小程序将提供一个会费缴费入口，校友可以通过页面的指引进行支付缴纳会费。</view>
   <view>
   <image class="weui-article__img" src="../../images/huifei.jpeg" mode="aspectFit" />
   </view>
