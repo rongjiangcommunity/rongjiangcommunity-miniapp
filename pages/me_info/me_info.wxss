@@ -9,3 +9,7 @@
 .weui-cells:first-child {
   margin-top: 0;
 }
+
+.weui-cell__bd picker {
+  text-align: right;
+}
