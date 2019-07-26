@@ -4,7 +4,7 @@
     <form bindsubmit="formSubmit">
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
-          <view class="weui-cell__hd weui-label">所处行业</view>
+          <view class="weui-cell__hd weui-label">行业职业</view>
           <picker
             class="picker weui-cell__bd"
             mode="multiSelector"
