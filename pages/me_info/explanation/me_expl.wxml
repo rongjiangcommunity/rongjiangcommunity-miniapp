@@ -1,0 +1,60 @@
+<!--pages/me_info/explanation/me_expl.wxml-->
+<view class="weui-article">
+  <view class="weui-article__h1" style='text-align:center;'>会员认证资料填写指引</view>
+  <view class="weui-article__p">
+    <text decode="true">&emsp;&emsp;</text>
+   “榕水长”是揭阳一中广大校友交流互助的平台，认真填写会员资料有利于今后大家的沟通合作，请细心填写并参阅以下指引。 
+  </view>
+  <view class="weui-article__h2">一、手机号码、微信号、邮箱地址</view>
+  <view class="weui-article__p">
+    <text decode="true">&emsp;&emsp;</text>
+   这些是必填信息，如有变动，请及时更新。
+  </view>
+  <view class="weui-article__h2">二、性别</view>
+  <view class="weui-article__p">
+     <text decode="true">&emsp;&emsp;</text>
+   请选择男性（符号♂，表示的是长矛与盾，代表战神马尔斯）或女性（符号♀，指的是美神维纳斯手中的镜子）。
+  </view>
+  <view class="weui-article__h2">三、工作区域  生活区域</view>
+  <view class="weui-article__p">
+     <text decode="true">&emsp;&emsp;</text>
+    广州地区的校友只需填**区，清远、佛山、东莞的校友只需填“清远/佛山/东莞”，其余的填“其它”。
+  </view>
+  <view class="weui-article__h2">四、感情状况</view>
+  <view class="weui-article__p">
+     <text decode="true">&emsp;&emsp;</text>
+    校友会尊重校友的隐私权，“感情状况”一栏可不填。为对您和他（她）人负责，计划进入“鹊桥相会”板块者，感情状况是必填的真实信息，非单身校友禁止进入“鹊桥相会”，脱单后也需自觉退出。
+  </view>
+   <view class="weui-article__h2">五、籍贯</view>
+  <view class="weui-article__p">
+     <text decode="true">&emsp;&emsp;</text>
+    请校友根据指引点填“籍贯”一栏 。目前揭阳的行政区划变动较大，但籍贯可以从旧。
+  </view>
+   <view class="weui-article__h2">六、教育经历</view>
+  <view class="weui-article__p">
+    <text decode="true">&emsp;&emsp;</text>
+    允许填写三栏，校友可根据自己的实际填完一栏或二栏或三栏。我们希望，读完硕士研究生的填完二栏，读完博士研究生的填完三栏。
+  </view>
+  <view class="weui-article__p">
+     <text decode="true">&emsp;&emsp;</text>
+      毕业院校、专业名称，请按照指引选取。近年高校名称变动频频，专业目录也在不断更新，早期毕业生只能就近适从。
+  </view>
+   <view class="weui-article__h2">七、工作经历</view>
+  <view class="weui-article__p">
+     <text decode="true">&emsp;&emsp;</text>
+    允许填写三栏，校友可根据自己的实际填一栏或二栏或三栏，但必须包含当前（或最近）的工作单位。如无工作单位，可写 “自主创业”“自由职业”“转换工作中” ；如已退休，则在工作单位名称后面加注“（已退休）”。
+  </view>
+  <view class="weui-article__p">
+     <text decode="true">&emsp;&emsp;</text>
+      工作经历的信息，如有变动，请及时更新。
+  </view>
+  <view class="weui-article__h2">八、 是否博士 是否自主创业</view>
+  <view class="weui-article__p">
+     <text decode="true">&emsp;&emsp;</text>
+      校友只需点一下浮动球，白色代表“否”，绿色代表“是”。
+  </view>
+  <view class="weui-article__p">
+     <text decode="true">&emsp;&emsp;</text>
+      温馨提示：填写过程中如有任何疑问，请与校友会办公室黄汉光联系（微信号：jyyzgz，固定电话：62305113， 手机号码：13903013645）。
+  </view>
+</view>

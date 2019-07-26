@@ -110,4 +110,7 @@
       <switch wx:else bindchange="bindBoolChange" data-name='selfEmployed' />
     </view>
   </view>
+  <view class="weui-cell__dtl weui-cell_access">
+    <text>会员认证相关说明请阅读</text><navigator url="./explanation/me_expl" class="weui-cell__dtl__a">《会员认证资料填写指引》</navigator>
+  </view>
 </view>
