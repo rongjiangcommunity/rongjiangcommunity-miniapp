@@ -3,6 +3,10 @@ const app = getApp();
 const personalStatuses = ['单身', '恋爱中', '已婚', '保密'];
 const genders = ['male', 'female'];
 const areas = ["越秀区", "海珠区", "荔湾区", "天河区", "白云区", "黄埔区", "花都区", "番禺区", "南沙区", "从化区", "增城区"];
+const areaColumns = [
+  ['广州地区', '非广州地区'],
+  [areas, ['清远', '佛山', '东莞', '其它']],
+];
 
 const genderValues = {
   male: 0,
@@ -23,6 +27,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    areaColumns,
+
     areas,
     personalStatuses,
     genders: ['♂️', '♀️'],
@@ -32,6 +38,8 @@ Page({
 
     personalStatusIndex: undefined,
     genderIndex: undefined,
+    livingAreaMultiIndex: [],
+    workingAreaMultiIndex: [],
     livingAreaIndex: undefined,
     workingAreaIndex: undefined,
 
@@ -65,6 +73,7 @@ Page({
    */
   onShow: function () {
     const ctx = this;
+    
     app.appReady().then(_ => {
       return app.getUserInfo().then(data => {
         if(data) {
@@ -77,10 +86,10 @@ Page({
             }
           }
           if (data.livingArea) {
-            o.livingAreaIndex = areas.indexOf(data.livingArea);
+            o.livingAreaMultiIndex = area2MultIndex(data.livingArea);
           }
           if (data.workingArea) {
-            o.workingAreaIndex = areas.indexOf(data.workingArea);
+            o.workingAreaMultiIndex = area2MultIndex(data.workingArea);
           }
           if (data.gender) {
             o.genderIndex = genderValues[data.gender];
@@ -134,6 +143,15 @@ Page({
       app.saveUserInfo({[name]: `${e.detail.value}`});
     }
   },
+  bindAreaChange(e) {
+    const multiIndex = e.detail.value;
+    const {name} = e.currentTarget.dataset;
+    if (name) {
+      app.saveUserInfo({
+        [name]: [areaColumns[0][multiIndex[0]], areaColumns[1][multiIndex[0]][multiIndex[1]]],
+      });
+    }
+  },
 
   bindMultiPickerChange(e) {
     console.log('picker发送选择改变，携带值为：：：', e.detail)
@@ -143,7 +161,7 @@ Page({
     this.setData({
       multiIndex: e.detail.value,
       recordMultiIndex: e.detail.value
-    })
+    });
     app.saveUserInfo({origin: [app.originFirst[first], app.originSecond[first][second]]});
   },
   bindMultiPickerColumnChange(e) {
@@ -174,7 +192,18 @@ Page({
     } else {
       this.setData({
         recordMultiIndex: this.data.multiIndex
-      })
+      });
     }
   }
 });
+
+function area2MultIndex(jsonstring) {
+  try {
+    const data = JSON.parse(jsonstring);
+    const i1 = areaColumns[0].indexOf(data[0]);
+    const i2 = areaColumns[1][i1].indexOf(data[1]);
+    return [i1, i2];
+  } catch (error) {
+    return [];
+  }
+}
