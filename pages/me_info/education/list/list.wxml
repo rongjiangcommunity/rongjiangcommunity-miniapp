@@ -3,7 +3,8 @@
   <view class="weui-panel weui-panel_access">
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_text" wx:for="{{education}}">
-        <view class="school">{{item.where[1]}}
+        <view class="school">{{item.where[1]}} - 
+        <text class="bachelor">{{item.major[2]}}</text> - 
         <text class="bachelor">{{item.what}}</text>
         </view>
         <view class="timeRange">{{item.when[0]}} - {{item.when[1]}}</view>

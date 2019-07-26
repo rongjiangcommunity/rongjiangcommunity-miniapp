@@ -40,6 +40,9 @@ Page({
     isPhd: '',
     selfEmployed: '',
     origin: '',
+
+    multiIndex: [0, 0],
+    multiArray: [app.originFirst, app.originSecond[0]],
   },
 
   /**
@@ -81,6 +84,15 @@ Page({
           if (data.gender) {
             o.genderIndex = genderValues[data.gender];
           }
+          if (data.origin) {
+            let origin = JSON.parse(data.origin);
+            let first = app.originFirst.indexOf(origin[0]);
+            let originSecond =  app.originSecond[first];
+            let second = originSecond.indexOf(origin[1]);
+            let multiArray = [ app.originFirst, originSecond ];
+            o.multiIndex = [ first, second ];
+            o.multiArray = multiArray;
+          }
           this.setData({
             ...data,
             ...o,
@@ -119,6 +131,49 @@ Page({
     const {name} = e.currentTarget.dataset;
     if (name) {
       app.saveUserInfo({[name]: `${e.detail.value}`});
+    }
+  },
+
+  bindMultiPickerChange(e) {
+    console.log('picker发送选择改变，携带值为：：：', e.detail)
+    var first = e.detail.value[0];
+    var second = e.detail.value[1];
+    console.log(app.originFirst[first], app.originSecond[first][second])
+    this.setData({
+      multiIndex: e.detail.value,
+      recordMultiIndex: e.detail.value
+    })
+    app.saveUserInfo({origin: [app.originFirst[first], app.originSecond[first][second]]});
+  },
+  bindMultiPickerColumnChange(e) {
+    console.log('修改的列为', e.detail.column, '，值为', e.detail)
+    let column = e.detail.column;
+    let value = e.detail.value;
+    let multiIndex = this.data.multiIndex
+    if (column === 0) {
+      multiIndex[0] = e.detail.value
+      this.setData({
+        multiArray: [app.originFirst, app.originSecond[value]],
+        multiIndex: multiIndex
+      })
+    }else {
+      multiIndex[1] = e.detail.value
+        this.setData({
+        multiIndex: multiIndex
+      })
+    }
+  },
+  bindMultiPickercancel(e){
+    let recordMultiIndex = this.data.recordMultiIndex
+    if (recordMultiIndex) {
+      this.setData({
+        multiArray: [app.originFirst, app.originSecond[recordMultiIndex[0]]],
+        multiIndex: recordMultiIndex
+      });
+    } else {
+      this.setData({
+        recordMultiIndex: this.data.multiIndex
+      })
     }
   }
 });

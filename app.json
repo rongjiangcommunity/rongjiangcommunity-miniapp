@@ -1,6 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/me_info/education/add/add",
+    "pages/me_info/education/edit/edit",
+    "pages/me_info/education/list/list",
+    
     "pages/me_doctor/appointment_detail/appointment_detail",
     "pages/me_doctor/doctor_appointment/doctor_appointment",
     "pages/me_doctor/me_doctor",
@@ -22,9 +26,7 @@
     "pages/me_info/wechat/wechat",
     "pages/me_info/address/address",
     "pages/checklist/checklist",
-    "pages/me_info/education/add/add",
-    "pages/me_info/education/edit/edit",
-    "pages/me_info/education/list/list",
+    
     "pages/appointment/list",
     "pages/appointment/form",
     "pages/appointment/content",

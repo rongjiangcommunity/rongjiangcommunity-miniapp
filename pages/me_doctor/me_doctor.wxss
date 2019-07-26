@@ -33,7 +33,7 @@
 }
 .weui-media-box{
   position: relative;
-  height: 104rpx;
+  height: 110rpx;
 }
 .doctor_icon{
   position: absolute;

@@ -64,6 +64,26 @@
       </picker>
     </view>
   </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">籍贯</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker
+        class="picker weui-cell__bd weui-input"
+        mode="multiSelector"
+        bindchange="bindMultiPickerChange"
+        bindcolumnchange="bindMultiPickerColumnChange"
+        bindcancel="bindMultiPickercancel"
+        value="{{multiIndex}}"
+        range="{{multiArray}}"
+      >
+        <view>
+          {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+        </view>
+      </picker>
+    </view>
+  </view>
 </view>
 
 <view class="weui-cells">
