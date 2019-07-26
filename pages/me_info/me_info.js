@@ -1,8 +1,9 @@
 const app = getApp();
 
-const personalStatuses = ['单身', '恋爱中', '已婚'];
+const personalStatuses = ['单身', '恋爱中', '已婚', '保密'];
 const genders = ['male', 'female'];
 const areas = ["越秀区", "海珠区", "荔湾区", "天河区", "白云区", "黄埔区", "花都区", "番禺区", "南沙区", "从化区", "增城区"];
+
 const genderValues = {
   male: 0,
   female: 1,
