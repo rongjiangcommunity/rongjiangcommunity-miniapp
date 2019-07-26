@@ -25,6 +25,7 @@
     "pages/me_info/email/email",
     "pages/me_info/wechat/wechat",
     "pages/me_info/address/address",
+    "pages/me_info/explanation/me_expl",
     "pages/checklist/checklist",
     
     "pages/appointment/list",

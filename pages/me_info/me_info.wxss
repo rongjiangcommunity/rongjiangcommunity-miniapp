@@ -13,3 +13,16 @@
 .weui-cell__bd picker {
   text-align: right;
 }
+.weui-cell__dtl{
+  font-size: 26rpx;
+  background:#F8F8F8;
+  color:#666;
+  display: inline-block;
+  text-align: center;
+  width:100%;
+  padding: 20rpx 0;
+}
+.weui-cell__dtl__a{
+  display: inline;
+  color:#4e85c6;
+}
