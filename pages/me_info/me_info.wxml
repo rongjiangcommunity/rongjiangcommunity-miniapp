@@ -36,10 +36,8 @@
       <view class="weui-label">工作区域</view>
     </view>
     <view class="weui-cell__bd">
-      <picker range="{{areas}}" value="{{workingAreaIndex}}" bindchange="bindIndexChange"
-        data-name='workingArea' data-range='areas'>
-        <view class="weui-input">{{areas[workingAreaIndex]}}</view>
-      </picker>
+      <picker-two-column columns="{{areaColumns}}" multiIndex="{{workingAreaMultiIndex}}"
+        bindchange="bindAreaChange" data-name='workingArea' input-class="weui-input" />
     </view>
   </view>
   <view class="weui-cell weui-cell_input">
@@ -47,10 +45,8 @@
       <view class="weui-label">生活区域</view>
     </view>
     <view class="weui-cell__bd">
-      <picker range="{{areas}}" value="{{livingAreaIndex}}" bindchange="bindIndexChange"
-        data-name='livingArea' data-range='areas'>
-        <view class="weui-input">{{areas[livingAreaIndex]}}</view>
-      </picker>
+      <picker-two-column columns="{{areaColumns}}" multiIndex="{{livingAreaMultiIndex}}"
+        bindchange="bindAreaChange" data-name='livingArea' input-class="weui-input" />
     </view>
   </view>
   <view class="weui-cell weui-cell_input">
