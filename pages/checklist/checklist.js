@@ -1,8 +1,12 @@
 // pages/checklist/checklist.js
 const app = getApp();
 
-Page({
+const num = 8;
+let page = 0;
+let hasMoredData = true;
 
+
+Page({
   /**
    * 页面的初始数据
    */
@@ -10,11 +14,6 @@ Page({
     proList: [],
     checkData: {},
     radioItem: null,
-    page: 0,
-    start: 0,
-    stop: 3,
-    num: 4,
-    hasMoredData: true
   },
 
   /**
@@ -23,8 +22,10 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '审核列表'
-    }),
-      this.getProList();
+    });
+    const start= page*num;
+    const stop = start + num -1;
+    this.getProList(start, stop);
   },
 
   /**
@@ -56,43 +57,30 @@ Page({
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
 
   },
 
-  getProList: function () {
+  getProList: function (start, stop) {
     var self = this;
     var sid = app.getCredentials();
-    //var sid = "yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597";
     wx.request({
-      url: getApp().serverUrl + '/api/user/reviewlist/' + sid + "?start=" + self.data.start + "&stop=" + self.data.stop,
+      url: getApp().serverUrl + '/api/user/reviewlist/' + sid + "?start=" + start + "&stop=" + stop,
       method: 'GET',
       success: function (res) {
-        console.log(res.data.data);
-        if(!res.data.data.length||res.data.data<=self.data.num){
-          self.setData({
-            hasMoredData: false
-          });
+        if (res.data.data) {
+          const data = res.data.data;
+          if (!data.length || data.length < num) {
+            hasMoredData = false;
+          }
+          if (data.length) {
+            self.setData({
+              proList: self.data.proList.concat(res.data.data),
+            });
+          }
         }
-        self.setData({
-          proList: res.data.data,
-        });
       },
       fail: function () {
 
@@ -144,7 +132,6 @@ Page({
           uid: checkItem.uid,
         },
         success(res) {
-          console.log(res.data)
           wx.hideLoading();
           if (res.data.success) {
             wx.showToast({
@@ -189,42 +176,17 @@ Page({
    * 监听下拉事件
    */
   onPullDownRefresh: function () {
-    console.log("下拉");
-    wx.showNavigationBarLoading();
-    if (this.data.page <= 0) {
-      this.setData({
-        page: 0
-      });
-      console.log("第一页");
-      wx.stopPullDownRefresh();
-    } else {
-      let page = this.data.page - 1;
-      let start = this.data.start - this.data.num;
-      let stop = this.data.stop - this.data.num;
-      this.setData({
-        page: page,
-        start: start,
-        stop: stop
-      })
-      this.getProList();
-    }
   },
   /**
   * 监听上拉事件
   */
   onReachBottom: function () {
-    console.log("上拉");
-    if (this.data.hasMoredData){
+    if (hasMoredData){
       wx.showNavigationBarLoading();
-      let page = this.data.page + 1;
-      let start = this.data.stop + 1;
-      let stop = this.data.stop + this.data.num;
-      this.setData({
-        page: page,
-        start: start,
-        stop: stop
-      })
-      this.getProList();
+      page = page + 1;
+      const start = page*num;
+      const stop = page*num + start-1;
+      this.getProList(start, stop);
     }
   },
   /**
