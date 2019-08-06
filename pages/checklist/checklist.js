@@ -10,6 +10,11 @@ Page({
     proList: [],
     checkData: {},
     radioItem: null,
+    page: 0,
+    start: 0,
+    stop: 3,
+    num: 4,
+    hasMoredData: true
   },
 
   /**
@@ -19,7 +24,7 @@ Page({
     wx.setNavigationBarTitle({
       title: '审核列表'
     }),
-    this.getProList();
+      this.getProList();
   },
 
   /**
@@ -74,17 +79,30 @@ Page({
   getProList: function () {
     var self = this;
     var sid = app.getCredentials();
+    //var sid = "yiz:b996d73ec77be9743adbf83d0cbd832632c98151c6a68184e8b5861a3ac54597";
     wx.request({
-      url: getApp().serverUrl + '/api/user/reviewlist/' + sid,
+      url: getApp().serverUrl + '/api/user/reviewlist/' + sid + "?start=" + self.data.start + "&stop=" + self.data.stop,
       method: 'GET',
       success: function (res) {
+        console.log(res.data.data);
+        if(!res.data.data.length||res.data.data<=self.data.num){
+          self.setData({
+            hasMoredData: false
+          });
+        }
         self.setData({
           proList: res.data.data,
         });
       },
       fail: function () {
 
+      },
+      complete: function () {
+        wx.hideLoading();
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
       }
+
     })
   },
   toDetail: function (e) {
@@ -134,7 +152,7 @@ Page({
               icon: 'success',
               duration: 4000
             }),
-            that.onLoad();
+              that.onLoad();
           } else {
             that.failAlert("请求失败！");
           }
@@ -166,6 +184,48 @@ Page({
       radioItem: radioItem,
     })
     console.log('radio发生change事件，携带value值为：', radioItem)
+  },
+  /**
+   * 监听下拉事件
+   */
+  onPullDownRefresh: function () {
+    console.log("下拉");
+    wx.showNavigationBarLoading();
+    if (this.data.page <= 0) {
+      this.setData({
+        page: 0
+      });
+      console.log("第一页");
+      wx.stopPullDownRefresh();
+    } else {
+      let page = this.data.page - 1;
+      let start = this.data.start - this.data.num;
+      let stop = this.data.stop - this.data.num;
+      this.setData({
+        page: page,
+        start: start,
+        stop: stop
+      })
+      this.getProList();
+    }
+  },
+  /**
+  * 监听上拉事件
+  */
+  onReachBottom: function () {
+    console.log("上拉");
+    if (this.data.hasMoredData){
+      wx.showNavigationBarLoading();
+      let page = this.data.page + 1;
+      let start = this.data.stop + 1;
+      let stop = this.data.stop + this.data.num;
+      this.setData({
+        page: page,
+        start: start,
+        stop: stop
+      })
+      this.getProList();
+    }
   },
   /**
   * 弹出框蒙层截断touchmove事件
