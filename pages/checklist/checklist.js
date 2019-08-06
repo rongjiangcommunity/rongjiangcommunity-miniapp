@@ -1,8 +1,12 @@
 // pages/checklist/checklist.js
 const app = getApp();
 
-Page({
+const num = 8;
+let page = 0;
+let hasMoredData = true;
 
+
+Page({
   /**
    * 页面的初始数据
    */
@@ -18,8 +22,10 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '审核列表'
-    }),
-    this.getProList();
+    });
+    const start= page*num;
+    const stop = start + num -1;
+    this.getProList(start, stop);
   },
 
   /**
@@ -51,40 +57,40 @@ Page({
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
 
   },
 
-  getProList: function () {
+  getProList: function (start, stop) {
     var self = this;
     var sid = app.getCredentials();
     wx.request({
-      url: getApp().serverUrl + '/api/user/reviewlist/' + sid,
+      url: getApp().serverUrl + '/api/user/reviewlist/' + sid + "?start=" + start + "&stop=" + stop,
       method: 'GET',
       success: function (res) {
-        self.setData({
-          proList: res.data.data,
-        });
+        if (res.data.data) {
+          const data = res.data.data;
+          if (!data.length || data.length < num) {
+            hasMoredData = false;
+          }
+          if (data.length) {
+            self.setData({
+              proList: self.data.proList.concat(res.data.data),
+            });
+          }
+        }
       },
       fail: function () {
 
+      },
+      complete: function () {
+        wx.hideLoading();
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
       }
+
     })
   },
   toDetail: function (e) {
@@ -126,7 +132,6 @@ Page({
           uid: checkItem.uid,
         },
         success(res) {
-          console.log(res.data)
           wx.hideLoading();
           if (res.data.success) {
             wx.showToast({
@@ -134,7 +139,7 @@ Page({
               icon: 'success',
               duration: 4000
             }),
-            that.onLoad();
+              that.onLoad();
           } else {
             that.failAlert("请求失败！");
           }
@@ -166,6 +171,23 @@ Page({
       radioItem: radioItem,
     })
     console.log('radio发生change事件，携带value值为：', radioItem)
+  },
+  /**
+   * 监听下拉事件
+   */
+  onPullDownRefresh: function () {
+  },
+  /**
+  * 监听上拉事件
+  */
+  onReachBottom: function () {
+    if (hasMoredData){
+      wx.showNavigationBarLoading();
+      page = page + 1;
+      const start = page*num;
+      const stop = page*num + start-1;
+      this.getProList(start, stop);
+    }
   },
   /**
   * 弹出框蒙层截断touchmove事件
