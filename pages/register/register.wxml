@@ -1,4 +1,4 @@
-<form bindsubmit="formSubmit">
+<form bindsubmit="formSubmit" report-submit="true">
   <view class="weui-cells__title">基本信息</view>
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_input">

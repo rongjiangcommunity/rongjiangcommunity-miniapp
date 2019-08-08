@@ -81,7 +81,8 @@ Page({
         g3: parseInt(data.g3),
         classmates: [data.classmate1,data.classmate2,data.classmate3].join(','),
         message: data.field,
-        wechat: data.wechat
+        wechat: data.wechat,
+        formId: e.detail.formId,
       },
       success(res) {
         that.setData({ disabled: false});
