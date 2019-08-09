@@ -100,7 +100,7 @@ Page({
   },
   checkSubmit: function (e) {
     var that = this;
-    var data = e.target.dataset;
+    var data = e.detail.target.dataset;
     var status = data.status;
     var checkItem = data.checkdata;
     if (data.checkitem == null) {
@@ -130,6 +130,7 @@ Page({
           comment: "快速审核",
           approved: radioItem,
           uid: checkItem.uid,
+          formId: e.detail.formId,
         },
         success(res) {
           wx.hideLoading();
@@ -141,12 +142,12 @@ Page({
             }),
               that.onLoad();
           } else {
-            that.failAlert("请求失败！");
+            app.failAlert("请求失败！");
           }
         },
         fail() {
           wx.hideLoading();
-          that.failAlert("请求失败！");
+          app.failAlert("请求失败！");
         }
       })
     }
