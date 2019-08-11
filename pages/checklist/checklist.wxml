@@ -6,7 +6,7 @@
       <view class="weui-media-box__desc">手机：{{item.mobile}}</view>
       <view class="weui-media-box__desc">同班同学：{{item.classmates}}</view>
     </view>
-    <button class="weui-btn mini-btn check-button" type="primary"  size="mini" data-check='{{item}}' catchtap='toQuickCheck'>快速审核</button>
+    <van-button class="quick-check" type="info" size="small" data-check='{{item}}' catchtap='toQuickCheck'>快速审核</van-button>
   </view>
 </view>
 
@@ -26,8 +26,8 @@
     <view class="modal-content">
       <view class="modal-input">
         <radio-group  name="radio-group"  bindchange="radioChange">
-          <label><radio value="1"/>通过</label>
-          <label><radio value="0"/>不通过</label>
+          <label><radio value="1" color="#008DF8"/>通过</label>
+          <label><radio value="0" color="#008DF8"/>不通过</label>
         </radio-group>
       </view>
     </view>

@@ -1,4 +1,7 @@
 {
+  "usingComponents": {
+    "van-button": "../../dist/button/index"
+  },
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",

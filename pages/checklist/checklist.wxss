@@ -23,9 +23,12 @@
 .check-item {
   position: relative;
   background: #fff;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
   margin-bottom: 10rpx;
   padding: 30rpx;
   overflow: hidden;
+  border-radius: 20rpx;
 }
 
 .check-body{
@@ -104,10 +107,16 @@ input-holder {
 
 .btn-confirm {
   width: 50%;
-  color: #ec5300;
+  color: #008DF8;
   text-align: center;
+  border: none;
+  border-radius:0;
+  background-color:transparent;
 }
 
+.btn-confirm::after {
+  border: none;
+}
 .section-marks{
   line-height: 160rpx;
 }
@@ -120,4 +129,9 @@ input-holder {
 }
 .shenhe-modal label{
   margin:0px 35rpx;
+}
+.quick-check{
+  position: absolute;
+  right: 15px;
+  top: 35%;
 }
