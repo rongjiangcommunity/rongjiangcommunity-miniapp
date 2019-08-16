@@ -11,6 +11,7 @@ Page({
     applyInfo: {},
     approved,
     status: '',
+    gender: 'male'
   },
   /**
      * 生命周期函数--监听页面显示
@@ -41,6 +42,11 @@ Page({
     }else {
       return false;
     }
+  },
+  onChange(event) {
+    this.setData({
+      gender: event.detail
+    });
   },
   formSubmit: function (e) {
     console.log(e);
@@ -76,6 +82,7 @@ Page({
       },
       data: {
         name: data.name,
+        gender:data.gender,
         mobile: data.mobile,
         period: parseInt(data.period),
         g3: parseInt(data.g3),
