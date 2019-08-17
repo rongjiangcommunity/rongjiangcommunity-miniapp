@@ -37,6 +37,7 @@
         <text class="item-title">社区集市</text>
         <text class="item-raw"> > </text>
       </view>
+      <!-- 待更改图标 -->
       <view class="item-box" bindtap='expect'>
         <image class="item-img" src="../../images/icons/marrige.png" background-size="cover"/>
         <text class="item-title">鹊桥相会</text>

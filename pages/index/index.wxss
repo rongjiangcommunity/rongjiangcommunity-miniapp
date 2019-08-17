@@ -1,5 +1,5 @@
 /**index.wxss**/
-
+/* 授权入口样式 */
 .flex-content-center {
   justify-content:center;
 }
