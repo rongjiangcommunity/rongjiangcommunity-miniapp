@@ -22,17 +22,17 @@
 }
 .check-item {
   position: relative;
-  background: #fff;
-  margin-left: 15rpx;
-  margin-right: 15rpx;
-  margin-bottom: 10rpx;
-  padding: 30rpx;
+  background: #FFFFFF;
+  margin: 20rpx 30rpx 0;
+  padding: 48rpx 30rpx 46rpx 30rpx;
   overflow: hidden;
   border-radius: 20rpx;
 }
 
 .check-body{
-  margin-top: 16rpx;
+  margin-top: 34rpx;
+  font-size: 24rpx;
+  color: #999999;
 }
 .check-button{
   position: absolute;
@@ -134,4 +134,13 @@ input-holder {
   position: absolute;
   right: 15px;
   top: 35%;
+}
+.item_name{
+  font-size: 32rpx;
+  color: #333333;
+}
+.item_period{
+  font-size: 32rpx;
+  color: #666666;
+  margin-left: 24rpx;
 }
