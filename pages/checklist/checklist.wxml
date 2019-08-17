@@ -1,10 +1,12 @@
 <view class='item-list'>
   <view class='check-item' wx:for="{{proList}}" wx:key="{{item.uid}}" data-uid='{{item.uid}}' data-index='{{index}}'>
-    <view><text class="item_name">{{item.name}}</text><text class="item_period">{{item.period}}届{{item.g3}}班</text></view>
+    <view class='weui-article__title'>{{item.name}} {{item.period}}届{{item.g3}}班</view>
     <view class="check-body">
-      <text>同班同学：{{item.classmates}}</text>
+      <view class="weui-media-box__desc">微信：{{item.wechat}}</view>
+      <view class="weui-media-box__desc">手机：{{item.mobile}}</view>
+      <view class="weui-media-box__desc">同班同学：{{item.classmates}}</view>
     </view>
-    <van-button class="quick-check" type="info" size="small" data-check='{{item}}' catchtap='toQuickCheck'>审核</van-button>
+    <van-button class="quick-check" type="info" size="small" data-check='{{item}}' catchtap='toQuickCheck'>快速审核</van-button>
   </view>
 </view>
 
@@ -31,7 +33,7 @@
     </view>
     <view class="modal-footer">
       <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
-      <button class="btn-confirm" form-type="submit" data-status="confirm" data-checkData="{{checkData}}" data-checkItem="{{radioItem}}">保存</button>
+      <button class="btn-confirm" form-type="submit" data-status="confirm" data-checkData="{{checkData}}" data-checkItem="{{radioItem}}">确定</button>
       <!-- <view class="btn-confirm" bindtap="onConfirm" data-status="confirm" data-checkData="{{checkData}}" data-checkItem="{{radioItem}}">确定</view> -->
     </view>
   </form>
