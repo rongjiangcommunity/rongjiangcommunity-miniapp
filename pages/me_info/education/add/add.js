@@ -6,6 +6,11 @@ Page({
     startDate: '2000-09-01',
     endDate: '2004-07-01',
     multiIndex: [0, 0],
+
+    temp_major:false,
+    temp_degree:false,
+    temp:false,
+    
     multiArray: [app.provinceArr, app.collegeObj[app.provinceArr[0]]],
     multiMajorIndex: [0, 0, 0],
     multiMajorArray: [app.majorFirst, app.majorSecond[0], app.majorThird['哲学类']],
@@ -61,6 +66,12 @@ Page({
       major: [ majorFir, majorSec, majorThir ]
     };
     education.push(tempDatas);
+      wx.showToast({
+        title: '成功',
+        icon: 'succes',
+        duration: 4000,
+        mask: true
+      })
     app.saveUserInfo({ education: education }).then(() => {
       wx.navigateBack();
     });
@@ -159,6 +170,7 @@ Page({
     let recordMajorMultiIndex = this.data.recordMajorMultiIndex
     if (recordMajorMultiIndex) {
       this.setData({
+        temp_major:false,
         multiMajorArray:[app.majorFirst, app.majorSecond[recordMajorMultiIndex[0]], app.majorThird[app.majorSecond[recordMajorMultiIndex[0]][recordMajorMultiIndex[2]]]],
         multiMajorIndex: recordMajorMultiIndex
       });
@@ -167,5 +179,20 @@ Page({
         recordMajorMultiIndex: this.data.multiMajorIndex
       })
     }
+  },
+  changeTempMajor:function(e){
+    this.setData({
+      temp_major:true
+    })
+  },
+  changeTempDegress: function (e) {
+    this.setData({
+      temp_degree: true
+    })
+  },
+  display: function (e) {
+    this.setData({
+      temp: true
+    })
   }
 })

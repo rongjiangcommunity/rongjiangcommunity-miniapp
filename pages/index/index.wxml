@@ -46,7 +46,7 @@
   </view>
 
 <!-- 认证部分 -->
-  <view class='bottom-action' wx:if="{{approved}}">
+  <view class='bottom-action' wx:if="{{!approved}}">
     <view class="weui-flex flex-content-center" wx:if="{{status==='pending'}}">
       <text>正在认证中，请等候工作人员完成认证。</text>
     </view>

@@ -33,3 +33,27 @@
 .weui-cell__bd {
   font-size:16px;
 }
+.button{
+  margin-top: 160rpx;
+  width: 690rpx;
+  height: 100rpx;
+  background-color: #008DF8;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #ffffff;
+}
+/* 8/17 */
+.lable-bold{
+  display: flex;
+  
+}
+.text{
+  font-size: 30rpx;
+  /* font-weight: bold; */
+  font-family: PingFang-SC-Regular;
+  /* color: #666666; */
+}
+.label{
+  font-family: PingFang-SC-Regular;
+  font-size: 30rpx;
+}

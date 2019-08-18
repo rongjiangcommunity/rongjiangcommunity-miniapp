@@ -2,6 +2,7 @@
 const app = getApp();
 Page({
   data:{
+    temp: false,
     startDate: null,
     endDate: null,
     multiIndex: [0, 0],
@@ -37,6 +38,7 @@ Page({
     })
     let index = this.data.index
     let data = this.data.experience[index];
+    console.log(data)
     let what = data.what;
     let where = data.where;
     let when = data.when;
@@ -130,5 +132,10 @@ Page({
         recordMultiIndex: this.data.multiIndex
       })
     }
+  },
+  display: function (e) {
+    this.setData({
+      temp: true
+    })
   }
 })

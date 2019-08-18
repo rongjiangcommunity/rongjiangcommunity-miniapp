@@ -31,5 +31,31 @@
   color: #fff;
 }
 .weui-cell__bd {
-  font-size:16px;
+  font-size:30rpx;
+  font-family: PingFang-SC-Regular;
+  color: #666666;
+}
+.button{
+  margin-top: 160rpx;
+  width: 690rpx;
+  height: 100rpx;
+  background-color: #008DF8;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #ffffff;
+}
+.lable-bold{
+  display: flex;
+  
+}
+.text{
+  font-size: 30rpx;
+  /* font-weight: bold; */
+  font-family: PingFang-SC-Regular;
+  color: #666666;
+}
+.label{
+  font-family: PingFang-SC-Regular;
+  font-size: 30rpx;
+  color: #B2B2B2;
 }
