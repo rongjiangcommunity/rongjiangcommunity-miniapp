@@ -22,6 +22,11 @@
   border-bottom: 1rpx solid #DDDDDD;
   box-sizing: border-box;
 }
+.info_content_nb{
+  height: 100rpx;
+  margin-left: 30rpx;
+  box-sizing: border-box;
+}
 .title_text{
   font-size: 32rpx;
   color: #333333;
@@ -97,15 +102,18 @@
 }
 .message_label{
   margin-top: 34rpx;
+  flex-shrink: 0;
+
 }
 .message_content{
   margin-top: 36rpx;
   margin-left: 84rpx;
 }
-
+.message_content text{
+  width: 100%;
+}
 .btn{
-  position: absolute;
-  bottom: 0;
+  margin-top: 124rpx;
   width: 100%;
   height: 100rpx;
 }
@@ -116,5 +124,14 @@
   line-height: 100rpx;
   color: #FFFFFF;
   background-color: #008DF8;
+  border-radius: 0;
+}
+.btn button[disabled]{
+  width: 100%;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  color: #FFFFFF;
+  background-color: #95CDF8;
   border-radius: 0;
 }
