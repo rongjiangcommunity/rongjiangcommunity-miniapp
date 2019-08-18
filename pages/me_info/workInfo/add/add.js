@@ -7,6 +7,7 @@ Page({
     endDate: null,
     multiIndex: [0, 0],
     multiArray: [getApp().firstINdustry, getApp().secondIndustry[0]],
+    temp:false,
   },
 
   onLoad: function (options) {
@@ -58,6 +59,12 @@ Page({
       type: [getApp().firstINdustry[multiIndex[0]], getApp().secondIndustry[multiIndex[0]][multiIndex[1]]]
     };
     experience.push(tempDatas);
+    wx.showToast({
+      title: '成功',
+      icon: 'succes',
+      duration: 4000,
+      mask: true
+    })
 
     app.saveUserInfo({ experience }).then(() => {
       wx.navigateBack();
@@ -112,5 +119,10 @@ Page({
         recordMultiIndex: this.data.multiIndex
       })
     }
+  },
+  display:function(e){
+    this.setData({
+      temp:true
+    })
   }
 })
