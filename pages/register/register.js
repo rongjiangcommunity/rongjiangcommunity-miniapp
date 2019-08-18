@@ -11,6 +11,7 @@ Page({
     applyInfo: {},
     approved,
     status: '',
+    gender: '',
   },
   /**
      * 生命周期函数--监听页面显示
@@ -42,12 +43,20 @@ Page({
       return false;
     }
   },
+  onChange(event) {
+    this.setData({
+      gender: event.detail,
+      msg_complete: false
+    });
+   
+  },
   formSubmit: function (e) {
     console.log(e);
     let that = this;
     var data = e.detail.value;
     console.log('form发生了submit事件，携带数据为：', data);
     if (!data.name) { this.failAlert('请输入姓名！');return}
+    if (!data.gender) { this.failAlert('请选择性别！'); return }
     if (!data.mobile) { this.failAlert('请输入手机号！');return}
     if (!(/^1[34578]\d{9}$/.test(data.mobile))) {
       this.failAlert("手机号码有误，请重填");
@@ -76,6 +85,7 @@ Page({
       },
       data: {
         name: data.name,
+        gender:data.gender,
         mobile: data.mobile,
         period: parseInt(data.period),
         g3: parseInt(data.g3),
@@ -89,7 +99,7 @@ Page({
         wx.hideLoading()
         if (res.data.success) {
           wx.showToast({
-            title: '上传成功',
+            title: '提交成功',
             icon: 'success',
             duration: 4000
           })
