@@ -141,7 +141,10 @@
     </view>
   </view>
   <view class="btn">
-    <button form-type="submit" disabled="{{msg_complete}}">提交审核</button>
+    <button wx:if="{{status===''}}" form-type="submit" disabled="{{disabled}}">提交审核</button>
+     <button wx:if="{{status==='ok'}}" formType="submit" disabled='{{disabled}}' class="weui-btn" type="primary">重新提交</button>
+    <button wx:if="{{status==='notok'}}" formType="submit" disabled='{{disabled}}' class="weui-btn" type="primary">重新提交</button>
+    <button wx:if="{{status==='pending'}}" disabled class="weui-btn" type="primary">审核中</button>
   </view>
 </form>
 

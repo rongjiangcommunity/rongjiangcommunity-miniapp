@@ -12,7 +12,6 @@ Page({
     approved,
     status: '',
     gender: '',
-    msg_complete: true
   },
   /**
      * 生命周期函数--监听页面显示
@@ -50,17 +49,6 @@ Page({
       msg_complete: false
     });
    
-  },
-  msg_contentHandle:function(e){
-    if(e.detail.value==''){
-      this.setData({
-        msg_complete: true
-      })
-    }else{
-      this.setData({
-        msg_complete: false
-      })
-    }
   },
   formSubmit: function (e) {
     console.log(e);
