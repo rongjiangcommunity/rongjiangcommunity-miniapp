@@ -12,6 +12,7 @@ Page({
     approved,
     status: '',
     gender: '',
+
   },
   /**
      * 生命周期函数--监听页面显示
@@ -48,7 +49,7 @@ Page({
       gender: event.detail,
       msg_complete: false
     });
-   
+
   },
   formSubmit: function (e) {
     console.log(e);

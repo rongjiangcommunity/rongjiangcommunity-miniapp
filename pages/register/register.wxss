@@ -103,6 +103,7 @@
 .message_label{
   margin-top: 34rpx;
   flex-shrink: 0;
+
 }
 .message_content{
   margin-top: 36rpx;

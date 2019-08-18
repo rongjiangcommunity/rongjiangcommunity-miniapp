@@ -28,6 +28,7 @@
   <view class="info_p2">
     <view class="info_content">
       <view class="info_input">
+
         <text class="title_text">手机</text>
         <input
           name="mobile"
