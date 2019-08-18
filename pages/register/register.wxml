@@ -7,6 +7,7 @@
           name="name"
           value="{{applyInfo.name||''}}"
           disabled='{{!editable}}'
+          bindinput="msg_contentHandle"
           placeholder="{{applyInfo.name||'真实姓名'}}"
           placeholder-style='placeholder'
           />
@@ -14,7 +15,7 @@
     </view>
     <view class="info_p1_sex">
       <text class="title_text">性别</text>
-      <van-radio-group name="gender" disabled='{{!editable}}' class=".info_p1_sex_radio" value="{{applyInfo.gender||gender}}" bind:change="onChange">
+      <van-radio-group name="gender" class=".info_p1_sex_radio" value="{{applyInfo.gender||gender}}" bind:change="onChange">
       <view class="radio_male">
         <van-radio name="male">男</van-radio>
       </view>
@@ -27,18 +28,49 @@
   <view class="info_p2">
     <view class="info_content">
       <view class="info_input">
+        <text class="title_text">手机</text>
+        <input
+          name="mobile"
+          type="number"
+          value="{{applyInfo.mobile||''}}"
+          disabled='{{!editable}}'
+          bindinput="msg_contentHandle"
+          placeholder="{{applyInfo.mobile||'请输入手机号码'}}"
+          placeholder-style='placeholder'
+          />
+      </view>
+    </view>
+    <view class="info_content_nb">
+      <view class="info_input">
+        <text class="title_text">微信</text>
+        <input
+          name="wechat"
+          type="number"
+          value="{{applyInfo.wechat||''}}"
+          disabled='{{!editable}}'
+          bindinput="msg_contentHandle"
+          placeholder="{{applyInfo.wechat||'请输入微信号'}}"
+          placeholder-style='placeholder'
+          />
+      </view>
+    </view>
+  </view>
+  <view class="info_p2">
+    <view class="info_content">
+      <view class="info_input">
         <text class="title_text">届别</text>
         <input
           name="period"
           type="number"
           value="{{applyInfo.period||''}}"
           disabled='{{!editable}}'
+          bindinput="msg_contentHandle"
           placeholder="{{applyInfo.period||'格式为数字，如89届填89'}}"
           placeholder-style='placeholder'
           />
       </view>
     </view>
-    <view class="info_content">
+    <view class="info_content_nb">
       <view class="info_input">
         <text class="title_text">班级</text>
         <input
@@ -46,6 +78,7 @@
           type="number"
           value="{{applyInfo.g3||''}}"
           disabled='{{!editable}}'
+          bindinput="msg_contentHandle"
           placeholder="{{applyInfo.g3||'高三班级，格式同上'}}"
           placeholder-style='placeholder'
           />
@@ -63,6 +96,7 @@
           name="classmate1"
           label="同学一"
           disabled="{{!editable}}"
+          bindinput="msg_contentHandle"
           value="{{classMates[0]||''}}"
           placeholder="{{classMates[0]||'请输入同学的真实姓名'}}"
           placeholder-style='placeholder'
@@ -76,19 +110,21 @@
           name="classmate2"
           label="同学二"
           disabled="{{!editable}}"
+          bindinput="msg_contentHandle"
           value="{{classMates[1]||''}}"
           placeholder="{{classMates[1]||'请输入同学的真实姓名'}}"
           placeholder-style='placeholder'
           />
       </view>
     </view>
-    <view class="info_content border-none">
+    <view class="info_content_nb">
       <view class="info_input">
         <text class="title_text">同学三</text>
         <input
           name="classmate3"
           label="同学三"
           disabled="{{!editable}}"
+          bindinput="msg_contentHandle"
           value="{{classMates[2]||''}}"
           placeholder="{{classMates[2]||'请输入同学的真实姓名'}}"
           placeholder-style='placeholder'
@@ -105,7 +141,7 @@
     </view>
   </view>
   <view class="btn">
-    <button form-type="submit">提交审核</button>
+    <button form-type="submit" disabled="{{msg_complete}}">提交审核</button>
   </view>
 </form>
 
