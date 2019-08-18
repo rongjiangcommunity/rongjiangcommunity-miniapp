@@ -45,7 +45,6 @@
         <text class="title_text">微信</text>
         <input
           name="wechat"
-          type="number"
           value="{{applyInfo.wechat||''}}"
           disabled='{{!editable}}'
           bindinput="msg_contentHandle"
