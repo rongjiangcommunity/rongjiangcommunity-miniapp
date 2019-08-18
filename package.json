@@ -1,0 +1,22 @@
+{
+  "name": "rongjiangcommunity-miniapp",
+  "version": "1.0.0",
+  "description": "appid: wx6ceb2515d7e20fa3",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rongjiangcommunity/rongjiangcommunity-miniapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rongjiangcommunity/rongjiangcommunity-miniapp/issues"
+  },
+  "homepage": "https://github.com/rongjiangcommunity/rongjiangcommunity-miniapp#readme",
+  "dependencies": {
+    "vant-weapp": "^0.5.19"
+  }
+}
