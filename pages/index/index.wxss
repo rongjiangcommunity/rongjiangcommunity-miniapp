@@ -14,6 +14,9 @@
   position: relative;
   height: 150rpx;
   background: #fff;
+  box-shadow:1rpx 1rpx 1rpx 1rpx gainsboro;
+  border-radius:10rpx;
+  margin-bottom: 5rpx;
 }
 .item-img{
   width: 90rpx;
@@ -55,6 +58,15 @@
 }
 
 .container{
-  padding:20rpx 0;
+  padding:15rpx 0;
+}
+
+.userinfo-nickname{
+  font-weight:bold;
+  font-size:40rpx;
+}
+
+.welcom{
+  color : #999
 }
 
