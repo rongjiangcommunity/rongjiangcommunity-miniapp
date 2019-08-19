@@ -41,7 +41,11 @@ Page({
         .then(([user, applyInfo]) => {
           const approved = user && user.approved === 'true' ? true:false;
           const status = applyInfo ? applyInfo.status : '';
-          wx.setStorageSync('isXiaoyou', approved);
+          try {
+            wx.setStorageSync('isXiaoyou', approved);
+          } catch (error) {
+            console.error(error);
+          }
           this.setData({
             user,
             applyInfo,
