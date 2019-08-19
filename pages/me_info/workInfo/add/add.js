@@ -3,6 +3,7 @@ const app = getApp()
 
 Page({
   data:{
+    focustemp:false,
     startDate: null,
     endDate: null,
     multiIndex: [0, 0],
@@ -60,7 +61,7 @@ Page({
     };
     experience.push(tempDatas);
     wx.showToast({
-      title: '成功',
+      title: '保存成功',
       icon: 'succes',
       duration: 4000,
       mask: true
@@ -73,13 +74,15 @@ Page({
   bindStartDateChange(e) {
     console.log('携带值为', e.detail.value)
     this.setData({
-      startDate: e.detail.value
+      startDate: e.detail.value,
+      focustemp: true,
     })
   },
   bindEndDateChange(e) {
     console.log('携带值为', e.detail.value)
     this.setData({
-      endDate: e.detail.value
+      endDate: e.detail.value,
+      focustemp:true,
     })
   },
   bindMultiPickerChange(e) {
@@ -123,6 +126,11 @@ Page({
   display:function(e){
     this.setData({
       temp:true
+    })
+  },
+  focus:function(){
+    this.setData({
+      focustemp:true
     })
   }
 })

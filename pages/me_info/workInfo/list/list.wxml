@@ -1,7 +1,7 @@
 <!--pages/me_feedback/me_feedback.wxml-->
  <scroll-view scroll-y="{{isScroll}}" style='height:{{windowHeight}}px'>
 <view class="page">
-      <view style="margin-top:22rpx;">
+      <view class="frame_big">
       <block wx:for="{{experience}}" wx:key="{{index}}">
       <view class="frame" >
          <view data-index='{{index}}' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{data[index].right}}rpx">
@@ -15,15 +15,15 @@
                     <view class="timeRange">在职时间： {{item.when[0]}}~{{item.when[1]}}</view>
              </view>
               <navigator url="../edit/edit?index={{index}}">
-                <image class="editIcon" src="/images/icons/feedback.png"></image>
+                <image class="editIcon" src="/images/icons/edit@3x.png"></image>
               </navigator>
-               <view class="remove" bindtap="delItem" bindtap='handleDeleteInfo'>删除 </view>
+               <view id = "{{index}}" class="remove" bindtap="delItem" bindtap='handleDeleteInfo'>删除 </view>
         </view>
       </view>
       </block>
       </view>
    <view class="frame_tips">
-    <image src="" class="tips_icon"></image>
+    <image src="/images/icons/notice2@3x.png" class="tips_icon"></image>
     <view class="tips">最多可维护3个教育经历</view>
   </view>
   <view class="weui-btn-area">

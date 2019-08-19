@@ -67,7 +67,7 @@ Page({
     };
     education.push(tempDatas);
       wx.showToast({
-        title: '成功',
+        title: '保存成功',
         icon: 'succes',
         duration: 4000,
         mask: true

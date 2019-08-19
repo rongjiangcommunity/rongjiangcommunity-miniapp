@@ -16,6 +16,8 @@ Page({
   },
   onLoad: function (options) {
     this.setData({ index: options.index})
+    console.log("sdasdasdasd")
+    console.log(options)
   },
 
   onShow: function () {

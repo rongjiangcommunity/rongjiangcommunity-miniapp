@@ -1,7 +1,7 @@
 <!--pages/me_feedback/me_feedback.wxml-->
  <scroll-view scroll-y="{{isScroll}}" style='height:{{windowHeight}}px'>
+ <view class="frame_big">
     <view class="frame_page">
-      
       <view class="frame" wx:for="{{education}}" wx:key="{{index}}">
        <view data-index='{{index}}' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{data[index].right}}rpx">
         <view class="frame_information">
@@ -10,12 +10,12 @@
               <view class="bachelor">{{education[index].major[2]}}</view>
               <view class="bachelorTiltle">{{education[index].what}}</view>
           </view>
-          <view class="timeRange">在校时间：{{education[index].when[0]}} - {{education[index].when[1]}}</view>
+          <view class="timeRange">在校时间：{{education[index].when[0]}}-{{education[index].when[1]}}</view>
         
          </view>
-         <navigator url="../edit/edit?index={{index}}" bindtap="switToEdit">
+         <navigator url="../edit/edit?index={{index}}">
           <view class="frame_icon">
-             <image class="editIcon" src="/images/icons/feedback.png" ></image>
+             <image class="editIcon" src="/images/icons/edit@3x.png" ></image>
                   </view>
           </navigator>
            <view class="remove" bindtap="delItem" bindtap='handleDeleteInfo'>删除 </view>
@@ -27,11 +27,11 @@
      
       
     </view>
-
+</view>
     </view>
         <!-- <image class="deleteIcon" bindtap='handleDeleteInfo' data-index='{{index}}' src="/images/icons/delete.png"></image> -->
   <view class="frame_tips">
-    <image src="" class="tips_icon"></image>
+    <image src="/images/icons/notice2@3x.png" class="tips_icon"></image>
     <view class="tips">最多可维护3个教育经历</view>
   </view>
   <view class="weui-btn-area">

@@ -13,6 +13,8 @@ Page({
       title: '工作信息'
     })
     this.setData({ index: options.index })
+    console.log("sdadasd")
+    console.log(options)
   },
   onShow: function () {
     this.checkInfo();
@@ -38,6 +40,7 @@ Page({
     })
     let index = this.data.index
     let data = this.data.experience[index];
+    console.log("===================")
     console.log(data)
     let what = data.what;
     let where = data.where;

@@ -22,11 +22,11 @@
         </view>
         <view class="weui-cell">
           <view class="weui-cell__hd weui-label">工作单位</view>
-          <input name="where" class="label" placeholder='输入单位名称'/>
+          <input name="where" class="focustemp==true?'label':'labelB'" onfocus="focus" placeholder='输入单位名称'/>
         </view>
         <view class="weui-cell">
           <view class="weui-cell__hd weui-label">单位职务</view>
-          <input name="what" class="label" placeholder='输入单位职务'/>
+          <input name="what" class="focustemp==true?'label':'labelB'" onfocus="focus" placeholder='输入单位职务'/>
         </view>
         <view class="weui-cell">
           <view class="weui-cell__hd weui-label">在职时间</view>
@@ -40,7 +40,7 @@
                           value="{{startDate}}"
                           bindchange="bindStartDateChange"
                         >
-                              <view class="label">
+                              <view class="focustemp==true?'label':'labelB'">
                                 {{startDate||"起始时间"}}
                               </view>
                         </picker>
@@ -52,7 +52,7 @@
                           value="{{endDate}}"
                           bindchange="bindEndDateChange"
                         >
-                              <view class="label">
+                              <view class="focustemp==true?'label':'labelB'">
                                 {{endDate||"结束时间"}}
                               </view>
                         </picker>

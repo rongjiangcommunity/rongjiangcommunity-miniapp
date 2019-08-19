@@ -59,12 +59,6 @@ Page({
       }
     })
   },
-// 跳去编辑
-  switToEdit : function(e){
-      wx.navigateTo({
-        url: '/pages/me_info/education/edit/edit?',
-      })
-  },
   checkInfo: function () {
     app.appReady().then(() => {
       Promise.all([app.getUserInfo()])

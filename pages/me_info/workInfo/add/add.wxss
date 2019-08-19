@@ -59,3 +59,9 @@
   font-size: 30rpx;
   color: #B2B2B2;
 }
+.labelB{
+  font-family: PingFang-SC-Regular;
+  font-size: 30rpx;
+  color: black;
+  /* color: #B2B2B2; */
+}
