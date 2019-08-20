@@ -49,14 +49,14 @@
       {
         "text": "首页",
         "pagePath": "pages/index/index",
-        "iconPath": "images/icons/Shape_gray@2x.png",
-        "selectedIconPath": "images/icons/Shape@2x.png"
+        "iconPath": "images/icons/Shape_gray.png",
+        "selectedIconPath": "images/icons/Shape.png"
       },
       {
         "text": "我的",
         "pagePath": "pages/me/me",
-        "iconPath": "images/icons/Mine_gray@2x.png",
-        "selectedIconPath": "images/icons/Mine@2x.png"
+        "iconPath": "images/icons/Mine_gray.png",
+        "selectedIconPath": "images/icons/Mine.png"
       }
     ]
   },
