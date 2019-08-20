@@ -2,7 +2,7 @@
  <scroll-view scroll-y="{{isScroll}}" style='height:{{windowHeight}}px'>
  <view class="frame_big">
     <view class="frame_page">
-      <view class="frame" wx:for="{{education}}" wx:key="{{index}}">
+      <view class="{{index<education.length-1?'frame':'frameB'}}" wx:for="{{education}}" wx:key="{{index}}" id = "{{index}}">
        <view data-index='{{index}}' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{data[index].right}}rpx">
         <view class="frame_information">
           <view class="frame_SchoolName">
@@ -18,7 +18,7 @@
              <image class="editIcon" src="/images/icons/edit@3x.png" ></image>
                   </view>
           </navigator>
-           <view class="remove" bindtap="delItem" bindtap='handleDeleteInfo'>删除 </view>
+           <view data-index='{{index}}' class="remove" bindtap="delItem" bindtap='handleDeleteInfo'>删除 </view>
           </view>
           
              

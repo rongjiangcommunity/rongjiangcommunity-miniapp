@@ -66,10 +66,12 @@ Page({
       duration: 4000,
       mask: true
     })
-
-    app.saveUserInfo({ experience }).then(() => {
-      wx.navigateBack();
-    });
+    setTimeout(function () {
+      app.saveUserInfo({ experience }).then(() => {
+        wx.navigateBack();
+      })
+    }, 2000)
+   
   },
   bindStartDateChange(e) {
     console.log('携带值为', e.detail.value)

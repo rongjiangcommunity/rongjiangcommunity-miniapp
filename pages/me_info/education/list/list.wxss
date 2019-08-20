@@ -26,18 +26,18 @@ page{
 }
 /* 专业 */
 .bachelor{
-  margin-top: 6rpx;
+  /* margin-top: 6rpx; */
   margin-left: 18rpx;
   display: inline-block;
-  font-size: 26rpx;
+  font-size: 32rpx;
   font-family: PingFang-SC-Regular;
   color: #666666;
 }
 /* 高中、本科等学历 */
 .bachelorTiltle{
+  border-radius: 4rpx;
   padding-left: 10rpx;
   padding-right: 10rpx;
-  margin-top: 4rpx;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,18 +52,17 @@ page{
 }
 /*在校时间 */
 .timeRange{
-  display: block;
-  margin-top: 19rpx;
+  /* display: block; */
+  margin-bottom: 40rpx;
+  margin-top: 17rpx;
   font-size: 24rpx;
   line-height: 40rpx;
   color: #999999;
 }
 /* 编辑图标 */
 .editIcon{
-  margin-top: 35rpx;
-  margin-right: -18rpx;
-  right: 30rpx;
-  top: 10rpx;
+  margin-top: 40rpx;
+  margin-right: 15rpx;
   width: 44rpx;
   height: 44rpx;
   padding: 20rpx;
@@ -75,7 +74,7 @@ page{
   color: #999999;
 }
 .tips_icon{
-  margin-top: 6rpx;
+  margin-top: 7.9rpx;
   margin-left:28rpx;
   height: 26rpx;
   width: 26rpx;
@@ -89,47 +88,69 @@ page{
   color: #fff;
 }
 .frame_tips{
-  margin-top: 26rpx;
+  margin-top: 16rpx;
   display: flex;
   justify-content: flex-start;
 }
 .frame_information{
-  margin-top: 23rpx;
-  margin-bottom: 23rpx;
+  margin-top: 46rpx;
+  /* margin-bottom: 23rpx; */
   display: flex;
   flex-direction: column;
 }
 .frame_icon{  
   margin-right: 30rpx;
   display: flex;
+  align-self: center;
   justify-content: center;
   align-items: center;
 }
 .frame{
+  height: 180rpx;
+  width: 746rpx;
   display: flex;
   justify-content: space-between;
-  border-bottom: 0.1rpx solid rgb(222, 222, 222);
+  border-bottom: 1rpx solid rgb(235, 235, 235);
+  background-color: #ffffff;
+}
+.frameB{
+  height: 180rpx;
+  width: 746rpx;
+  display: flex;
+  justify-content: space-between;
+  /* border-bottom: 0.1rpx solid rgb(222, 222, 222); */
   background-color: #ffffff;
 }
 .frame_SchoolName{
   display: flex;
+
 }
 .button{
-  width: 690rpx;
+  margin-top: 160rpx;
+  width: 670rpx;
   height: 100rpx;
-  background-color: #008DF8;
   border-radius: 10rpx;
-  text-align: center;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
   color: #ffffff;
+  background-color: #008DF8;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
 }
 .buttonB{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 160rpx;
   width: 690rpx;
   height: 100rpx;
   background-color: #008DF8;
   border-radius: 10rpx;
-  text-align: center;
   color: #ffffff;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
 }
 
 /* 左滑删除*/
@@ -148,7 +169,7 @@ page{
   color: white; 
   position: absolute;  
   top: 0;  
-  right: -160rpx;  
+  right: -141rpx;  
   display: flex;  
   justify-content: center;  
   align-items: center;  

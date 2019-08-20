@@ -3,7 +3,7 @@
 <view class="page">
       <view class="frame_big">
       <block wx:for="{{experience}}" wx:key="{{index}}">
-      <view class="frame" >
+      <view class="{{index<experience.length-1? 'frame':'frameB'}}" >
          <view data-index='{{index}}' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{data[index].right}}rpx">
             <view class="frame_name_time">
                     <view class="frame_name_type">

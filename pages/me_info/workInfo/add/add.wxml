@@ -1,10 +1,10 @@
 <!--pages/me_feedback/me_feedback.wxml-->
 <view class="page">
-  <view class="page__bd">
-    <form class="register-form" bindsubmit="formSubmit">
+  <view class="frame">
+    <form class="frame_one" bindsubmit="formSubmit">
       <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell">
-          <view class="weui-cell__hd weui-label">所属行业</view>
+        <view class="frame_text">
+          <view class="frame_school">所属行业</view>
           <picker
             class="picker weui-cell__bd"
             mode="multiSelector"
@@ -19,17 +19,20 @@
               <view class="text" style="margin-left:20rpx;">{{multiArray[1][multiIndex[1]]}}</view>
             </view>
           </picker>
+            <image class="icon" src="/images/icons/right_arrow.png"/>
         </view>
-        <view class="weui-cell">
-          <view class="weui-cell__hd weui-label">工作单位</view>
-          <input name="where" class="focustemp==true?'label':'labelB'" onfocus="focus" placeholder='输入单位名称'/>
+        <view class="frame_text">
+          <view class="frame_school">工作单位</view>
+          <input name="where" class="weui-cell__bd" onfocus="focus" placeholder='输入单位名称'/>
+            <image class="icon" src="/images/icons/right_arrow.png"/>
         </view>
-        <view class="weui-cell">
-          <view class="weui-cell__hd weui-label">单位职务</view>
-          <input name="what" class="focustemp==true?'label':'labelB'" onfocus="focus" placeholder='输入单位职务'/>
+        <view class="frame_text">
+          <view class="frame_school">单位职务</view>
+          <input name="what" class="weui-cell__bd" onfocus="focus" placeholder='输入单位职务'/>
+            <image class="icon" src="/images/icons/right_arrow.png"/>
         </view>
-        <view class="weui-cell">
-          <view class="weui-cell__hd weui-label">在职时间</view>
+        <view class="frame_text">
+          <view class="frame_school">在职时间</view>
           <block wx:if="{{temp==true}}">
 
                 <view class="weui-cell__bd">
@@ -56,17 +59,17 @@
                                 {{endDate||"结束时间"}}
                               </view>
                         </picker>
+                        
                 </view>
           </block>
           <block wx:elif="{{temp==false}}">
-          <view  class="label"   bindtap="display">请选择在职时间</view>
+          <view  class="picker weui-cell__bd_c"   bindtap="display">请选择在职时间</view>
           </block>
+            <image class="icon" src="/images/icons/right_arrow.png"/>
         </view>
         </view>
-      <view class="weui-btn-area">
-        <button class="button"  formType="submit">保存</button>
-      </view>
     </form>
   </view>
+  <button class="button"  formType="submit">保存</button>
 </view>
 

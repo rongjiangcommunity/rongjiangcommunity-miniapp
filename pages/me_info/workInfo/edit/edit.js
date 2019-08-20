@@ -80,11 +80,24 @@ Page({
       when: [ startDate, endDate ],
       type: [getApp().firstINdustry[multiIndex[0]], getApp().secondIndustry[multiIndex[0]][multiIndex[1]]]
     };
+    //提示
+    wx.showToast({
+      title: '保存成功',
+      icon: 'succes',
+      duration: 4000,
+      mask: true
+    })
+
     let index = this.data.index
     experience[index] = tempDatas;
-    app.saveUserInfo({ experience }).then(() => {
-      wx.navigateBack();
-    });
+    //延迟自启
+    setTimeout(function () {
+      app.saveUserInfo({ experience }).then(() => {
+        wx.navigateBack();
+      })
+    }, 2000)
+    
+
   },
   bindStartDateChange(e) {
     console.log('携带值为', e.detail.value)

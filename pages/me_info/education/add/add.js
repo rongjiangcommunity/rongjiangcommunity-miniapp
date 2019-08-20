@@ -69,12 +69,15 @@ Page({
       wx.showToast({
         title: '保存成功',
         icon: 'succes',
-        duration: 4000,
+        duration: 2000,
         mask: true
       })
-    app.saveUserInfo({ education: education }).then(() => {
-      wx.navigateBack();
-    });
+    setTimeout(function () {
+      app.saveUserInfo({ education: education }).then(() => {
+        wx.navigateBack();
+      })
+    }, 2000)
+   
   },
   bindStartDateChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)

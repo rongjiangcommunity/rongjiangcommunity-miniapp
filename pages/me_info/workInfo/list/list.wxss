@@ -25,6 +25,7 @@
   display: flex;
 }
 .post{
+  border-radius: 4rpx;
   margin-top: 3rpx;
   padding-left: 10rpx;
   padding-right: 10rpx;
@@ -96,6 +97,8 @@
   background-color: #008DF8;
   border-radius: 10rpx;
   color: #ffffff;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
 }
 .frame_tips{
   margin-top: 26rpx;
@@ -117,12 +120,17 @@
 /*我添加的*/
 /* 总显示框架 */
 .frame{
-  /* margin-top: 22rpx; */
   width: 716rpx;
   background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   border-bottom: 0.1rpx solid rgb(222, 222, 222);
+}
+.frameB{
+  width: 716rpx;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
 }
 .frame_name_type{
   display: flex;
