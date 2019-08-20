@@ -1,24 +1,43 @@
 <!--pages/me_feedback/me_feedback.wxml-->
-<view class="page">
-  <view class="weui-panel weui-panel_access">
-    <view class="weui-panel__bd">
-      <view class="weui-media-box weui-media-box_text" wx:for="{{education}}">
-        <view class="school">{{item.where[1]}} - 
-        <text class="bachelor">{{item.major[2]}}</text> - 
-        <text class="bachelor">{{item.what}}</text>
-        </view>
-        <view class="timeRange">{{item.when[0]}} - {{item.when[1]}}</view>
-        <navigator url="../edit/edit?index={{index}}">
-          <image class="editIcon" src="/images/icons/feedback.png"></image>
-        </navigator>
-        <image class="deleteIcon" bindtap='handleDeleteInfo' data-index='{{index}}' src="/images/icons/delete.png"></image>
-      </view>
+ <scroll-view scroll-y="{{isScroll}}" style='height:{{windowHeight}}px'>
+ <view class="frame_big">
+    <view class="frame_page">
+      <view class="frame" wx:for="{{education}}" wx:key="{{index}}">
+       <view data-index='{{index}}' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{data[index].right}}rpx">
+        <view class="frame_information">
+          <view class="frame_SchoolName">
+              <view class="school">{{education[index].where[1]}} </view>
+              <view class="bachelor">{{education[index].major[2]}}</view>
+              <view class="bachelorTiltle">{{education[index].what}}</view>
+          </view>
+          <view class="timeRange">在校时间：{{education[index].when[0]}}-{{education[index].when[1]}}</view>
+        
+         </view>
+         <navigator url="../edit/edit?index={{index}}">
+          <view class="frame_icon">
+             <image class="editIcon" src="/images/icons/edit@3x.png" ></image>
+                  </view>
+          </navigator>
+           <view class="remove" bindtap="delItem" bindtap='handleDeleteInfo'>删除 </view>
+          </view>
+          
+             
+             <!-- dd -->
+     
+     
+      
     </view>
+</view>
+    </view>
+        <!-- <image class="deleteIcon" bindtap='handleDeleteInfo' data-index='{{index}}' src="/images/icons/delete.png"></image> -->
+  <view class="frame_tips">
+    <image src="/images/icons/notice2@3x.png" class="tips_icon"></image>
+    <view class="tips">最多可维护3个教育经历</view>
   </view>
   <view class="weui-btn-area">
       <navigator url="../add/add" wx:if="{{education.length<3}}">
-        <button class="weui-btn" type="primary" bindtap="default">添加学历</button>
+        <button class="{{experience.length == 0?'button':'buttonB'}}"  bindtap="default">添加学历</button>
       </navigator>
     </view>
-</view>
+</scroll-view>
 

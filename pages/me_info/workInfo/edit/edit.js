@@ -2,6 +2,7 @@
 const app = getApp();
 Page({
   data:{
+    temp: false,
     startDate: null,
     endDate: null,
     multiIndex: [0, 0],
@@ -12,6 +13,8 @@ Page({
       title: '工作信息'
     })
     this.setData({ index: options.index })
+    console.log("sdadasd")
+    console.log(options)
   },
   onShow: function () {
     this.checkInfo();
@@ -37,6 +40,8 @@ Page({
     })
     let index = this.data.index
     let data = this.data.experience[index];
+    console.log("===================")
+    console.log(data)
     let what = data.what;
     let where = data.where;
     let when = data.when;
@@ -130,5 +135,10 @@ Page({
         recordMultiIndex: this.data.multiIndex
       })
     }
+  },
+  display: function (e) {
+    this.setData({
+      temp: true
+    })
   }
 })

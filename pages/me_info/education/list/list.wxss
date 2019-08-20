@@ -1,48 +1,155 @@
-.page{
-  overflow: hidden;
-  background: #eee;
+/* 全局设置 */
+page{
+ 
+  background-color: #F8F8F8;
+  
   height: 100vh;
 }
-.listItem {
-  position: relative;
-  background:#fff;
-  padding: 30rpx;
-  height: 80rpx;
-  margin-top: 10rpx;
+
+.frame_page{
+  width: 716rpx;
+ 
+  overflow: hidden;
 }
+/* 最大框架布局设置 */
+.frame_big{
+  margin-top: 20rpx;
+  display: flex;
+  justify-content:flex-end;
+  background-color: #FFFFFF;
+}
+
 .school{
-  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  color: #333333;
+  font-size: 32rpx;
 }
+/* 专业 */
 .bachelor{
-  font-size: 24rpx;
-  color: #999;
+  margin-top: 6rpx;
+  margin-left: 18rpx;
+  display: inline-block;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Regular;
+  color: #666666;
 }
+/* 高中、本科等学历 */
+.bachelorTiltle{
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  margin-top: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 相对于框架frame_school */
+  align-self: center; 
+
+  background-color: rgba(0, 141, 248, 0.2);
+  margin-left: 11rpx;
+  font-size: 18rpx;
+  color: #008DF8;
+}
+/*在校时间 */
 .timeRange{
+  display: block;
+  margin-top: 19rpx;
   font-size: 24rpx;
   line-height: 40rpx;
+  color: #999999;
 }
+/* 编辑图标 */
 .editIcon{
-  position: absolute;
+  margin-top: 35rpx;
+  margin-right: -18rpx;
   right: 30rpx;
   top: 10rpx;
-  width: 30rpx;
-  height: 30rpx;
+  width: 44rpx;
+  height: 44rpx;
   padding: 20rpx;
 }
-.deleteIcon{
-  position: absolute;
-  right: 30rpx;
-  top: 70rpx;
-  width: 30rpx;
-  height: 30rpx;
-  padding: 20rpx;
+.tips{
+  margin-left: 14rpx;
+  font-family: PingFang-SC-Regular;
+  font-size: 24rpx;
+  color: #999999;
 }
+.tips_icon{
+  margin-top: 6rpx;
+  margin-left:28rpx;
+  height: 26rpx;
+  width: 26rpx;
+}
+/* 提交按钮 */
 .submit{
-  position: absolute;
-  margin-top: 100rpx;
   left: 50%;
   width: 300rpx;
   transform: translateX(-50%);
   background: #4e85c6;
   color: #fff;
+}
+.frame_tips{
+  margin-top: 26rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+.frame_information{
+  margin-top: 23rpx;
+  margin-bottom: 23rpx;
+  display: flex;
+  flex-direction: column;
+}
+.frame_icon{  
+  margin-right: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.frame{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.1rpx solid rgb(222, 222, 222);
+  background-color: #ffffff;
+}
+.frame_SchoolName{
+  display: flex;
+}
+.button{
+  width: 690rpx;
+  height: 100rpx;
+  background-color: #008DF8;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #ffffff;
+}
+.buttonB{
+  margin-top: 160rpx;
+  width: 690rpx;
+  height: 100rpx;
+  background-color: #008DF8;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* 左滑删除*/
+.order-item {
+  /* height: 120rpx; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.remove{  
+  width: 160rpx;  
+  height: 100%;  
+  background-color: red; 
+  color: white; 
+  position: absolute;  
+  top: 0;  
+  right: -160rpx;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
 }

@@ -13,8 +13,9 @@
           value="{{multiIndex}}"
           range="{{multiArray}}"
         >
-          <view>
-            {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+          <view class="lable-bold">
+            <view class="text">{{multiArray[0][multiIndex[0]]}}</view>
+            <view class="text" style="margin-left:20rpx;">{{multiArray[1][multiIndex[1]]}}</view>
           </view>
         </picker>
       </view>
@@ -30,15 +31,17 @@
           value="{{multiMajorIndex}}"
           range="{{multiMajorArray}}"
         >
-          <view>
-            {{multiMajorArray[0][multiMajorIndex[0]]}}，{{multiMajorArray[1][multiMajorIndex[1]]}}，{{multiMajorArray[2][multiMajorIndex[2]]}}
+          <view class="lable-bold">
+            <view class="text">{{multiMajorArray[0][multiMajorIndex[0]]}}</view>
+            <view class="text" style="margin-left:20rpx;">{{multiMajorArray[1][multiMajorIndex[1]]}}</view>
+            <view class="text" style="margin-left:20rpx;">{{multiMajorArray[2][multiMajorIndex[2]]}}</view>
           </view>
         </picker>
       </view>
       
       <view class="weui-cell">
         <view class="weui-cell__hd weui-label">毕业学历</view>
-        <picker class="picker weui-cell__bd" bindchange="bindPickerChange" value="{{degreeIndex}}" range="{{degreeArr}}">
+        <picker class="picker label" bindchange="bindPickerChange" value="{{degreeIndex}}" range="{{degreeArr}}">
         <view>
           {{degreeArr[degreeIndex]}}
         </view>
@@ -46,7 +49,7 @@
       </view>
       <view class="weui-cell">
         <view class="weui-cell__hd weui-label">在校时间</view>
-        <view class="weui-cell__bd">
+        <view class="label">
           <picker
           class="picker1"
             mode="date"
@@ -71,10 +74,9 @@
         </view>
       </view>
     </view>
-    <view class="weui-btn-area">
-      <button class="weui-btn" type="primary"
+  
+      <button class="button" 
       bindtap="handleSave">修改学历</button>
-    </view>
   </view>
 </view>
 
