@@ -11,7 +11,7 @@ Page({
     applyInfo: {},
     approved,
     status: '',
-    gender: '',
+    gender: null,
   },
   /**
      * 生命周期函数--监听页面显示
@@ -43,13 +43,13 @@ Page({
       return false;
     }
   },
+  // radio性别选择切换
   onChange(event) {
     this.setData({
       gender: event.detail,
-      msg_complete: false
     });
-   
   },
+  // 表单提交
   formSubmit: function (e) {
     console.log(e);
     let that = this;
