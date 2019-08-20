@@ -1,4 +1,4 @@
-<form bindsubmit="formSubmit" report-submit="true">
+<form class="form_pos" bindsubmit="formSubmit" report-submit="true">
   <view class="info_p1">
     <view class="info_content">
       <view class="info_input">
@@ -9,20 +9,16 @@
           disabled='{{!editable}}'
           bindinput="msg_contentHandle"
           placeholder="{{applyInfo.name||'真实姓名'}}"
-          placeholder-style='placeholder'
+          placeholder-class='placeholder'
           />
       </view>
     </view>
     <view class="info_p1_sex">
       <text class="title_text">性别</text>
-      <van-radio-group name="gender" class=".info_p1_sex_radio" value="{{applyInfo.gender||gender}}" bind:change="onChange">
-      <view class="radio_male">
-        <van-radio name="male">男</van-radio>
-      </view>
-      <view class="radio_male">
-        <van-radio name="female">女</van-radio>
-      </view>
-      </van-radio-group> 
+       <radio-group name="gender" class="info_p1_sex_radio" value="{{applyInfo.gender||gender}}" bind:change="onChange">
+          <label class="radio_male"><radio value="male" color="#008DF8"/>男</label>
+          <label class="radio_male"><radio value="female" color="#008DF8"/>女</label>
+        </radio-group>
     </view>
   </view>
   <view class="info_p2">
@@ -37,7 +33,7 @@
           disabled='{{!editable}}'
           bindinput="msg_contentHandle"
           placeholder="{{applyInfo.mobile||'请输入手机号码'}}"
-          placeholder-style='placeholder'
+          placeholder-class='placeholder'
           />
       </view>
     </view>
@@ -50,7 +46,7 @@
           disabled='{{!editable}}'
           bindinput="msg_contentHandle"
           placeholder="{{applyInfo.wechat||'请输入微信号'}}"
-          placeholder-style='placeholder'
+          placeholder-class='placeholder'
           />
       </view>
     </view>
@@ -66,7 +62,7 @@
           disabled='{{!editable}}'
           bindinput="msg_contentHandle"
           placeholder="{{applyInfo.period||'格式为数字，如89届填89'}}"
-          placeholder-style='placeholder'
+          placeholder-class='placeholder'
           />
       </view>
     </view>
@@ -80,13 +76,13 @@
           disabled='{{!editable}}'
           bindinput="msg_contentHandle"
           placeholder="{{applyInfo.g3||'高三班级，格式同上'}}"
-          placeholder-style='placeholder'
+          placeholder-class='placeholder'
           />
       </view>
     </view>
   </view>
   <view class="info_p3_title">
-    <van-icon name="info-o" size="26rpx"/><text>请填写3位高三的同班同学证明身份</text> 
+    <van-icon name="info-o" size="25rpx"/><text>请填写3位高三的同班同学证明身份</text> 
   </view>
   <view class="info_p3">
     <view class="info_content">
@@ -99,7 +95,7 @@
           bindinput="msg_contentHandle"
           value="{{classMates[0]||''}}"
           placeholder="{{classMates[0]||'请输入同学的真实姓名'}}"
-          placeholder-style='placeholder'
+          placeholder-class='placeholder'
           />
       </view>
     </view>
@@ -113,7 +109,7 @@
           bindinput="msg_contentHandle"
           value="{{classMates[1]||''}}"
           placeholder="{{classMates[1]||'请输入同学的真实姓名'}}"
-          placeholder-style='placeholder'
+          placeholder-class='placeholder'
           />
       </view>
     </view>
@@ -127,20 +123,18 @@
           bindinput="msg_contentHandle"
           value="{{classMates[2]||''}}"
           placeholder="{{classMates[2]||'请输入同学的真实姓名'}}"
-          placeholder-style='placeholder'
+          placeholder-class='placeholder'
           />
       </view>
     </view>
   </view>
   <view class="message">
-    <view class="message_label">
-      <text class="title_text">备注</text>
-    </view>
+    <view class="message_label">备注</view>
     <view class="message_content">
-    <textarea name="message" type="textarea" value="{{applyInfo.message||''}}" disabled='{{!editable}}' placeholder="{{applyInfo.message ||'示例：我是班级联络人（非必填)'}}" placeholder-style='placeholder' />
+    <textarea name="message" type="textarea" value="{{applyInfo.message||''}}" disabled='{{!editable}}' placeholder="{{applyInfo.message ||'示例：我是班级联络人（非必填)'}}" placeholder-class='placeholder' />
     </view>
   </view>
-  <view class="btn" wx:if="{{!approved}}">
+  <view class="btn" wx:if="{{approved}}">
     <button wx:if="{{status===''}}" form-type="submit" disabled="{{disabled}}">提交审核</button>
      <button wx:if="{{status==='ok'}}" formType="submit" disabled='{{disabled}}'>重新提交</button>
     <button wx:if="{{status==='notok'}}" formType="submit" disabled='{{disabled}}'>重新提交</button>
