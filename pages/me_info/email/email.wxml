@@ -1,13 +1,9 @@
 <!-- <view class="weui-cells__title">常用邮箱</view> -->
 
-<view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__bd">
-            <input bindinput="handleInput" class="weui-input" placeholder="请输入邮箱地址" value='{{email}}' />
+        <view class="frame_text">
+        <view class="text">电子邮箱</view>
+            <input bindinput="handleInput" class="text_number" placeholder="请输入您常用的邮箱" value='{{email}}' />
         </view>
-    </view>
-</view>
+ 
 
-<view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap="handleSubmit">确定</button>
-</view>
+    <button class="button"  bindtap="handleSubmit">保存</button>

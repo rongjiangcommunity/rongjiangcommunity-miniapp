@@ -31,5 +31,48 @@
   color: #fff;
 }
 .weui-cell__bd {
-  font-size:16px;
+  height: 50rpx;
+  font-size:30rpx;
+  font-family: PingFang-SC-Regular;
+  color: #666666;
+}
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 160rpx;
+  width: 690rpx;
+  height: 100rpx;
+  background-color: #008DF8;
+  border-radius: 10rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
+}
+.lable-bold{
+  display: flex;
+  margin-top: 5rpx;
+  
+}
+.text{
+  font-size: 30rpx;
+  /* font-weight: bold; */
+  font-family: PingFang-SC-Regular;
+  color: #666666;
+}
+.label{
+  font-family: PingFang-SC-Regular;
+  font-size: 30rpx;
+  color: #B2B2B2;
+}
+.labelB{
+  font-family: PingFang-SC-Regular;
+  font-size: 30rpx;
+  color: black;
+  /* color: #B2B2B2; */
+}
+.frame{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
 }

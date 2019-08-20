@@ -1,25 +1,36 @@
 <!--pages/me_feedback/me_feedback.wxml-->
+ <scroll-view scroll-y="{{isScroll}}" style='height:{{windowHeight}}px'>
 <view class="page">
-  <view class="weui-panel weui-panel_access">
-    <view class="weui-panel__bd">
-      <view class="weui-media-box weui-media-box_text" wx:for="{{experience}}">
-        <view class="company">{{item.where}}
-        <text class="post">{{item.what}}</text>
+      <view class="frame_big">
+      <block wx:for="{{experience}}" wx:key="{{index}}">
+      <view class="{{index<experience.length-1? 'frame':'frameB'}}" >
+         <view data-index='{{index}}' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{data[index].right}}rpx">
+            <view class="frame_name_time">
+                    <view class="frame_name_type">
+                          <view class="company">{{item.where}}
+                              <text class="post">{{item.what}}</text>
+                           </view>
+                      </view>
+                    <view class="industry">{{item.type[0]}}  {{item.type[1]}}</view>
+                    <view class="timeRange">在职时间： {{item.when[0]}}~{{item.when[1]}}</view>
+             </view>
+              <navigator url="../edit/edit?index={{index}}">
+                <image class="editIcon" src="/images/icons/edit@3x.png"></image>
+              </navigator>
+               <view id = "{{index}}" class="remove" bindtap="delItem" bindtap='handleDeleteInfo'>删除 </view>
         </view>
-        <view class="industry">{{item.type[0]}} - {{item.type[1]}}</view>
-        <view class="timeRange">{{item.when[0]}}~{{item.when[1]}}</view>
-        <navigator url="../edit/edit?index={{index}}">
-          <image class="editIcon" src="/images/icons/feedback.png"></image>
-        </navigator>
-        <image class="deleteIcon" bindtap='handleDeleteInfo' data-index='{{index}}' src="/images/icons/delete.png"></image>
       </view>
-    </view>
+      </block>
+      </view>
+   <view class="frame_tips">
+    <image src="/images/icons/notice2@3x.png" class="tips_icon"></image>
+    <view class="tips">最多可维护3个教育经历</view>
   </view>
   <view class="weui-btn-area">
     <navigator url="../add/add" wx:if="{{experience.length<3}}">
-      <button class="weui-btn" type="primary" bindtap="default">添加工作经历</button>
+      <button class="{{experience.length == 0?'button':'buttonB'}}"  bindtap="default">添加工作经验</button>
     </navigator>
   </view>
 
 </view>
-
+</scroll-view>

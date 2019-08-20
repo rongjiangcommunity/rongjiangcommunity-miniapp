@@ -5,7 +5,7 @@
   </view>
   <view class="section">
     <view class="item-left">手机号</view>
-    <view class="item-right" bindtap='phoneCall' data-phone='{{appointment.user.phoneNumber||appointment.user.mobile}}'>{{appointment.user.phoneNumber||appointment.user.mobile}}(点击联系)</view>
+    <view class="item-right" bindtap='phoneCall' data-phone='{{appointment.user.phoneNumber}}'>{{appointment.user.phoneNumber}}(点击联系)</view>
   </view>
   <view class="section">
     <view class="item-left">预约状态</view>
