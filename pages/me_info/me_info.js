@@ -59,7 +59,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '个人信息'
+      title: '我的资料'
     });
   },
   /**
