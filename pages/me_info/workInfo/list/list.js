@@ -52,9 +52,10 @@ Page({
   },
  
   handleDeleteInfo: function (e) {
+    console.log(e)
     let that = this;
-    let index = e.target.dataset.index
-    // console.log(index)
+    let index = e.target.id
+    console.log(index)
     wx.showModal({
       title: '提示',
       content: '是否删除该信息？',
