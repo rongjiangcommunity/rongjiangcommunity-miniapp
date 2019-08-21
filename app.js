@@ -1279,7 +1279,7 @@ App({
     const credentials = this.getCredentials();
     return new Promise((resolve,reject) => {
       wx.request({
-        url: `${serverUrl}/api/wechat/${credentials}/decrypt`,
+        url: `${serverUrl}/api/wechat/decrypt/${credentials}`,
         header: {
           'Content-Type': 'application/json'
         },

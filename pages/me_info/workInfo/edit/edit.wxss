@@ -73,7 +73,6 @@
   margin-left: 30rpx;
   display: flex;
   flex-direction: column;
-
 }
 .frame_text{
   height: 100rpx;

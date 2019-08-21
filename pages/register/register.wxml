@@ -1,4 +1,4 @@
-<form class="form_pos" bindsubmit="formSubmit" report-submit="true">
+<form bindsubmit="formSubmit" report-submit="true">
   <view class="info_p1">
     <view class="info_content">
       <view class="info_input">
@@ -131,12 +131,12 @@
   <view class="message">
     <view class="message_label">备注</view>
     <view class="message_content">
-    <textarea name="message" type="textarea" value="{{applyInfo.message||''}}" disabled='{{!editable}}' placeholder="{{applyInfo.message ||'示例：我是班级联络人（非必填)'}}" placeholder-class='placeholder' />
+      <textarea name="message" type="textarea" value="{{applyInfo.message||''}}" disabled='{{!editable}}' placeholder="{{applyInfo.message ||'示例：我是班级联络人（非必填)'}}" placeholder-class='placeholder' />
     </view>
   </view>
   <view class="btn" wx:if="{{approved}}">
     <button wx:if="{{status===''}}" form-type="submit" disabled="{{disabled}}">提交审核</button>
-     <button wx:if="{{status==='ok'}}" formType="submit" disabled='{{disabled}}'>重新提交</button>
+    <button wx:if="{{status==='ok'}}" formType="submit" disabled='{{disabled}}'>重新提交</button>
     <button wx:if="{{status==='notok'}}" formType="submit" disabled='{{disabled}}'>重新提交</button>
     <button wx:if="{{status==='pending'}}" disabled>审核中</button>
   </view>

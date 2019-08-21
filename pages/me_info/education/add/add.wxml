@@ -4,7 +4,6 @@
     <view class="frame_one">
       <view class="frame_text">
         <view class="frame_school">毕业院校</view>
-
         <picker
           class="picker weui-cell__bd"
           mode="multiSelector"
@@ -20,12 +19,9 @@
           </view>
         </picker>
         <image class="icon" src="/images/icons/right_arrow.png"/>
-  
       </view>
-
       <view class="frame_text">
         <view class="frame_school">专业名称</view>
-   
         <picker
           class="picker weui-cell__bd"
           mode="multiSelector"
@@ -48,9 +44,7 @@
           </view>
         </picker>
         <image class="icon" src="/images/icons/right_arrow.png"/>
-
       </view>
-
       <view class="frame_text">
         <view class="frame_school">毕业学历</view>
 
@@ -62,13 +56,9 @@
              <block wx:elif="{{temp_degree==false}}" >
                <view class="label" >请选择在该校毕业的学历</view>
              </block>
-           
-          </view>
-             
+          </view>           
         </picker>
-
         <image class="icon" src="/images/icons/right_arrow.png"/>
-
       </view>
       <view class="frame_text">
         <view class="frame_school">在校时间</view>
@@ -80,7 +70,7 @@
             value="{{startDate}}"
             bindchange="bindStartDateChange"
           >
-            <view>
+            <view class="text">
               {{startDate}}
             </view>
           </picker>
@@ -91,7 +81,7 @@
             value="{{endDate}}"
             bindchange="bindEndDateChange"
           >
-            <view>
+            <view class="text">
               {{endDate}}
             </view>
           </picker>

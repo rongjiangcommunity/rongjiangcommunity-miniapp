@@ -32,7 +32,6 @@
   overflow: hidden;
   border-radius: 16rpx;
 }
-
 .check-body{
   margin-top: 29rpx;
 }

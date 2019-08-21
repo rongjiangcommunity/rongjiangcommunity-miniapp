@@ -20,6 +20,7 @@
 }
 .picker1{
   display: inline-block;
+  color: #666666;
 }
 .submit{
   position: absolute;
