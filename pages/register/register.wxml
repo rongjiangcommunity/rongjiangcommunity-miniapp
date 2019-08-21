@@ -1,87 +1,151 @@
 <form bindsubmit="formSubmit" report-submit="true">
-  <view class="weui-cells__title">基本信息</view>
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-          <view class="weui-label">姓名</view>
-      </view>
-      <view class="weui-cell__bd">
-        <input name="name" disabled='{{!editable}}' class="weui-input" value="{{applyInfo.name||''}}" placeholder="{{applyInfo.name||'真实姓名'}}" />
-      </view>
-    </view>
-    <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-            <view class="weui-label">微信</view>
-        </view>
-        <view class="weui-cell__bd">
-          <input name="wechat" disabled='{{!editable}}' class="weui-input" value="{{applyInfo.wechat||''}}" placeholder="{{applyInfo.wechat||'微信号码'}}" />
-        </view>
-      </view>
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-        <view class="weui-label">手机号码</view>
-      </view>
-      <view class="weui-cell__bd">
-        <input type="number" disabled='{{!editable}}' name="mobile" class="weui-input" value="{{applyInfo.mobile||''}}" placeholder="{{applyInfo.mobile||'手机号码'}}" />
+  <view class="info_p1">
+    <view class="info_content">
+      <view class="info_input">
+        <text class="title_text">姓名</text>
+        <input
+          name="name"
+          value="{{applyInfo.name||''}}"
+          disabled='{{!editable}}'
+          bindinput="msg_contentHandle"
+          placeholder="{{applyInfo.name||'真实姓名'}}"
+          placeholder-style='placeholder'
+          />
       </view>
     </view>
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-          <view class="weui-label">届</view>
+    <view class="info_p1_sex">
+      <text class="title_text">性别</text>
+      <van-radio-group name="gender" class=".info_p1_sex_radio" value="{{applyInfo.gender||gender}}" bind:change="onChange">
+      <view class="radio_male">
+        <van-radio name="male">男</van-radio>
       </view>
-      <view class="weui-cell__bd">
-        <input name="period" disabled='{{!editable}}' type="number" value="{{applyInfo.period||''}}" placeholder="{{applyInfo.period||'数字，如89届填89'}}" class="weui-input" />
+      <view class="radio_male">
+        <van-radio name="female">女</van-radio>
+      </view>
+      </van-radio-group> 
+    </view>
+  </view>
+  <view class="info_p2">
+    <view class="info_content">
+      <view class="info_input">
+
+        <text class="title_text">手机</text>
+        <input
+          name="mobile"
+          type="number"
+          value="{{applyInfo.mobile||''}}"
+          disabled='{{!editable}}'
+          bindinput="msg_contentHandle"
+          placeholder="{{applyInfo.mobile||'请输入手机号码'}}"
+          placeholder-style='placeholder'
+          />
       </view>
     </view>
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-          <view class="weui-label">高三班级</view>
-      </view>
-      <view class="weui-cell__bd">
-        <input name="g3" type="number" disabled='{{!editable}}' value="{{applyInfo.g3||''}}" placeholder="{{applyInfo.g3||'数字，如三班填3'}}" class="weui-input" />
+    <view class="info_content_nb">
+      <view class="info_input">
+        <text class="title_text">微信</text>
+        <input
+          name="wechat"
+          value="{{applyInfo.wechat||''}}"
+          disabled='{{!editable}}'
+          bindinput="msg_contentHandle"
+          placeholder="{{applyInfo.wechat||'请输入微信号'}}"
+          placeholder-style='placeholder'
+          />
       </view>
     </view>
   </view>
-  <view class="weui-cells__title">请填写3个高三同班同学证明身份</view>
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-          <view class="weui-label">同学一</view>
-      </view>
-      <view class="weui-cell__bd">
-        <input name="classmate1" disabled='{{!editable}}' class="weui-input" value="{{classMates[0]||''}}" placeholder="{{classMates[0] ||'同学'}}"/>
-      </view>
-    </view>
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-          <view class="weui-label">同学二</view>
-      </view>
-      <view class="weui-cell__bd">
-        <input name="classmate2" disabled='{{!editable}}' class="weui-input" value="{{classMates[1]||''}}" placeholder="{{classMates[1] ||'同学'}}"/>
+  <view class="info_p2">
+    <view class="info_content">
+      <view class="info_input">
+        <text class="title_text">届别</text>
+        <input
+          name="period"
+          type="number"
+          value="{{applyInfo.period||''}}"
+          disabled='{{!editable}}'
+          bindinput="msg_contentHandle"
+          placeholder="{{applyInfo.period||'格式为数字，如89届填89'}}"
+          placeholder-style='placeholder'
+          />
       </view>
     </view>
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-          <view class="weui-label">同学三</view>
-      </view>
-      <view class="weui-cell__bd">
-        <input name="classmate3" disabled='{{!editable}}' class="weui-input" value="{{classMates[2]||''}}" placeholder="{{classMates[2] ||'同学'}}"/>
-      </view>
-    </view>
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-          <view class="weui-label">备注信息</view>
-      </view>
-      <view class="weui-cell__bd">
-        <input name="message" disabled='{{!editable}}' value="{{applyInfo.message||''}}" placeholder="{{applyInfo.message ||'请输入备注信息(非必填）'}}" class="weui-input" />
+    <view class="info_content_nb">
+      <view class="info_input">
+        <text class="title_text">班级</text>
+        <input
+          name="g3"
+          type="number"
+          value="{{applyInfo.g3||''}}"
+          disabled='{{!editable}}'
+          bindinput="msg_contentHandle"
+          placeholder="{{applyInfo.g3||'高三班级，格式同上'}}"
+          placeholder-style='placeholder'
+          />
       </view>
     </view>
   </view>
-  <view class="weui-btn-area" wx:if="{{!approved}}">      
-    <button wx:if="{{status==='ok'}}" formType="submit" disabled='{{disabled}}' class="weui-btn" type="primary">重新提交</button>
-    <button wx:if="{{status==='notok'}}" formType="submit" disabled='{{disabled}}' class="weui-btn" type="primary">重新提交</button>
-    <button wx:if="{{status===''}}" formType="submit" disabled='{{disabled}}' class="weui-btn" type="primary">提交审核</button>
-    <button wx:if="{{status==='pending'}}" disabled class="weui-btn" type="primary">审核中</button>
+  <view class="info_p3_title">
+    <van-icon name="info-o" size="26rpx"/><text>请填写3位高三的同班同学证明身份</text> 
+  </view>
+  <view class="info_p3">
+    <view class="info_content">
+      <view class="info_input">
+        <text class="title_text">同学一</text>
+        <input
+          name="classmate1"
+          label="同学一"
+          disabled="{{!editable}}"
+          bindinput="msg_contentHandle"
+          value="{{classMates[0]||''}}"
+          placeholder="{{classMates[0]||'请输入同学的真实姓名'}}"
+          placeholder-style='placeholder'
+          />
+      </view>
+    </view>
+    <view class="info_content">
+      <view class="info_input">
+        <text class="title_text">同学二</text>
+        <input
+          name="classmate2"
+          label="同学二"
+          disabled="{{!editable}}"
+          bindinput="msg_contentHandle"
+          value="{{classMates[1]||''}}"
+          placeholder="{{classMates[1]||'请输入同学的真实姓名'}}"
+          placeholder-style='placeholder'
+          />
+      </view>
+    </view>
+    <view class="info_content_nb">
+      <view class="info_input">
+        <text class="title_text">同学三</text>
+        <input
+          name="classmate3"
+          label="同学三"
+          disabled="{{!editable}}"
+          bindinput="msg_contentHandle"
+          value="{{classMates[2]||''}}"
+          placeholder="{{classMates[2]||'请输入同学的真实姓名'}}"
+          placeholder-style='placeholder'
+          />
+      </view>
+    </view>
+  </view>
+  <view class="message">
+    <view class="message_label">
+      <text class="title_text">备注</text>
+    </view>
+    <view class="message_content">
+    <textarea name="message" type="textarea" value="{{applyInfo.message||''}}" disabled='{{!editable}}' placeholder="{{applyInfo.message ||'示例：我是班级联络人（非必填)'}}" placeholder-style='placeholder' />
+    </view>
+  </view>
+  <view class="btn" wx:if="{{!approved}}">
+    <button wx:if="{{status===''}}" form-type="submit" disabled="{{disabled}}">提交审核</button>
+     <button wx:if="{{status==='ok'}}" formType="submit" disabled='{{disabled}}'>重新提交</button>
+    <button wx:if="{{status==='notok'}}" formType="submit" disabled='{{disabled}}'>重新提交</button>
+    <button wx:if="{{status==='pending'}}" disabled>审核中</button>
   </view>
 </form>
+
 

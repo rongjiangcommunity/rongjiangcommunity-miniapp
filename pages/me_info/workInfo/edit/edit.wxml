@@ -64,7 +64,6 @@
                 <image class="icon" src="/images/icons/arrow@3x.png"/>
         </view>
       </view>
-
     </form>
   </view>
     <button class="button"  formType="submit">保存</button>

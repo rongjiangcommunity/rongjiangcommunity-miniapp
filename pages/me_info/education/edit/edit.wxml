@@ -40,7 +40,6 @@
         </picker>
         <image class="icon" src="/images/icons/arrow@3x.png"/>
       </view>
-      
       <view class="frame_text">
         <view class="frame_school">毕业学历</view>
         <picker class="picker weui-cell__bd" bindchange="bindPickerChange" value="{{degreeIndex}}" range="{{degreeArr}}">
@@ -50,10 +49,10 @@
       </picker>
       <image class="icon" src="/images/icons/arrow@3x.png"/>
       </view>
-
       <view class="frame_text">
         <view class="frame_school">在校时间</view>
         <view class="picker weui-cell__bd">
+
           <picker
           class="picker1"
           style="color:#666666"
@@ -81,7 +80,6 @@
          <image class="icon" src="/images/icons/arrow@3x.png"/>
       </view>
     </view>
-    
   </view>
   <button class="button" bindtap="handleSave">保存</button>
 </view>

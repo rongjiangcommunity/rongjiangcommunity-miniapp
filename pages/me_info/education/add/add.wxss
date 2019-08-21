@@ -48,28 +48,29 @@
   
 }
 .text{
+
   color: #666666;
   font-size: 30rpx;
   /* font-weight: bold; */
   font-family: PingFang-SC-Regular;
 }
 .textB{
-
   font-size: 30rpx;
   font-family: PingFang-SC-Regular;
   color: #B2B2B2;
 }
-
 .label{
   width: 505.4rpx;
   font-family: PingFang-SC-Regular;
   font-size: 30rpx;
   color: #B2B2B2;
+
 }
 .frame{
   margin-top: 20rpx;
   display: flex;
   flex-direction: column;
+
   background-color: #ffffff;
 }
 .frame_one{
@@ -101,3 +102,4 @@
   width: 505.4rpx;
   display: flex;
 }
+

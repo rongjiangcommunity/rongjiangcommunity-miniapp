@@ -122,7 +122,9 @@ radio-group label .free-text{
   color: #666666;
 }
 .label{
+
   width: 502.4rpx;
+
   font-family: PingFang-SC-Regular;
   font-size: 30rpx;
   color: #666666;
