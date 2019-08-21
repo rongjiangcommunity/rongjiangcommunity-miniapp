@@ -20,6 +20,7 @@
 }
 .picker1{
   display: inline-block;
+  color: #666666;
 }
 .submit{
   position: absolute;
@@ -32,6 +33,13 @@
 }
 .weui-cell__bd {
   height: 50rpx;
+  font-size:30rpx;
+  font-family: PingFang-SC-Regular;
+  color: #666666;
+}
+.weui-cell__bd_c{
+  height: 50rpx;
+  width: 504.4rpx;
   font-size:30rpx;
   font-family: PingFang-SC-Regular;
   color: #666666;
@@ -55,6 +63,14 @@
   
 }
 .text{
+  height: 26.25px;
+  /* margin-top: 8rpx; */
+  font-size: 30rpx;
+  /* font-weight: bold; */
+  font-family: PingFang-SC-Regular;
+  color: #B2B2B2;
+}
+.textB{
   font-size: 30rpx;
   /* font-weight: bold; */
   font-family: PingFang-SC-Regular;
@@ -75,4 +91,34 @@
   margin-top: 20rpx;
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
+}
+.frame_one{
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+
+}
+.frame_text{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid rgb(231, 231, 231);
+}
+.frame_school{
+  margin-right: 42rpx;
+  font-size: 32rpx;
+  color: #333333;
+}
+.icon{
+  align-self: center;
+  justify-self: flex-end;
+  margin-right: 30rpx;
+  height: 28rpx;
+  width: 16rpx;
+}
+/* picker weui-cell__bd */
+.display{
+  width: 500rpx;
+  display: flex;
 }

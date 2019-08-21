@@ -54,10 +54,11 @@
   
 }
 .text{
+  margin-bottom: 5rpx;
   font-size: 30rpx;
   /* font-weight: bold; */
   font-family: PingFang-SC-Regular;
-  /* color: #666666; */
+  color: #666666;
 }
 .label{
   font-family: PingFang-SC-Regular;
@@ -67,4 +68,34 @@
   margin-top: 20rpx;
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
+}
+.frame_one{
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+
+}
+.frame_text{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid rgb(231, 231, 231);
+}
+.frame_school{
+  margin-right: 42rpx;
+  font-size: 32rpx;
+  color: #333333;
+}
+.icon{
+  align-self: center;
+  justify-self: flex-end;
+  margin-right: 30rpx;
+  height: 28rpx;
+  width: 16rpx;
+}
+/* picker weui-cell__bd */
+.display{
+  width: 505.4rpx;
+  display: flex;
 }

@@ -1,9 +1,9 @@
 <!--pages/me_feedback/me_feedback.wxml-->
 <view class="page">
   <view class="frame">
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell">
-        <view class="weui-cell__hd weui-label">毕业院校</view>
+    <view class="frame_one">
+      <view class="frame_text">
+        <view class="frame_school">毕业院校</view>
         <picker
           class="picker weui-cell__bd"
           mode="multiSelector"
@@ -18,10 +18,11 @@
             <view class="text" style="margin-left:20rpx;">{{multiArray[1][multiIndex[1]]}}</view>
           </view>
         </picker>
+        <image class="icon" src="/images/icons/arrow@3x.png"/>
       </view>
 
-      <view class="weui-cell">
-        <view class="weui-cell__hd weui-label">专业名称</view>
+      <view class="frame_text">
+        <view class="frame_school">专业名称</view>
         <picker
           class="picker weui-cell__bd"
           mode="multiSelector"
@@ -37,21 +38,24 @@
             <view class="text" style="margin-left:20rpx;">{{multiMajorArray[2][multiMajorIndex[2]]}}</view>
           </view>
         </picker>
+        <image class="icon" src="/images/icons/arrow@3x.png"/>
       </view>
-      
-      <view class="weui-cell">
-        <view class="weui-cell__hd weui-label">毕业学历</view>
-        <picker class="picker label" bindchange="bindPickerChange" value="{{degreeIndex}}" range="{{degreeArr}}">
-        <view>
+      <view class="frame_text">
+        <view class="frame_school">毕业学历</view>
+        <picker class="picker weui-cell__bd" bindchange="bindPickerChange" value="{{degreeIndex}}" range="{{degreeArr}}">
+        <view class="text">
           {{degreeArr[degreeIndex]}}
         </view>
       </picker>
+      <image class="icon" src="/images/icons/arrow@3x.png"/>
       </view>
-      <view class="weui-cell">
-        <view class="weui-cell__hd weui-label">在校时间</view>
-        <view class="label">
+      <view class="frame_text">
+        <view class="frame_school">在校时间</view>
+        <view class="picker weui-cell__bd">
+
           <picker
           class="picker1"
+          style="color:#666666"
             mode="date"
             value="{{startDate}}"
             bindchange="bindStartDateChange"
@@ -63,6 +67,7 @@
           ~
           <picker
           class="picker1"
+          style="color:#666666"
             mode="date"
             value="{{endDate}}"
             bindchange="bindEndDateChange"
@@ -72,11 +77,10 @@
             </view>
           </picker>
         </view>
+         <image class="icon" src="/images/icons/arrow@3x.png"/>
       </view>
     </view>
-  
-      <button class="button" 
-      bindtap="handleSave">保存</button>
   </view>
+  <button class="button" bindtap="handleSave">保存</button>
 </view>
 

@@ -35,6 +35,7 @@ page{
 }
 /* 高中、本科等学历 */
 .bachelorTiltle{
+  margin-top: 14rpx;
   border-radius: 4rpx;
   padding-left: 10rpx;
   padding-right: 10rpx;
@@ -74,7 +75,7 @@ page{
   color: #999999;
 }
 .tips_icon{
-  margin-top: 7.9rpx;
+  margin-top: 4.9rpx;
   margin-left:28rpx;
   height: 26rpx;
   width: 26rpx;
