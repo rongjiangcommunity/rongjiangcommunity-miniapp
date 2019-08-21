@@ -13,6 +13,8 @@ Page({
       title: '工作信息'
     })
     this.setData({ index: options.index })
+    console.log("sdadasd")
+    console.log(options)
   },
   onShow: function () {
     this.checkInfo();
@@ -38,6 +40,7 @@ Page({
     })
     let index = this.data.index
     let data = this.data.experience[index];
+    console.log("===================")
     console.log(data)
     let what = data.what;
     let where = data.where;
@@ -77,11 +80,24 @@ Page({
       when: [ startDate, endDate ],
       type: [getApp().firstINdustry[multiIndex[0]], getApp().secondIndustry[multiIndex[0]][multiIndex[1]]]
     };
+    //提示
+    wx.showToast({
+      title: '保存成功',
+      icon: 'succes',
+      duration: 4000,
+      mask: true
+    })
+
     let index = this.data.index
     experience[index] = tempDatas;
-    app.saveUserInfo({ experience }).then(() => {
-      wx.navigateBack();
-    });
+    //延迟自启
+    setTimeout(function () {
+      app.saveUserInfo({ experience }).then(() => {
+        wx.navigateBack();
+      })
+    }, 2000)
+    
+
   },
   bindStartDateChange(e) {
     console.log('携带值为', e.detail.value)

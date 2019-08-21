@@ -1,10 +1,11 @@
 <!--pages/me_feedback/me_feedback.wxml-->
 <view class="page">
-  <view class="page__bd">
-    <form bindsubmit="formSubmit">
+  <view class="frame">
+
+    <form bindsubmit="formSubmit" class="frame_one">
       <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell">
-          <view class="weui-cell__hd weui-label">行业职业</view>
+        <view class="frame_text">
+          <view class="frame_school">行业职业</view>
           <picker
             class="picker weui-cell__bd"
             mode="multiSelector"
@@ -19,17 +20,19 @@
                <view class="text" style="margin-left:20rpx;">{{multiArray[1][multiIndex[1]]}}</view>
             </view>
           </picker>
+           <image class="icon" src="/images/icons/arrow@3x.png"/>
         </view>
-        <view class="weui-cell">
-          <view class="weui-cell__hd weui-label">工作单位</view>
-          <input name="where" value="{{where}}" class="weui-cell__bd" placeholder='输入单位名称'/>
+        <view class="frame_text">
+          <view class="frame_school">工作单位</view>
+          <input name="where" value="{{where}}" class="text" placeholder='输入单位名称'/>
+
         </view>
-        <view class="weui-cell">
-          <view class="weui-cell__hd weui-label">单位职务</view>
-          <input name="what" value="{{what}}" class="weui-cell__bd" placeholder='输入单位职务'/>
+        <view class="frame_text">
+          <view class="frame_school">单位职务</view>
+          <input name="what" value="{{what}}" class="text" placeholder='输入单位职务'/>
         </view>
-        <view class="weui-cell">
-          <view class="weui-cell__hd weui-label">在职时间</view>
+        <view class="frame_text">
+          <view class="frame_school">在职时间</view>
 
 
                 <view class="weui-cell__bd">
@@ -40,7 +43,7 @@
                           value="{{startDate}}"
                           bindchange="bindStartDateChange"
                         >
-                              <view class="label">
+                              <view class="text">
                                 {{startDate||"起始时间"}}
                               </view>
                         </picker>
@@ -52,17 +55,18 @@
                           value="{{endDate}}"
                           bindchange="bindEndDateChange"
                         >
-                              <view class="label">
+                              <view class="text">
                                 {{endDate||"结束时间"}}
                               </view>
                         </picker>
+                         
                 </view>
+                <image class="icon" src="/images/icons/arrow@3x.png"/>
         </view>
       </view>
-      <view class="weui-btn-area">
-        <button class="button"  formType="submit">保存</button>
-      </view>
+
     </form>
   </view>
+    <button class="button"  formType="submit">保存</button>
 </view>
 
