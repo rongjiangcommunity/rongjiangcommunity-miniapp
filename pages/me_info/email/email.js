@@ -9,9 +9,18 @@ Page({
   },
   handleSubmit: function(){
     const value = this.data.email;
-    app.saveUserInfo({email: value}).then(() => {
-      wx.navigateBack();
-    });
+    wx.showToast({
+      title: '保存成功',
+      icon: 'succes',
+      duration: 2000,
+      mask: true
+    })
+    setTimeout(function () {
+      app.saveUserInfo({ email: value }).then(() => {
+        wx.navigateBack();
+      })
+    }, 2000)
+    
   },
   onLoad: function() {
     wx.setNavigationBarTitle({
