@@ -27,17 +27,22 @@
   color: #fff;
 }
 .weui-cell__bd {
+  height: 50rpx;
   margin-top: 7rpx;
   font-size:16px;
 }
 .button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 160rpx;
   width: 690rpx;
   height: 100rpx;
   background-color: #008DF8;
   border-radius: 10rpx;
-  text-align: center;
   color: #ffffff;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
 }
 /* ss */
 .free-dialog__mask {
@@ -117,6 +122,43 @@ radio-group label .free-text{
   color: #666666;
 }
 .label{
+  width: 502.4rpx;
   font-family: PingFang-SC-Regular;
   font-size: 30rpx;
+  color: #666666;
+}
+.frame{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.frame_text{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  border-bottom: 1rpx solid rgb(231, 231, 231);
+}
+.frame_school{
+  margin-right: 42rpx;
+  font-size: 32rpx;
+  color: #333333;
+}
+.frame_one{
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+
+}
+.icon{
+  align-self: center;
+  justify-items: flex-end;
+  margin-right: 30rpx;
+  height: 28rpx;
+  width: 16rpx;
+}
+.display{
+  width: 505.4rpx;
+  display: flex;
 }
