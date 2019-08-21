@@ -16,6 +16,8 @@ Page({
   },
   onLoad: function (options) {
     this.setData({ index: options.index})
+    console.log("sdasdasdasd")
+    console.log(options)
   },
 
   onShow: function () {
@@ -89,10 +91,20 @@ Page({
       when: [data.startDate, data.endDate],
       major: [ majorFir, majorSec, majorThir ]
     };
+   
+    wx.showToast({
+      title: '保存成功',
+      icon: 'succes',
+      duration: 2000,
+      mask: true
+    })
     education[data.index] = tempDatas;
-    app.saveUserInfo({ education }).then(() => {
-      wx.navigateBack();
-    });
+    setTimeout(function () {
+      app.saveUserInfo({ education }).then(() => {
+        wx.navigateBack();
+      })
+    }, 2000)
+    
   },
   
   bindStartDateChange(e) {
