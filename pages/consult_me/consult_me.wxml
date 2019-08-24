@@ -1,0 +1,57 @@
+<view class="big_frame">
+<!-- Title   咨询中   已完成 -->
+  <view class="frame_state">
+      <view class="{{clickTitle==1?'textB':'text'}}" style="border-right:1rpx solid rgb(245,245,245)" bindtap="changeClickTitle" data-id="1">咨询中</view>
+      <view class="{{clickTitle==0?'textB':'text'}}" bindtap="changeClickTitle" data-id="0">已完成</view>
+  </view> 
+  <scroll-view scroll-y="true" style="height:305px" bindscrolltolower="lowerMoreClassify">
+  <block wx:if="{{clickTitle==1}}">
+      <block wx:if="{{undoneData.msg}}">
+          <block wx:for="{{undoneData}}" wx:key="{{index}}">
+            <!-- 蔡律师   XXXXXX事务所    咨询中  已完成-->
+            <view class="frame_PDocument">
+              <view class="frame_name_office">
+                  <view class="name">{{item.name}}</view>
+                  <view class="office">{{item.office}}</view>
+                </view> 
+                  <view class="chatState">{{item.chatState}}</view>
+            </view>
+            <!---->
+            <view class="frame_msg_icon">
+                <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
+                <view class="frame">
+                <image class="img"  src="{{item.readState==true?'/images/icons/1.png':'/images/icons/2.png'}}"></image>
+                </view>
+            </view>
+            </block>
+       </block> 
+       <block wx:if="{{!undoneData.msg}}">
+        暂无数据
+        </block>
+    </block>
+      <block wx:elif="{{clickTitle==0}}">
+         <block wx:if="{{doneData.msg}}">
+            <block wx:for="{{doneData}}" wx:key="{{index}}">
+            <!-- 蔡律师   XXXXXX事务所  已完成-->
+            <view class="frame_PDocument">
+              <view class="frame_name_office">
+                  <view class="name">{{item.name}}</view>
+                  <view class="office">{{item.office}}</view>
+                </view> 
+                  <view class="chatState">{{item.chatState}}</view>
+            </view>
+            <!--  -->
+            <view class="frame_msg_icon">
+                <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
+                <view class="frame">
+                <image class="img"  src="{{item.readState==true?'/images/icons/1.png':'/images/icons/2.png'}}"></image>
+                </view>
+            </view>
+            </block>
+        </block>
+        <block wx:if="{{!doneData.msg}}">
+        暂无数据
+        </block>
+      </block>
+    </scroll-view>
+</view>
