@@ -9,8 +9,9 @@
 .weui-cells:first-child {
   margin-top: 0;
 }
+.weui-cell__hd,
 .weui-cell__bd{
-  font-family: PingFang-SC-Regular;
+  /* font-family: PingFang-SC-Regular; */
   font-size: 32rpx;
   color: #333;
 }
