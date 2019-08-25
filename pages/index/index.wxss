@@ -141,3 +141,9 @@ page{
   background-color: transparent !important;
   margin-right: 0rpx;
 }
+.consult_badge{
+  position: absolute;
+  top: 50%;
+  right: 80rpx;
+  transform: translateY(-50%);
+}

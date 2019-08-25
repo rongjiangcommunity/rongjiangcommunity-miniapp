@@ -1,0 +1,78 @@
+<!--pages/consult/lawyer_home/lawyer_home.wxml-->
+<view class="info_img">
+  <swiper indicator-dots="true">
+    <swiper-item>
+      <image src="" style="background-color: red"/>
+      </swiper-item>
+      <swiper-item>
+      <image src="" style="background-color: yellow"/>
+      </swiper-item>
+      <swiper-item>
+      <image src="" style="background-color: blue"/>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="info">
+  <view class="info_common">
+    <view class="info_title">
+      <text class="info_name">{{lawyerInfo.name}}</text><text class="info_firm">广州呵呵事务所 高级合伙人</text><text class="info_addr">广东 广州</text>
+    </view>
+    <view class="info_pro">
+      <view class="info_id">执业证号：18079765324549</view>
+      <view class="info_area">执业领域：刑事辩护及控告，企业刑事风险防护，刑民交叉案件和其他相关方面的案件</view>
+    </view>
+  </view>
+  <view class="info_btn">
+    <button bindtap="showMsg" data-msg="{{btn_msg[0].msg}}" data-title="{{btn_msg[0].title}}" disabled="{{btn_msg[0].disabled}}">律所介绍</button>
+    <button bindtap="showMsg" data-msg="{{btn_msg[1].msg}}" data-title="{{btn_msg[1].title}}" disabled="{{btn_msg[1].disabled}}">其他资格</button>
+    <button bindtap="showMsg" data-msg="{{btn_msg[2].msg}}" data-title="{{btn_msg[2].title}}" disabled="{{btn_msg[2].disabled}}">其他职务</button>
+    <button bindtap="showMsg" data-msg="{{btn_msg[3].msg}}" data-title="{{btn_msg[3].title}}" disabled="{{btn_msg[3].disabled}}">获奖情况</button>
+    <button bindtap="showMsg" data-msg="{{btn_msg[4].msg}}" data-title="{{btn_msg[4].title}}" disabled="{{btn_msg[4].disabled}}">顾问单位</button>
+    <button bindtap="showMsg" data-msg="{{btn_msg[5].msg}}" data-title="{{btn_msg[5].title}}" disabled="{{btn_msg[5].disabled}}">专业著述</button>
+  </view>
+</view>
+<view class="info_edu">
+  <view class="info_edu_title">教育背景：</view>
+  <view class="info_edu_content">教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景</view>
+</view>
+<view class="info_achieve">
+  <view class="info_achieve_title">主要业绩：</view>
+  <view class="info_achieve_content">业绩1：业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述。
+业绩2:业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述
+业绩3：业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述</view>
+</view>
+<view class="consult_btn">
+  <button bindtap="consultHandle">立即咨询</button>
+</view>
+
+<view class="modal-mask" wx:if="{{showModal_msg}}"></view>
+<view class="modal_msg">
+<view class="modal-dialog shenhe-modal" wx:if="{{showModal_msg}}">
+    <view class="modal-title">{{msgTitle}}</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <text>{{msg}}</text>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <button class="btn-confirm" bindtap="hideModal_msg">确定</button>
+    </view>
+</view>
+</view>
+
+
+<view class="modal-mask" wx:if="{{showModal_approved}}"></view>
+<view class="modal_approved">
+<view class="modal-dialog shenhe-modal" wx:if="{{showModal_approved}}">
+    <view class="modal-title">认证提示</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        该服务只针对校友开放，您还未认证校友身份，是否去认证？
+      </view>
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel">再看看</view>
+      <button class="btn-confirm" bindtap="goToApprove">去认证</button>
+    </view>
+</view>
+</view>

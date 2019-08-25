@@ -61,8 +61,7 @@ Page({
       success(res) {
         that.setData({
           data:res.data
-        })
-       
+        })    
       }
     })
   },

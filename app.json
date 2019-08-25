@@ -30,7 +30,12 @@
     "pages/appointment/content",
     "pages/approve/approve",
     "pages/audit_form/audit_form",
-    "pages/consult/consult"
+    "pages/consult/consult",
+    "pages/consult/consultingMe/consultingMe",
+    "pages/consult/myConsulting/myConsulting",
+    "pages/consult/lawyer_home/lawyer_home",
+    "pages/consult/lawyer_home/openMsg/openMsg",
+    "pages/consult/addMsg/addMsg"
   ],
   "window": {
     "navigationBarTextStyle": "black",

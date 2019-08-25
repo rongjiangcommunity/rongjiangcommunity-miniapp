@@ -1,0 +1,40 @@
+<!--pages/consult/consult_input/consult_input.wxml-->
+<view class="info">
+   <view class="item_title"><text class="item_name">{{lawyerInfo.name}}</text><text class="item_addr">广东 广州</text><text class="item_firm">广州呵呵事务所</text>
+      </view>
+      <view class="info_pro">刑事辩护及控告，企业刑事风险防护，刑民交叉案件和其他相关方面的案件</view>
+</view>
+<form bindsubmit="consultSubmit" report-submit="true">
+<view class="consult_input">
+  <textarea name="message" value="" placeholder="请详细叙述您遇到的问题及法律诉求，便于律师解答您的问题" maxlength="300" bindinput="strCount"></textarea>
+  <view class="input_count">{{strCount}}/300</view>
+</view>
+<view class="submit_btn">
+  <button form-type="submit">提交</button>
+</view>
+</form>
+
+<view class="modal-mask" wx:if="{{showModal}}"></view>
+<view class="modal-dialog shenhe-modal" wx:if="{{showModal}}">
+    <view class="modal-title">提交成功</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <text>您的咨询已提交，请耐心等候律师解答。</text>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <button class="btn-confirm" bindtap="backToList">回到律师列表</button>
+    </view>
+</view>
+
+<view class="modal-mask" wx:if="{{showModal_fail}}"></view>
+<view class="modal-dialog shenhe-modal" wx:if="{{showModal_fail}}">
+    <view class="modal-content">
+      <view class="modal-input">
+        <text>请详细描述您的问题，字数不少于15个字！</text>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <button class="btn-confirm" bindtap="hideModal">我知道了</button>
+    </view>
+</view>

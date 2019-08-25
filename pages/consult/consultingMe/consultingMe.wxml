@@ -19,9 +19,11 @@
             <!---->
             <view class="frame_msg_icon">
                 <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
-                <view class="frame">
-                <image class="img"  src="{{item.readState==true?'/images/icons/1.png':'/images/icons/2.png'}}"></image>
-                </view>
+                <navigator url="../addMsg/addMsg">
+                  <view class="frame">
+                  <image class="img"  src="{{item.readState==true?'/images/icons/1.png':'/images/icons/2.png'}}"></image>
+                  </view>
+                </navigator>
             </view>
             </block>
        </block> 
@@ -43,9 +45,11 @@
             <!--  -->
             <view class="frame_msg_icon">
                 <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
-                <view class="frame">
-                <image class="img"  src="{{item.readState==true?'/images/icons/1.png':'/images/icons/2.png'}}"></image>
-                </view>
+                <navigator url="../addMsg/addMsg">
+                  <view class="frame">
+                  <image class="img"  src="{{item.readState==true?'/images/icons/1.png':'/images/icons/2.png'}}"></image>
+                  </view>
+                </navigator>
             </view>
             </block>
         </block>

@@ -47,9 +47,9 @@ Page({
       },
       method: 'GET',
       success(res) {
-        that.setData({
-          undoneData: res.data
-        })
+        // that.setData({
+        //   undoneData: res.data
+        // })
       }
     })
   },
@@ -71,9 +71,9 @@ Page({
       },
       method: 'GET',
       success(res) {
-        that.setData({
-          data: res.data
-        })
+        // that.setData({
+        //   data: res.data
+        // })
 
       }
     })

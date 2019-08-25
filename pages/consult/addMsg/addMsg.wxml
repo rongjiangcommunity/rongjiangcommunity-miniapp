@@ -1,4 +1,4 @@
-<import src="/pages/tmpl/tmpl.wxml"/>
+<import src="./tmpl/tmpl.wxml"/>
 
 <view class="schoolmate-box">
   <view class="schoolmate-content">
