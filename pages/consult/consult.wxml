@@ -15,7 +15,7 @@
   </view>
 </view>
 
-<view class="solve-box">
+<view class="solve-box" style='display: {{isShow? "block": "none"}}' bindtap="close">
 问题已解决，关闭咨询
 </view>
 
@@ -41,6 +41,6 @@
 </view>
 
 <view class="commit-box">
-  <input placeholder="输入咨询内容" class="commit-input" bindinput="ins"/>
+  <input placeholder="输入咨询内容" value="{{inputValue}}" class="commit-input" bindinput="ins"/>
   <button type="primary" class="commit-btn" bindtap="submit">发送</button>
 </view>

@@ -9,22 +9,25 @@ Page({
    */
   data: {
     ellipsis: true, // 文字是否收起，默认收起
-    islawyer: '',
+    isShow: true,
     currentMsg: '',
     inputValue: '',
     wxAppendData: [],
     submitTime: ''
   },
+  //留言的伸展与收起
   ellipsis: function () {
     var value = !this.data.ellipsis;
     this.setData({
       ellipsis: value
     })
   },
+  //提交留言后动态创建dom结点
   submit: function() {
     let submitTime = util.formatTime(new Date(), true);
+    let sid = app.getCredentials();
+    var self = this;
     this.setData({submitTime})
-
     let wxAppendDataItem = {
       node: 'element',
       tag: 'view',
@@ -41,7 +44,7 @@ Page({
           node: 'element',
           tag: 'view',
           class: ['date right-date'],
-          content: this.data.submitTime5645634,
+          content: this.data.submitTime,
         }
       ]
     };
@@ -51,39 +54,41 @@ Page({
       wxAppendData
     })
 
-    // var self = this;
-    // var sid = app.getCredentials();
-    // console.log(sid)
-    // util.send({
-    //   url: '/api/lawyer/msg/add/' + sid,
-    //   method: 'POST',
-    //   data: {
-    //     msg: self.data.inputValue,
-    //     fromUid: 392,
-    //     toUid: 605,
-    //     pid: 605
-    //   },
-    //   callback: function (res) {
-
-    //   }
-    // });
+    util.send({
+      url: '/api/lawyer/msg/add/' + sid,
+      method: 'POST',
+      data: {
+        msg: self.data.inputValue,
+        fromUid: 392,
+        toUid: 605,
+        pid: 7
+      },
+      callback: function (res) {
+        if(res.data.success){
+          self.setData({
+            inputValue: ''
+          })
+        }
+      }
+    });
   },
   
   onLoad: function (option) {    
-    var self = this;
-    var sid = app.getCredentials();
+    let sid = app.getCredentials();
 
-    console.log(sid)
-    util.send({
-      url: '/api/lawyer/is_lawyer/' + sid,
-      method: 'GET',
-      callback: function (res) {
-        var islawyer = res.data.data;
-        self.setData({
-          islawyer
-        })
-      }
-    });
+    var self = this;
+    // 获取微信服务凭证
+    //判断是否是律师，是的话不显示关闭咨询框
+    // util.send({
+    //   url: '/api/lawyer/is_lawyer/' + sid,
+    //   method: 'GET',
+    //   callback: function (res) {
+    //     var isLawyer = res.data.data;
+    //     self.setData({
+    //       isShow: !isLawyer
+    //     })
+    //   }
+    // });
 
     util.send({
       url: '/api/lawyer/msg/' + sid + '/1',
@@ -98,10 +103,30 @@ Page({
     });
   },
 
+//获取输入框内容
   ins: function(e) {
     this.setData({
       inputValue: e.detail.value
     })
+  },
+//关闭咨询,返回上一个页面
+  close: function() {
+    let sid = app.getCredentials();
+    util.send({
+      url: '/api/lawyer/msg/close/' + sid,
+      method: 'POST',
+      data: {
+        finished: true,
+        id: 1
+      },
+      callback: function (res) {
+        console.log(res.data)
+
+        if (res.data.success) {
+          wx.navigateBack()
+        }
+      }
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
