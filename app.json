@@ -31,11 +31,11 @@
     "pages/approve/approve",
     "pages/audit_form/audit_form",
     "pages/consult/consult",
-    "pages/consult/consultingMe/consultingMe",
-    "pages/consult/myConsulting/myConsulting",
+    "pages/consult/consulting_me/consulting_me",
+    "pages/consult/my_consulting/my_consulting",
     "pages/consult/lawyer_home/lawyer_home",
-    "pages/consult/lawyer_home/openMsg/openMsg",
-    "pages/consult/addMsg/addMsg"
+    "pages/consult/lawyer_home/open_msg/open_msg",
+    "pages/consult/add_msg/add_msg"
   ],
   "window": {
     "navigationBarTextStyle": "black",

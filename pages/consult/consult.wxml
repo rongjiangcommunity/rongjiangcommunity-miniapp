@@ -3,18 +3,18 @@
   <view class="header_msg">
     <text>本版块律师皆为一中校友</text>
   </view>
-  <view class="btn_answer" wx:if="{{isLawyer}}">
-    <navigator url="./consultingMe/consultingMe" hover-class="none">
-      <mp-badge extClass="badge" wx:if="{{false}}"></mp-badge>
-      <image src="/images/icons/consult.png"></image>
-      <view>咨询我的</view>
-    </navigator>
-  </view>
   <view class="btn_ask">
-    <navigator url="./myConsulting/myConsulting" hover-class="none"> 
+    <navigator url="./my_consulting/my_consulting" hover-class="none"> 
       <mp-badge extClass="badge" wx:if="{{true}}"></mp-badge>
       <image src="/images/icons/consult.png"></image>
       <view>校友咨询</view>
+    </navigator>
+  </view>
+  <view class="btn_answer" wx:if="{{isLawyer}}">
+    <navigator url="./consulting_me/consulting_me" hover-class="none">
+      <mp-badge extClass="badge" wx:if="{{false}}"></mp-badge>
+      <image src="/images/icons/consult.png"></image>
+      <view>咨询我的</view>
     </navigator>
   </view>
 </view>

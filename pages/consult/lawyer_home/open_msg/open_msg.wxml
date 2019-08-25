@@ -16,18 +16,18 @@
 
 <view class="modal-mask" wx:if="{{showModal}}"></view>
 <view class="modal-dialog shenhe-modal" wx:if="{{showModal}}">
-    <view class="modal-title">提交成功</view>
+    <view class="modal-title">{{modalTitle}}</view>
     <view class="modal-content">
       <view class="modal-input">
-        <text>您的咨询已提交，请耐心等候律师解答。</text>
+        <text>{{modalMsg}}</text>
       </view>
     </view>
     <view class="modal-footer">
-      <button class="btn-confirm" bindtap="backToList">回到律师列表</button>
+      <button class="btn-confirm" bindtap="btnHandle" data-status="{{msgStatus}}">{{modalBtn}}</button>
     </view>
 </view>
 
-<view class="modal-mask" wx:if="{{showModal_fail}}"></view>
+<!-- <view class="modal-mask" wx:if="{{showModal_fail}}"></view>
 <view class="modal-dialog shenhe-modal" wx:if="{{showModal_fail}}">
     <view class="modal-content">
       <view class="modal-input">
@@ -37,4 +37,4 @@
     <view class="modal-footer">
       <button class="btn-confirm" bindtap="hideModal">我知道了</button>
     </view>
-</view>
+</view> -->

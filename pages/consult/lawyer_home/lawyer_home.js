@@ -55,7 +55,7 @@ Page({
       })
     }else{
       wx.navigateTo({
-        url: './openMsg/openMsg?info=' + info,
+        url: './open_msg/open_msg?info=' + info,
       })
     }
   },

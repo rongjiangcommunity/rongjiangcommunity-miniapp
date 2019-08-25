@@ -12,10 +12,11 @@
 }
 .btn_answer{
   position: relative;
+  margin-right: 30rpx;
 }
 .btn_ask{
   position: relative;
-  margin-right: 50rpx;
+
 }
 .badge{
   position: absolute;

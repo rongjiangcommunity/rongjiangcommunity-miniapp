@@ -7,6 +7,8 @@ Page({
   data: {
     lawyerInfo:{},
     strCount : 300,
+    modalTitle: "",
+
   },
 
   /**
@@ -54,10 +56,14 @@ Page({
     const msg = e.detail.value.message;
     const fromUid = that.data.fromUid;
     const toUid=that.data.lawyerInfo.uid;
-    if(this.data.strCount>285){
+    if(that.data.strCount>285){
       // 显示提示框
-      this.setData({
-        showModal_fail: true
+      that.setData({
+        modalTitle: "提交失败",
+        modalMsg: "请详细描述您的问题，字数不少于15个字！",
+        modalBtn: "我知道了",
+        msgStatus: 0,
+        showModal: true
       });
     }else{
       // 调用打开信息接口
@@ -67,12 +73,35 @@ Page({
         data: { "msg": msg, "fromUid": fromUid, "toUid": toUid},
         success(res) {
           console.log(res.data);
-          that.setData({
-            showModal: true,
-          });
+          if(res.data.success){
+            that.setData({
+              modalTitle: "提交成功",
+              modalMsg: "您的咨询已提交，请耐心等候律师解答",
+              modalBtn: "返回律师列表",
+              msgStatus: 1,
+              showModal: true
+            });
+          }else{
+            that.setData({
+              modalTitle: "提交失败",
+              modalMsg: "已存在进行中的对话，请到校友咨询中查看",
+              modalBtn: "返回律师列表",
+              msgStatus: 1,
+              showModal: true
+            });
+          }   
         }
       })     
     }   
+  },
+  btnHandle:function(e){
+    const status = e.target.dataset.status;
+    if(status==0){
+      this.hideModal();
+    }
+    if(status==1){
+      this.backToList();
+    }
   },
   // 回到律师列表页面
   backToList:function(){
@@ -83,7 +112,7 @@ Page({
   // 隐藏提示框
   hideModal:function(){
     this.setData({
-      showModal_fail: false,
+      showModal: false,
     })
   },
   /**

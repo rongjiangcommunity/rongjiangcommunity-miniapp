@@ -26,17 +26,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   this.undoneConsulting();
-   this.doneConsult();
-    
+
+    //获取咨询完成的消息列表
+
   },
-  //未咨询完成的消息列表
-  undoneConsulting:function(e){
+  // 请求咨询中的内容
+  undonerequest: function (e) {
     const sid = app.getCredentials();
     const that = this;
     // 获取咨询中的消息列表
     wx.request({
-      url: app.serverUrl + '/api/lawyer/my_consulting/' + sid,
+      url: app.serverUrl + '/api/lawyer/consulting_me/' + sid,
       header: {
         'Content-Type': 'application/json'
       },
@@ -47,20 +47,19 @@ Page({
       },
       method: 'GET',
       success(res) {
-        // that.setData({
-        //   undoneData: res.data
-        // })
+        that.setData({
+          undoneData: res.data.data
+        })
+
       }
     })
   },
-
-   //获取咨询完成的消息列表
-  doneConsult:function(e){
+  // 请求已完成的内容
+  donerequest: function (e) {
     const sid = app.getCredentials();
     const that = this;
-   
     wx.request({
-      url: app.serverUrl + '/api/lawyer/my_consulting/' + sid,
+      url: app.serverUrl + '/api/lawyer/consulting_me/' + sid,
       header: {
         'Content-Type': 'application/json'
       },
@@ -71,17 +70,17 @@ Page({
       },
       method: 'GET',
       success(res) {
-        // that.setData({
-        //   data: res.data
-        // })
-
+        that.setData({
+          doneData: res.data.data
+        })
       }
     })
   },
+
   // 改变点击“咨询中”、“已完成”
   changeClickTitle: function (e) {
     this.setData({
-      clickTitle: e.currentTarget.dataset.id
+      clickTitle: e.currentTarget.dataset.xid
     })
   },
 
@@ -96,8 +95,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.undoneConsulting();
-    this.doneConsult();
+    this.undonerequest();
+    this.donerequest();
   },
 
   /**
