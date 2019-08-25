@@ -38,11 +38,15 @@
           <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/> 
       </view>
       <!-- 待更改图标 -->
+    <navigator url="../consult/consult">
+
       <view class="item-box" bindtap='expect'>
         <image class="item-img" src="../../images/icons/marrige.png" background-size="cover"/>
         <text class="item-title">鹊桥相会</text>
           <image class="item-raw" src="/images/icons/arrow@2x.png" background-size="cover"/> 
       </view>
+    </navigator>
+
   </view>
 
 <!-- 认证部分 -->

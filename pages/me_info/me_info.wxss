@@ -51,7 +51,7 @@
 }
 .weui-cell__ft_in-access::after {
  height: 8px;
-width: 8px;
-border-width: 1px 1px 0 0;
+ width: 8px;
+ border-width: 1px 1px 0 0;
 
 }
