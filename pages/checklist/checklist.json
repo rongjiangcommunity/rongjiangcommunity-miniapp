@@ -9,6 +9,6 @@
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false
   },
-  "enablePullDownRefresh": true,
+  "enablePullDownRefresh": false,
   "onReachBottomDistance": 400
 }

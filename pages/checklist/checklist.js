@@ -1,10 +1,6 @@
 // pages/checklist/checklist.js
 const app = getApp();
-
-const num = 8;
-let page = 0;
-let hasMoredData = true;
-
+const num = 32;
 
 Page({
   /**
@@ -15,24 +11,26 @@ Page({
     checkData: {},
     radioItem: null,
   },
+  page: 0,
+  hasMoredData: true,
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '审核列表'
-    });
-    const start= page*num;
-    const stop = start + num -1;
-    this.getProList(start, stop);
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.setNavigationBarTitle({
+      title: '审核列表'
+    });
+    
+    this.getProList();
   },
 
   /**
@@ -63,8 +61,10 @@ Page({
 
   },
 
-  getProList: function (start, stop) {
+  getProList: function () {
     var self = this;
+    const start= this.page*num;
+    const stop = start + num -1;
     var sid = app.getCredentials();
     wx.request({
       url: getApp().serverUrl + '/api/user/reviewlist/' + sid + "?start=" + start + "&stop=" + stop,
@@ -73,7 +73,7 @@ Page({
         if (res.data.data) {
           const data = res.data.data;
           if (!data.length || data.length < num) {
-            hasMoredData = false;
+            self.hasMoredData = false;
           }
           if (data.length) {
             self.setData({
@@ -97,6 +97,14 @@ Page({
     wx.navigateTo({
       url: '../audit_form/audit_form?uid=' + e.target.dataset.uid
     });
+  },
+  reload: function() {
+    this.page = 0;
+    this.hasMoredData = true;
+    this.setData({
+      proList: [],
+    })
+    this.getProList();
   },
   checkSubmit: function (e) {
     var that = this;
@@ -139,8 +147,8 @@ Page({
               title: '保存成功',
               icon: 'success',
               duration: 4000
-            }),
-              that.onLoad();
+            });
+            that.reload();
           } else {
             app.failAlert("请求失败！");
           }
@@ -152,7 +160,6 @@ Page({
       })
     }
   },
-
   /**
  * 弹窗
  */
@@ -182,12 +189,10 @@ Page({
   * 监听上拉事件
   */
   onReachBottom: function () {
-    if (hasMoredData){
+    if (this.hasMoredData){
       wx.showNavigationBarLoading();
-      page = page + 1;
-      const start = page*num;
-      const stop = page*num + start-1;
-      this.getProList(start, stop);
+      this.page = this.page + 1;
+      this.getProList();
     }
   },
   /**

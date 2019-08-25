@@ -106,8 +106,11 @@ Page({
           setTimeout(function(){
             wx.navigateBack({
               delta: 1
-            })
-          },4000)
+            });
+          },4000);
+          that.setData({
+            status: 'pending',
+          });
         } else {
           that.failAlert("请求失败！");
         }
