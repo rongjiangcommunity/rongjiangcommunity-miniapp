@@ -1,0 +1,52 @@
+<view class="table">
+<view class="weui-panel weui-panel_access">
+   <view class="weui-panel__hd">总体情况</view>
+      <view class="weui-panel__bd">
+         <view class="tr bg-g">
+           <view class="th1">律师总数</view>
+           <view class="th1">点击次数</view>
+           <view class="th1">点击人数</view>
+         </view>
+      <block wx:for="{{allData}}" wx:key="{{alllawyer}}">
+         <view class="tr1">
+           <view class="td">{{item.alllawyer}}</view>
+           <view class="td">{{item.allclick_count}}</view>
+           <view class="td">{{item.allclick_num}}</view>
+         </view>
+       </block>
+          <view class="tr bg-g">
+             <view class="th1">总咨询量</view>
+             <view class="th1">完成量</view>
+             <view class="th1">超时关闭量</view>
+           </view>
+       <block wx:for="{{allData}}" wx:key="{{alllawyer}}">
+          <view class="tr1">
+           <view class="td">{{item.allcon_num}}</view>
+           <view class="td">{{item.allcom_num}}</view>
+           <view class="td">{{item.allovertime_num}}</view>
+         </view>
+       </block>
+       </view>
+     </view>
+<view class="weui-panel weui-panel_access">
+   <view class="weui-panel__hd">个体情况</view>
+     <view class="tr bg-w">
+       <view class="th">律师姓名</view>
+       <view class="th">点击次数</view>
+       <view class="th ">点击人数</view>
+       <view class="th ">咨询量</view>
+       <view class="th ">完成量</view>
+       <view class="th ">超时关闭量</view>
+     </view>
+     <block wx:for="{{listData}}" wx:key="{{lawyer}}">
+       <view class="tr">
+         <view class="td">{{item.lawyer}}</view>
+         <view class="td">{{item.click_count}}</view>
+         <view class="td">{{item.click_num}}</view>
+         <view class="td">{{item.con_num}}</view>
+         <view class="td">{{item.com_num}}</view>
+         <view class="td">{{item.overtime_num}}</view>
+       </view>
+     </block>
+</view>  
+</view>
