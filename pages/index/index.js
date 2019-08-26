@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
   pageState: 'index', // index, loading, error
@@ -22,6 +22,20 @@ Page({
   },
   onLoad: function() {
     const ctx = this;
+    const credentials = app.getCredentials();
+    console.log(credentials);
+    wx.request({
+      url: app.serverUrl + '/api/lawyer/has_unread/'+credentials,
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success(res){
+        console.log(res.data);
+        ctx.setData({
+          msgRead: res.data.data,
+        });
+      }
+    });
     wx.getSetting({
       success: function(res){
         if (res.authSetting['scope.userInfo']) {

@@ -23,12 +23,12 @@
     </view>
   </view>
   <view class="info_btn">
-    <button bindtap="showMsg" data-msg="{{btn_msg[0].msg}}" data-title="{{btn_msg[0].title}}" disabled="{{btn_msg[0].disabled}}">律所介绍</button>
-    <button bindtap="showMsg" data-msg="{{btn_msg[1].msg}}" data-title="{{btn_msg[1].title}}" disabled="{{btn_msg[1].disabled}}">其他资格</button>
-    <button bindtap="showMsg" data-msg="{{btn_msg[2].msg}}" data-title="{{btn_msg[2].title}}" disabled="{{btn_msg[2].disabled}}">其他职务</button>
-    <button bindtap="showMsg" data-msg="{{btn_msg[3].msg}}" data-title="{{btn_msg[3].title}}" disabled="{{btn_msg[3].disabled}}">获奖情况</button>
-    <button bindtap="showMsg" data-msg="{{btn_msg[4].msg}}" data-title="{{btn_msg[4].title}}" disabled="{{btn_msg[4].disabled}}">顾问单位</button>
-    <button bindtap="showMsg" data-msg="{{btn_msg[5].msg}}" data-title="{{btn_msg[5].title}}" disabled="{{btn_msg[5].disabled}}">专业著述</button>
+    <button bindtap="showMsg" data-msg="{{btnMsg[0].msg}}" data-title="{{btnMsg[0].title}}" disabled="{{btnMsg[0].disabled}}">律所介绍</button>
+    <button bindtap="showMsg" data-msg="{{btnMsg[1].msg}}" data-title="{{btnMsg[1].title}}" disabled="{{btnMsg[1].disabled}}">其他资格</button>
+    <button bindtap="showMsg" data-msg="{{btnMsg[2].msg}}" data-title="{{btnMsg[2].title}}" disabled="{{btnMsg[2].disabled}}">其他职务</button>
+    <button bindtap="showMsg" data-msg="{{btnMsg[3].msg}}" data-title="{{btnMsg[3].title}}" disabled="{{btnMsg[3].disabled}}">获奖情况</button>
+    <button bindtap="showMsg" data-msg="{{btnMsg[4].msg}}" data-title="{{btnMsg[4].title}}" disabled="{{btnMsg[4].disabled}}">顾问单位</button>
+    <button bindtap="showMsg" data-msg="{{btnMsg[5].msg}}" data-title="{{btnMsg[5].title}}" disabled="{{btnMsg[5].disabled}}">专业著述</button>
   </view>
 </view>
 <view class="info_edu">
@@ -45,9 +45,9 @@
   <button bindtap="consultHandle">立即咨询</button>
 </view>
 
-<view class="modal-mask" wx:if="{{showModal_msg}}"></view>
+<view class="modal-mask" wx:if="{{showModalMsg}}"></view>
 <view class="modal_msg">
-<view class="modal-dialog shenhe-modal" wx:if="{{showModal_msg}}">
+<view class="modal-dialog shenhe-modal" wx:if="{{showModalMsg}}">
     <view class="modal-title">{{msgTitle}}</view>
     <view class="modal-content">
       <view class="modal-input">
@@ -55,15 +55,15 @@
       </view>
     </view>
     <view class="modal-footer">
-      <button class="btn-confirm" bindtap="hideModal_msg">确定</button>
+      <button class="btn-confirm" bindtap="hideModalMsg">确定</button>
     </view>
 </view>
 </view>
 
 
-<view class="modal-mask" wx:if="{{showModal_approved}}"></view>
+<view class="modal-mask" wx:if="{{showModalApproved}}"></view>
 <view class="modal_approved">
-<view class="modal-dialog shenhe-modal" wx:if="{{showModal_approved}}">
+<view class="modal-dialog shenhe-modal" wx:if="{{showModalApproved}}">
     <view class="modal-title">认证提示</view>
     <view class="modal-content">
       <view class="modal-input">

@@ -47,7 +47,7 @@
       <view class="item-box">
         <image class="item-img" src="../../images/icons/doctor@3x.png" background-size="cover"/>
         <text class="item-title">律师服务</text>
-          <mp-badge extClass="consult_badge" wx:if="{{true}}"></mp-badge>
+          <mp-badge extClass="consult_badge" wx:if="{{msgRead}}"></mp-badge>
           <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
       </view>
     </navigator>

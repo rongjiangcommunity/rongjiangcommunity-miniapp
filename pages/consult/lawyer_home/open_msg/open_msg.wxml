@@ -26,15 +26,3 @@
       <button class="btn-confirm" bindtap="btnHandle" data-status="{{msgStatus}}">{{modalBtn}}</button>
     </view>
 </view>
-
-<!-- <view class="modal-mask" wx:if="{{showModal_fail}}"></view>
-<view class="modal-dialog shenhe-modal" wx:if="{{showModal_fail}}">
-    <view class="modal-content">
-      <view class="modal-input">
-        <text>请详细描述您的问题，字数不少于15个字！</text>
-      </view>
-    </view>
-    <view class="modal-footer">
-      <button class="btn-confirm" bindtap="hideModal">我知道了</button>
-    </view>
-</view> -->

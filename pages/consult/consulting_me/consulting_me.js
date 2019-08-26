@@ -39,7 +39,7 @@ Page({
     const that = this;
     // 获取咨询中的消息列表
     wx.request({
-      url: app.serverUrl + '/api/lawyer/my_consulting/' + sid,
+      url: app.serverUrl + '/api/lawyer/consulting_me/' + sid,
       header: {
         'Content-Type': 'application/json'
       },
@@ -63,7 +63,7 @@ Page({
     const that = this;
 
     wx.request({
-      url: app.serverUrl + '/api/lawyer/my_consulting/' + sid,
+      url: app.serverUrl + '/api/lawyer/consulting_me/' + sid,
       header: {
         'Content-Type': 'application/json'
       },

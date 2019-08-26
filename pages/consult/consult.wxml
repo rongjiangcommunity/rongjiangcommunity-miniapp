@@ -23,7 +23,7 @@
     <view>
       <view class="item_title"><text class="item_name">{{item.name}}</text><text class="item_addr">广东 广州</text><text class="item_firm">广州呵呵事务所</text>
       </view>
-      <view class="info_pro">{{info_pro}}</view>
+      <view class="info_pro">{{infoPro}}</view>
     </view>
   </view>
 </view>

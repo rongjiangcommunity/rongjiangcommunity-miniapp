@@ -9,8 +9,7 @@ Page({
   data: {
     lawyerList:[],
     isLawyer: false,
-    msg_new: true,
-    info_pro:'刑事辩护及控告，企业刑事风险防护，刑民交叉案件和其他相关方面的案件'
+    infoPro:'刑事辩护及控告，企业刑事风险防护，刑民交叉案件和其他相关方面的案件'
   },
 
   /**
