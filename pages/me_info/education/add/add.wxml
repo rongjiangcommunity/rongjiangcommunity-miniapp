@@ -88,7 +88,7 @@
         </view>
         </block>
        <block wx:elif="{{temp==false}}">
-          <view  class="label"   bindtap="display">请选择在职时间</view>
+          <view  class="label" bindtap="display">请选择在校时间</view>
           </block>
           <image class="icon" src="/images/icons/right_arrow.png"/>
       </view>
