@@ -1,4 +1,5 @@
 <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
+bindcancel="bindPickerCancel"
   value="{{multiIndex}}" columns="{{columns}}" range="{{multiArray}}">
   <view class="input-class" wx:if="{{multiArray[0][multiIndex[0]]}}">
     {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}

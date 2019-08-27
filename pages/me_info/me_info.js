@@ -40,6 +40,8 @@ Page({
     genderIndex: undefined,
     livingAreaMultiIndex: [],
     workingAreaMultiIndex: [],
+    temp_livingAreaMultiIndex: [],
+    temp_workingAreaMultiIndex: [],
     livingAreaIndex: undefined,
     workingAreaIndex: undefined,
 
@@ -87,9 +89,11 @@ Page({
           }
           if (data.livingArea) {
             o.livingAreaMultiIndex = area2MultIndex(data.livingArea);
+            o.temp_livingAreaMultiIndex = o.livingAreaMultiIndex;
           }
           if (data.workingArea) {
             o.workingAreaMultiIndex = area2MultIndex(data.workingArea);
+            o.temp_workingAreaMultiIndex = o.workingAreaMultiIndex;
           }
           if (data.gender) {
             o.genderIndex = genderValues[data.gender];
@@ -150,14 +154,26 @@ Page({
       app.saveUserInfo({
         [name]: [areaColumns[0][multiIndex[0]], areaColumns[1][multiIndex[0]][multiIndex[1]]],
       });
+      this.setData({
+        [(name + 'MultiIndex')]: multiIndex,
+        [('temp_' + name + 'MultiIndex')]: multiIndex
+      })
+    }
+  },
+  bindAreaCancel(e) {
+    const { name } = e.currentTarget.dataset;
+    if (name) {
+      this.setData({
+        [name + 'MultiIndex']: this.data[('temp_' + name +'MultiIndex')]
+      })
     }
   },
 
   bindMultiPickerChange(e) {
-    console.log('picker发送选择改变，携带值为：：：', e.detail)
+    // console.log('picker发送选择改变，携带值为：：：', e.detail)
     var first = e.detail.value[0];
     var second = e.detail.value[1];
-    console.log(app.originFirst[first], app.originSecond[first][second])
+    // console.log(app.originFirst[first], app.originSecond[first][second])
     this.setData({
       multiIndex: e.detail.value,
       recordMultiIndex: e.detail.value
@@ -165,7 +181,7 @@ Page({
     app.saveUserInfo({origin: [app.originFirst[first], app.originSecond[first][second]]});
   },
   bindMultiPickerColumnChange(e) {
-    console.log('修改的列为', e.detail.column, '，值为', e.detail)
+    // console.log('修改的列为', e.detail.column, '，值为', e.detail)
     let column = e.detail.column;
     let value = e.detail.value;
     let multiIndex = this.data.multiIndex
