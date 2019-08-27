@@ -37,7 +37,7 @@
     </view>
     <view class="weui-cell__bd weui-cell__ft_in-access">
       <picker-two-column columns="{{areaColumns}}" multiIndex="{{workingAreaMultiIndex? workingAreaMultiIndex: '请选择'}}"
-        bindchange="bindAreaChange" data-name='workingArea' input-class="weui-input" />
+        bindchange="bindAreaChange" bindcancel="bindAreaCancel" data-name='workingArea' input-class="weui-input" />
     </view>
   </view>
   <view class="weui-cell weui-cell_input">
@@ -46,7 +46,7 @@
     </view>
     <view class="weui-cell__bd weui-cell__ft_in-access">
       <picker-two-column columns="{{areaColumns}}" multiIndex="{{livingAreaMultiIndex? livingAreaMultiIndex: '请选择'}}"
-        bindchange="bindAreaChange" data-name='livingArea' input-class="weui-input" />
+        bindchange="bindAreaChange" bindcancel="bindAreaCancel" data-name='livingArea' input-class="weui-input" />
     </view>
   </view>
   <view class="weui-cell weui-cell_input">

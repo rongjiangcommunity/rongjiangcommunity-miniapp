@@ -25,6 +25,9 @@ Component({
       });
       this.triggerEvent('change', {value: e.detail.value});
     },
+    bindPickerCancel: function(e){
+      this.triggerEvent('cancel');
+    },
     bindMultiPickerColumnChange: function(e) {
       const {column, value} = e.detail;
       const columns = this.data.columns;
