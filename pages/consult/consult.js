@@ -32,7 +32,7 @@ Page({
         if(res.data.success===true){
           that.setData({
             lawyerList:res.data.data,
-          })
+          });
         }
       }
     })

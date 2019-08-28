@@ -58,7 +58,7 @@ Page({
     const credentials = app.getCredentials();
     const that=this;
     wx.request({
-      url: app.serverUrl + '/api/lawyer/has_unread/' + credentials,
+      url: app.serverUrl + '/api/lawyer/has_unread/' + "credentials",
       header: {
         'Content-Type': 'application/json'
       },

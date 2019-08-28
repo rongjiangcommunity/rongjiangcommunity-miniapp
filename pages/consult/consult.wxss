@@ -95,11 +95,14 @@ page{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+/* 页脚部分 */
 .footer{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 72rpx;
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
-  margin-top: 72rpx;
   width: 230rpx;
   font-size: 24rpx;
   line-height: 34rpx;
