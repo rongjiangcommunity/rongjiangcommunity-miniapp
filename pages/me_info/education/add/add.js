@@ -5,14 +5,16 @@ Page({
   data:{
     startDate: '2000-09-01',
     endDate: '2004-07-01',
-    multiIndex: [0, 0],
 
     temp_major:false,
     temp_degree:false,
     temp:false,
 
+    multiIndex: [0, 0],
+    recordMultiIndex: [0, 0],
     multiArray: [app.provinceArr, app.collegeObj[app.provinceArr[0]]],
     multiMajorIndex: [0, 0, 0],
+    recordMajorMultiIndex: [0, 0, 0],
     multiMajorArray: [app.majorFirst, app.majorSecond[0], app.majorThird['哲学类']],
     degreeIndex: 0,
     degreeArr:['高中','大专','本科','硕士','博士']
@@ -100,9 +102,10 @@ Page({
 
   bindMultiPickerChange(e) {
     console.log('picker发送选择改变，携带值为：：：', e.detail)
+    let value = e.detail.value;
     this.setData({
-      multiIndex: e.detail.value,
-      recordMultiIndex: e.detail.value
+      multiIndex: value,
+      recordMultiIndex: [...value]
     })
   },
   bindMultiPickerColumnChange(e) {
@@ -139,9 +142,10 @@ Page({
 
   bindMultiMajorPickerChange(e) {
     console.log('picker发送选择改变，携带值为：：：', e.detail)
+    let { value } = e.detail;
     this.setData({
-      multiMajorIndex: e.detail.value,
-      recordMajorMultiIndex: e.detail.value
+      multiMajorIndex: value,
+      recordMajorMultiIndex: [...value]
     })
   },
   bindMultiMajorPickerColumnChange(e) {
