@@ -1,46 +1,29 @@
-<import src="/pages/tmpl/tmpl.wxml"/>
-
-<view class="schoolmate-box">
-  <view class="schoolmate-content">
-    <text class="schoolmate">张校友</text>
-    <text class="session">89届</text>
+<!--pages/consult/consult.wxml-->
+<view class="header">
+  <view class="header_msg">
+    <text>本版块律师皆为一中校友</text>
   </view>
-  <text class="consulting">咨询中</text>
-</view>
-
-<view class="consult-box">
-  <text class="consult-content {{ellipsis?'ellipsis':'unellipsis'}}">{{currentMsg.msg}}</text>
-  <view class='bg-white-ellipsis' bindtap='ellipsis'>
-    <image class='img-ellipsis' src="{{ellipsis?'/images/icons/toDown.png':'/images/icons/toUp.png'}}"     />
+  <view class="btn_ask">
+    <navigator url="./my_consult/my_consult" hover-class="none"> 
+      <mp-badge extClass="badge" wx:if="{{true}}"></mp-badge>
+      <image src="/images/icons/consult.png"></image>
+      <view>校友咨询</view>
+    </navigator>
+  </view>
+  <view class="btn_answer" wx:if="{{isLawyer}}">
+    <navigator url="./consult_me/consult_me" hover-class="none">
+      <mp-badge extClass="badge" wx:if="{{false}}"></mp-badge>
+      <image src="/images/icons/consult.png"></image>
+      <view>咨询我的</view>
+    </navigator>
   </view>
 </view>
-
-<view class="solve-box" style='display: {{isShow? "block": "none"}}' bindtap="close">
-问题已解决，关闭咨询
-</view>
-
-<view class="talk-box">
-<view class="bubble-box">
-  <view class='left-bubble'>
-          点击邀请你的另一半~香港警方今天一天冯小刚的辉煌业绩的挺好的金融dfnhnhjfghk,k,gjk.k,dsvg/adkfjg'lasrgh;aeohg;lsrjhg/dlkfjg'x/dlkhg/sdlkbnfgjdyjdytjeyj
+<view class="lawyerList">
+  <view class="list_item" wx:for="{{lawyerList}}" wx:key="item.id" data-info="{{item}}" bindtap="goToLawyer">
+    <view>
+      <view class="item_title"><text class="item_name">{{item.name}}</text><text class="item_addr">广东 广州</text><text class="item_firm">广州呵呵事务所</text>
+      </view>
+      <view class="info_pro">{{info_pro}}</view>
+    </view>
   </view>
-  <view class="date left-date">2019-08-22 09:22:03</view>
-</view>
-
-<view class="bubble-box">
-  <view class='right-bubble'>
-          点击邀请你的另一半~香港警方今天一天冯小刚的辉煌业绩的挺好的金融dfnhnhjfghk,k,gjk.k,dsvg/adkfjg'lasrgh;aeohg;lsrjhg/dlkfjg'x/dlkhg/sdlkbnfgjdyjdytjeyj
-  </view>
-  <view class="date right-date">2019-08-22 09:22:03</view>
-</view>
-
-<view>
-    <template is="Tmpl" data="{{wxAppendData}}"/>
-</view>
-
-</view>
-
-<view class="commit-box">
-  <input placeholder="输入咨询内容" value="{{inputValue}}" class="commit-input" bindinput="ins"/>
-  <button type="primary" class="commit-btn" bindtap="submit">发送</button>
 </view>

@@ -26,63 +26,101 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   this.undoneConsulting();
-   this.doneConsult();
-    
+
   },
-  //未咨询完成的消息列表
-  undoneConsulting:function(e){
+  //未完成的消息记录
+  undonerequest: function (e) {
     const sid = app.getCredentials();
     const that = this;
     // 获取咨询中的消息列表
     wx.request({
-      url: app.serverUrl + '/api/lawyer/my_consulting/' + sid,
+      url: app.serverUrl + '/api/lawyer/consulting_me/' + sid,
       header: {
         'Content-Type': 'application/json'
       },
       data: {
-        undoneOffset: that.data.undoneOffset,
-        undoneCount: that.data.undoneCount,
+        offset: that.data.undoneOffset,
+        count: that.data.undoneCount,
         type: 'undone',
       },
       method: 'GET',
       success(res) {
         that.setData({
-          undoneData: res.data
+          undoneData: res.data.data
         })
+        var temp = res.data.data;
+        for (var i in temp) {
+          if (temp[i].status == "active" || temp[i].status == "created") {
+            temp[i].status = "咨询中";  
+          }
+          //重新赋值
+          that.setData({
+            undoneData: temp
+          })
+        }
+        console.log(that.data.undoneData)
+
       }
     })
   },
-
-   //获取咨询完成的消息列表
-  doneConsult:function(e){
+  // 请求已完成的内容
+  donerequest: function (e) {
     const sid = app.getCredentials();
     const that = this;
-   
     wx.request({
-      url: app.serverUrl + '/api/lawyer/my_consulting/' + sid,
+      url: app.serverUrl + '/api/lawyer/consulting_me/' + sid,
       header: {
         'Content-Type': 'application/json'
       },
       data: {
-        doneOffset: that.data.doneOffset,
-        doneCount: that.data.doneCount,
+        offset: that.data.doneOffset,
+        count: that.data.doneCount,
         type: 'done',
       },
       method: 'GET',
       success(res) {
         that.setData({
-          data: res.data
+          doneData: res.data.data
         })
-
+        var temp = res.data.data;
+        for (var i in temp) {
+          if (temp[i].status == "closed" || temp[i].status == "finished") {
+            temp[i].status = "已完成";
+          } else if (temp[i].status == "timeout"){
+            temp[i].status = "超时关闭";
+          }
+          //重新赋值
+          that.setData({
+            doneData: temp
+          })
+        }
+        console.log(that.data.doneData)
       }
     })
   },
   // 改变点击“咨询中”、“已完成”
   changeClickTitle: function (e) {
+    console.log(e)
     this.setData({
-      clickTitle: e.currentTarget.dataset.id
+      clickTitle: e.currentTarget.dataset.xid
     })
+  },
+  //触底操作，查找更多
+  lowerMoreClassify:function(e){
+    let that = this;
+    if (that.data.clickTitle==1){
+      that.setData({
+        undoneOffset: undoneOffset + undoneCount
+      })
+      that.undonerequest(); //重新获取信息
+    } else if (that.data.clickTitle == 0){
+      that.setData({
+        doneOffset: doneOffset + undoneCount
+      })
+      that.donerequest();//重新获取信息
+    }
+    
+  
   },
 
   /**
@@ -96,8 +134,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.undoneConsulting();
-    this.doneConsult();
+    this.donerequest();
+    this.undonerequest();
   },
 
   /**

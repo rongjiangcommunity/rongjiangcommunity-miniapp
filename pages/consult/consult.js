@@ -1,6 +1,5 @@
 // pages/consult/consult.js
-const app = getApp();
-const util = require('../../utils/util.js');
+const app=getApp();
 
 Page({
 
@@ -8,130 +7,60 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ellipsis: true, // 文字是否收起，默认收起
-    isShow: true,
-    currentMsg: '',
-    inputValue: '',
-    wxAppendData: [],
-    submitTime: ''
+    lawyerList:[],
+    isLawyer: false,
+    msg_new: true,
+    info_pro:'刑事辩护及控告，企业刑事风险防护，刑民交叉案件和其他相关方面的案件'
   },
-  //留言的伸展与收起
-  ellipsis: function () {
-    var value = !this.data.ellipsis;
-    this.setData({
-      ellipsis: value
-    })
-  },
-  //提交留言后动态创建dom结点
-  submit: function() {
-    let submitTime = util.formatTime(new Date(), true);
-    let sid = app.getCredentials();
-    var self = this;
-    this.setData({submitTime})
-    let wxAppendDataItem = {
-      node: 'element',
-      tag: 'view',
-      class: ['bubble-box'],
-      content: '',
-      child: [
-        {
-          node: 'element',
-          tag: 'view',
-          class: ['right-bubble'],
-          content: this.data.inputValue
-        },
-        {
-          node: 'element',
-          tag: 'view',
-          class: ['date right-date'],
-          content: this.data.submitTime,
-        }
-      ]
-    };
-    this.data.wxAppendData.push(wxAppendDataItem)
-    let wxAppendData = this.data.wxAppendData
-    this.setData({
-      wxAppendData
-    })
 
-    util.send({
-      url: '/api/lawyer/msg/add/' + sid,
-      method: 'POST',
-      data: {
-        msg: self.data.inputValue,
-        fromUid: 392,
-        toUid: 605,
-        pid: 7
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    const credentials = app.getCredentials();
+    const that=this;
+    wx.setNavigationBarTitle({
+      title: '律师咨询'
+    });
+    // 获取律师列表
+    wx.request({
+      url: app.serverUrl + '/api/lawyer/lawyers/' + credentials,
+      header: {
+        'Content-Type': 'application/json'
       },
-      callback: function (res) {
-        if(res.data.success){
-          self.setData({
-            inputValue: ''
+      success(res){
+        if(res.data.success===true){
+          that.setData({
+            lawyerList:res.data.data,
+          })
+          // console.log(that.data.lawyerList)
+        }
+      }
+    })
+    // 检测用户是否是律师
+    wx.request({
+      url: app.serverUrl + '/api/lawyer/is_lawyer/' + credentials,
+      success(res){
+        if(res.data.success===true){
+          that.setData({
+            isLawyer : res.data.data,
           })
         }
       }
-    });
+    }); 
   },
-  
-  onLoad: function (option) {    
-    let sid = app.getCredentials();
-
-    var self = this;
-    // 获取微信服务凭证
-    //判断是否是律师，是的话不显示关闭咨询框
-    // util.send({
-    //   url: '/api/lawyer/is_lawyer/' + sid,
-    //   method: 'GET',
-    //   callback: function (res) {
-    //     var isLawyer = res.data.data;
-    //     self.setData({
-    //       isShow: !isLawyer
-    //     })
-    //   }
-    // });
-
-    util.send({
-      url: '/api/lawyer/msg/' + sid + '/1',
-      method: 'GET',
-      callback: function (res) {
-        var consultList = res.data.data;
-        console.log(consultList)
-        self.setData({
-          currentMsg: consultList.list[2]
-        })
-      }
-    });
-  },
-
-//获取输入框内容
-  ins: function(e) {
-    this.setData({
-      inputValue: e.detail.value
+  // 跳转至律师主页
+  goToLawyer:function(e){
+    const info = JSON.stringify(e.currentTarget.dataset.info);
+    wx.navigateTo({
+      url: './lawyer_home/lawyer_home?info='+info,
     })
-  },
-//关闭咨询,返回上一个页面
-  close: function() {
-    let sid = app.getCredentials();
-    util.send({
-      url: '/api/lawyer/msg/close/' + sid,
-      method: 'POST',
-      data: {
-        finished: true,
-        id: 1
-      },
-      callback: function (res) {
-        console.log(res.data)
-
-        if (res.data.success) {
-          wx.navigateBack()
-        }
-      }
-    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
   },
 
   /**

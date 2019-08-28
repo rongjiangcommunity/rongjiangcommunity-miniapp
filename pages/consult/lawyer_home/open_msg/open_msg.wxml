@@ -1,0 +1,28 @@
+<!--pages/consult/consult_input/consult_input.wxml-->
+<view class="info">
+   <view class="item_title"><text class="item_name">{{lawyerInfo.name}}</text><text class="item_addr">广东 广州</text><text class="item_firm">广州呵呵事务所</text>
+      </view>
+      <view class="info_pro">刑事辩护及控告，企业刑事风险防护，刑民交叉案件和其他相关方面的案件</view>
+</view>
+<form bindsubmit="consultSubmit" report-submit="true">
+<view class="consult_input">
+  <textarea name="message" value="" placeholder="请详细叙述您遇到的问题及法律诉求，便于律师解答您的问题" maxlength="300" bindinput="strCount"></textarea>
+  <view class="input_count">{{strCount}}/300</view>
+</view>
+<view class="submit_btn">
+  <button form-type="submit">提交</button>
+</view>
+</form>
+
+<view class="modal-mask" wx:if="{{showModal}}"></view>
+<view class="modal-dialog shenhe-modal" wx:if="{{showModal}}">
+    <view class="modal-title">{{modalTitle}}</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <text>{{modalMsg}}</text>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <button class="btn-confirm" bindtap="btnHandle" data-status="{{msgStatus}}">{{modalBtn}}</button>
+    </view>
+</view>

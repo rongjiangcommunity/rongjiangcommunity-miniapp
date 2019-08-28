@@ -1,0 +1,169 @@
+page{
+  position: relative;
+  height: 100vh;
+}
+
+/* 校友部分 */
+.schoolmate-box{
+  width: 100vw;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: rgb(237, 236, 232);
+  border-bottom: 1px solid rgb(155, 148, 148);
+}
+.schoolmate-content{
+  float: left;
+  margin-left: 10px;
+}
+.consulting{
+  float: right;
+  margin-right: 10px;
+  color: red;
+}
+.session{
+  margin-left: 20px;
+}
+/* 咨询内容部分---------有时间理解 */
+.consult-box{
+  background: rgb(237, 236, 232);
+
+}
+.consult-content{
+  font-size: 13px;
+  color: #888;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  text-overflow: ellipsis;
+  overflow:hidden; 
+}
+.bg-white-ellipsis{
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(237, 236, 232);
+}
+.bg-white-ellipsis image{
+  height: 16px;
+  width: 24px;
+
+}
+.ellipsis{
+  -webkit-line-clamp:3;
+  opacity: 0.75; 
+}
+.unellipsis{
+  -webkit-line-clamp:0; 
+  opacity: 1;
+}
+
+/* 关闭咨询部分 */
+.commit-wrap{
+   position: absolute;
+   width: 100%;
+   min-height: 100rpx;
+   bottom: 0rpx;
+}
+.solve-box{
+  position: absolute;
+  width: 100%;
+  height: 50rpx;
+  text-align: center;
+  padding: 6px;
+  border-top: 1px solid #999;
+  background: red;
+  bottom: 100%;
+}
+
+/* 提交部分 */
+.commit-box{
+  position: absolute;
+  width: 100%;
+  border-top: 1px solid #999;
+  padding: 6px;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+.weui-textarea{
+  font-size: 16px;
+  border: 1px solid #000;
+  width: 500rpx;
+  overflow: scroll;
+  margin-left: 10px;
+  padding: 3px 6px;
+}
+.commit-btn{
+  width: 150rpx;
+  height: 30px;
+  line-height: 30px;
+  background: rgb(22,155,213) !important;
+}
+
+/* 聊天气泡部分 */
+.talk-box{
+  height: 600rpx;
+  overflow: scroll;
+}
+.bubble-box{
+  /* width: 80%; */
+  margin-bottom: 75rpx;
+}
+.left-bubble, .right-bubble {
+  width: 80%;
+  font-size: 25rpx;
+  line-height: 50rpx;
+  padding: 10rpx;
+  position: relative;
+  /* border: 1px solid #FFB5C5; */
+  border-radius: 5px;
+  word-wrap: break-word;
+}
+.left-bubble:after {
+  content: '';
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  top: calc(50% - 10rpx);
+  left: -10rpx;
+  transform: rotate(-45deg);
+  background-color: rgba(255,223,37);
+  /* border: 1px #FFB5C5; */
+  /* border-style: solid none none solid ; */
+}
+.left-bubble{
+  margin: 20rpx auto 0 25rpx;
+  background-color: rgba(255,223,37);
+}
+.date{
+  display: flex;
+  color:#999;
+  margin-top: 8rpx;
+}
+.left-date{
+  margin-left: 20rpx;
+}
+.right-date{
+  justify-content: flex-end;
+  margin-right: 25rpx;
+}
+.right-bubble{
+  margin: 20rpx 25rpx 0 auto;
+  background-color:rgb(226, 223, 223);
+  border: 1px solid #333;
+}
+.right-bubble:after {
+  content: '';
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  top: calc(50% - 10rpx);
+  right: -11rpx;
+  transform: rotate(45deg);
+  background-color:rgb(226, 223, 223);
+  border: 1px #333;
+  border-style: solid solid none none;
+}

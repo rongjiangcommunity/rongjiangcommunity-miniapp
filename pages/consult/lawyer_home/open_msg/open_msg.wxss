@@ -1,0 +1,134 @@
+/* pages/consult/consult_input/consult_input.wxss */
+.info{
+  position: relative;
+  padding: 30rpx 20rpx;
+  color: #333;
+}
+.info .item_name{
+  font-size: 32rpx;
+}
+.info .item_addr{
+  margin-left: 20rpx;
+}
+.info .item_firm{
+  position: absolute;
+  top:30rpx;
+  right: 20rpx;
+}
+.info .info_pro{
+  width: 690rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.consult_input{
+  position: relative;
+  width: 100%;
+  height: 300rpx;
+  background-color: #FFF;
+}
+.consult_input textarea{
+  width: 100%;
+  height: 100%;
+}
+.consult_input .input_count{
+  position: absolute;
+  right: 50rpx;
+  bottom: 20rpx;
+  color: #333;
+}
+.submit_btn{
+  width: 100%;
+  margin-top: 300rpx;
+}
+.submit_btn button{
+  margin: 0 auto;
+  width: 500rpx;
+  height: 80rpx;
+  background-color: #008DF8;
+  color: #FFF;
+  font-size: 32rpx;
+  line-height: 80rpx;
+}
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 560rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #FFFFFF;
+  margin: -180rpx 95rpx;
+  border-radius: 8rpx;
+}
+
+.modal-title {
+  padding-top: 41rpx;
+  font-size: 36rpx;
+  line-height: 36rpx;
+  color: #000;
+  text-align: center;
+}
+
+.modal-content {
+  padding: 58rpx 32rpx 35rpx;
+}
+
+.modal-input {
+  display: flex;
+  background: #fff;
+  border: 2rpx solid #ddd;
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+input-holder {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  border-top: 1px solid #dedede;
+  font-size: 36rpx;
+  line-height: 100rpx;
+}
+.btn-confirm {
+  width: 100%;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  color: #008DF8;
+  text-align: center;
+  border: none;
+  border-radius:0;
+  background-color:transparent;
+}
+
+.btn-confirm::after {
+  border: none;
+}
+.section-marks{
+  line-height: 160rpx;
+}
+.shenhe-modal .modal-input{
+  background:none;
+  border:none;
+}
