@@ -17,6 +17,7 @@ Page({
    */
   onLoad: function (options) {
     const credentials = app.getCredentials();
+    console.log(credentials)
     const that=this;
     wx.setNavigationBarTitle({
       title: '律师咨询'
@@ -32,7 +33,6 @@ Page({
           that.setData({
             lawyerList:res.data.data,
           })
-          // console.log(that.data.lawyerList)
         }
       }
     })

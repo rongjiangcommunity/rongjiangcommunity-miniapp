@@ -1,60 +1,107 @@
 /* pages/consult/consult.wxss */
+page{
+  background: #FFF;
+}
+/* 顶部tab区域 */
 .header{
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  background-color: #FFF;
+  margin: 30rpx;
+  margin-bottom: 40rpx;
+  padding: 32rpx 0 30rpx 40rpx;
+  height: 152rpx;
+  background-color:#F2F9FE;
+  font-size: 32rpx;
+  font-weight: 700;
+  line-height: 44rpx;
   color: #333;
 }
-.header .header_msg{
-  padding: 50rpx 30rpx;
+.header .arrow{
+  position: absolute;
+  top: 50%;
+  right: 28rpx;
+  transform: translateY(-50%);
+}
+.header .arrow image{
+  width: 16rpx;
+  height: 24rpx;
 }
 .btn_answer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 106rpx;
+  width: 240rpx;
+}
+.btn_icon{
   position: relative;
-  margin-right: 30rpx;
+  margin-right: 20rpx;
+  width: 90rpx;
+  height: 90rpx;
+}
+.btn_icon .icon{
+  width: 90rpx;
+  height: 90rpx;
+}
+.btn_icon .badge{
+  position: absolute;
+  top: 5rpx;
+  right: 5rpx;
 }
 .btn_ask{
-  position: relative;
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-shrink: 1;
 }
-.badge{
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+/* 律师列表区域 */
 .lawyerList{
-  margin-top: 30rpx;
+  margin: 40rpx 30rpx 0;
   background-color: #FFF;
   color: #333;
+}
+.list_title{
+  font-size: 28rpx;
+  line-height: 40rpx;
 }
 .list_item{
   position: relative;
-  border-bottom: 1rpx solid #B2B2B2;
+  margin-top: 20rpx;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 24rpx 0 rgba(0,0,0,0.06);
 }
-.lawyerList .list_item{
-  padding: 30rpx 20rpx;
-}
-.lawyerList .item_name{
+.item_name{
   font-size: 32rpx;
+  font-weight: 700;
+  line-height: 44rpx;
 }
-.lawyerList .item_addr{
-  margin-left: 20rpx;
+.list_info{
+  margin-top: 8rpx;
+  line-height: 34rpx;
 }
-.lawyerList .item_firm{
-  position: absolute;
-  top:30rpx;
-  right: 20rpx;
+.item_addr,.item_firm{
+  font-size: 24rpx;
+  margin-right: 10rpx;
 }
-.lawyerList .info_pro{
-  width: 690rpx;
+.list_item .info_pro{
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #999;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.btn_answer image,.btn_ask image{
-  display: block;
+.footer{
+  display: flex;
+  justify-content: space-between;
   margin: 0 auto;
-  width: 50rpx;
-  height: 50rpx;
-}
+  margin-top: 72rpx;
+  width: 230rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #999;
+  }

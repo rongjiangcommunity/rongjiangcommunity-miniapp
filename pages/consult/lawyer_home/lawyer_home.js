@@ -7,6 +7,7 @@ Page({
    */
   data: {
     lawyerInfo:{},
+    lawyerImg: [{ src: "/images/lawyer1.jpg", id: 1 }, { src: "/images/lawyer2.jpg", id: 2 },{ src: "/images/lawyer3.jpg", id: 3 }],
     btnMsg: [
         { title: '律所介绍', msg: '律所介绍律所介绍律所介绍律所介绍', disabled: false },
         { title: '其他资格', msg: '', disabled: false },

@@ -19,23 +19,10 @@ Page({
   },
   onShow: function(){
     this.checkInfo();
+    // this.checkMsgRead();
   },
   onLoad: function() {
     const ctx = this;
-    const credentials = app.getCredentials();
-    console.log(credentials);
-    wx.request({
-      url: app.serverUrl + '/api/lawyer/has_unread/'+credentials,
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success(res){
-        console.log(res.data);
-        ctx.setData({
-          msgRead: res.data.data,
-        });
-      }
-    });
     wx.getSetting({
       success: function(res){
         if (res.authSetting['scope.userInfo']) {
@@ -65,6 +52,22 @@ Page({
         }).catch((err) => {
           console.log(err);
         });
+    });
+  },
+  checkMsgRead:function(){
+    const credentials = app.getCredentials();
+    const that=this;
+    wx.request({
+      url: app.serverUrl + '/api/lawyer/has_unread/' + credentials,
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success(res) {
+        console.log(res.data);
+        that.setData({
+          msgRead: res.data.data,
+        });
+      }
     });
   },
   bindGetUserInfo: function(e) {

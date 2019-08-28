@@ -1,25 +1,28 @@
 <!--pages/consult/lawyer_home/lawyer_home.wxml-->
+<!-- 律师照片区域 -->
 <view class="info_img">
-  <swiper indicator-dots="true">
-    <swiper-item>
-      <image src="" style="background-color: red"/>
-      </swiper-item>
-      <swiper-item>
-      <image src="" style="background-color: yellow"/>
-      </swiper-item>
-      <swiper-item>
-      <image src="" style="background-color: blue"/>
+  <swiper>
+    <swiper-item wx:for="{{lawyerImg}}" wx:key="item.id">
+      <image src="{{item.src}}" mode="aspectFit"/>
     </swiper-item>
   </swiper>
 </view>
+<!-- 律师信息区域 -->
 <view class="info">
-  <view class="info_common">
+  <view class="info_name">{{lawyerInfo.name}}</view>
+  <view><text class="info_addr">广东广州</text><text class="info_firm">美哲律师事务所 高级合伙人</text>
+  </view>
+  <view class="info_id">
     <view class="info_title">
-      <text class="info_name">{{lawyerInfo.name}}</text><text class="info_firm">广州呵呵事务所 高级合伙人</text><text class="info_addr">广东 广州</text>
+      <image src="/images/icons/dot@2x.png"></image>执业证号
     </view>
-    <view class="info_pro">
-      <view class="info_id">执业证号：18079765324549</view>
-      <view class="info_area">执业领域：刑事辩护及控告，企业刑事风险防护，刑民交叉案件和其他相关方面的案件</view>
+    <view class="info_content">51561651516516</view>
+  </view>
+  <view class="info_area">
+    <view class="info_title">
+      <image src="/images/icons/dot@2x.png"></image>执业领域
+    </view>
+    <view class="info_content">小程序建设提供资金说明小程序建设提供资金说明小程序建设提供资金说明小程序建设提供资金小程序建设提供资金小程序建设提供资
     </view>
   </view>
   <view class="info_btn">
@@ -30,49 +33,43 @@
     <button bindtap="showMsg" data-msg="{{btnMsg[4].msg}}" data-title="{{btnMsg[4].title}}" disabled="{{btnMsg[4].disabled}}">顾问单位</button>
     <button bindtap="showMsg" data-msg="{{btnMsg[5].msg}}" data-title="{{btnMsg[5].title}}" disabled="{{btnMsg[5].disabled}}">专业著述</button>
   </view>
+  <view class="info_edu">
+    <view class="info_title"><image src="/images/icons/dot@2x.png"></image>教育背景
+    </view>
+    <view class="info_content">教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景
+    </view>
+  </view>
+  <view class="info_achieve">
+    <view class="info_title"><image src="/images/icons/dot@2x.png"></image>主要业绩
+    </view>
+    <view class="info_content">主要业绩主要业绩主要业绩主要业绩主要业绩主要业绩主要业绩主要业绩
+    </view>
+  </view>
 </view>
-<view class="info_edu">
-  <view class="info_edu_title">教育背景：</view>
-  <view class="info_edu_content">教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景</view>
-</view>
-<view class="info_achieve">
-  <view class="info_achieve_title">主要业绩：</view>
-  <view class="info_achieve_content">业绩1：业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述。
-业绩2:业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述
-业绩3：业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述业绩描述</view>
-</view>
+<!-- 咨询按钮 -->
 <view class="consult_btn">
   <button bindtap="consultHandle">立即咨询</button>
 </view>
-
+<!-- button信息弹窗 -->
 <view class="modal-mask" wx:if="{{showModalMsg}}"></view>
 <view class="modal_msg">
-<view class="modal-dialog shenhe-modal" wx:if="{{showModalMsg}}">
+  <view class="modal-dialog shenhe-modal" wx:if="{{showModalMsg}}">
     <view class="modal-title">{{msgTitle}}</view>
-    <view class="modal-content">
-      <view class="modal-input">
-        <text>{{msg}}</text>
-      </view>
-    </view>
+    <view class="modal-content">{{msg}}</view>
     <view class="modal-footer">
       <button class="btn-confirm" bindtap="hideModalMsg">确定</button>
     </view>
+  </view>
 </view>
-</view>
-
-
+<!-- 认证提示弹窗 -->
 <view class="modal-mask" wx:if="{{showModalApproved}}"></view>
 <view class="modal_approved">
-<view class="modal-dialog shenhe-modal" wx:if="{{showModalApproved}}">
+  <view class="modal-dialog shenhe-modal" wx:if="{{showModalApproved}}">
     <view class="modal-title">认证提示</view>
-    <view class="modal-content">
-      <view class="modal-input">
-        该服务只针对校友开放，您还未认证校友身份，是否去认证？
-      </view>
-    </view>
+    <view class="modal-content">该服务只针对校友开放，您还未认证校友身份，是否去认证？</view>
     <view class="modal-footer">
       <view class="btn-cancel" bindtap="onCancel">再看看</view>
       <button class="btn-confirm" bindtap="goToApprove">去认证</button>
     </view>
-</view>
+  </view>
 </view>

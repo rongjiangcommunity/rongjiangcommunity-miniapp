@@ -1,57 +1,93 @@
 /* pages/consult/consult_input/consult_input.wxss */
-.info{
+/* 顶部律师信息 */
+.list_item{
   position: relative;
-  padding: 30rpx 20rpx;
-  color: #333;
+  margin: 30rpx;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  background-color: #FFF;
+  box-shadow: 0 4rpx 24rpx 0 rgba(0,0,0,0.06);
 }
-.info .item_name{
+.item_name{
   font-size: 32rpx;
+  font-weight: 700;
+  line-height: 44rpx;
 }
-.info .item_addr{
-  margin-left: 20rpx;
+.list_info{
+  margin-top: 8rpx;
+  line-height: 34rpx;
 }
-.info .item_firm{
-  position: absolute;
-  top:30rpx;
-  right: 20rpx;
+.item_addr,.item_firm{
+  font-size: 24rpx;
+  margin-right: 10rpx;
 }
-.info .info_pro{
-  width: 690rpx;
+.list_item .info_pro{
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #999;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+/* 用户咨询输入框区域 */
 .consult_input{
+  display: flex;
   position: relative;
+  padding: 30rpx;
   width: 100%;
-  height: 300rpx;
+  height: 700rpx;
   background-color: #FFF;
+  margin-bottom: 48rpx;
+}
+.consult_input .consult_title{
+  flex-shrink: 0;
+  margin-right: 48rpx;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #333
+}
+.consult_input .consult_content{
+  position: relative;
+  width: 514rpx;
+  height: 100%;
 }
 .consult_input textarea{
   width: 100%;
   height: 100%;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #333;
 }
 .consult_input .input_count{
   position: absolute;
-  right: 50rpx;
-  bottom: 20rpx;
-  color: #333;
+  right: 0;
+  bottom: 0;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #B2B2B2;
 }
 .submit_btn{
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  margin-top: 300rpx;
+  height: 100rpx;
 }
 .submit_btn button{
-  margin: 0 auto;
-  width: 500rpx;
-  height: 80rpx;
+  width: 100%;
+  height: 100%;
   background-color: #008DF8;
   color: #FFF;
   font-size: 32rpx;
-  line-height: 80rpx;
+  font-weight: 700;
+  line-height: 100rpx;
+  border-radius: 0;
 }
-
+.submit_btn button[disabled]{
+  background-color: #94CDF8;
+  color: #FFF;
+}
+/* 信息弹窗 */
 .modal-mask {
   width: 100%;
   height: 100%;
@@ -76,7 +112,6 @@
   margin: -180rpx 95rpx;
   border-radius: 8rpx;
 }
-
 .modal-title {
   padding-top: 41rpx;
   font-size: 36rpx;
@@ -84,25 +119,12 @@
   color: #000;
   text-align: center;
 }
-
 .modal-content {
   padding: 58rpx 32rpx 35rpx;
-}
-
-.modal-input {
-  display: flex;
-  background: #fff;
-  border: 2rpx solid #ddd;
-  border-radius: 4rpx;
-  font-size: 24rpx;
-  color: #666;
-}
-
-input-holder {
-  color: #666;
   font-size: 28rpx;
+  color: #666;
+  text-align: center;
 }
-
 .modal-footer {
   display: flex;
   flex-direction: row;
@@ -121,14 +143,11 @@ input-holder {
   border-radius:0;
   background-color:transparent;
 }
-
 .btn-confirm::after {
   border: none;
 }
-.section-marks{
-  line-height: 160rpx;
-}
-.shenhe-modal .modal-input{
-  background:none;
-  border:none;
+.placeholder{
+  color: #B2B2B2;
+  font-size: 32rpx;
+  line-height: 44rpx;
 }
