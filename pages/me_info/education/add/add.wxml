@@ -14,8 +14,8 @@
           range="{{multiArray}}"
         >
           <view class="lable-bold">
-           <view class="text"> {{multiArray[0][multiIndex[0]]}}</view>
-             <view class="text" style="margin-left:20rpx;">{{multiArray[1][multiIndex[1]]}}</view>
+            <view class="text"> {{multiArray[0][multiIndex[0]]}}</view>
+            <view class="text" style="margin-left:20rpx;">{{multiArray[1][multiIndex[1]]}}</view>
           </view>
         </picker>
         <image class="icon" src="/images/icons/right_arrow.png"/>
@@ -48,7 +48,7 @@
       <view class="frame_text">
         <view class="frame_school">毕业学历</view>
 
-        <picker class="display" bindchange="bindPickerChange" value="{{degreeIndex}}" range="{{degreeArr}}" bindtouchcancel="cancle"  bindtap="changeTempDegress" >
+        <picker class="weui-cell__bd display" bindchange="bindPickerChange" value="{{degreeIndex}}" range="{{degreeArr}}" bindtouchcancel="cancle"  bindtap="changeTempDegress" >
           <view>
            <block wx:if="{{temp_degree==true}}">
                {{degreeArr[degreeIndex]}}
@@ -88,7 +88,7 @@
         </view>
         </block>
        <block wx:elif="{{temp==false}}">
-          <view  class="label" bindtap="display">请选择在校时间</view>
+          <view  class="label weui-cell__bd" bindtap="display">请选择在校时间</view>
           </block>
           <image class="icon" src="/images/icons/right_arrow.png"/>
       </view>
