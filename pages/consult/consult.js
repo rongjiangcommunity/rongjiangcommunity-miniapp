@@ -55,6 +55,21 @@ Page({
       url: './lawyer_home/lawyer_home?info='+info,
     })
   },
+  showModal:function(){
+    this.setData({
+      showModalJoin: true
+    })
+  },
+  onCancel:function(){
+    this.setData({
+      showModalJoin:false
+    })
+  },
+  callNow:function(){
+    wx.makePhoneCall({
+      phoneNumber: '13903013645',
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
