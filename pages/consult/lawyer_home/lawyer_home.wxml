@@ -14,13 +14,15 @@
   </view>
   <view class="info_id">
     <view class="info_title">
-      <image src="/images/icons/dot@2x.png"></image>执业证号
+      <image src="/images/icons/dot@2x.png"></image>
+      <view>执业证号</view>
     </view>
     <view class="info_content">51561651516516</view>
   </view>
   <view class="info_area">
     <view class="info_title">
-      <image src="/images/icons/dot@2x.png"></image>执业领域
+      <image src="/images/icons/dot@2x.png"></image>
+      <view>执业领域</view>
     </view>
     <view class="info_content">小程序建设提供资金说明小程序建设提供资金说明小程序建设提供资金说明小程序建设提供资金小程序建设提供资金小程序建设提供资
     </view>
@@ -34,13 +36,17 @@
     <button bindtap="showMsg" data-msg="{{btnMsg[5].msg}}" data-title="{{btnMsg[5].title}}" disabled="{{btnMsg[5].disabled}}">专业著述</button>
   </view>
   <view class="info_edu">
-    <view class="info_title"><image src="/images/icons/dot@2x.png"></image>教育背景
+    <view class="info_title">
+      <image src="/images/icons/dot@2x.png"></image>
+      <view>教育背景</view>
     </view>
     <view class="info_content">教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景
     </view>
   </view>
   <view class="info_achieve">
-    <view class="info_title"><image src="/images/icons/dot@2x.png"></image>主要业绩
+    <view class="info_title">
+      <image src="/images/icons/dot@2x.png"></image>
+      <view>主要业绩</view>
     </view>
     <view class="info_content">主要业绩主要业绩主要业绩主要业绩主要业绩主要业绩主要业绩主要业绩
     </view>
