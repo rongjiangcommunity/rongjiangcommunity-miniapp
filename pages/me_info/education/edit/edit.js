@@ -166,9 +166,10 @@ Page({
 
   bindMultiMajorPickerChange(e) {
     console.log('picker发送选择改变，携带值为：：：', e.detail)
+    let { value } = e.detail;
     this.setData({
-      multiMajorIndex: e.detail.value,
-      recordMajorMultiIndex: e.detail.value
+      multiMajorIndex: value,
+      recordMajorMultiIndex: [...value]
     })
   },
   bindMultiMajorPickerColumnChange(e) {
@@ -199,8 +200,11 @@ Page({
   bindMultiMajorPickercancel(e) {
     let recordMajorMultiIndex = this.data.recordMajorMultiIndex
     if (recordMajorMultiIndex) {
+      let majorFirst = app.majorFirst;
+      let majorSecond = app.majorSecond[recordMajorMultiIndex[0]];
+      let majorThird = app.majorThird[majorSecond[recordMajorMultiIndex[1]]];
       this.setData({
-        multiMajorArray:[app.majorFirst, app.majorSecond[recordMajorMultiIndex[0]], app.majorThird[app.majorSecond[recordMajorMultiIndex[0]][recordMajorMultiIndex[2]]]],
+        multiMajorArray: [ majorFirst, majorSecond, majorThird ],
         multiMajorIndex: recordMajorMultiIndex
       });
     } else {
