@@ -39,15 +39,14 @@
 <view class="footer">
   <navigator url="../me_feedback/me_feedback" hover-class="none">反馈建议</navigator> | <view bindtap="showModal">加入我们</view>
 </view>
-
-<view class="modal-mask" wx:if="{{showModalJoin}}"></view>
-<view class="modal_approved">
-  <view class="modal-dialog shenhe-modal" wx:if="{{showModalJoin}}">
-    <view class="modal-title">加入我们</view>
-    <view class="modal-content">如您为一中校友且职业为从业律师，欢迎联系校友会办公室黄汉光。</view>
-    <view class="modal-footer">
-      <view class="btn-cancel" bindtap="onCancel">再看看</view>
-      <button class="btn-confirm" bindtap="callNow">拨打电话</button>
-    </view>
-  </view>
-</view>
+<!-- 弹窗组件 -->
+<modal 
+wx:if="{{showModalJoin}}"
+modalTitle="加入我们"
+modalMsg="如您为一中校友且职业为从业律师，欢迎联系校友会办公室黄汉光。"
+modalBtnConfirm="拨打电话"
+modalBtnCancel="再看看"
+bindcancel="onCancel"
+bindconfirm="callNow"
+>
+</modal>

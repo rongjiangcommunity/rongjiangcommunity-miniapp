@@ -107,125 +107,13 @@ page{
   background-color: #008DF8;
   border-radius: 0;
 }
-/* button信息弹窗 */
-.modal-mask {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #000;
-  opacity: 0.6;
-  overflow: hidden;
-  z-index: 9000;
-  color: #fff;
-}
-.modal_msg .modal-dialog {
-  width: 560rpx;
-  height: 720rpx;
-  overflow: hidden;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 9999;
-  background: #FFFFFF;
-  margin: -350rpx -280rpx;
-  border-radius: 8rpx;
-}
-.modal_msg .modal-title {
-  padding-top: 41rpx;
-  font-size: 36rpx;
-  line-height: 50rpx;
-  color: #000;
-  text-align: center;
-}
-.modal_msg .modal-content {
+.modal_content{
   margin: 20rpx 38rpx;
   height: 480rpx;
   overflow: auto;
   font-size: 28rpx;
   line-height: 40rpx;
   color: #666;
-}
-.modal_msg .modal-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100rpx;
-  border-top: 1px solid #E5E5E5;
-}
-.modal_msg .btn-confirm {
-  width: 100%;
-  font-size: 36rpx;
-  color: #008DF8;
-  line-height: 100rpx;
-  text-align: center;
-  border: none;
-  border-radius:0;
-  background-color: #FFF;
-}
-.modal_msg .btn-confirm::after {
-  border: none;
-}
-/* 认证提示弹窗 */
-.modal_approved .modal-dialog {
-  width: 560rpx;
-  overflow: hidden;
-  position: fixed;
-  top: 50%;
-  left: 0;
-  z-index: 9999;
-  background: #FFFFFF;
-  margin: -180rpx 95rpx;
-  border-radius: 8rpx;
-}
-.modal_approved .modal-title {
-  padding-top: 41rpx;
-  font-size: 36rpx;
-  line-height: 36rpx;
-  color: #000;
-  text-align: center;
-}
-.modal_approved .modal-content {
-  padding: 58rpx 32rpx 35rpx;
-  font-size: 28rpx;
-  line-height: 44rpx;
-  color: #666;
-  text-align: center;
-}
-.modal_approved .modal-footer {
-  display: flex;
-  flex-direction: row;
-  height: 100rpx;
-  border-top: 1px solid #dedede;
-  font-size: 36rpx;
-  line-height: 100rpx;
-}
-
-.modal_approved .btn-cancel {
-  width: 50%;
-  color: #666;
-  text-align: center;
-  border-right: 1px solid #dedede;
-}
-
-.modal_approved .btn-confirm {
-  width: 50%;
-  font-size: 36rpx;
-  line-height: 100rpx;
-  color: #008DF8;
-  text-align: center;
-  border: none;
-  border-radius:0;
-  background-color:transparent;
-}
-
-.modal_approved .btn-confirm::after {
-  border: none;
-}
-.modal_approved .shenhe-modal .modal-input{
-  background:none;
-  border:none;
 }
 ::-webkit-scrollbar {
   width: 0;

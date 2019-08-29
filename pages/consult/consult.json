@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-   "mp-badge": "/components/badge/badge"
+   "mp-badge": "/components/badge/badge",
+   "modal": "/components/modal/modal"
   }
 }

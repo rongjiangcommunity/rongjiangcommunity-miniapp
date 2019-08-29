@@ -21,11 +21,11 @@
   </view>
 </form>
 <!-- 信息提示弹窗 -->
-<view class="modal-mask" wx:if="{{showModal}}"></view>
-<view class="modal-dialog shenhe-modal" wx:if="{{showModal}}">
-    <view class="modal-title">{{modalTitle}}</view>
-    <view class="modal-content">{{modalMsg}}</view>
-    <view class="modal-footer">
-      <button class="btn-confirm" bindtap="btnHandle" data-status="{{msgStatus}}">{{modalBtn}}</button>
-    </view>
-</view>
+<modal 
+wx:if="{{showModal}}"
+modalTitle="{{modalTitle}}"
+modalMsg="{{modalMsg}}"
+modalBtnConfirm="{{modalBtn}}"
+bindconfirm="btnHandle"
+>
+</modal>

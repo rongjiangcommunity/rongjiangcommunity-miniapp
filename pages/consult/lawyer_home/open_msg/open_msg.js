@@ -106,7 +106,8 @@ Page({
     }   
   },
   btnHandle:function(e){
-    const status = e.target.dataset.status;
+    console.log(e)
+    const status = this.data.msgStatus;
     if(status==0){
       this.hideModal();
     }

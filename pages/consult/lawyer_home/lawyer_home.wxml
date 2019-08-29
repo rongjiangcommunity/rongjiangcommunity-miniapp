@@ -57,25 +57,22 @@
   <button bindtap="consultHandle">立即咨询</button>
 </view>
 <!-- button信息弹窗 -->
-<view class="modal-mask" wx:if="{{showModalMsg}}"></view>
-<view class="modal_msg">
-  <view class="modal-dialog shenhe-modal" wx:if="{{showModalMsg}}">
-    <view class="modal-title">{{msgTitle}}</view>
-    <view class="modal-content">{{msg}}</view>
-    <view class="modal-footer">
-      <button class="btn-confirm" bindtap="hideModalMsg">确定</button>
-    </view>
-  </view>
-</view>
+<modal 
+wx:if="{{showModalMsg}}"
+modalTitle="{{msgTitle}}"
+modalMsg="{{msg}}"
+modalBtnConfirm="确定"
+bindconfirm="hideModalMsg"
+extClass="modal_content"
+></modal>
 <!-- 认证提示弹窗 -->
-<view class="modal-mask" wx:if="{{showModalApproved}}"></view>
-<view class="modal_approved">
-  <view class="modal-dialog shenhe-modal" wx:if="{{showModalApproved}}">
-    <view class="modal-title">认证提示</view>
-    <view class="modal-content">该服务只针对校友开放，您还未认证校友身份，是否去认证？</view>
-    <view class="modal-footer">
-      <view class="btn-cancel" bindtap="onCancel">再看看</view>
-      <button class="btn-confirm" bindtap="goToApprove">去认证</button>
-    </view>
-  </view>
-</view>
+<modal 
+wx:if="{{showModalApproved}}"
+modalTitle="认证提示"
+modalMsg="该服务只针对校友开放，您还未认证校友身份，是否去认证？"
+modalBtnConfirm="去认证"
+modalBtnCancel="再看看"
+bindcancel="onCancel"
+bindconfirm="goToApprove"
+>
+</modal>
