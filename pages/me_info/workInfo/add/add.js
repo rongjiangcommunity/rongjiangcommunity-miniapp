@@ -7,6 +7,7 @@ Page({
     startDate: null,
     endDate: null,
     multiIndex: [0, 0],
+    recordMultiIndex: [0, 0],
     multiArray: [getApp().firstINdustry, getApp().secondIndustry[0]],
     temp:false,
   },
@@ -89,9 +90,10 @@ Page({
   },
   bindMultiPickerChange(e) {
     console.log('picker发送选择改变，携带值为：：：', e.detail)
+    let { value } = e.detail;
     this.setData({
-      multiIndex: e.detail.value,
-      recordMultiIndex: e.detail.value
+      multiIndex: value,
+      recordMultiIndex: [...value]
     })
   },
   bindMultiPickerColumnChange(e) {
