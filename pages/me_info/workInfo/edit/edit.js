@@ -113,9 +113,10 @@ Page({
   },
   bindMultiPickerChange(e) {
     console.log('picker发送选择改变，携带值为：：：', e.detail)
+    let { value } = e.detail
     this.setData({
-      multiIndex: e.detail.value,
-      recordMultiIndex: e.detail.value
+      multiIndex: value,
+      recordMultiIndex: [...value]
     })
   },
   bindMultiPickerColumnChange(e) {
@@ -137,16 +138,12 @@ Page({
     }
   },
   bindMultiPickercancel(e) {
-    let recordMultiIndex = this.data.recordMultiIndex
+    let { recordMultiIndex } = this.data;
     if (recordMultiIndex) {
       this.setData({
         multiArray: [getApp().firstINdustry, getApp().secondIndustry[recordMultiIndex[0]]],
-        multiIndex: recordMultiIndex
+        multiIndex: [...recordMultiIndex]
       });
-    } else {
-      this.setData({
-        recordMultiIndex: this.data.multiIndex
-      })
     }
   },
   display: function (e) {
