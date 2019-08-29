@@ -1,0 +1,60 @@
+/* pages/consult/consult.wxss */
+.header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FFF;
+  color: #333;
+}
+.header .header_msg{
+  padding: 50rpx 30rpx;
+}
+.btn_answer{
+  position: relative;
+  margin-right: 30rpx;
+}
+.btn_ask{
+  position: relative;
+
+}
+.badge{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.lawyerList{
+  margin-top: 30rpx;
+  background-color: #FFF;
+  color: #333;
+}
+.list_item{
+  position: relative;
+  border-bottom: 1rpx solid #B2B2B2;
+}
+.lawyerList .list_item{
+  padding: 30rpx 20rpx;
+}
+.lawyerList .item_name{
+  font-size: 32rpx;
+}
+.lawyerList .item_addr{
+  margin-left: 20rpx;
+}
+.lawyerList .item_firm{
+  position: absolute;
+  top:30rpx;
+  right: 20rpx;
+}
+.lawyerList .info_pro{
+  width: 690rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.btn_answer image,.btn_ask image{
+  display: block;
+  margin: 0 auto;
+  width: 50rpx;
+  height: 50rpx;
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mp-badge": "/components/badge/badge"
+  },
+  "navigationBarBackgroundColor": "#F5F5F5",
+  "navigationBarTitleText": "咨询我的"
+}

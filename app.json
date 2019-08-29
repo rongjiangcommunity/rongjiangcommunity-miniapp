@@ -4,7 +4,6 @@
     "pages/me_info/education/add/add",
     "pages/me_info/education/edit/edit",
     "pages/me_info/education/list/list",
-    
     "pages/me_doctor/appointment_detail/appointment_detail",
     "pages/me_doctor/doctor_appointment/doctor_appointment",
     "pages/me_doctor/me_doctor",
@@ -12,7 +11,6 @@
     "pages/me_doctor/doctor_detail/doctor_detail",
     "pages/me_doctor/doctor_about/doctor_about",
     "pages/me_doctor/doctor_help/doctor_help",
-
     "pages/me_info/me_info",
     "pages/me_info/workInfo/add/add",
     "pages/me_info/workInfo/edit/edit",
@@ -27,36 +25,41 @@
     "pages/me_info/address/address",
     "pages/me_info/explanation/me_expl",
     "pages/checklist/checklist",
-    
     "pages/appointment/list",
     "pages/appointment/form",
     "pages/appointment/content",
     "pages/approve/approve",
-    "pages/audit_form/audit_form"
+    "pages/audit_form/audit_form",
+    "pages/consult/consult",
+    "pages/consult/consult_me/consult_me",
+    "pages/consult/my_consult/my_consult",
+    "pages/consult/lawyer_home/lawyer_home",
+    "pages/consult/lawyer_home/open_msg/open_msg",
+    "pages/consult/add_msg/add_msg"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "榕江社区",
-    "navigationBarBackgroundColor": "#f8f8f8",
-    "backgroundColor": "#f8f8f8"
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#ffffff"
   },
   "tabBar": {
     "color": "#888",
     "selectedColor": "#4e85c6",
-    "backgroundColor": "fff",
+    "backgroundColor": "#ffffff",
     "position": "bottom",
     "list": [
       {
         "text": "首页",
         "pagePath": "pages/index/index",
-        "iconPath": "images/icons/index.png",
-        "selectedIconPath": "images/icons/index-active.png"
+        "iconPath": "images/icons/Shape_gray.png",
+        "selectedIconPath": "images/icons/Shape.png"
       },
       {
         "text": "我的",
         "pagePath": "pages/me/me",
-        "iconPath": "images/icons/me.png",
-        "selectedIconPath": "images/icons/me-active.png"
+        "iconPath": "images/icons/Mine_gray.png",
+        "selectedIconPath": "images/icons/Mine.png"
       }
     ]
   },
@@ -66,3 +69,4 @@
     "van-button": "/dist/button/index"
   }
 }
+

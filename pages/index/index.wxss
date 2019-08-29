@@ -1,10 +1,13 @@
 /**index.wxss**/
-
+/* 授权入口样式 */
+page{
+  background: #fff;
+}
 .flex-content-center {
   justify-content:center;
 }
 .bottom-action {
-  width:90%;
+  width:92%;
   text-align:center;
   color: #999;
   margin-top:30rpx;
@@ -13,10 +16,9 @@
   position: relative;
   height: 140rpx;
   background: #fff;
-
   margin-bottom: 30rpx;
-  box-shadow: 0px 2px 5px #E3E3E3; 
-
+  border-radius: 16rpx;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, .06); 
 }
 .item-img{
   width: 90rpx;
@@ -28,7 +30,10 @@
   position: absolute;
   top: 50rpx;
   left: 150rpx;
-  font-size: 34rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  color: #333333;
+  font-weight: normal;
 }
 .item-detail{
   position: absolute;
@@ -37,11 +42,13 @@
   font-size: 28rpx;
 }
 .item-raw{
+  display: inline-block;
   position: absolute;
+  height: 22rpx;
+  width: 14rpx;
   right: 30rpx;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 28rpx;
 }
 
 .userinfo {
@@ -51,22 +58,52 @@
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 136rpx;
+  height: 136rpx;
   margin: 20rpx;
+  border: 1px solid #fff;
   border-radius: 50%;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, .1);
 }
 .container{
-  padding:15rpx 0;
+  padding:20rpx 0;
 }
-
 .userinfo-nickname{
-  font-weight:bold;
-  font-size:40rpx;
+  font-size: 32rpx;
+  color: #333;  
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
 }
-
 .welcom{
-  color : #999
+  font-size: 24rpx;
+  color:#999;
+}
+/* 首页授权样式 */
+.community-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.community-img{
+  width: 100%;
+  margin: 160rpx auto 10rpx auto;
+}
+.community-title{
+  font-size: 36rpx;
+  color: #666;
+  margin-bottom: 38rpx;
+}
+.community-raw{
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 68rpx;
+}
+.get-user-info-btn{
+  height: 100rpx;
+  width: 480rpx;
+  line-height: 100rpx;  
+  background-color: #008DF8;
+  color: #fff;
 }
 .userinfo-nickname{
   font-size: 32rpx;
@@ -138,4 +175,10 @@
   font-size: 24rpx;
   background-color: transparent !important;
   margin-right: 0rpx;
+}
+.consult_badge{
+  position: absolute;
+  top: 50%;
+  right: 80rpx;
+  transform: translateY(-50%);
 }

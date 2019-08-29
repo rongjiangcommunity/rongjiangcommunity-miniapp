@@ -13,39 +13,48 @@
   <view class='bottom-action' wx:if="{{approved}}">
     <navigator url="../me_info/me_info">
       <view class="item-box">
-        <image class="item-img" src="../../images/icons/data.png" background-size="cover"/>
+        <image class="item-img" src="../../images/icons/data@3x.png" background-size="cover"/>
         <text class="item-title">会员资料</text>
-        <text class="item-raw"> > </text>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/> 
       </view>
     </navigator>
     <navigator url="../me_dues/me_dues">
       <view class="item-box">
-        <image class="item-img" src="../../images/icons/dues.png" background-size="cover"/>
+        <image class="item-img" src="../../images/icons/dues@3x.png" background-size="cover"/>
         <text class="item-title">缴纳会费</text>
-        <text class="item-raw"> > </text>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
       </view>
     </navigator>
     <navigator url="../me_doctor/me_doctor">
       <view class="item-box">
-        <image class="item-img" src="../../images/icons/doctor.png" background-size="cover"/>
+        <image class="item-img" src="../../images/icons/doctor@3x.png" background-size="cover"/>
         <text class="item-title">寻医问药</text>
-        <text class="item-raw"> > </text>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/> 
       </view>
     </navigator>
       <view class="item-box" bindtap='expect'>
-        <image class="item-img" src="../../images/icons/enterprise.png" background-size="cover"/>
+        <image class="item-img" src="../../images/icons/enterprise@3x.png" background-size="cover"/>
         <text class="item-title">社区集市</text>
-        <text class="item-raw"> > </text>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/> 
       </view>
+      <!-- 待更改图标 -->
       <view class="item-box" bindtap='expect'>
         <image class="item-img" src="../../images/icons/marrige.png" background-size="cover"/>
         <text class="item-title">鹊桥相会</text>
-        <text class="item-raw"> > </text>
+          <image class="item-raw" src="/images/icons/arrow@2x.png" background-size="cover"/> 
       </view>
+       <navigator url="../consult/consult">
+      <view class="item-box">
+        <image class="item-img" src="../../images/icons/doctor@3x.png" background-size="cover"/>
+        <text class="item-title">律师服务</text>
+          <mp-badge extClass="consult_badge" wx:if="{{true}}"></mp-badge>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
+      </view>
+    </navigator>
   </view>
 
 <!-- 认证部分 -->
-  <view class='bottom-action' wx:if="{{approved}}">
+  <view class='bottom-action' wx:if="{{!approved}}">
     <view class="weui-flex flex-content-center" wx:if="{{status==='pending'}}">
       <text>正在认证中，请等候工作人员完成认证。</text>
     </view>
