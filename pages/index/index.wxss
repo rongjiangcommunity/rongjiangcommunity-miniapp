@@ -3,7 +3,6 @@
 .flex-content-center {
   justify-content:center;
 }
-
 .bottom-action {
   width:90%;
   text-align:center;
@@ -12,11 +11,16 @@
 }
 .item-box{
   position: relative;
-  height: 150rpx;
+  height: 140rpx;
   background: #fff;
+<<<<<<< HEAD
   box-shadow:1rpx 1rpx 1rpx 1rpx gainsboro;
   border-radius:10rpx;
   margin-bottom: 5rpx;
+=======
+  margin-bottom: 30rpx;
+  box-shadow: 0px 2px 5px #E3E3E3; 
+>>>>>>> style:
 }
 .item-img{
   width: 90rpx;
@@ -56,7 +60,6 @@
   margin: 20rpx;
   border-radius: 50%;
 }
-
 .container{
   padding:15rpx 0;
 }
@@ -69,4 +72,74 @@
 .welcom{
   color : #999
 }
+.userinfo-nickname{
+  font-size: 32rpx;
+  color: #333;  
+}
+.welcom{
+  font-size: 24rpx;
+  color:#999;
+}
+/* 首页授权样式 */
+.community-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.community-img{
+  width: 100%;
+  margin: 160rpx auto 10rpx auto;
+}
+.community-title{
+  font-size: 36rpx;
+  color: #666;
+  margin-bottom: 38rpx;
+}
+.community-raw{
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 68rpx;
+}
+.get-user-info-btn{
+  height: 100rpx;
+  width: 480rpx;
+  line-height: 100rpx;  
+  background-color: #008DF8;
+  color: #fff;
+}
 
+/* 认证提示框 */
+.weui-flex{
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  margin-left: -5%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #008DF8;
+  background-color:#E8F5FD;
+}
+.weui-flex-wrapper{
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin-left: 10%;
+}
+.tick-img{
+  height: 24rpx;
+  width:24rpx;
+}
+.tick-text{
+  font-size: 28rpx;
+  margin-left: 6rpx;
+}
+.weui-flex .register_btn{
+  width: 142rpx;
+  height: 52rpx;
+  color: #008DF8 !important;
+  border-radius: 24rpx;
+  border: 2rpx solid #008DF8;
+  font-size: 24rpx;
+  background-color: transparent !important;
+  margin-right: 0rpx;
+}
