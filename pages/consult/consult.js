@@ -9,8 +9,7 @@ Page({
   data: {
     lawyerList:[],
     isLawyer: false,
-    msg_new: true,
-    info_pro:'刑事辩护及控告，企业刑事风险防护，刑民交叉案件和其他相关方面的案件'
+    infoPro:'刑事辩护及控告，企业刑事风险防护，刑民交叉案件和其他相关方面的案件'
   },
 
   /**
@@ -18,6 +17,7 @@ Page({
    */
   onLoad: function (options) {
     const credentials = app.getCredentials();
+    console.log(credentials)
     const that=this;
     wx.setNavigationBarTitle({
       title: '律师咨询'
@@ -32,8 +32,7 @@ Page({
         if(res.data.success===true){
           that.setData({
             lawyerList:res.data.data,
-          })
-          // console.log(that.data.lawyerList)
+          });
         }
       }
     })
@@ -55,6 +54,21 @@ Page({
     wx.navigateTo({
       url: './lawyer_home/lawyer_home?info='+info,
     })
+  },
+  showModal:function(){
+    this.setData({
+      showModalJoin: true
+    })
+  },
+  onCancel:function(){
+    this.setData({
+      showModalJoin:false
+    })
+  },
+  callNow:function(){
+    wx.makePhoneCall({
+      phoneNumber: '13903013645',
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -7,7 +7,8 @@ Page({
    */
   data: {
     lawyerInfo:{},
-    btn_msg: [
+    lawyerImg: [{ src: "/images/lawyer-test/lawyer1.jpg", id: 1 }, { src: "/images/lawyer-test/lawyer2.jpg", id: 2 }, { src: "/images/lawyer-test/lawyer3.jpg", id: 3 }],
+    btnMsg: [
         { title: '律所介绍', msg: '律所介绍律所介绍律所介绍律所介绍', disabled: false },
         { title: '其他资格', msg: '', disabled: false },
         { title: '其他职务', msg: '其他职务其他职务其他职务其他职务', disabled: false },
@@ -28,18 +29,18 @@ Page({
     wx.setNavigationBarTitle({
       title: '律师主页'
     });
-    that.btn_showCheck(that);
+    that.btnShowCheck(that);
   },
 
   // 检测信息按钮是否可点击
-  btn_showCheck:function(ctx){
-    let arr = ctx.data.btn_msg;
+  btnShowCheck:function(ctx){
+    let arr = ctx.data.btnMsg;
     let len = arr.length;
     for (let i = 0; i < len; i++) {
       if (arr[i].msg === '') {
-        let btn_disabled = 'btn_msg[' + i + '].disabled';
+        let btnDisabled = 'btnMsg[' + i + '].disabled';
         ctx.setData({
-          [btn_disabled]: true,
+          [btnDisabled]: true,
         })
       }
     }
@@ -51,7 +52,7 @@ Page({
     console.log(approved);
     if(!approved){
       that.setData({
-        showModal_approved: true
+        showModalApproved: true
       })
     }else{
       wx.navigateTo({
@@ -64,15 +65,15 @@ Page({
     let title=e.target.dataset.title;
     let msg = e.target.dataset.msg;
     this.setData({
-      showModal_msg: true,
+      showModalMsg: true,
       msgTitle : title,
       msg : msg,
     });
   },
   // 隐藏信息框
-  hideModal_msg: function () {
+  hideModalMsg: function () {
     this.setData({
-      showModal_msg: false,
+      showModalMsg: false,
     })
   },
   // 跳转立即认证页面
@@ -84,7 +85,7 @@ Page({
   // "再看看"按钮，隐藏对话框
   onCancel:function(){
     this.setData({
-      showModal_approved:false
+      showModalApproved:false
     })
   },
   /**

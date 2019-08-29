@@ -8,6 +8,7 @@ Page({
     lawyerInfo:{},
     strCount : 300,
     modalTitle: "",
+    disabled: true,
 
   },
 
@@ -48,6 +49,16 @@ Page({
   this.setData({
     strCount : strCount,
   });
+  if(strCount<=285){
+    this.setData({
+      disabled: false
+    });
+  }
+  if (strCount > 285) {
+      this.setData({
+        disabled: true,
+    });
+  }
   },
   // 提交咨询处理
   consultSubmit:function(e){
@@ -95,7 +106,8 @@ Page({
     }   
   },
   btnHandle:function(e){
-    const status = e.target.dataset.status;
+    console.log(e)
+    const status = this.data.msgStatus;
     if(status==0){
       this.hideModal();
     }
