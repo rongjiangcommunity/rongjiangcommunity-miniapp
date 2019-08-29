@@ -2,7 +2,7 @@
 <!-- Title   咨询中   已完成 -->
   <view class="frame_state">
     <view class="frame_text">
-        <view class="{{clickTitle==1?'textB':'text'}}" style="border-right:1rpx solid rgb(245,245,245)" bindtap="changeClickTitle" data-xid="1">咨询中</view>
+        <view class="{{clickTitle==1?'textB':'text'}}" bindtap="changeClickTitle" data-xid="1">咨询中</view>
        <block wx:if="{{clickTitle==1}}">
            <image src="/images/icons/3.png" class="border"></image>
         </block>
@@ -32,7 +32,7 @@
             </view>
                   <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
                   </view>
-                      <navigator url="../addMsg/addMsg?pid={{item.id}}&lawyerName={{item.userName}}&lawyerAdress={{item.userMobile}}&lawyerStatus={{item.status}}&from='consute_me'">
+                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.userName}}&lawyerAdress={{item.userMobile}}&lawyerStatus={{item.status}}&from='consute_me'">
                   <view class="frame">
                   <image class="img"  src="/images/icons/形状结合信封.png" ></image>  
                   <block wx:if="{{item.hasUnread==false}}">
@@ -65,7 +65,7 @@
             </view>
                   <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
                   </view>
-                      <navigator url="../addMsg/addMsg?pid={{item.id}}&lawyerName={{item.userName}}&lawyerAdress={{item.userMobile}}&lawyerStatus={{item.status}}&from='consute_me'">
+                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.userName}}&lawyerAdress={{item.userMobile}}&lawyerStatus={{item.status}}&from='consute_me'">
                   <view class="frame">
                      <image class="img"  src="/images/icons/形状结合信封.png" ></image>  
                       <block wx:if="{{item.hasUnread==false}}">

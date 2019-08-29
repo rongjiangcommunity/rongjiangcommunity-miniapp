@@ -9,6 +9,7 @@ page{
   flex-direction: column;
 }
 .frame_state{
+  margin-top: 1rpx;
   margin-bottom: 20rpx;
   height: 100rpx;
   display: flex;
