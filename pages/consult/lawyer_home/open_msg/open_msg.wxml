@@ -2,7 +2,7 @@
 <!-- 顶部律师信息 -->
 <view class="list_item">
   <view class="item_name">{{lawyerInfo.name}}</view>
-  <view class="item_info"><text class="item_addr">广东 广州</text><text class="item_firm">广州呵呵事务所</text></view>
+  <view class="item_info"><text class="item_addr">广东广州</text><view class="line"></view><text class="item_firm">广州呵呵事务所</text></view>
   <view class="info_pro">刑事辩护及控告，企业刑事风险防护，刑民交叉案件和其他相关方面的案件
   </view>
 </view>

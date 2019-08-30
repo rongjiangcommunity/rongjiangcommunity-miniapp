@@ -56,6 +56,14 @@ page{
   align-items: center;
   flex-shrink: 1;
 }
+.header .line{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 48rpx;
+  border-right: 2rpx solid #EAEAEA;
+}
 /* 律师列表区域 */
 .lawyerList{
   margin: 40rpx 30rpx 0;
@@ -65,6 +73,7 @@ page{
 .list_title{
   font-size: 28rpx;
   line-height: 40rpx;
+  font-weight: 600;
 }
 .list_item{
   position: relative;
@@ -85,6 +94,7 @@ page{
 .item_addr,.item_firm{
   font-size: 24rpx;
   margin-right: 10rpx;
+  font-weight: 600;
 }
 .list_item .info_pro{
   margin-top: 12rpx;

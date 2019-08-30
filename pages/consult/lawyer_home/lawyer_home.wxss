@@ -26,13 +26,26 @@ page{
   font-weight: 900;
   line-height: 56rpx;
 }
+.info_detail{
+  position: relative;
+}
+.info_detail .line{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 124rpx;
+  height: 16rpx;
+  border-right: 2rpx solid #EAEAEA;
+}
 .info_addr,.info_firm{
   font-size: 28rpx;
+  font-weight: 550;
   line-height: 40rpx;
   margin-right: 20rpx;
 }
 .info_id{
   margin-top: 48rpx;
+  font-weight: 500;
 }
 .info_title{
   display: flex;
@@ -61,6 +74,7 @@ page{
 }
 .info_btn{
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   margin-top: 40rpx;
   padding: 16rpx 0 14rpx;
@@ -73,11 +87,18 @@ page{
   width: 250rpx;
   height: 80rpx;
   font-size: 28rpx;
+  font-weight: 600;
   line-height: 80rpx;
   color: #333;
   background-color: #FFF;
   border: none;
-
+}
+.info_btn button::after{
+  border: 0;
+}
+.info_btn .line{
+  height: 32rpx;
+  border-right: 2rpx solid #EAEAEA;
 }
 .info_btn button[disabled]{
   background-color: #FFF;

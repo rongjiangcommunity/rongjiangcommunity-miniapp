@@ -10,7 +10,7 @@
 <!-- 律师信息区域 -->
 <view class="info">
   <view class="info_name">{{lawyerInfo.name}}</view>
-  <view><text class="info_addr">广东广州</text><text class="info_firm">美哲律师事务所 高级合伙人</text>
+  <view class="info_detail"><text class="info_addr">广东广州</text><view class="line"></view><text class="info_firm">美哲律师事务所 高级合伙人</text>
   </view>
   <view class="info_id">
     <view class="info_title">
@@ -29,10 +29,14 @@
   </view>
   <view class="info_btn">
     <button bindtap="showMsg" data-msg="{{btnMsg[0].msg}}" data-title="{{btnMsg[0].title}}" disabled="{{btnMsg[0].disabled}}">律所介绍</button>
+    <view class="line"></view>
     <button bindtap="showMsg" data-msg="{{btnMsg[1].msg}}" data-title="{{btnMsg[1].title}}" disabled="{{btnMsg[1].disabled}}">其他资格</button>
+    <view class="line"></view>
     <button bindtap="showMsg" data-msg="{{btnMsg[2].msg}}" data-title="{{btnMsg[2].title}}" disabled="{{btnMsg[2].disabled}}">其他职务</button>
     <button bindtap="showMsg" data-msg="{{btnMsg[3].msg}}" data-title="{{btnMsg[3].title}}" disabled="{{btnMsg[3].disabled}}">获奖情况</button>
+    <view class="line"></view>
     <button bindtap="showMsg" data-msg="{{btnMsg[4].msg}}" data-title="{{btnMsg[4].title}}" disabled="{{btnMsg[4].disabled}}">顾问单位</button>
+    <view class="line"></view>
     <button bindtap="showMsg" data-msg="{{btnMsg[5].msg}}" data-title="{{btnMsg[5].title}}" disabled="{{btnMsg[5].disabled}}">专业著述</button>
   </view>
   <view class="info_edu">

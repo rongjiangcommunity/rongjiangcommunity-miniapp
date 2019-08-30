@@ -13,13 +13,20 @@
   font-weight: 700;
   line-height: 44rpx;
 }
-.list_info{
+.item_info{
+  display: flex;
+  align-items: center;
   margin-top: 8rpx;
   line-height: 34rpx;
+  font-weight: 600;
+}
+.item_info .line{
+  margin: 0 10rpx;
+  height: 16rpx;
+  border-right: 2rpx solid #CCCCCC;
 }
 .item_addr,.item_firm{
   font-size: 24rpx;
-  margin-right: 10rpx;
 }
 .list_item .info_pro{
   margin-top: 12rpx;
@@ -44,6 +51,7 @@
   flex-shrink: 0;
   margin-right: 48rpx;
   font-size: 32rpx;
+  font-weight: 500;
   line-height: 44rpx;
   color: #333
 }
