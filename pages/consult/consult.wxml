@@ -1,0 +1,52 @@
+<!--pages/consult/consult.wxml-->
+<!-- 顶部tab区域 -->
+<view class="header">
+  <navigator url="./consulting_me/consulting_me" hover-class="none" wx:if="{{isLawyer}}">
+    <view class="btn_answer">
+      <view class="btn_icon">
+        <mp-badge extClass="badge" wx:if="{{false}}"></mp-badge>
+        <image class="icon" src="/images/icons/consultigMe@3x.png"></image>
+      </view> 
+      <view class="btn_title">校友咨询</view>
+    </view>
+  </navigator>
+  <navigator url="./my_consulting/my_consulting" hover-class="none">
+    <view class="btn_ask">
+      <view class="btn_icon">
+        <mp-badge extClass="badge" wx:if="{{true}}"></mp-badge>
+        <image class="icon" src="/images/icons/myConsulting@3x.png"></image>
+      </view> 
+      <view class="btn_title">我的咨询</view> 
+    </view>
+  </navigator>
+  <view class="arrow">
+    <image wx:if="{{!isLawyer}}" src="/images/icons/account_arrow@2x.png"></image>
+  </view>
+</view>
+<!-- 律师列表区域 -->
+<view class="lawyerList">
+  <view class="list_title">本版块律师皆为一中校友</view>
+  <view class="list_item" wx:for="{{lawyerList}}" wx:key="item.id" data-info="{{item}}" bindtap="goToLawyer">
+    <view class="item_name">{{item.name}}</view>
+    <view class="item_info">
+      <text class="item_addr">广东 广州</text>
+      <text class="item_firm">广州呵呵事务所</text>
+    </view>
+    <view class="info_pro">{{infoPro}}</view>
+  </view>
+</view>
+<!-- 页脚区域 -->
+<view class="footer">
+  <navigator url="../me_feedback/me_feedback" hover-class="none">反馈建议</navigator> | <view bindtap="showModal">加入我们</view>
+</view>
+<!-- 弹窗组件 -->
+<modal 
+wx:if="{{showModalJoin}}"
+modalTitle="加入我们"
+modalMsg="如您为一中校友且职业为从业律师，欢迎联系校友会办公室黄汉光。"
+modalBtnConfirm="拨打电话"
+modalBtnCancel="再看看"
+bindcancel="onCancel"
+bindconfirm="callNow"
+>
+</modal>
