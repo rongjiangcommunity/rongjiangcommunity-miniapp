@@ -1,41 +1,36 @@
 <import src="/pages/tmpl/tmpl.wxml"/>
 
-<view class="schoolmate-box">
-  <view class="schoolmate-content">
-    <text class="schoolmate">张校友</text>
-    <text class="session">89届</text>
+<view class="header-box">
+  <view class="person-box">
+    <view class="person-content">
+      <text class="name">{{name}}</text>
+      <text class="session-adress">{{sessionOrAdress}}</text>
+    </view>
+    <text class="consult-status {{color}}">{{status}}</text>
   </view>
-  <text class="consulting">咨询中</text>
-</view>
 
-<view class="consult-box">
-  <text class="consult-content {{ellipsis?'ellipsis':'unellipsis'}}">{{currentMsg}}</text>
-  <view class='bg-white-ellipsis' bindtap='ellipsis'>
-    <image class='img-ellipsis' src="{{ellipsis?'/images/icons/toDown.png':'/images/icons/toUp.png'}}"     />
+  <view class="consult-box">
+    <text class="consult-content {{ellipsis?'ellipsis':'unellipsis'}}">{{currentMsg}}</text>
+    <view class='bg-white-ellipsis' bindtap='ellipsis'>
+      <text class="text-ellipsis">{{ellipsis? '更多': '收起'}}</text>
+      <image class='img-ellipsis' src="{{ellipsis?'/images/icons/toDown.png':'/images/icons/toUp.png'}}"/>
+    </view>
   </view>
 </view>
 
-
-
-<view class="talk-box">
-<view class="bubble-box">
-  <view class='left-bubble'>
-          点击邀请你的另一半~香港警方今天一天冯小刚的辉煌业绩的挺好的金融dfnhnhjfghk,k,gjk.k,dsvg/adkfjg'lasrgh;aeohg;lsrjhg/dlkfjg'x/dlkhg/sdlkbnfgjdyjdytjeyj
+<scroll-view class="bubble-content" bindscrolltolower="loadMore">
+  <view class="talk-box" wx:for="{{consultList}}" wx:key="index">
+  <view class="bubble-box">
+    <view class="{{item.fromUid === fromUid? 'left-bubble': 'right-bubble'}}">
+      {{item.msg}}
+    </view>
+    <view class="{{item.fromUid === fromUid? 'date left-date': 'date right-date'}}">{{item.gmtCreate}}</view>
   </view>
-  <view class="date left-date">2019-08-22 09:22:03</view>
-</view>
-
-<view class="bubble-box">
-  <view class='right-bubble'>
-          点击邀请你的另一半~香港警方今天一天冯小刚的辉煌业绩的挺好的金融dfnhnhjfghk,k,gjk.k,dsvg/adkfjg'lasrgh;aeohg;lsrjhg/dlkfjg'x/dlkhg/sdlkbnfgjdyjdytjeyj
   </view>
-  <view class="date right-date">2019-08-22 09:22:03</view>
-</view>
-
-<view>
-    <template is="Tmpl" data="{{wxAppendData}}"/>
-</view>
-</view>
+  <view>
+      <template is="Tmpl" data="{{wxAppendData}}"/>
+  </view>
+</scroll-view>
 
 <view class="commit-wrap">
   <view class="solve-box" style='display: {{isShow? "block": "none"}}' bindtap="close">
@@ -43,7 +38,7 @@
   </view>
 
   <view class="commit-box">
-    <textarea class="weui-textarea" value="{{inputValue}}" placeholder="请输入咨询内容" bindinput="ins" auto-height='true' maxlength="300"/>
+    <textarea class="weui-textarea" value="{{inputValue}}" placeholder="请输入" bindinput="ins" auto-height='true' maxlength="300"/>
     <button type="primary" class="commit-btn" bindtap="submit">发送</button>
   </view>
 </view>

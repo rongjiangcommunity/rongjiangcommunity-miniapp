@@ -1,51 +1,84 @@
 page{
   position: relative;
+  background: #fff;
   height: 100vh;
 }
 
 /* 校友部分 */
-.schoolmate-box{
-  width: 100vw;
-  height: 80rpx;
-  line-height: 80rpx;
-  background: rgb(237, 236, 232);
-  border-bottom: 1px solid rgb(155, 148, 148);
+.header-box{
+  width: 690rpx;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 30rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16rpx;
+  margin-top: 30rpx;
+  margin-bottom: 12rpx;
+  box-shadow: 0rpx 4rpx 12rpx rgba(0, 0, 0, .06);
 }
-.schoolmate-content{
+.person-box{
+ width: 100%;
+ margin-bottom: 16rpx;
+}
+.name{
+  margin-left: -18rpx;
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+.session-adress{
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 12rpx;
+}
+.person-content{
   float: left;
   margin-left: 10px;
 }
-.consulting{
+.consult-status{
   float: right;
-  margin-right: 10px;
-  color: red;
+  font-size: 26rpx;
+  margin-right: 0rpx;
 }
-.session{
-  margin-left: 20px;
+.blue{
+  color: #008DF8;
+}
+.green{
+  color: #02C88D;
+}
+.gray{
+  color: #999;
 }
 /* 咨询内容部分---------有时间理解 */
-.consult-box{
-  background: rgb(237, 236, 232);
-
-}
 .consult-content{
-  font-size: 13px;
-  color: #888;
+  width: 630rpx;
+  font-size: 24rpx;
+  color: #333;
   display: -webkit-box;
   -webkit-box-orient:vertical;
   text-overflow: ellipsis;
   overflow:hidden; 
 }
 .bg-white-ellipsis{
-  height: 80rpx;
+  height: 30rpx;
+  margin-top: 16rpx;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(237, 236, 232);
+  background: #fff;
+}
+.text-ellipsis{
+  color: #999;
+  font-size: 24rpx;
+  margin-right:6rpx;
 }
 .bg-white-ellipsis image{
-  height: 16px;
-  width: 24px;
+  height: 10rpx;
+  width: 16rpx;
 
 }
 .ellipsis{
@@ -70,100 +103,89 @@ page{
   height: 50rpx;
   text-align: center;
   padding: 6px;
-  border-top: 1px solid #999;
-  background: red;
   bottom: 100%;
+  color: #008DF8;
+  font-size: 24rpx;
 }
 
 /* 提交部分 */
 .commit-box{
   position: absolute;
   width: 100%;
-  border-top: 1px solid #999;
-  padding: 6px;
+  min-height: 110rpx;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
   background: white;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
+  box-shadow: 0 -4rpx 30rpx rgba(0, 0, 0, .06);
 }
 .weui-textarea{
-  font-size: 16px;
-  border: 1px solid #000;
-  width: 500rpx;
+  width: 588rpx;
+  background: #F8F8F8;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  padding: 16rpx 30rpx;
+  height: 72rpx;
   overflow: scroll;
   margin-left: 10px;
-  padding: 3px 6px;
+  max-height: 72px;
 }
 .commit-btn{
-  width: 150rpx;
-  height: 30px;
-  line-height: 30px;
-  background: rgb(22,155,213) !important;
+  width: 144rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  background: #008df8 !important;
+  font-size: 28rpx;
+  font-weight: 700;
+  margin-left: 20rpx;
+  border-radius: 40rpx;
 }
 
 /* 聊天气泡部分 */
-.talk-box{
-  height: 600rpx;
-  overflow: scroll;
+.bubble-content{
+  height: 800rpx;
 }
-.bubble-box{
-  /* width: 80%; */
-  margin-bottom: 75rpx;
+.bubble-box{ 
+  margin-bottom: 40rpx;
 }
 .left-bubble, .right-bubble {
-  width: 80%;
-  font-size: 25rpx;
-  line-height: 50rpx;
-  padding: 10rpx;
-  position: relative;
-  /* border: 1px solid #FFB5C5; */
-  border-radius: 5px;
+  font-size: 28rpx;
+  width: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;  
+  max-width: 440rpx;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx; 
   word-wrap: break-word;
 }
-.left-bubble:after {
-  content: '';
-  width: 20rpx;
-  height: 20rpx;
-  position: absolute;
-  top: calc(50% - 10rpx);
-  left: -10rpx;
-  transform: rotate(-45deg);
-  background-color: rgba(255,223,37);
-  /* border: 1px #FFB5C5; */
-  /* border-style: solid none none solid ; */
-}
 .left-bubble{
-  margin: 20rpx auto 0 25rpx;
-  background-color: rgba(255,223,37);
+  float: left;
+  margin-left: 30rpx;
+  color: #333;
+  border-radius: 0 40rpx 40rpx 40rpx;
+  background-color:#F8F8F8;
 }
 .date{
   display: flex;
   color:#999;
-  margin-top: 8rpx;
+  margin-top:12rpx;
+  font-size: 20rpx;
+  clear:both;
 }
 .left-date{
-  margin-left: 20rpx;
+  margin-left: 60rpx;
 }
 .right-date{
   justify-content: flex-end;
-  margin-right: 25rpx;
+  margin-right: 60rpx;
 }
 .right-bubble{
-  margin: 20rpx 25rpx 0 auto;
-  background-color:rgb(226, 223, 223);
-  border: 1px solid #333;
-}
-.right-bubble:after {
-  content: '';
-  width: 20rpx;
-  height: 20rpx;
-  position: absolute;
-  top: calc(50% - 10rpx);
-  right: -11rpx;
-  transform: rotate(45deg);
-  background-color:rgb(226, 223, 223);
-  border: 1px #333;
-  border-style: solid solid none none;
+  float: right;
+  margin-right: 30rpx;
+  color: #fff;
+  border-radius: 40rpx 0 40rpx 40rpx;
+  background-color:#008DF8;
 }
