@@ -66,11 +66,11 @@ page{
   font-size: 32rpx;
   color: #333333;
 }
-.office{
-  margin-top: 9rpx;
+.userG3{
+  /* margin-top: 9rpx; */
   margin-left: 12rpx;
-  font-size: 24rpx;
-  color: #999999;
+  font-size: 32rpx;
+  color: #333333;
 }
 .chatState{
   margin-right: 14rpx;
@@ -145,5 +145,5 @@ page{
 .badge{
   position: absolute;
   top: 31rpx;
-  right: -3rpx;
+  right: -2rpx;
 }

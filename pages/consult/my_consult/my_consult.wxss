@@ -144,6 +144,6 @@ page{
 }
 .badge{
   position: absolute;
-  top: 37rpx;
+  top: 40rpx;
   right: 2rpx;
 }
