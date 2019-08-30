@@ -71,7 +71,8 @@ Page({
   // 立即咨询按钮检测
   consultHandle:function(){
     const that=this;
-    const info = JSON.stringify(this.data.lawyerInfo) ;
+    const info = JSON.stringify(this.data.lawyerInfo);
+    const approved=that.data.approved;
     if(!approved){
       that.setData({
         showModalApproved: true
