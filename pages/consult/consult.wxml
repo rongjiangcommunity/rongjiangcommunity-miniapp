@@ -1,7 +1,7 @@
 <!--pages/consult/consult.wxml-->
 <!-- 顶部tab区域 -->
 <view class="header">
-  <navigator url="./consulting_me/consulting_me" hover-class="none" wx:if="{{isLawyer}}">
+  <navigator url="./consult_me/consult_me" hover-class="none" wx:if="{{isLawyer}}">
     <view class="btn_answer">
       <view class="btn_icon">
         <mp-badge extClass="badge" wx:if="{{false}}"></mp-badge>
@@ -10,7 +10,7 @@
       <view class="btn_title">校友咨询</view>
     </view>
   </navigator>
-  <navigator url="./my_consulting/my_consulting" hover-class="none">
+  <navigator url="./my_consult/my_consult" hover-class="none">
     <view class="btn_ask">
       <view class="btn_icon">
         <mp-badge extClass="badge" wx:if="{{true}}"></mp-badge>
