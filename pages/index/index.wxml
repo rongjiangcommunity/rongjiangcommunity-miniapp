@@ -37,20 +37,20 @@
         <text class="item-title">社区集市</text>
           <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/> 
       </view>
+      <navigator url="../consult/consult">
+      <view class="item-box">
+        <image class="item-img" src="../../images/icons/lawyer@3x.png" background-size="cover"/>
+        <text class="item-title">律师服务</text>
+          <mp-badge extClass="consult_badge" wx:if="{{msgRead}}"></mp-badge>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
+      </view>
+    </navigator>
       <!-- 待更改图标 -->
       <view class="item-box" bindtap='expect'>
         <image class="item-img" src="../../images/icons/marrige.png" background-size="cover"/>
         <text class="item-title">鹊桥相会</text>
           <image class="item-raw" src="/images/icons/arrow@2x.png" background-size="cover"/> 
       </view>
-       <navigator url="../consult/consult">
-      <view class="item-box">
-        <image class="item-img" src="../../images/icons/doctor@3x.png" background-size="cover"/>
-        <text class="item-title">律师服务</text>
-          <mp-badge extClass="consult_badge" wx:if="{{true}}"></mp-badge>
-          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
-      </view>
-    </navigator>
   </view>
 
 <!-- 认证部分 -->

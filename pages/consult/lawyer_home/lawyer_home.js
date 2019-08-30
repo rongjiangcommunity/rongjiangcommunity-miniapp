@@ -1,4 +1,5 @@
 // pages/consult/lawyer_home/lawyer_home.js
+const app=getApp();
 const approved = wx.getStorageSync('isXiaoyou');
 Page({
 
@@ -31,6 +32,28 @@ Page({
     });
     that.btnShowCheck(that);
   },
+  checkInfo: function () {
+    app.appReady().then(() => {
+      Promise.all([app.getUserInfo(), app.getApplyInfo()])
+        .then(([user, applyInfo]) => {
+          const approved = user && user.approved === 'true' ? true : false;
+          const status = applyInfo ? applyInfo.status : '';
+          try {
+            wx.setStorageSync('isXiaoyou', approved);
+          } catch (error) {
+            console.error(error);
+          }
+          this.setData({
+            user,
+            applyInfo,
+            approved,
+            status,
+          });
+        }).catch((err) => {
+          console.log(err);
+        });
+    });
+  },
 
   // 检测信息按钮是否可点击
   btnShowCheck:function(ctx){
@@ -49,7 +72,6 @@ Page({
   consultHandle:function(){
     const that=this;
     const info = JSON.stringify(this.data.lawyerInfo) ;
-    console.log(approved);
     if(!approved){
       that.setData({
         showModalApproved: true
@@ -98,7 +120,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.checkInfo();
   },
 
   /**

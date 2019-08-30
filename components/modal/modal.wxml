@@ -1,11 +1,10 @@
 <!--components/modal/modal.wxml-->
 <view class="modal-mask"></view>
-  <view class="modal-dialog">
-    <view class="modal-title">{{modalTitle}}</view>
-    <view class="{{extClass==''?'modal-content':extClass}}">{{modalMsg}}</view>
-    <view class="modal-footer">
-      <view class="btn-cancel" bindtap="onCancelHandle" wx:if="{{modalBtnCancel}}">{{modalBtnCancel}}</view>
-      <button class="btn-confirm" bindtap="onConfirmHandle">{{modalBtnConfirm}}
-      </button>
-    </view>
-</view>
+<view class="modal-dialog">
+  <view class="modal-title">{{modalTitle}}</view>
+  <view class="{{extClass==''?'modal-content':extClass}}">{{modalMsg}}</view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancelHandle" wx:if="{{modalBtnCancel}}">{{modalBtnCancel}}</view>
+    <button class="btn-confirm" bindtap="onConfirmHandle">{{modalBtnConfirm}}</button>
+  </view>
+ </view>
