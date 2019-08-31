@@ -12,7 +12,7 @@
           <view class="intime">{{item.intime}}</view>
       </view>
       <view class="frame">
-        <image class="img"  src="{{'/images/icons/Shape.png'}}"></image>
+        <image class="img"  src="{{'/images/icons/Shape_phone.png'}}"></image>
         <view class="call">联系律师</view>
       </view>
     </view>
