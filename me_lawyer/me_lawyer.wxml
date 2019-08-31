@@ -1,0 +1,65 @@
+<view class="weui-cells">
+  <navigator url="../me_lawyer/lawyer_overtime/lawyer_overtime" class="weui-cell weui-cell_access">
+    <view class="weui-cell__bd">24小时未回复</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access">{{reviewCount}}</view>
+  </navigator>
+</view>
+
+
+<view class="weui-panel weui-panel_access">
+   <view class="weui-panel__hd">
+     <view class="weui-panel__hd1">总体情况</view>
+     <view class="weui-panel__hd2">所有律师的咨询情况</view>
+   </view>
+     <view class="weui-panel__bd">
+         <view class="tr bg-g">
+           <view class="th1">律师总数</view>
+           <view class="th1">点击次数</view>
+           <view class="th1">点击人数</view>
+         </view>
+      <block wx:for="{{allData}}" wx:key="{{alllawyer}}">
+         <view class="tr1">
+           <view class="td">{{item.alllawyer}}</view>
+           <view class="td">{{item.allclick_count}}</view>
+           <view class="td">{{item.allclick_num}}</view>
+         </view>
+       </block>
+          <view class="tr bg-g">
+             <view class="th1">总咨询量</view>
+             <view class="th1">完成量</view>
+             <view class="th1">超时关闭量</view>
+           </view>
+       <block wx:for="{{allData}}" wx:key="{{alllawyer}}">
+          <view class="tr1">
+           <view class="td">{{item.allcon_num}}</view>
+           <view class="td">{{item.allcom_num}}</view>
+           <view class="td">{{item.allovertime_num}}</view>
+         </view>
+       </block>
+       </view>
+     </view>
+<view class="weui-panel weui-panel_access">
+   <view class="weui-panel__hd">
+     <view class="weui-panel__hd1">个体情况</view>
+     <view class="weui-panel__hd2">每个律师的咨询情况</view>
+   </view>
+     <view class="tr bg-w">
+       <view class="th">律师姓名</view>
+       <view class="th">点击次数</view>
+       <view class="th ">点击人数</view>
+       <view class="th ">咨询量</view>
+       <view class="th ">完成量</view>
+       <view class="th ">超时关闭量</view>
+     </view>
+     <block wx:for="{{listData}}" wx:key="{{lawyer}}">
+       <view class="tr">
+         <view class="td">{{item.lawyer}}</view>
+         <view class="td">{{item.click_count}}</view>
+         <view class="td">{{item.click_num}}</view>
+         <view class="td">{{item.con_num}}</view>
+         <view class="td">{{item.com_num}}</view>
+         <view class="td">{{item.overtime_num}}</view>
+       </view>
+     </block>
+</view>  
+
