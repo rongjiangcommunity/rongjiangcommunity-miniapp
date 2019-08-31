@@ -130,6 +130,8 @@ radio{
   margin-top: 124rpx;
   width: 100%;
   height: 100rpx;
+  position: fixed;
+  bottom: 0;
 }
 .btn button{
   width: 100%;
