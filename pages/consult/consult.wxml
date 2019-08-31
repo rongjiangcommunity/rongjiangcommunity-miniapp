@@ -10,7 +10,7 @@
       <view class="btn_title">校友咨询</view>
     </view>
   </navigator>
-  <view class="line" wx:if="isLawyer"></view>
+  <view class="line" wx:if="{{isLawyer}}"></view>
   <navigator url="./my_consult/my_consult" hover-class="none">
     <view class="btn_ask">
       <view class="btn_icon">
