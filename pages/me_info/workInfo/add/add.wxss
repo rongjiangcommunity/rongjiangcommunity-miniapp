@@ -45,6 +45,7 @@
   color: #666666;
 }
 .button{
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
