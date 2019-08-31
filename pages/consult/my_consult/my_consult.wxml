@@ -14,13 +14,12 @@
         </block>
      </view>
   </view> 
-  <scroll-view scroll-y="true" style="height:400px" bindscrolltolower="lowerMoreClassify">
+  <scroll-view scroll-y="true" style="height:542px" bindscrolltolower="lowerMoreClassify">
   <block wx:if="{{clickTitle==1}}">
-      <block wx:if="{{undoneData!=null}}">
+   <!-- 如果undoneData中的第一个数据的信息未null，则表示没有数据 -->
+      <block wx:if="{{undoneData[0].msg!=null}}">
           <block wx:for="{{undoneData}}" wx:key="{{index}}">
             <!-- 蔡律师   XXXXXX事务所    咨询中  -->
-            
-            <!---->  
             <view class="frame_msg_icon_big">
                 <view class="frame_information">
                   <view class="frame_PDocument">
@@ -32,7 +31,7 @@
             </view>
                   <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
                   </view>
-                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.userName}}&lawyerAdress={{item.userMobile}}&lawyerStatus={{item.status}}&from='consute_me'">
+                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.userName}}&lawyerAdress={{item.userMobile}}&lawyerStatus={{item.status}}&from='my_consult'">
                   <view class="frame">
                   <image class="img"  src="/images/icons/massage.png" ></image>  
                   <block wx:if="{{item.hasUnread==false}}">
@@ -43,17 +42,15 @@
             </view>
             </block>
        </block> 
-       <block wx:elif="{{undoneData==null}}">
+       <block wx:elif="{{undoneData[0].msg==null}}">
         暂无数据
         </block>
     </block>
-
       <block wx:elif="{{clickTitle==0}}">
-          <block wx:if="{{doneData!=null}}">
+      <!-- 如果doneData中的第一个数据的信息未null，则表示没有数据 -->
+          <block wx:if="{{doneData[0].msg!=null}}"> 
           <block wx:for="{{doneData}}" wx:key="{{index}}">
-            <!-- 蔡律师   XXXXXX事务所    咨询中  -->
-            
-            <!---->  
+            <!-- 蔡律师   XXXXXX事务所    已完成  -->
             <view class="frame_msg_icon_big">
                 <view class="frame_information">
                   <view class="frame_PDocument">
@@ -65,7 +62,7 @@
             </view>
                   <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
                   </view>
-                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.userName}}&lawyerAdress={{item.userMobile}}&lawyerStatus={{item.status}}&from='consute_me'">
+                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.userName}}&lawyerAdress={{item.userMobile}}&lawyerStatus={{item.status}}&from='my_consult'">
                   <view class="frame">
                      <image class="img"  src="/images/icons/massage.png" ></image>  
                       <block wx:if="{{item.hasUnread==false}}">
@@ -76,7 +73,7 @@
             </view>
             </block>
        </block> 
-       <block wx:elif="{{doneData==null}}">
+       <block wx:elif="{{doneData[0].msg==null}}">
         暂无数据
         </block>
       </block>
