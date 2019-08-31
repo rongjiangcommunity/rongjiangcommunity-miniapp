@@ -1,0 +1,10 @@
+{
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "小程序",
+    "backgroundColor": "#d7d7d7",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  }
+}

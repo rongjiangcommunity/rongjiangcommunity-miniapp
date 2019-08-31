@@ -1,0 +1,66 @@
+.table {
+  border: 0px solid rgb(0, 0, 0);
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+.tr1 {
+  font-size: 60rpx;
+  font-weight: 600;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+.td {
+    width:40%;
+    justify-content: center;
+    text-align: center;
+}
+.weui-panel__hd{
+  display: flex;
+  align-items: center;
+}
+.weui-panel__hd1{
+  display: flex;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-size: 40rpx;
+}
+.weui-panel__hd2{
+  margin-left: 20rpx;
+}
+.th {
+  font-size: 25rpx;
+  font-weight: 600;
+  width: 40%;
+  justify-content: center;
+  background: rgb(207, 205, 205);
+  color: rgb(0, 0, 0);
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+.th1 {
+  font-size: 35rpx;
+  width: 40%;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+.weui-cell__bd{
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-size: 40rpx;
+}
+.HD{
+  
+  align-items: center;
+}
