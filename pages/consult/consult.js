@@ -76,7 +76,7 @@ Page({
       success: function (res) {
         const windowHeight = res.windowHeight;
         const windowWidth=res.windowWidth;
-        let scrollHeight = windowHeight * 750 / windowWidth - 460;
+        let scrollHeight = windowHeight * 750 / windowWidth - 400;
         that.setData({
           scrollHeight: scrollHeight,
         });

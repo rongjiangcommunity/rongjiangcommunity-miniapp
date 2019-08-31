@@ -9,6 +9,10 @@ Page({
     strCount : 300,
     modalTitle: "",
     disabled: true,
+    onFocus: false,   
+    isShowText: false,
+    remark: '',       
+
 
   },
 
@@ -141,6 +145,20 @@ Page({
     this.setData({
       showModal: false,
     })
+  },
+  onShowTextare() {      
+    this.setData({
+      isShowText: false,
+      onFocus: true
+    })
+  },
+  onRemarkInput(event) {               
+    var value = event.detail.value;
+    this.setData({
+      remark: value,
+      isShowText: true,
+      onFocus: false
+    });
   },
   /**
    * 生命周期函数--监听页面显示
