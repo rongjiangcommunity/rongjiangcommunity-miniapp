@@ -18,6 +18,7 @@ Page({
   onLoad: function (options) {
     const credentials = app.getCredentials();
     const that=this;
+    this.getWindowHeight();
     wx.setNavigationBarTitle({
       title: '律师咨询'
     });
@@ -67,6 +68,19 @@ Page({
   callNow:function(){
     wx.makePhoneCall({
       phoneNumber: '13903013645',
+    });
+  },
+  getWindowHeight:function(){
+    const that=this;
+    wx.getSystemInfo({
+      success: function (res) {
+        const windowHeight = res.windowHeight;
+        const windowWidth=res.windowWidth;
+        let scrollHeight = windowHeight * 750 / windowWidth - 460;
+        that.setData({
+          scrollHeight: scrollHeight,
+        });
+      }
     });
   },
   /**
