@@ -24,14 +24,14 @@
                 <view class="frame_information">
                   <view class="frame_PDocument">
               <view class="frame_name_office">
-                  <view class="name">{{item.userName}}</view>
-                  <view class="office">{{item.userMobile}}</view>
+                  <view class="name">{{item.lawyer.name}}</view>
+                  <view class="office">{{item.lawyer.mobile}}</view>
                 </view> 
                   <view class="chatState">{{item.status}}</view>
             </view>
                   <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
                   </view>
-                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.userName}}&lawyerAdress={{item.userMobile}}&lawyerStatus={{item.status}}&from='my_consult'">
+                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.lawyer.name}}&lawyerAdress={{item.lawyer.mobile}}&lawyerStatus={{item.status}}&from='my_consult'">
                   <view class="frame">
                   <image class="img"  src="/images/icons/massage.png" ></image>  
                   <block wx:if="{{item.hasUnread==false}}">
@@ -55,14 +55,14 @@
                 <view class="frame_information">
                   <view class="frame_PDocument">
               <view class="frame_name_office">
-                  <view class="name">{{item.userName}}</view>
-                  <view class="office">{{item.userMobile}}</view>
+                  <view class="name">{{item.lawyer.name}}</view>
+                  <view class="office">{{item.lawyer.mobile}}</view>
                 </view> 
                   <view class=" {{item.status=='已完成'?'chatStatus':'chatStatusB'}}">{{item.status}}</view>
             </view>
                   <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
                   </view>
-                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.userName}}&lawyerAdress={{item.userMobile}}&lawyerStatus={{item.status}}&from='my_consult'">
+                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.lawyer.name}}&lawyerAdress={{item.lawyer.mobile}}&lawyerStatus={{item.status}}&from='my_consult'">
                   <view class="frame">
                      <image class="img"  src="/images/icons/massage.png" ></image>  
                       <block wx:if="{{item.hasUnread==false}}">

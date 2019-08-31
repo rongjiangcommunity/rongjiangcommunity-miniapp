@@ -147,3 +147,7 @@ page{
   top: 31rpx;
   right: -2rpx;
 }
+.navigator{
+  width: 150rpx;
+  height: 220rpx;
+}
