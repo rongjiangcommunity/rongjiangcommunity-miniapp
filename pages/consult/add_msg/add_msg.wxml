@@ -18,19 +18,23 @@
   </view>
 </view>
 
-<scroll-view class="bubble-content" bindscrolltolower="loadMore">
-  <view class="talk-box" wx:for="{{consultList}}" wx:key="index">
-  <view class="bubble-box">
-    <view class="{{item.fromUid === fromUid? 'left-bubble': 'right-bubble'}}">
-      {{item.msg}}
+<view class="bubble-content-wrapper">
+  <scroll-view class="bubble-content" bindscrolltolower="loadMore" style="height:{{scrollH}}px">
+   <view>
+      <view class="talk-box" wx:for="{{realConsultList}}" wx:key="index">
+    <view class="bubble-box">
+      <view class="{{item.fromUid === fromUid? 'left-bubble': 'right-bubble'}}">
+        {{item.msg}}
+      </view>
+      <view class="{{item.fromUid === fromUid? 'date left-date': 'date right-date'}}">{{item.gmtCreate}}</view>
     </view>
-    <view class="{{item.fromUid === fromUid? 'date left-date': 'date right-date'}}">{{item.gmtCreate}}</view>
-  </view>
-  </view>
-  <view>
-      <template is="Tmpl" data="{{wxAppendData}}"/>
-  </view>
-</scroll-view>
+    </view>
+    <view>
+        <template is="Tmpl" data="{{wxAppendData}}"/>
+    </view>
+   </view>
+  </scroll-view>
+</view>
 
 <view class="commit-wrap">
   <view class="solve-box" style='display: {{isShow? "block": "none"}}' bindtap="close">

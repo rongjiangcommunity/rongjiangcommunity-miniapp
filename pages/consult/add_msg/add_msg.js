@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    scrollH: 0,
     ellipsis: true, // 文字是否收起，默认收起
     isShow: true,
     currentMsg: '',
@@ -21,9 +22,9 @@ Page({
     fromUid: '',
     toUid: '',
     id: '',
-    consultList: '',
+    consultList: [],
+    realConsultList: [],
     offset: 0,
-    isDone: '',
     from: '', //我的咨询还是咨询我的来的
     color: ''  //不同状态颜色
   },
@@ -86,14 +87,6 @@ Page({
     });
   },
   
-  judgeStatus(status) {
-    if(status === '已完成') {
-      return 'done'
-    }else{
-      return 'undone'
-    }
-  },
-
   judgeColor(status) {
    switch(status){
      case '咨询中': return 'blue'; break;
@@ -106,13 +99,22 @@ Page({
   onLoad: function (option) {    
     console.log(option)
     var self = this;
+    //获取设备高度
+    wx.getSystemInfo({
+      success: function (res) {
+        let scrollH = res.windowHeight;
+        self.setData({
+          scrollH: scrollH
+        });
+      }
+    });
+
     let { pid, lawyerName, lawyerAdress, lawyerStatus, from} = option;
     this.setData({
       pid,
       name: lawyerName,
       sessionOrAdress: lawyerAdress,
       status: lawyerStatus,
-      isDone: self.judgeStatus(lawyerStatus),
       from,
       color: self.judgeColor(lawyerStatus)
     })
@@ -131,21 +133,7 @@ Page({
       }
     });
 
-//获取当前留言
-    util.send({
-      url: '/api/lawyer/msg/' + sid + '/' + pid,
-      method: 'GET',
-      callback: function (res) {
-        var consultList = res.data.data;
-        console.log(consultList)
-        self.setData({
-          currentMsg: consultList.top.msg,
-          fromUid: consultList.top.fromUid,
-          toUid: consultList.top.toUid,
-        })
-      }
-    });
-  //获取留言列表
+  //获取留言列表以及当前留言
   this.requestData();
   },
 
@@ -153,18 +141,28 @@ Page({
   requestData() {
     let sid = app.getCredentials();
     var self = this;
-    var url = this.data.from === 'consute_me' ? 'consulting_me/' : 'my_consulting/';
     util.send({
-      url: '/api/lawyer/' + url + sid,
+      url: '/api/lawyer/msg/' + sid + '/' + self.data.pid,
       method: 'GET',
       data: {
         offset: self.data.offset,
-        count: 10,
-        type: self.data.isDone
+        count: 4
       },
       callback: function (res) {
-        var consultList = res.data.data;
-        console.log(consultList)
+        console.log(self.data.from)
+
+        var leftBubble = self.data.from === 'consult_me' ? 'fromUid' : 'toUid';
+        var rightBubble = leftBubble === 'fromUid' ? 'toUid' : 'fromUid';
+        var consultData = res.data.data;
+        var consultList = consultData.list;
+        var copyConsultList;
+        console.log(consultData)
+        self.setData({
+          currentMsg: consultData.top.msg,
+          fromUid: consultData.top[leftBubble],
+          toUid: consultData.top[rightBubble],
+        })
+        
         //请求到的数据为空时，关掉加载开关
         if (consultList && consultList.length === 0) {
           var flag = false;
@@ -174,22 +172,31 @@ Page({
         //连接
         //改变返回数据的时间格式
        if(consultList) {
-         //标记已读
+         //标记已读，要判空时标记
          util.send({
-           url: '/api/lawyer/msg/read/' + sid + '/' + pid,
+           url: '/api/lawyer/msg/read/' + sid + '/' + self.data.pid,
            method: 'POST',
+           callback: function (res) {
+             console.log(res.data);
+                
+             }
          });
          consultList.map(item => {
            item.gmtCreate = util.formatTime(new Date(item.gmtCreate), true)
          })
-         consultList = self.data.consultList.concat(consultList)
+         consultList = self.data.consultList.concat(consultList)   
+         //实现数组的逆转，由于只是改变原来的数组，又要拼接不能改变原来的数组，座椅在此再拷贝一个数组 
+         copyConsultList = self.data.consultList.concat(consultList);   
+         copyConsultList.reverse(); 
+         console.log(copyConsultList)
 
        }
         var offset = self.data.offset + 4;
         self.setData({
           consultList,
           offset,
-          flag
+          flag,
+          realConsultList: copyConsultList
         })
       }
     });
@@ -202,7 +209,7 @@ Page({
   },
 //获取输入框内容
   ins: function(e) {
-    if (e.detail.value.length === 300) {
+    if (e.detail.value.length >= 300) {
       wx.showToast({
         title: '最多只能输入300字!',
         icon: 'none'
@@ -263,14 +270,36 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
-  },
+    
+  },  
+  
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.info('onPullDownRefresh');
 
+    if (this.data.flag) {
+      console.info('666');
+
+      this.requestData();
+    }
+
+    // 显示导航条加载动画  
+    wx.showNavigationBarLoading();
+    // 显示 loading 提示框,在 ios 系统下，会导致顶部的加载的三个点看不见  
+    // wx.showLoading({  
+    //   title: '数据加载中...',  
+    // });  
+    setTimeout(function () {
+
+
+      wx.stopPullDownRefresh();
+      // wx.hideLoading();  
+      wx.hideNavigationBarLoading();
+      console.info('下拉数据加载完成.');
+    }, 1000);
   },
 
   /**
