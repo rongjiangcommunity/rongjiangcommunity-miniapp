@@ -17,7 +17,6 @@ Page({
    */
   onLoad: function (options) {
     const credentials = app.getCredentials();
-    console.log(credentials)
     const that=this;
     wx.setNavigationBarTitle({
       title: '律师咨询'
@@ -76,12 +75,10 @@ Page({
   onReady: function () {
     
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**

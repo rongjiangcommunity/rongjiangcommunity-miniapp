@@ -18,7 +18,7 @@
   align-items: center;
   margin-top: 8rpx;
   line-height: 34rpx;
-  font-weight: 600;
+  font-weight: 500;
 }
 .item_info .line{
   margin: 0 10rpx;
@@ -51,7 +51,7 @@
   flex-shrink: 0;
   margin-right: 48rpx;
   font-size: 32rpx;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 44rpx;
   color: #333
 }

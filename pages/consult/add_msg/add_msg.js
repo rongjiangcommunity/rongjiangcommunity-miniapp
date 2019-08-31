@@ -26,7 +26,8 @@ Page({
     realConsultList: [],
     offset: 0,
     from: '', //我的咨询还是咨询我的来的
-    color: ''  //不同状态颜色
+    color: '',  //不同状态颜色
+    toView: ''
   },
   //留言的伸展与收起
   ellipsis: function () {
@@ -134,11 +135,12 @@ Page({
     });
 
   //获取留言列表以及当前留言
-  this.requestData();
+  this.requestData(5);
+   
   },
 
 //分页请求列表数据
-  requestData() {
+  requestData(count) {
     let sid = app.getCredentials();
     var self = this;
     util.send({
@@ -146,7 +148,7 @@ Page({
       method: 'GET',
       data: {
         offset: self.data.offset,
-        count: 4
+        count: count
       },
       callback: function (res) {
         console.log(self.data.from)
@@ -190,21 +192,28 @@ Page({
          copyConsultList.reverse(); 
          console.log(copyConsultList)
 
+         self.setData({
+           toView: 'msg-' + (consultList.length - 1)
+         })
        }
         var offset = self.data.offset + 4;
-        self.setData({
-          consultList,
-          offset,
-          flag,
-          realConsultList: copyConsultList
-        })
+        if(copyConsultList){
+          self.setData({
+            consultList,
+            offset,
+            flag,
+            realConsultList: copyConsultList
+          })
+        }
       }
     });
+
   },
   //出发加载更多
   loadMore() {
     if (this.data.flag) {
-      this.requestData();
+      this.requestData(4);
+      
     }
   },
 //获取输入框内容
@@ -243,13 +252,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+   
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -278,28 +288,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.info('onPullDownRefresh');
 
-    if (this.data.flag) {
-      console.info('666');
-
-      this.requestData();
-    }
-
-    // 显示导航条加载动画  
-    wx.showNavigationBarLoading();
-    // 显示 loading 提示框,在 ios 系统下，会导致顶部的加载的三个点看不见  
-    // wx.showLoading({  
-    //   title: '数据加载中...',  
-    // });  
-    setTimeout(function () {
-
-
-      wx.stopPullDownRefresh();
-      // wx.hideLoading();  
-      wx.hideNavigationBarLoading();
-      console.info('下拉数据加载完成.');
-    }, 1000);
   },
 
   /**

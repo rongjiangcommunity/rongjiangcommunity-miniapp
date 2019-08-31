@@ -94,7 +94,7 @@ page{
 .item_addr,.item_firm{
   font-size: 24rpx;
   margin-right: 10rpx;
-  font-weight: 600;
+  font-weight: 500;
 }
 .list_item .info_pro{
   margin-top: 12rpx;

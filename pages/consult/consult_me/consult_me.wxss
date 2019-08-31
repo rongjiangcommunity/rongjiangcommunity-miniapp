@@ -128,7 +128,7 @@ page{
 
 }
 .img{
-  margin-left: 38rpx;
+  margin-left: 52rpx;
   height: 52rpx;
   width: 52rpx;
 }
@@ -146,4 +146,8 @@ page{
   position: absolute;
   top: 31rpx;
   right: -2rpx;
+}
+.navigator{
+  width: 150rpx;
+  height: 220rpx;
 }

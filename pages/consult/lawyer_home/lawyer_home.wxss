@@ -39,7 +39,7 @@ page{
 }
 .info_addr,.info_firm{
   font-size: 28rpx;
-  font-weight: 550;
+  font-weight: 500;
   line-height: 40rpx;
   margin-right: 20rpx;
 }

@@ -128,7 +128,7 @@ page{
 
 }
 .img{
-  margin-left: 38rpx;
+  margin-left: 52rpx;
   height: 52rpx;
   width: 52rpx;
 }

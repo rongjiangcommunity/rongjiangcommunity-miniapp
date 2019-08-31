@@ -4,7 +4,7 @@
   <view class="person-box">
     <view class="person-content">
       <text class="name">{{name}}</text>
-      <text class="session-adress">{{sessionOrAdress}}</text>
+      <text class="session-adress">{{sessionOrAdress}}{{from === "'consult_me'"? '届': ''}}</text>
     </view>
     <text class="consult-status {{color}}">{{status}}</text>
   </view>
@@ -19,10 +19,10 @@
 </view>
 
 <view class="bubble-content-wrapper">
-  <scroll-view class="bubble-content" bindscrolltolower="loadMore" style="height:{{scrollH}}px">
+  <scroll-view class="bubble-content" bindscrolltoupper="loadMore" scroll-y="true" scroll-into-view="{{toView}}" style="height:100%">
    <view>
-      <view class="talk-box" wx:for="{{realConsultList}}" wx:key="index">
-    <view class="bubble-box">
+      <view class="talk-box" wx:for="{{realConsultList}}" wx:for-index="index" wx:key="index">
+    <view class="bubble-box" id='msg-{{index}}'>
       <view class="{{item.fromUid === fromUid? 'left-bubble': 'right-bubble'}}">
         {{item.msg}}
       </view>

@@ -14,9 +14,9 @@
         </block>
      </view>
   </view> 
-  <scroll-view scroll-y="true" style="height:400px" bindscrolltolower="lowerMoreClassify">
+  <scroll-view scroll-y="true" style="height:542px" bindscrolltolower="lowerMoreClassify">
   <block wx:if="{{clickTitle==1}}">
-      <block wx:if="{{undoneData!=null}}">
+      <block wx:if="{{undoneData[0].msg!=null}}">
           <block wx:for="{{undoneData}}" wx:key="{{index}}">
             <!-- 蔡律师   XXXXXX事务所    咨询中  -->
             
@@ -25,14 +25,14 @@
                 <view class="frame_information">
                   <view class="frame_PDocument">
               <view class="frame_name_office">
-                  <view class="name">{{item.userName}}</view>
-                  <view class="userG3">{{item.userG3}}届</view>
+                  <view class="name">{{item.user.name}}</view>
+                  <view class="userG3">{{item.user.period}}届</view>
                 </view> 
                   <view class="chatState">{{item.status}}</view>
             </view>
                   <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
                   </view>
-                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.userName}}&lawyerAdress={{item.userMobile}}&lawyerStatus={{item.status}}&from='my_consult'">
+                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.user.name}}&lawyerAdress={{item.user.period}}&lawyerStatus={{item.status}}&from='consult_me'">
                   <view class="frame">
                    <image class="img"  src="/images/icons/envelope.png" ></image>   
                    <block wx:if="{{item.hasUnread==false}}">
@@ -44,13 +44,13 @@
             </view>
             </block>
        </block> 
-       <block wx:elif="{{undoneData==null}}">
+       <block wx:elif="{{undoneData[0].msg==null}}">
         暂无数据
         </block>
     </block>
 
       <block wx:elif="{{clickTitle==0}}">
-          <block wx:if="{{doneData!=null}}">
+          <block wx:if="{{doneData[0].msg!=null}}">
           <block wx:for="{{doneData}}" wx:key="{{index}}">
             <!-- 蔡律师   XXXXXX事务所    咨询中  -->
             
@@ -59,14 +59,14 @@
                 <view class="frame_information">
                   <view class="frame_PDocument">
               <view class="frame_name_office">
-                  <view class="name">{{item.userName}}</view>
-                  <view class="userG3">{{item.userG3}}届</view>
+                  <view class="name">{{item.user.name}}</view>
+                  <view class="userG3">{{item.user.period}}届</view>
                 </view> 
                   <view class=" {{item.status=='已完成'?'chatStatus':'chatStatusB'}}">{{item.status}}</view>
             </view>
                   <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
                   </view>
-                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.userName}}&lawyerAdress={{item.userMobile}}&lawyerStatus={{item.status}}&from='my_consult'">
+                      <navigator  url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.user.name}}&lawyerAdress={{item.user.period}}&lawyerStatus={{item.status}}&from='consult_me'">
                   <view class="frame">
                   <image class="img"  src="/images/icons/envelope.png" ></image>  
                    <block wx:if="{{item.hasUnread==false}}">
@@ -78,7 +78,7 @@
             </view>
             </block>
        </block> 
-       <block wx:elif="{{doneData==null}}">
+       <block wx:elif="{{doneData[0].msg==null}}">
         暂无数据
         </block>
       </block>

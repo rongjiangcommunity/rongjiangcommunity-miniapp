@@ -5,20 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    undoneData: [{
-      "name": "肖律师",
-      "office": "XXXXXX律师事务所",
-      "chatState": "咨询中",
-      "msg": "入党是指经过一定手续，得到某政党组织批准而成为该党之成员亦特指加入中国入党是指经过一定手续，得到某政党组织批准而成为该党之成员亦特指加入中国共产党入党条件为年",
-      "readState": false,
-    }],
-    doneData: [{
-
-    }],
+  
+      // "name": "肖律师",
+      // "office": "XXXXXX律师事务所",
+      // "chatState": "咨询中",
+      // "msg": "入党是指经过一定手续，得到某政党组织批准而成为该党之成员亦特指加入中国入党是指经过一定手续，得到某政党组织批准而成为该党之成员亦特指加入中国共产党入党条件为年",
+      // "readState": false,
+   
+    undoneData: null,
+    doneData: null,
+    //下拉请求参数
     undoneOffset: 0,  //初始页
     undoneCount: 10,
+    undoneSet:1,  //用于记录下拉请求了几次
     doneOffset: 0,  //初始页
     doneCount: 10,
+    doneSet: 1,//用于记录下拉请求了几次
     clickTitle: 1 //1表示咨询中，0表示已完成
   },
 
@@ -45,19 +47,27 @@ Page({
       },
       method: 'GET',
       success(res) {
-        that.setData({
-          undoneData: res.data.data
-        })
         var temp = res.data.data;
         for (var i in temp) {
           if (temp[i].status == "active" || temp[i].status == "created") {
             temp[i].status = "咨询中";  
           }
-          //重新赋值
-          that.setData({
-            undoneData: temp
-          })
         }
+          if(that.data.undoneSet==1){ //直接赋值
+            //重新赋值
+            that.setData({
+              undoneData: temp
+            })
+          }else{
+            var arr = that.data.undoneData;
+            arr = arr.concat(temp)
+            that.setData({
+              undoneData: arr
+            })
+          }
+         
+       
+        console.log("+++++++++++++++++++++++++++++++++++")
         console.log(that.data.undoneData)
 
       }
@@ -79,9 +89,6 @@ Page({
       },
       method: 'GET',
       success(res) {
-        that.setData({
-          doneData: res.data.data
-        })
         var temp = res.data.data;
         for (var i in temp) {
           if (temp[i].status == "closed" || temp[i].status == "finished") {
@@ -89,11 +96,20 @@ Page({
           } else if (temp[i].status == "timeout"){
             temp[i].status = "超时关闭";
           }
+        }
+        if (that.data.doneSet == 1) { //直接赋值
           //重新赋值
           that.setData({
             doneData: temp
           })
+        } else {
+          var arr = that.data.doneData;
+          arr = arr.concat(temp)
+          that.setData({
+            doneData: arr
+          })
         }
+        console.log("==========")
         console.log(that.data.doneData)
       }
     })
@@ -106,21 +122,26 @@ Page({
     })
   },
   //触底操作，查找更多
-  lowerMoreClassify:function(e){
+  lowerMoreClassify: function (e) {
+    // console.log(this.data.undoneData.length)
     let that = this;
-    if (that.data.clickTitle==1){
+    if (that.data.clickTitle == 1) {
+
+      var undoneSet = that.data.undoneSet*10
+      //如果数据的长度触底，
+      if(that.data.undoneData.length > undoneSet){
+        that.setData({
+          undoneOffset: that.data.undoneOffset + that.data.undoneCount
+        })
+        that.undonerequest(); //重新获取信息
+      }
+     
+    } else if (that.data.clickTitle == 0) {
       that.setData({
-        undoneOffset: undoneOffset + undoneCount
-      })
-      that.undonerequest(); //重新获取信息
-    } else if (that.data.clickTitle == 0){
-      that.setData({
-        doneOffset: doneOffset + undoneCount
+        doneOffset: that.data.doneOffset + that.data.doneCount
       })
       that.donerequest();//重新获取信息
     }
-    
-  
   },
 
   /**
