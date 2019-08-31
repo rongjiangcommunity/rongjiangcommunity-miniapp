@@ -51,7 +51,7 @@
   flex-shrink: 0;
   margin-right: 48rpx;
   font-size: 32rpx;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 44rpx;
   color: #333
 }
