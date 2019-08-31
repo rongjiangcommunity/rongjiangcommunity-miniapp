@@ -1,0 +1,21 @@
+<view class="big_frame">
+<scroll-view scroll-y="true" style="height:192rpx" bindscrolltolower="lowerMoreClassify">
+  <block wx:for="{{cardData}}" wx:key="{{alum}}">
+    <view class="frame_icon">
+      <view class="frame_left">
+        <view class="frame_card">
+          <view class="alum">{{item.alum}}</view>
+          <view class="consulting">正在咨询</view>
+          <view class="lawyer">{{item.lawyer}}</view>
+        </view>
+          <view class="time_difference">{{item.time_difference}}</view>
+          <view class="intime">{{item.intime}}</view>
+      </view>
+      <view class="frame">
+        <image class="img"  src="{{'/images/icons/Shape.png'}}"></image>
+        <view class="call">联系律师</view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+</view>
