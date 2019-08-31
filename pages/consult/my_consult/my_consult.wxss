@@ -64,6 +64,7 @@ page{
 .name{
   margin-left: 20rpx;
   font-size: 32rpx;
+  font-weight: 700;
   color: #333333;
 }
 .office{
@@ -104,6 +105,7 @@ page{
 }
 .msg{
     /* 多文本溢出 */
+    line-height: 34rpx;
     overflow : hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
