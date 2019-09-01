@@ -24,7 +24,7 @@
       </view>
    <view class="frame_tips">
     <image src="/images/icons/notice2@3x.png" class="tips_icon"></image>
-    <view class="tips">最多可维护3个教育经历</view>
+    <view class="tips">最多可维护3个工作经历</view>
   </view>
   <view class="weui-btn-area">
     <navigator url="../add/add" wx:if="{{experience.length<3}}">
