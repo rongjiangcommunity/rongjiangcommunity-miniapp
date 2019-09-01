@@ -70,6 +70,7 @@ Page({
     const credentials = app.getCredentials();
     const that=this;
     const formId=e.detail.formId;
+    console.log(e);
     const msg = e.detail.value.message;
     const fromUid = that.data.fromUid;
     const toUid=that.data.lawyerInfo.uid;

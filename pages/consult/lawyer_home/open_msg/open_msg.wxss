@@ -50,6 +50,8 @@
 .consult_input .consult_title{
   flex-shrink: 0;
   margin-right: 48rpx;
+}
+.consult_input .consult_title text{
   font-size: 32rpx;
   font-weight: 600;
   line-height: 44rpx;
@@ -194,9 +196,13 @@
 }
 .submit_btn{
   position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 100rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20rpx;
+  margin-top: 40rpx;
+  width: 650rpx;
+  height: 90rpx;
+  border-radius: 8rpx;
 }
 .submit_btn button{
   width: 100%;
@@ -216,4 +222,7 @@
   color: #B2B2B2;
   font-size: 32rpx;
   line-height: 44rpx;
+}
+button::after{
+  border: 0;
 }

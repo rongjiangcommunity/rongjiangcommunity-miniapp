@@ -109,10 +109,7 @@ page{
 }
 /* 页脚部分 */
 .footer{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 40rpx;
+  margin: 72rpx auto;
   display: flex;
   justify-content: space-between;
   width: 230rpx;
@@ -235,10 +232,6 @@ page{
 }
 /* 页脚部分 */
 .footer{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 40rpx;
   display: flex;
   justify-content: space-between;
   width: 230rpx;

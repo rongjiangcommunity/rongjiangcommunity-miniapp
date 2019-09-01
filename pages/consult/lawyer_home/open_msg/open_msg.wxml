@@ -9,7 +9,7 @@
 <!-- 用户咨询输入框区域 -->
 <form bindsubmit="consultSubmit" report-submit="true">
   <view class="consult_input" style="height:{{inputHeight}}rpx">
-    <view class="consult_title">咨询内容</view>
+    <view class="consult_title"><text>咨询内容</text></view>
     <view class="consult_content">
       <textarea name="message" value="{{remark}}" placeholder="请详细叙述您遇到的问题及法律诉求，便于律师解答您的问题" placeholder-class="placeholder" maxlength="300" bindinput="strCount" bindblur="onRemarkInput" bindconfirm="onRemarkInput" focus="onFocus" wx:if="{{!isShowText}}"></textarea>
       <text wx:else bindtap="onShowTextare">{{remark}}</text>
