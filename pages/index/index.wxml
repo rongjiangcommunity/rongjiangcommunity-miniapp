@@ -47,7 +47,7 @@
     </navigator>
       <!-- 待更改图标 -->
       <view class="item-box" bindtap='expect'>
-        <image class="item-img" src="../../images/icons/marrige.png" background-size="cover"/>
+        <image class="item-img" src="../../images/icons/love@2x.png" background-size="cover"/>
         <text class="item-title">鹊桥相会</text>
           <image class="item-raw" src="/images/icons/arrow@2x.png" background-size="cover"/> 
       </view>
