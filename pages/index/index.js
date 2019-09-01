@@ -52,6 +52,7 @@ Page({
             approved,
             status,
           });
+          this.checkMsgRead();
         }).catch((err) => {
           console.log(err);
         });
@@ -87,5 +88,19 @@ Page({
   },
   jumpToMsgCenter: function(){ // 跳到消息中心，也就是右上角的泡泡图标
     console.log('jumpToMsgCenter');
+  },
+  checkMsgRead:function(){
+    const that=this;
+    const credentials = app.getCredentials();
+    wx.request({
+      url: app.serverUrl + '/api/lawyer/has_unread/' + credentials,
+      success(res) {
+       if(res.data.success){
+         that.setData({
+           msgRead: res.data.data,
+         });
+       }
+      }
+    }); 
   }
 });

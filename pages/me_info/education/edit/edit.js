@@ -3,7 +3,8 @@
 const app = getApp();
 Page({
   data:{
-    index: undefined,
+    index:0,
+    what:"",
     startDate: '2000-09-01',
     endDate: '2004-07-01',
     multiIndex: [0, 0],
@@ -14,8 +15,11 @@ Page({
     degreeArr:['高中','大专','本科','硕士','博士']
   },
   onLoad: function (options) {
-    this.setData({index: options.index})
+    this.setData({ index: options.index})
+    console.log("sdasdasdasd")
+    console.log(options)
   },
+
   onShow: function () {
     this.checkInfo();
   },
@@ -30,16 +34,20 @@ Page({
     });
   },
   setEducation: function (educationStr) {
+    console.log(educationStr)
     if (educationStr) {
       educationStr = JSON.parse(educationStr)
+      
     } else {
       educationStr = [];
     }
     this.setData({
       education: educationStr
+      
     })
     let index = this.data.index
     let data = educationStr[index];
+    console.log(index)
     let what = data.what;
     let where = data.where;
     let when = data.when;
@@ -83,11 +91,22 @@ Page({
       when: [data.startDate, data.endDate],
       major: [ majorFir, majorSec, majorThir ]
     };
+   
+    wx.showToast({
+      title: '保存成功',
+      icon: 'succes',
+      duration: 2000,
+      mask: true
+    })
     education[data.index] = tempDatas;
-    app.saveUserInfo({ education }).then(() => {
-      wx.navigateBack();
-    });
+    setTimeout(function () {
+      app.saveUserInfo({ education }).then(() => {
+        wx.navigateBack();
+      })
+    }, 2000)
+    
   },
+  
   bindStartDateChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({

@@ -3,10 +3,12 @@ const app = getApp()
 
 Page({
   data:{
+    focustemp:false,
     startDate: null,
     endDate: null,
     multiIndex: [0, 0],
     multiArray: [getApp().firstINdustry, getApp().secondIndustry[0]],
+    temp:false,
   },
 
   onLoad: function (options) {
@@ -58,21 +60,31 @@ Page({
       type: [getApp().firstINdustry[multiIndex[0]], getApp().secondIndustry[multiIndex[0]][multiIndex[1]]]
     };
     experience.push(tempDatas);
-
-    app.saveUserInfo({ experience }).then(() => {
-      wx.navigateBack();
-    });
+    wx.showToast({
+      title: '保存成功',
+      icon: 'succes',
+      duration: 4000,
+      mask: true
+    })
+    setTimeout(function () {
+      app.saveUserInfo({ experience }).then(() => {
+        wx.navigateBack();
+      })
+    }, 2000)
+   
   },
   bindStartDateChange(e) {
     console.log('携带值为', e.detail.value)
     this.setData({
-      startDate: e.detail.value
+      startDate: e.detail.value,
+      focustemp: true,
     })
   },
   bindEndDateChange(e) {
     console.log('携带值为', e.detail.value)
     this.setData({
-      endDate: e.detail.value
+      endDate: e.detail.value,
+      focustemp:true,
     })
   },
   bindMultiPickerChange(e) {
@@ -112,5 +124,15 @@ Page({
         recordMultiIndex: this.data.multiIndex
       })
     }
+  },
+  display:function(e){
+    this.setData({
+      temp:true
+    })
+  },
+  focus:function(){
+    this.setData({
+      focustemp:true
+    })
   }
 })

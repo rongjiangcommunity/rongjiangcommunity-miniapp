@@ -2,19 +2,19 @@
   <view class="weui-cell">
     <view class="weui-cell__bd">手机</view>
     <view class="weui-cell__ft" wx:if="{{phoneNumber}}">{{phoneNumber}}</view>
-    <button wx:if="{{!phoneNumber}}" class='weui-btn mini-btn action-btn' type="default" size="mini" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号码</button>
+    <button wx:if="{{!phoneNumber}}" class='weui-btn mini-btn action-btn phone-btn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号码</button>
   </view>
 
   <navigator url="./wechat/wechat" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
     <view class="weui-cell__bd">微信</view>
     <view class="weui-cell__ft" wx:if="{{wechat}}">{{wechat}}</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access"><text wx:if="{{!wechat}}">去完善</text></view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"><text wx:if="{{!wechat}}">未填写</text></view>
   </navigator>
   <navigator url="./email/email" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
     <view class="weui-cell__bd">邮箱</view>
     <view class="weui-cell__ft weui-cell__ft_in-access">
       <text wx:if="{{email}}">{{email}}</text>
-      <text wx:if="{{!email}}">去完善</text>
+      <text wx:if="{{!email}}">待完善</text>
     </view>
   </navigator>
 </view>
@@ -24,10 +24,10 @@
     <view class="weui-cell__hd">
       <view class="weui-label">性别</view>
     </view>
-    <view class="weui-cell__bd">
+    <view class="weui-cell__bd weui-cell__ft_in-access">
       <picker range="{{genders}}" value="{{genderIndex}}" bindchange="bindIndexChange"
         data-name='gender' data-range='genders'>
-        <view class="weui-input">{{genders[genderIndex]}}</view>
+        <view class="weui-input">{{genders[genderIndex]? genders[genderIndex]: '请选择'}}</view>
       </picker>
     </view>
   </view>
@@ -35,8 +35,8 @@
     <view class="weui-cell__hd">
       <view class="weui-label">工作区域</view>
     </view>
-    <view class="weui-cell__bd">
-      <picker-two-column columns="{{areaColumns}}" multiIndex="{{workingAreaMultiIndex}}"
+    <view class="weui-cell__bd weui-cell__ft_in-access">
+      <picker-two-column columns="{{areaColumns}}" multiIndex="{{workingAreaMultiIndex? workingAreaMultiIndex: '请选择'}}"
         bindchange="bindAreaChange" data-name='workingArea' input-class="weui-input" />
     </view>
   </view>
@@ -44,8 +44,8 @@
     <view class="weui-cell__hd">
       <view class="weui-label">生活区域</view>
     </view>
-    <view class="weui-cell__bd">
-      <picker-two-column columns="{{areaColumns}}" multiIndex="{{livingAreaMultiIndex}}"
+    <view class="weui-cell__bd weui-cell__ft_in-access">
+      <picker-two-column columns="{{areaColumns}}" multiIndex="{{livingAreaMultiIndex? livingAreaMultiIndex: '请选择'}}"
         bindchange="bindAreaChange" data-name='livingArea' input-class="weui-input" />
     </view>
   </view>
@@ -53,10 +53,10 @@
     <view class="weui-cell__hd">
       <view class="weui-label">感情状况</view>
     </view>
-    <view class="weui-cell__bd">
+    <view class="weui-cell__bd weui-cell__ft_in-access">
       <picker value="{{personalStatusIndex}}" range="{{personalStatuses}}" bindchange="bindIndexChange"
       data-name='personalStatus' data-range='personalStatuses'>
-        <view class="weui-input">{{personalStatuses[personalStatusIndex]}}</view>
+        <view class="weui-input">{{personalStatuses[personalStatusIndex]? personalStatuses[personalStatusIndex]: '请选择'}}</view>
       </picker>
     </view>
   </view>
@@ -64,7 +64,7 @@
     <view class="weui-cell__hd">
       <view class="weui-label">籍贯</view>
     </view>
-    <view class="weui-cell__bd">
+    <view class="weui-cell__bd weui-cell__ft_in-access">
       <picker
         class="picker weui-cell__bd weui-input"
         mode="multiSelector"
@@ -75,7 +75,7 @@
         range="{{multiArray}}"
       >
         <view>
-          {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+          {{multiArray[0][multiIndex[0]] && multiArray[1][multiIndex[1]]? multiArray[0][multiIndex[0]]+ ', ' + multiArray[1][multiIndex[1]]: '请选择'}}
         </view>
       </picker>
     </view>

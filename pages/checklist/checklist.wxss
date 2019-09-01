@@ -20,19 +20,39 @@
   color: #00000040;
   text-align: center;
 }
+.item-list{
+  padding-top: 20rpx;
+}
 .check-item {
   position: relative;
-  background: #fff;
-  margin-left: 15rpx;
-  margin-right: 15rpx;
-  margin-bottom: 10rpx;
-  padding: 30rpx;
+  background: #FFFFFF;
+  margin:30rpx;
+  margin-top: 0;
+  padding: 31rpx 30rpx 29rpx;
   overflow: hidden;
-  border-radius: 20rpx;
+  border-radius: 16rpx;
 }
 
 .check-body{
-  margin-top: 16rpx;
+  margin-top: 29rpx;
+}
+
+.check-body .mobile{
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #666666;
+  margin-bottom: 17rpx;
+}
+.check-body .wechat{
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #666666;
+  margin-bottom: 17rpx;
+}
+.check-body .classmates{
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #999999;
 }
 .check-button{
   position: absolute;
@@ -54,26 +74,27 @@
 }
 
 .modal-dialog {
-  width: 540rpx;
+  width: 560rpx;
   overflow: hidden;
   position: fixed;
   top: 50%;
   left: 0;
   z-index: 9999;
-  background: #f9f9f9;
-  margin: -180rpx 105rpx;
-  border-radius: 36rpx;
+  background: #FFFFFF;
+  margin: -180rpx 95rpx;
+  border-radius: 8rpx;
 }
 
 .modal-title {
-  padding-top: 50rpx;
+  padding-top: 41rpx;
   font-size: 36rpx;
-  color: #030303;
+  line-height: 36rpx;
+  color: #000;
   text-align: center;
 }
 
 .modal-content {
-  padding: 50rpx 32rpx;
+  padding: 58rpx 32rpx 35rpx;
 }
 
 .modal-input {
@@ -81,7 +102,8 @@
   background: #fff;
   border: 2rpx solid #ddd;
   border-radius: 4rpx;
-  font-size: 28rpx;
+  font-size: 32rpx;
+  color: #666;
 }
 
 input-holder {
@@ -92,10 +114,10 @@ input-holder {
 .modal-footer {
   display: flex;
   flex-direction: row;
-  height: 86rpx;
+  height: 100rpx;
   border-top: 1px solid #dedede;
-  font-size: 34rpx;
-  line-height: 86rpx;
+  font-size: 36rpx;
+  line-height: 100rpx;
 }
 
 .btn-cancel {
@@ -107,6 +129,8 @@ input-holder {
 
 .btn-confirm {
   width: 50%;
+  font-size: 36rpx;
+  line-height: 100rpx;
   color: #008DF8;
   text-align: center;
   border: none;
@@ -127,11 +151,38 @@ input-holder {
 .shenhe-modal radio-group{
   margin:0px auto;
 }
-.shenhe-modal label{
-  margin:0px 35rpx;
+.shenhe-modal radio{
+  margin-right: 26rpx;
+}
+.shenhe-modal .label_l{
+  margin-right:  55rpx;
+}
+.shenhe-modal .label_r{
+  margin-left: 55rpx;
+}
+radio .wx-radio-input{
+  width: 41rpx;
+  height: 41rpx;
 }
 .quick-check{
+  width: 140rpx;
+  height: 70rpx;
+  font-size: 32rpx;
+  line-height: 70rpx;
+  color: #FEFEFE;
+  background-color: #008DF8;
   position: absolute;
-  right: 15px;
+  right: 30rpx;
   top: 35%;
+}
+.item_name{
+  font-size: 32rpx;
+  line-height: 30rpx;
+  color: #333333;
+}
+.item_period{
+  font-size: 32rpx;
+  line-height: 30rpx;
+  color: #666666;
+  margin-left: 24rpx;
 }

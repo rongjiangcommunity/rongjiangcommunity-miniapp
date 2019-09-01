@@ -1,0 +1,109 @@
+/* pages/consult/consult_input/consult_input.wxss */
+/* 顶部律师信息 */
+.list_item{
+  position: relative;
+  margin: 30rpx;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  background-color: #FFF;
+  box-shadow: 0 4rpx 24rpx 0 rgba(0,0,0,0.06);
+}
+.item_name{
+  font-size: 32rpx;
+  font-weight: 700;
+  line-height: 44rpx;
+}
+.item_info{
+  display: flex;
+  align-items: center;
+  margin-top: 8rpx;
+  line-height: 34rpx;
+  font-weight: 500;
+}
+.item_info .line{
+  margin: 0 10rpx;
+  height: 16rpx;
+  border-right: 2rpx solid #CCCCCC;
+}
+.item_addr,.item_firm{
+  font-size: 24rpx;
+}
+.list_item .info_pro{
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* 用户咨询输入框区域 */
+.consult_input{
+  display: flex;
+  position: relative;
+  padding: 30rpx;
+  width: 100%;
+  background-color: #FFF;
+  margin-bottom: 48rpx;
+}
+.consult_input .consult_title{
+  flex-shrink: 0;
+  margin-right: 48rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  line-height: 44rpx;
+  color: #333
+}
+.consult_input .consult_content{
+  position: relative;
+  width: 514rpx;
+  height: 100%;
+}
+.consult_input textarea{
+  width: 100%;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #333;
+}
+.consult_content text{
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #333;
+}
+.consult_input .input_count{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #B2B2B2;
+}
+.submit_btn{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+}
+.submit_btn button{
+  width: 100%;
+  height: 100%;
+  background-color: #008DF8;
+  color: #FFF;
+  font-size: 32rpx;
+  font-weight: 700;
+  line-height: 100rpx;
+  border-radius: 0;
+}
+.submit_btn button[disabled]{
+  background-color: #94CDF8;
+  color: #FFF;
+}
+.placeholder{
+  color: #B2B2B2;
+  font-size: 32rpx;
+  line-height: 44rpx;
+}

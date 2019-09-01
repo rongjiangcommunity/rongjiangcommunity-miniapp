@@ -1,1 +1,5 @@
-{}
+{
+"usingComponents": {
+  "mp-badge": "/components/badge/badge"
+}
+}

@@ -1,0 +1,44 @@
+<import src="/pages/tmpl/tmpl.wxml"/>
+
+<view class="header-box">
+  <view class="person-box">
+    <view class="person-content">
+      <text class="name">{{name}}</text>
+      <text class="session-adress">{{sessionOrAdress}}</text>
+    </view>
+    <text class="consult-status {{color}}">{{status}}</text>
+  </view>
+
+  <view class="consult-box">
+    <text class="consult-content {{ellipsis?'ellipsis':'unellipsis'}}">{{currentMsg}}</text>
+    <view class='bg-white-ellipsis' bindtap='ellipsis'>
+      <text class="text-ellipsis">{{ellipsis? '更多': '收起'}}</text>
+      <image class='img-ellipsis' src="{{ellipsis?'/images/icons/toDown.png':'/images/icons/toUp.png'}}"/>
+    </view>
+  </view>
+</view>
+
+<scroll-view class="bubble-content" bindscrolltolower="loadMore">
+  <view class="talk-box" wx:for="{{consultList}}" wx:key="index">
+  <view class="bubble-box">
+    <view class="{{item.fromUid === fromUid? 'left-bubble': 'right-bubble'}}">
+      {{item.msg}}
+    </view>
+    <view class="{{item.fromUid === fromUid? 'date left-date': 'date right-date'}}">{{item.gmtCreate}}</view>
+  </view>
+  </view>
+  <view>
+      <template is="Tmpl" data="{{wxAppendData}}"/>
+  </view>
+</scroll-view>
+
+<view class="commit-wrap">
+  <view class="solve-box" style='display: {{isShow? "block": "none"}}' bindtap="close">
+  问题已解决，关闭咨询
+  </view>
+
+  <view class="commit-box">
+    <textarea class="weui-textarea" cursor-spacing="30rpx"  value="{{inputValue}}" placeholder="请输入" bindinput="ins" auto-height='true' maxlength="400"/>
+    <button type="primary" class="commit-btn" bindtap="submit">发送</button>
+  </view>
+</view>
