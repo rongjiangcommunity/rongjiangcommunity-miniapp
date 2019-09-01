@@ -111,7 +111,7 @@ page{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 50rpx;
+  bottom: 40rpx;
   display: flex;
   justify-content: space-between;
   width: 230rpx;
