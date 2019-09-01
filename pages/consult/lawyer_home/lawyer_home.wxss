@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /* pages/consult/lawyer_home/lawyer_home.wxss */
 page{
     background-color: #FFF;
@@ -143,7 +143,7 @@ page{
   width: 0;
   height: 0;
   color: transparent;
-=======
+}
 /* pages/consult/lawyer_home/lawyer_home.wxss */
 page{
     background-color: #FFF;
@@ -288,5 +288,4 @@ page{
   width: 0;
   height: 0;
   color: transparent;
->>>>>>> d47cb1550bafddb8b11de83a54fa188f6f900abf
 }

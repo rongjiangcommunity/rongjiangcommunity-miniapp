@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /* pages/consult/consult_input/consult_input.wxss */
 /* 顶部律师信息 */
 .list_item{
@@ -107,7 +107,7 @@
   color: #B2B2B2;
   font-size: 32rpx;
   line-height: 44rpx;
-=======
+}
 /* pages/consult/consult_input/consult_input.wxss */
 /* 顶部律师信息 */
 .list_item{
@@ -216,5 +216,4 @@
   color: #B2B2B2;
   font-size: 32rpx;
   line-height: 44rpx;
->>>>>>> d47cb1550bafddb8b11de83a54fa188f6f900abf
 }

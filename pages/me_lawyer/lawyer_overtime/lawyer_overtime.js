@@ -1,12 +1,9 @@
 Page({
-<<<<<<< HEAD
   tel:function(){
     wx:wx.makePhoneCall({
       phoneNumber: '18565xxxxxx',
     })
   },
-=======
->>>>>>> d47cb1550bafddb8b11de83a54fa188f6f900abf
   /**
    * 生命周期函数--监听页面加载
    */
