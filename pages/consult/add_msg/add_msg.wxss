@@ -95,7 +95,7 @@ page{
    position: absolute;
    width: 100%;
    min-height: 100rpx;
-   bottom: 0rpx;
+   bottom: 44rpx;
 }
 .solve-box{
   position: absolute;

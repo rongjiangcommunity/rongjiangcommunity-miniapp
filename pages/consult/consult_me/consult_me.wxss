@@ -130,7 +130,7 @@ page{
 
 }
 .img{
-  margin-left: 52rpx;
+  /* margin-left: 52rpx; */
   height: 52rpx;
   width: 52rpx;
 }
@@ -142,11 +142,13 @@ page{
    display: flex;
    justify-content: center;
    align-items: center;
+   width: 142rpx;
+   /* border:1rpx solid #DDDDDD; */
 }
 .badge{
   position: absolute;
-  top: 31rpx;
-  right: -2rpx;
+  top: 30rpx;
+  right: 39rpx;
 }
 .navigator{
   width: 150rpx;

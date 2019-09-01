@@ -38,7 +38,7 @@
   </view>
 
   <view class="commit-box">
-    <textarea class="weui-textarea" value="{{inputValue}}" placeholder="请输入" bindinput="ins" auto-height='true' maxlength="300"/>
+    <textarea class="weui-textarea" cursor-spacing="30rpx"  value="{{inputValue}}" placeholder="请输入" bindinput="ins" auto-height='true' maxlength="400"/>
     <button type="primary" class="commit-btn" bindtap="submit">发送</button>
   </view>
 </view>
