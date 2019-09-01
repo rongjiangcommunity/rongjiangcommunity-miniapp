@@ -12,9 +12,13 @@
           <view class="intime">{{item.intime}}</view>
       </view>
       <view class="frame">
+<<<<<<< HEAD
       <view class="tel" bindtap="tel">
         <image class="img"  src="{{'/images/icons/Shape_phone.png'}}"></image>
       </view>
+=======
+        <image class="img"  src="{{'/images/icons/Shape_phone.png'}}"></image>
+>>>>>>> d47cb1550bafddb8b11de83a54fa188f6f900abf
         <view class="call">联系律师</view>
       </view>
     </view>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* pages/consult/consult.wxss */
 page{
   background: #FFF;
@@ -123,4 +124,131 @@ page{
   width: 0;
   height: 0;
   color: transparent;
+=======
+/* pages/consult/consult.wxss */
+page{
+  background: #FFF;
+}
+/* 顶部tab区域 */
+.header{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 30rpx;
+  margin-bottom: 40rpx;
+  padding: 32rpx 0 30rpx 40rpx;
+  background-color:#F2F9FE;
+  font-size: 32rpx;
+  font-weight: 700;
+  line-height: 44rpx;
+  color: #333;
+}
+.header .arrow{
+  position: absolute;
+  top: 50%;
+  right: 28rpx;
+  transform: translateY(-50%);
+}
+.header .arrow image{
+  width: 16rpx;
+  height: 24rpx;
+}
+.btn_answer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 106rpx;
+  width: 240rpx;
+}
+.btn_icon{
+  position: relative;
+  margin-right: 20rpx;
+  width: 90rpx;
+  height: 90rpx;
+}
+.btn_icon .icon{
+  width: 90rpx;
+  height: 90rpx;
+}
+.btn_icon .badge{
+  position: absolute;
+  top: 5rpx;
+  right: 5rpx;
+}
+.btn_ask{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-shrink: 0;
+}
+.header .line{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 48rpx;
+  border-right: 2rpx solid #EAEAEA;
+}
+/* 律师列表区域 */
+.lawyerList{
+  margin-top: 40rpx;
+  background-color: #FFF;
+  color: #333;
+}
+.list_title{
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  font-weight: 600;
+}
+.list_item{
+  position: relative;
+  margin : 0 30rpx 20rpx;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 24rpx 0 rgba(0,0,0,0.06);
+}
+.item_name{
+  font-size: 32rpx;
+  font-weight: 700;
+  line-height: 44rpx;
+}
+.list_info{
+  margin-top: 8rpx;
+  line-height: 34rpx;
+}
+.item_addr,.item_firm{
+  font-size: 24rpx;
+  margin-right: 10rpx;
+  font-weight: 500;
+}
+.list_item .info_pro{
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* 页脚部分 */
+.footer{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  width: 230rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #999;
+  }
+  ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+>>>>>>> d47cb1550bafddb8b11de83a54fa188f6f900abf
 }
