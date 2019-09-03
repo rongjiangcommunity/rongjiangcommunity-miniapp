@@ -25,7 +25,7 @@ Page({
     offset: 0,
     from: '', //我的咨询还是咨询我的来的
     color: '',  //不同状态颜色
-    toView: 'msg-5',
+    toView: 'msg-3',
   },
   //留言的伸展与收起
   ellipsis: function () {
@@ -36,11 +36,12 @@ Page({
   },
   //提交留言后动态创建dom结点
   submit: function() {
-    let submitTime = util.formatTime(new Date(), true);
     let sid = app.getCredentials();
     var self = this;
-    this.setData({submitTime})
-    // let wxAppendDataItem = {
+    this.setData({
+      consultList: [],
+      offset: 0
+    });    // let wxAppendDataItem = {
     //   node: 'element',
     //   tag: 'view',
     //   content: '',
@@ -79,16 +80,12 @@ Page({
       callback: function (res) {
         if(res.data.success){
           self.setData({
-            inputValue: '',
-            consultList: [],
-            offset: 0
-          });
-
-          self.requestData(5, 'msg-3');
+            inputValue: ''
+          })
+          self.requestData(8, 'msg-6');
         }
       }
     });
-    console.log(this.data.toView)
   },
   
   judgeColor(status) {
@@ -109,6 +106,7 @@ Page({
       success: function (res) {
         let scrollH = res.windowHeight;
         let height = from === "'consult_me'" ? 25 : 0;
+        console.log(scrollH - height)
         self.setData({
           scrollH: scrollH - height
         });
@@ -127,7 +125,7 @@ Page({
     let sid = app.getCredentials();
 
   //获取留言列表以及当前留言
-    this.requestData(5, 'msg-3');
+    this.requestData(8, 'msg-6');
   
   },
 
@@ -143,8 +141,7 @@ Page({
         count: count
       },
       callback: function (res) {
-        console.log(self.data.from)
-
+        // console.log(self.data.from)
         var leftBubble = self.data.from === "'consult_me'" ? 'fromUid' : 'toUid';
         var rightBubble = leftBubble === 'fromUid' ? 'toUid' : 'fromUid';
         var consultData = res.data.data;
@@ -237,10 +234,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.createSelectorQuery().select('#consult-content').context(function (res) {
-      console.log(res)
-    }).exec()
-
   },
 
   /**

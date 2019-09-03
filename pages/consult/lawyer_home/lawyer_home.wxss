@@ -93,7 +93,7 @@ page{
   background-color: #FFF;
   border: none;
 }
-.info_btn button::after{
+button::after{
   border: 0;
 }
 .info_btn .line{
@@ -109,14 +109,19 @@ page{
   white-space: pre-wrap;
 }
 .info_achieve{
-  margin-top: 48rpx;
+  margin: 48rpx 0 120rpx 0;
   white-space: pre-wrap;
 }
 /* 咨询按钮 */
 .consult_btn{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20rpx;
   margin-top: 40rpx;
-  width: 100%;
-  height: 100rpx;
+  width: 650rpx;
+  height: 90rpx;
+  border-radius: 8rpx;
 }
 .consult_btn button{
   width: 100%;
@@ -135,9 +140,4 @@ page{
   font-size: 28rpx;
   line-height: 40rpx;
   color: #666;
-}
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  color: transparent;
 }

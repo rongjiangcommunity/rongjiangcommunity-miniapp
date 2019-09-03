@@ -1,5 +1,4 @@
 <import src="/pages/tmpl/tmpl.wxml"/>
-
 <view class="header-box">
   <view class="person-box">
     <view class="person-content">
@@ -18,7 +17,7 @@
   </view>
 </view>
 
-<view class="bubble-content-wrapper" style="  height:{{scrollH-203}}px;" >
+<view class="bubble-content-wrapper" style="height:{{scrollH-184}}px;">
   <scroll-view class="bubble-content" bindscrolltoupper="loadMore" scroll-y="true" scroll-into-view="{{toView}}">
    <view>
      <view class="talk-box" wx:for="{{realConsultList}}" wx:for-index="index" wx:key="index">
@@ -40,7 +39,7 @@
   </view>
 
   <view class="commit-box">
-    <textarea class="weui-textarea"  value="{{inputValue}}" placeholder="请输入" bindinput="ins" auto-height='true' maxlength="300"/>
+    <textarea class="weui-textarea" value="{{inputValue}}" placeholder="请输入" cursor-spacing="30rpx" bindinput="ins" auto-height='true' maxlength="300"/>
     <button type="primary" class="commit-btn" bindtap="submit">发送</button>
   </view>
 </view>

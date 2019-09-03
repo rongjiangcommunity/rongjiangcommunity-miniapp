@@ -131,7 +131,7 @@ page{
 
 }
 .img{
-  margin-left: 52rpx;
+  /* margin-left: 52rpx; */
   height: 52rpx;
   width: 52rpx;
 }
@@ -140,12 +140,13 @@ page{
   margin: 61rpx 42rpx 0 14rpx;
   border-left: 1rpx solid #DDDDDD;
   height: 120rpx;
+  width: 142rpx;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .badge{
   position: absolute;
-  top: 40rpx;
-  right: 2rpx;
+  top: 36rpx;
+  right: 48rpx;
 }
