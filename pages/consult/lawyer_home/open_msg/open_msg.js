@@ -9,11 +9,10 @@ Page({
     strCount : 300,
     modalTitle: "",
     disabled: true,
-    onFocus: false,   
-    isShowText: false,
-    remark: '',       
-
-
+    onFocus: false,                  //textarea焦点显示
+    isShowText: false,              //判断显示textarea  or  text
+    remark: '',                    //textarea与text内文字内容
+    inputVal: false,              //判断用户是否有输入内容
   },
 
   /**
@@ -147,19 +146,41 @@ Page({
       showModal: false,
     })
   },
-  onShowTextare() {      
-    this.setData({
-      isShowText: false,
-      onFocus: true
-    })
+  // 点击textarea替代文本text时处理函数
+  onShowTextare() {
+    const inputVal=this.data.remark;
+    if (inputVal != '请详细叙述您遇到的问题及法律诉求，便于律师解答您的问题'){
+      this.setData({
+        isShowText: false,
+        onFocus: true
+      });
+    }else{
+      this.setData({
+        remark: '',
+        isShowText: false,
+        onFocus: true
+      })
+    }   
+    
   },
+  // textarea失焦时处理函数
   onRemarkInput(event) {               
     var value = event.detail.value;
-    this.setData({
-      remark: value,
-      isShowText: true,
-      onFocus: false
-    });
+    if (value != '') {
+      this.setData({
+        inputVal: true,
+        remark: value,
+        isShowText: true,
+        onFocus: false
+      });
+    }else{
+      this.setData({
+        inputVal: false,
+        remark: '请详细叙述您遇到的问题及法律诉求，便于律师解答您的问题',
+        isShowText: true,
+        onFocus: false
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面显示
