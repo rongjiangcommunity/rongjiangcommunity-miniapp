@@ -10,29 +10,27 @@
   </view>
 
   <view class="consult-box">
-    <text class="consult-content {{ellipsis?'ellipsis':'unellipsis'}}">{{currentMsg}}</text>
-    <view class='bg-white-ellipsis' bindtap='ellipsis'>
+    <text id="consult-content"  class="consult-content {{ellipsis?'ellipsis':'unellipsis'}}">{{currentMsg}}</text>
+    <!-- <view class='bg-white-ellipsis' bindtap='ellipsis' style='display: {{isDisplay? "flex": "none"}}'>
       <text class="text-ellipsis">{{ellipsis? '更多': '收起'}}</text>
       <image class='img-ellipsis' src="{{ellipsis?'/images/icons/toDown.png':'/images/icons/toUp.png'}}"/>
-    </view>
+    </view> -->
   </view>
 </view>
 
-<view class="bubble-content-wrapper">
-  <scroll-view class="bubble-content" bindscrolltoupper="loadMore" scroll-y="true" scroll-into-view="{{toView}}" style="height:100%">
+<view class="bubble-content-wrapper" style="  height:{{scrollH-203}}px;" >
+  <scroll-view class="bubble-content" bindscrolltoupper="loadMore" scroll-y="true" scroll-into-view="{{toView}}">
    <view>
-      <view class="talk-box" wx:for="{{realConsultList}}" wx:for-index="index" wx:key="index">
-    <view class="bubble-box" id='msg-{{index}}'>
-      <view class="{{item.fromUid === fromUid? 'left-bubble': 'right-bubble'}}">
+     <view class="talk-box" wx:for="{{realConsultList}}" wx:for-index="index" wx:key="index">
+       <view class="bubble-box" id='msg-{{index}}'>
+       <view class="{{item.fromUid === fromUid? 'left-bubble': 'right-bubble'}}">
         {{item.msg}}
       </view>
       <view class="{{item.fromUid === fromUid? 'date left-date': 'date right-date'}}">{{item.gmtCreate}}</view>
     </view>
+     </view>
     </view>
-    <view>
-        <template is="Tmpl" data="{{wxAppendData}}"/>
-    </view>
-   </view>
+
   </scroll-view>
 </view>
 
@@ -42,7 +40,7 @@
   </view>
 
   <view class="commit-box">
-    <textarea class="weui-textarea" value="{{inputValue}}" placeholder="请输入" bindinput="ins" auto-height='true' maxlength="300"/>
+    <textarea class="weui-textarea"  value="{{inputValue}}" placeholder="请输入" bindinput="ins" auto-height='true' maxlength="300"/>
     <button type="primary" class="commit-btn" bindtap="submit">发送</button>
   </view>
 </view>

@@ -2,16 +2,18 @@
 <!-- Title   咨询中   已完成 -->
   <view class="frame_state">
     <view class="frame_text">
-        <view class="{{clickTitle==1?'textB':'text'}}"  bindtap="changeClickTitle" data-xid="1">咨询中</view>
-       <block wx:if="{{clickTitle==1}}">
+      <block wx:if="{{clickTitle==1}}">
            <image src="/images/icons/3.png" class="border"></image>
         </block>
+        <view class="{{clickTitle==1?'textB':'text'}}"  bindtap="changeClickTitle" data-xid="1">咨询中</view>
+     
      </view>
      <view class="frame_text">
-      <view class="{{clickTitle==0?'textB':'text'}}" bindtap="changeClickTitle" data-xid="0">已完成</view>
-        <block wx:if="{{clickTitle==0}}">
+      <block wx:if="{{clickTitle==0}}">
            <image src="/images/icons/3.png" class="border"></image>
         </block>
+      <view class="{{clickTitle==0?'textB':'text'}}" bindtap="changeClickTitle" data-xid="0">已完成</view>
+       
      </view>
   </view> 
   <scroll-view scroll-y="true" style="height:542px" bindscrolltolower="lowerMoreClassify">
@@ -35,7 +37,7 @@
                       <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.user.name}}&lawyerAdress={{item.user.period}}&lawyerStatus={{item.status}}&from='consult_me'">
                   <view class="frame">
                    <image class="img"  src="/images/icons/envelope.png" ></image>   
-                   <block wx:if="{{item.hasUnread==false}}">
+                   <block wx:if="{{item.hasUnread}}">
                       <mp-badge extClass="badge"></mp-badge>
                      </block>
                 
@@ -45,7 +47,7 @@
             </block>
        </block> 
        <block wx:elif="{{undoneData[0].msg==null}}">
-        暂无数据
+        <mp-blank/>
         </block>
     </block>
 
@@ -69,7 +71,7 @@
                       <navigator  url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.user.name}}&lawyerAdress={{item.user.period}}&lawyerStatus={{item.status}}&from='consult_me'">
                   <view class="frame">
                   <image class="img"  src="/images/icons/envelope.png" ></image>  
-                   <block wx:if="{{item.hasUnread==false}}">
+                   <block wx:if="{{item.hasUnread}}">
                       <mp-badge extClass="badge"></mp-badge>
                      </block>
              
@@ -79,7 +81,7 @@
             </block>
        </block> 
        <block wx:elif="{{doneData[0].msg==null}}">
-        暂无数据
+        <mp-blank/>
         </block>
       </block>
     </scroll-view>

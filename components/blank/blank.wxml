@@ -1,0 +1,5 @@
+<!-- 当无数据时的页面 -->
+<view class="frame">
+    <image src="/images/icons/189077.jpg" class="picture" />
+    <text class="text">暂无数据，先去咨询律师一下吧</text>
+</view>

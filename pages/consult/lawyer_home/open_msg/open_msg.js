@@ -19,6 +19,7 @@ Page({
     const credentials = app.getCredentials();
     const that=this;
     const lawyerInfo=JSON.parse(options.info);
+    this.getWindowHeight();
     that.setData({
       lawyerInfo:lawyerInfo,
     })
@@ -64,6 +65,7 @@ Page({
   consultSubmit:function(e){
     const credentials = app.getCredentials();
     const that=this;
+    const formId=e.detail.formId;
     const msg = e.detail.value.message;
     const fromUid = that.data.fromUid;
     const toUid=that.data.lawyerInfo.uid;
@@ -81,7 +83,7 @@ Page({
       wx.request({
         url: app.serverUrl + '/api/lawyer/msg/open/' + credentials,
         method: 'POST',
-        data: { "msg": msg, "fromUid": fromUid, "toUid": toUid},
+        data: { "msg": msg, "fromUid": fromUid, "toUid": toUid,"formId":formId},
         success(res) {
           console.log(res.data);
           if(res.data.success){
@@ -104,6 +106,19 @@ Page({
         }
       })     
     }   
+  },
+  getWindowHeight: function () {
+    const that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        const windowHeight = res.windowHeight;
+        const windowWidth = res.windowWidth;
+        let inputHeight = windowHeight * 750 / windowWidth - 450;
+        that.setData({
+          inputHeight: inputHeight,
+        });
+      }
+    });
   },
   btnHandle:function(e){
     console.log(e)
