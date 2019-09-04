@@ -52,6 +52,9 @@ Page({
     } else if (!startDate || !endDate) {
       return getApp().failAlert('请输在职时间！')
     }
+    if (endDate <= startDate ) {
+      return getApp().failAlert('在职时间的起始时间应小于结束时间！')
+    }
     console.log(multiIndex)
     let experience = this.data.experience;
     let tempDatas = {
