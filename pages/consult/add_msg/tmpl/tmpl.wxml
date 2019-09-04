@@ -1,3 +1,4 @@
+
 <template name="Tmpl">
     <block wx:for="{{wxAppendData}}" wx:key="">
         <template is="Tmpl1" data="{{item}}"/>

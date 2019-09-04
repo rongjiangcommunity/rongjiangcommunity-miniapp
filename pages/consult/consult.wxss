@@ -1,3 +1,4 @@
+
 /* pages/consult/consult.wxss */
 page{
   background: #FFF;
@@ -53,7 +54,7 @@ page{
   display: flex;
   flex-direction: row;
   align-items: center;
-  flex-shrink: 1;
+  flex-shrink: 0;
 }
 .header .line{
   position: absolute;
@@ -108,10 +109,7 @@ page{
 }
 /* 页脚部分 */
 .footer{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 70rpx;
+  margin: 72rpx auto;
   display: flex;
   justify-content: space-between;
   width: 230rpx;
@@ -123,4 +121,4 @@ page{
   width: 0;
   height: 0;
   color: transparent;
-}
+  }

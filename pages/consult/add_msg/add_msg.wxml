@@ -1,5 +1,4 @@
 <import src="/pages/tmpl/tmpl.wxml"/>
-
 <view class="header-box">
   <view class="person-box">
     <view class="person-content">

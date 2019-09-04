@@ -17,10 +17,10 @@ Page({
     //下拉请求参数
     undoneOffset: 0,  //初始页
     undoneCount: 10,
-    undoneSet: 1,  //用于记录下拉请求了几次
+    undoneSet: 0,  //用于记录下拉请求了几次
     doneOffset: 0,  //初始页
     doneCount: 10,
-    doneSet: 1,//用于记录下拉请求了几次
+    doneSet: 0,//用于记录下拉请求了几次
     clickTitle: 1 //1表示咨询中，0表示已完成
   },
 
@@ -28,7 +28,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
   //未完成的消息记录
   undonerequest: function (e) {
@@ -53,20 +52,21 @@ Page({
             temp[i].status = "咨询中";
           }
         }
-        if (that.data.undoneSet == 1) { //直接赋值
+        if (that.data.undoneSet == 0) { //直接赋值
           //重新赋值
           that.setData({
             undoneData: temp
           })
         } else {
           var arr = that.data.undoneData;
-          arr = arr.concat(temp)
-          that.setData({
-            undoneData: arr
-          })
+          console.log(arr)
+          if (temp != null) {
+            arr = arr.concat(temp)
+            that.setData({
+              undoneData: arr
+            })
+          }
         }
-
-
         console.log("+++++++++++++++++++++++++++++++++++")
         console.log(that.data.undoneData)
 
@@ -90,6 +90,7 @@ Page({
       method: 'GET',
       success(res) {
         var temp = res.data.data;
+        //替换返回值中status状态为中文
         for (var i in temp) {
           if (temp[i].status == "closed" || temp[i].status == "finished") {
             temp[i].status = "已完成";
@@ -97,20 +98,23 @@ Page({
             temp[i].status = "超时关闭";
           }
         }
-        if (that.data.doneSet == 1) { //直接赋值
-          //重新赋值
+        if (that.data.doneSet == 0) { //直接赋值
           that.setData({
             doneData: temp
           })
         } else {
           var arr = that.data.doneData;
-          arr = arr.concat(temp)
-          that.setData({
-            doneData: arr
-          })
+          if (temp != null) {
+            arr = arr.concat(temp)
+            that.setData({
+              doneData: arr
+            })
+          }
+
+          // }
+          console.log("==========")
+          console.log(that.data.doneData)
         }
-        console.log("==========")
-        console.log(that.data.doneData)
       }
     })
   },
@@ -125,20 +129,17 @@ Page({
   lowerMoreClassify: function (e) {
     // console.log(this.data.undoneData.length)
     let that = this;
-    if (that.data.clickTitle == 1) {
-
-      var undoneSet = that.data.undoneSet * 10
-      //如果数据的长度触底，
-      if (that.data.undoneData.length > undoneSet) {
-        that.setData({
-          undoneOffset: that.data.undoneOffset + that.data.undoneCount
-        })
-        that.undonerequest(); //重新获取信息
-      }
-
-    } else if (that.data.clickTitle == 0) {
+    if (that.data.clickTitle == 1) {  //分辨已完成还是咨询中的内容
       that.setData({
-        doneOffset: that.data.doneOffset + that.data.doneCount
+        undoneSet: 1,
+        undoneOffset: that.data.undoneOffset + that.data.undoneCount,
+      })
+      that.undonerequest(); //重新获取信息
+
+    } else if (that.data.clickTitle == 0) { //完成
+      that.setData({
+        doneOffset: that.data.doneOffset + that.data.doneCount,
+        doneSet: 1
       })
       that.donerequest();//重新获取信息
     }

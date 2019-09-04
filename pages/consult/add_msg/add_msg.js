@@ -157,6 +157,7 @@ Page({
           currentMsg: consultData.top.msg,
           fromUid: consultData.top[leftBubble],
           toUid: consultData.top[rightBubble],
+          isShow: self.data.from === "'consult_me'"? true: false
         })
                
         //连接

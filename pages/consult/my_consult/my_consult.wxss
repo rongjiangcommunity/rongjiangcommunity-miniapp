@@ -32,19 +32,20 @@ page{
   color: #B2B2B2;
 }
 .textB{
-  margin-top: 31rpx;
+  /* margin-top: 31rpx; */
   font-size: 28rpx;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #008DF8;
+  margin-bottom: 23rpx;
 }
 .border{
-  margin-top: 18rpx;
-  width: 60rpx;
-  height: 11rpx;
+  margin-bottom: 28rpx;
+  width: 89rpx;
+  height: 6rpx;
   align-self: center;
-  justify-self: center;
+  justify-self: flex-start;
 }
 .frame_PDocument{
   margin-top: 30rpx;
@@ -130,7 +131,7 @@ page{
 
 }
 .img{
-  margin-left: 52rpx;
+  /* margin-left: 52rpx; */
   height: 52rpx;
   width: 52rpx;
 }
@@ -139,12 +140,13 @@ page{
   margin: 61rpx 42rpx 0 14rpx;
   border-left: 1rpx solid #DDDDDD;
   height: 120rpx;
+  width: 142rpx;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .badge{
   position: absolute;
-  top: 40rpx;
-  right: 2rpx;
+  top: 36rpx;
+  right: 48rpx;
 }

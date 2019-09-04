@@ -10,7 +10,7 @@
       <view class="btn_title">校友咨询</view>
     </view>
   </navigator>
-  <view class="line" wx:if="isLawyer"></view>
+  <view class="line" wx:if="{{isLawyer}}"></view>
   <navigator url="./my_consult/my_consult" hover-class="none">
     <view class="btn_ask">
       <view class="btn_icon">
@@ -26,8 +26,8 @@
 </view>
 <!-- 律师列表区域 -->
 <view class="lawyerList">
-  <view class="list_title">本版块律师皆为一中校友</view>
   <scroll-view scroll-y="true" style="height:{{scrollHeight}}rpx;">
+  <view class="list_title">本版块律师皆为一中校友</view>
   <view class="list_item" wx:for="{{lawyerList}}" wx:key="item.id" data-info="{{item}}" bindtap="goToLawyer">
     <view class="item_name">{{item.name}}</view>
     <view class="item_info">
@@ -92,11 +92,11 @@
     </view>
     <view class="info_pro">但是但是大奥大多大奥多撒阿达大大</view>
   </view>
+  <!-- 页脚区域 -->
+  <view class="footer">
+    <navigator url="../me_feedback/me_feedback" hover-class="none">反馈建议</navigator> | <view bindtap="showModal">加入我们</view>
+  </view>
   </scroll-view>
-</view>
-<!-- 页脚区域 -->
-<view class="footer">
-  <navigator url="../me_feedback/me_feedback" hover-class="none">反馈建议</navigator> | <view bindtap="showModal">加入我们</view>
 </view>
 <!-- 弹窗组件 -->
 <modal 
