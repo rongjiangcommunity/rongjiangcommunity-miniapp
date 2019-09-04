@@ -50,7 +50,11 @@
   text-align: center;
   border-right: 1px solid #dedede;
 }
-.btn-confirm {
+.btn-confirm{
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+
   font-size: 32rpx;
   line-height: 100rpx;
   color: #008DF8;
