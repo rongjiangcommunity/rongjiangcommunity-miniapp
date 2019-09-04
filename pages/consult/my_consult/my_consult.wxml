@@ -31,10 +31,10 @@
             </view>
                   <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
                   </view>
-                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.lawyer.name}}&lawyerAdress={{item.lawyer.mobile}}&lawyerStatus={{item.status}}&from='my_consult'">
+                      <navigator hover-class="none" url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.lawyer.name}}&lawyerAdress={{item.lawyer.mobile}}&lawyerStatus={{item.status}}&from='my_consult'">
                   <view class="frame">
                   <image class="img"  src="/images/icons/massage.png" ></image>  
-                  <block wx:if="{{item.hasUnread==false}}">
+                  <block wx:if="{{item.hasUnread}}">
                      <mp-badge extClass="badge"></mp-badge>
                   </block>
                   </view>
@@ -62,10 +62,10 @@
             </view>
                   <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
                   </view>
-                      <navigator url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.lawyer.name}}&lawyerAdress={{item.lawyer.mobile}}&lawyerStatus={{item.status}}&from='my_consult'">
+                      <navigator hover-class="none" url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.lawyer.name}}&lawyerAdress={{item.lawyer.mobile}}&lawyerStatus={{item.status}}&from='my_consult'">
                   <view class="frame">
                      <image class="img"  src="/images/icons/massage.png" ></image>  
-                      <block wx:if="{{item.hasUnread==false}}">
+                      <block wx:if="{{item.hasUnread}}">
                          <mp-badge extClass="badge"></mp-badge>
                       </block>
                   </view>

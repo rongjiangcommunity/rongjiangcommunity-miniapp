@@ -54,14 +54,19 @@ page{
   color: #999;
 }
 /* 咨询内容部分---------有时间理解 */
+.consult-box{
+  max-height: 120rpx;
+  line-height: 40rpx;
+  overflow-y: scroll;
+}
 .consult-content{
   width: 630rpx;
   font-size: 24rpx;
   color: #333;
-  display: -webkit-box;
-  -webkit-box-orient:vertical;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break:break-all;
   text-overflow: ellipsis;
-  overflow:hidden; 
 }
 .bg-white-ellipsis{
   height: 30rpx;
@@ -83,11 +88,9 @@ page{
 }
 .ellipsis{
   -webkit-line-clamp:3;
-  opacity: 0.75; 
 }
 .unellipsis{
   -webkit-line-clamp:0; 
-  opacity: 1;
 }
 
 /* 关闭咨询部分 */
@@ -106,6 +109,7 @@ page{
   bottom: 100%;
   color: #008DF8;
   font-size: 24rpx;
+  background: #fff;
 }
 
 /* 提交部分 */
@@ -146,11 +150,19 @@ page{
 
 /* 聊天气泡部分 */
 .bubble-content-wrapper{
-  height: 800rpx;
   overflow: scroll;
+}
+.bubble-content{
+  height: 100%;
 }
 .bubble-box{ 
   margin-bottom: 40rpx;
+}
+/* 用空白区域设置在底部，实现顶起最后一条留言*/
+.bubble-bank-box{
+  width: 100%;
+  background:#fff;
+  height: 10rpx;
 }
 .left-bubble, .right-bubble {
   font-size: 28rpx;

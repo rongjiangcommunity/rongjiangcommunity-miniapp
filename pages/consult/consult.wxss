@@ -11,7 +11,6 @@ page{
   margin: 30rpx;
   margin-bottom: 40rpx;
   padding: 32rpx 0 30rpx 40rpx;
-  height: 152rpx;
   background-color:#F2F9FE;
   font-size: 32rpx;
   font-weight: 700;
@@ -66,18 +65,20 @@ page{
 }
 /* 律师列表区域 */
 .lawyerList{
-  margin: 40rpx 30rpx 0;
+  margin-top: 40rpx;
   background-color: #FFF;
   color: #333;
 }
 .list_title{
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
   font-size: 28rpx;
   line-height: 40rpx;
   font-weight: 600;
 }
 .list_item{
   position: relative;
-  margin-top: 20rpx;
+  margin : 0 30rpx 20rpx;
   padding: 30rpx;
   border-radius: 16rpx;
   box-shadow: 0 4rpx 24rpx 0 rgba(0,0,0,0.06);
@@ -110,7 +111,7 @@ page{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 72rpx;
+  bottom: 70rpx;
   display: flex;
   justify-content: space-between;
   width: 230rpx;
@@ -118,3 +119,8 @@ page{
   line-height: 34rpx;
   color: #999;
   }
+  ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

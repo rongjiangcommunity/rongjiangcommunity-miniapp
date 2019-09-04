@@ -64,6 +64,7 @@ page{
 .name{
   margin-left: 20rpx;
   font-size: 32rpx;
+  font-weight: 700;
   color: #333333;
 }
 .office{
@@ -104,6 +105,7 @@ page{
 }
 .msg{
     /* 多文本溢出 */
+    line-height: 34rpx;
     overflow : hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -134,13 +136,12 @@ page{
 }
 .frame{
   position: relative;
-  margin-top: 61rpx;
-  margin-left: 14rpx;
+  margin: 61rpx 42rpx 0 14rpx;
   border-left: 1rpx solid #DDDDDD;
-   height: 120rpx;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .badge{
   position: absolute;

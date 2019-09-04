@@ -35,7 +35,8 @@
     "pages/consult/my_consult/my_consult",
     "pages/consult/lawyer_home/lawyer_home",
     "pages/consult/lawyer_home/open_msg/open_msg",
-    "pages/consult/add_msg/add_msg"
+    "pages/consult/add_msg/add_msg",
+    "pages/header/header"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -51,15 +52,15 @@
     "list": [
       {
         "text": "首页",
-        "pagePath": "pages/index/index",
-        "iconPath": "images/icons/Shape_gray.png",
-        "selectedIconPath": "images/icons/Shape.png"
+        "pagePath": "pages/header/header",
+        "iconPath": "images/icons/home_h@2x (1).png",
+        "selectedIconPath": "images/icons/home_h@2x.png"
       },
       {
         "text": "我的",
         "pagePath": "pages/me/me",
-        "iconPath": "images/icons/Mine_gray.png",
-        "selectedIconPath": "images/icons/Mine.png"
+        "iconPath": "images/icons/accound@2x.png",
+        "selectedIconPath": "images/icons/accound@2x (1).png"
       }
     ]
   },
@@ -69,4 +70,3 @@
     "van-button": "/dist/button/index"
   }
 }
-
