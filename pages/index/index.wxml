@@ -13,37 +13,43 @@
   <view class='bottom-action' wx:if="{{approved}}">
     <navigator url="../me_info/me_info">
       <view class="item-box">
-        <image class="item-img" src="../../images/icons/member.png" background-size="cover"/>
+        <image class="item-img" src="../../images/icons/data@3x.png" background-size="cover"/>
         <text class="item-title">会员资料</text>
-        <text class="item-raw"> > </text>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
       </view>
     </navigator>
     <navigator url="../me_dues/me_dues">
       <view class="item-box">
-        <image class="item-img" src="../../images/icons/pay.png" background-size="cover"/>
+        <image class="item-img" src="../../images/icons/dues@3x.png" background-size="cover"/>
         <text class="item-title">缴纳会费</text>
-        <text class="item-raw"> > </text>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
       </view>
     </navigator>
     <navigator url="../me_doctor/me_doctor">
       <view class="item-box">
-        <image class="item-img" src="../../images/icons/doctor.png" background-size="cover"/>
+        <image class="item-img" src="../../images/icons/doctor@3x.png" background-size="cover"/>
         <text class="item-title">寻医问药</text>
-        <text class="item-raw"> > </text>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
       </view>
     </navigator>
       <view class="item-box" bindtap='expect'>
-        <image class="item-img" src="../../images/icons/company.png" background-size="cover"/>
+        <image class="item-img" src="../../images/icons/enterprise@3x.png" background-size="cover"/>
         <text class="item-title">社区集市</text>
-        <text class="item-raw"> > </text>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
       </view>
       <view class="item-box" bindtap='expect'>
-        <image class="item-img" src="../../images/icons/marrige.png" background-size="cover"/>
+        <image class="item-img" src="../../images/icons/lawyer@3x.png" background-size="cover"/>
+        <text class="item-title">律师服务</text>
+          <image class="item-raw" src="/images/icons/arrow@2x.png" background-size="cover"/>
+      </view>
+      <view class="item-box" bindtap='expect'>
+        <image class="item-img" src="../../images/icons/love@3x.png" background-size="cover"/>
         <text class="item-title">鹊桥相会</text>
-        <text class="item-raw"> > </text>
+          <image class="item-raw" src="/images/icons/arrow@2x.png" background-size="cover"/>
       </view>
   </view>
 
+<!-- 认证部分 -->
   <view class='bottom-action' wx:if="{{!approved}}">
     <view class="weui-flex flex-content-center" wx:if="{{status==='pending'}}">
       <text>正在认证中，请等候工作人员完成认证。</text>
@@ -52,21 +58,31 @@
       <text >认证失败，请重新填写信息再次提交认证。</text>
     </view>
     <!-- 未提交 -->
-    <view wx:if="{{status!=='pending' && status!=='notok'}}">
+    <view class="weui-flex flex-content-center" wx:if="{{status!=='pending' && status!=='notok'}}">
       <view class="weui-flex flex-content-center" style="justify-content:center;">
-        <text>Hi, 认证校友抢先体验寻医问药新功能</text>
-      </view>
-      <view class="weui-flex flex-content-center">
-        <button bindtap="gotoRegister" class="register_btn weui-btn mini-btn" size="mini" type="primary">去认证</button>
+        <view class="weui-flex-wrapper">
+          <image class="tick-img" src="../../images/icons/notice@2x.png" mode="aspectFill"/>
+          <text class="tick-text">您还未认证校友</text>
+          <button bindtap="gotoRegister" class="register_btn" size="mini"                           type="primary">去认证</button>
+        </view>
       </view>
     </view>
   </view>
 </view>
 </block>
-<button 
-  wx:if="{{canIUse}}" 
-  hidden="{{hasUserInfo}}"
-  open-type="getUserInfo"
-  bindgetuserinfo="bindGetUserInfo">授权登录</button>
 
+<!-- 微信授权部分 -->
+<view
+ style='display: {{!hasUserInfo? "flex": "none"}}'
+ wx:if="{{canIUse}}"
+ class="community-content"
+>
+  <image class="community-img" src="../../images/icons/Community.png" mode="aspectFill"/>
+  <text class="community-title">欢迎来到榕江社区小程序</text>
+  <text class="community-raw">进入前请先进行微信授权</text>
+  <button
+    open-type="getUserInfo"
+    bindgetuserinfo="bindGetUserInfo"
+    class="get-user-info-btn">微信授权</button>
+</view>
 <view wx:else>请升级微信版本</view>

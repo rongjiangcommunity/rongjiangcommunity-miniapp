@@ -1,12 +1,18 @@
 <view class='item-list'>
   <view class='check-item' wx:for="{{proList}}" wx:key="{{item.uid}}" data-uid='{{item.uid}}' data-index='{{index}}'>
-    <view class='weui-article__title'>{{item.name}} {{item.period}}届{{item.g3}}班</view>
+    <view><text class="item_name">{{item.name}}</text><text class="item_period">{{item.period}}届{{item.g3}}班</text></view>
     <view class="check-body">
-      <view class="weui-media-box__desc">微信：{{item.wechat}}</view>
-      <view class="weui-media-box__desc">手机：{{item.mobile}}</view>
-      <view class="weui-media-box__desc">同班同学：{{item.classmates}}</view>
+      <view class="mobile">
+        <text>手机号: {{item.mobile}}</text>
+      </view>
+      <view class="wechat">
+        <text>微信号: {{item.wechat}}</text>
+      </view>
+      <view class="classmates">
+      <text>同班同学: {{item.classmates}}</text>
+      </view>
     </view>
-    <van-button class="quick-check" type="info" size="small" data-check='{{item}}' catchtap='toQuickCheck'>快速审核</van-button>
+    <button class="quick-check"  data-check='{{item}}' bindtap='toQuickCheck'>审核</button>
   </view>
 </view>
 
@@ -26,15 +32,14 @@
     <view class="modal-content">
       <view class="modal-input">
         <radio-group  name="radio-group"  bindchange="radioChange">
-          <label><radio value="1" color="#008DF8"/>通过</label>
-          <label><radio value="0" color="#008DF8"/>不通过</label>
+          <label class="label_l"><radio value="1" color="#008DF8"/>通过</label>
+          <label class="label_r"><radio value="0" color="#008DF8"/>不通过</label>
         </radio-group>
       </view>
     </view>
     <view class="modal-footer">
       <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
-      <button class="btn-confirm" form-type="submit" data-status="confirm" data-checkData="{{checkData}}" data-checkItem="{{radioItem}}">确定</button>
-      <!-- <view class="btn-confirm" bindtap="onConfirm" data-status="confirm" data-checkData="{{checkData}}" data-checkItem="{{radioItem}}">确定</view> -->
+      <button class="btn-confirm" form-type="submit" data-status="confirm" data-checkData="{{checkData}}" data-checkItem="{{radioItem}}">保存</button>
     </view>
   </form>
 </view>

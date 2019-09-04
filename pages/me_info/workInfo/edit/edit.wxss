@@ -31,5 +31,69 @@
   color: #fff;
 }
 .weui-cell__bd {
+  height: 50rpx;
   font-size:16px;
+}
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 160rpx;
+  width: 690rpx;
+  height: 100rpx;
+  background-color: #008DF8;
+  border-radius: 10rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
+}
+/* 8/17 */
+.lable-bold{
+  margin-top: 4.5rpx;
+  display: flex;
+
+}
+.text{
+  font-size: 30rpx;
+  /* font-weight: bold; */
+  font-family: PingFang-SC-Regular;
+  /* color: #666666; */
+}
+.label{
+  font-family: PingFang-SC-Regular;
+  font-size: 30rpx;
+}
+.frame{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.frame_one{
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.frame_text{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid rgb(231, 231, 231);
+}
+.frame_school{
+  margin-right: 42rpx;
+  font-size: 32rpx;
+  color: #333333;
+}
+.icon{
+  align-self: center;
+  justify-self: flex-end;
+  margin-right: 30rpx;
+  height: 28rpx;
+  width: 16rpx;
+}
+/* picker weui-cell__bd */
+.display{
+  width: 505.4rpx;
+  display: flex;
 }

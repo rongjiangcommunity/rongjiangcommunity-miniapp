@@ -2,6 +2,7 @@
 const app = getApp();
 Page({
   data:{
+    temp: false,
     startDate: null,
     endDate: null,
     multiIndex: [0, 0],
@@ -12,6 +13,8 @@ Page({
       title: '工作信息'
     })
     this.setData({ index: options.index })
+    console.log("sdadasd")
+    console.log(options)
   },
   onShow: function () {
     this.checkInfo();
@@ -37,6 +40,8 @@ Page({
     })
     let index = this.data.index
     let data = this.data.experience[index];
+    console.log("===================")
+    console.log(data)
     let what = data.what;
     let where = data.where;
     let when = data.when;
@@ -75,11 +80,24 @@ Page({
       when: [ startDate, endDate ],
       type: [getApp().firstINdustry[multiIndex[0]], getApp().secondIndustry[multiIndex[0]][multiIndex[1]]]
     };
+    //提示
+    wx.showToast({
+      title: '保存成功',
+      icon: 'succes',
+      duration: 4000,
+      mask: true
+    })
+
     let index = this.data.index
     experience[index] = tempDatas;
-    app.saveUserInfo({ experience }).then(() => {
-      wx.navigateBack();
-    });
+    //延迟自启
+    setTimeout(function () {
+      app.saveUserInfo({ experience }).then(() => {
+        wx.navigateBack();
+      })
+    }, 2000)
+
+
   },
   bindStartDateChange(e) {
     console.log('携带值为', e.detail.value)
@@ -95,9 +113,10 @@ Page({
   },
   bindMultiPickerChange(e) {
     console.log('picker发送选择改变，携带值为：：：', e.detail)
+    let { value } = e.detail
     this.setData({
-      multiIndex: e.detail.value,
-      recordMultiIndex: e.detail.value
+      multiIndex: value,
+      recordMultiIndex: [...value]
     })
   },
   bindMultiPickerColumnChange(e) {
@@ -119,16 +138,17 @@ Page({
     }
   },
   bindMultiPickercancel(e) {
-    let recordMultiIndex = this.data.recordMultiIndex
+    let { recordMultiIndex } = this.data;
     if (recordMultiIndex) {
       this.setData({
         multiArray: [getApp().firstINdustry, getApp().secondIndustry[recordMultiIndex[0]]],
-        multiIndex: recordMultiIndex
+        multiIndex: [...recordMultiIndex]
       });
-    } else {
-      this.setData({
-        recordMultiIndex: this.data.multiIndex
-      })
     }
+  },
+  display: function (e) {
+    this.setData({
+      temp: true
+    })
   }
 })

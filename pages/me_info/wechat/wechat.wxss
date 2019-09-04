@@ -1,1 +1,29 @@
-/* pages/me_info/wechat/wechat.wxss */
+.button{
+  width: 670rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  display: flex;
+  margin-top: 160rpx;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: #008DF8;
+}
+.frame_text{
+  margin-top: 20rpx;
+  width: 750rpx;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+.text{
+  margin-left: 30rpx;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Regular;
+}
+.text_number{
+  margin-left: 48rpx;
+  font-size: 32rpx;
+  color: #666666;
+}
