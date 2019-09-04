@@ -36,17 +36,17 @@ page{
 /* 高中、本科等学历 */
 .bachelorTiltle{
   border-radius: 4rpx;
-  padding-left: 10rpx;
+  padding-left: 12rpx;
   padding-right: 10rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  margin-bottom: 10rpx;
   /* 相对于框架frame_school */
-  align-self: center;
+  align-self: flex-end;
 
   background-color: rgba(0, 141, 248, 0.2);
-  margin-left: 11rpx;
+  margin-left: 15rpx;
   font-size: 18rpx;
   color: #008DF8;
 }
