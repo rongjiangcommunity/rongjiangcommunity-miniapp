@@ -42,8 +42,8 @@ page{
 }
 .border{
   margin-bottom: 28rpx;
-  width: 89rpx;
-  height: 6rpx;
+  width: 60rpx;
+  height: 10rpx;
   align-self: center;
   justify-self: flex-start;
 }
