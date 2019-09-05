@@ -12,7 +12,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.4.4",
 	"appid": "wx6ceb2515d7e20fa3",
-	"projectname": "%E6%8F%AD%E9%98%B3%E4%B8%80%E4%B8%AD%E6%A0%A1%E5%8F%8B%E9%80%9AV2.3",
+	"projectname": "%E6%8F%AD%E9%98%B3%E4%B8%80%E4%B8%AD%E6%A0%A1%E5%8F%8B%E9%80%9A",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -53,12 +53,6 @@
 					"name": "approve",
 					"pathName": "pages/approve/approve",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/me_info/me_info",
-					"pathName": "pages/me_info/me_info",
 					"scene": null
 				}
 			]
