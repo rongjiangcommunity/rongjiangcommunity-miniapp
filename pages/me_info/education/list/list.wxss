@@ -38,15 +38,14 @@ page{
   border-radius: 4rpx;
   padding-left: 10rpx;
   padding-right: 10rpx;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
-
+  justify-content: center; */
   /* 相对于框架frame_school */
-  align-self: center;
-
+  /* align-self: center; */
+  margin-bottom: 10rpx;
   background-color: rgba(0, 141, 248, 0.2);
-  margin-left: 11rpx;
+  margin-left: 15rpx;
   font-size: 18rpx;
   color: #008DF8;
 }
@@ -123,7 +122,7 @@ page{
 }
 .frame_SchoolName{
   display: flex;
-
+  align-items: flex-end;
 }
 .button{
   margin-top: 160rpx;
