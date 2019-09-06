@@ -1,4 +1,4 @@
-<!--pages/consult/consult_input/consult_input.wxml-->
+ <!--pages/consult/consult_input/consult_input.wxml-->
 <!-- 顶部律师信息 -->
 <view class="list_item">
   <view class="item_name">{{lawyerInfo.name}}</view>
@@ -11,7 +11,7 @@
   <view class="consult_input" style="height:{{inputHeight}}rpx">
     <view class="consult_title"><text>咨询内容</text></view>
     <view class="consult_content">
-      <textarea name="message" value="" placeholder="请详细叙述您遇到的问题及法律诉求，便于律师解答您的问题" placeholder-class="placeholder" maxlength="300" bindinput="strCount"></textarea>
+      <textarea name="message" value="" placeholder="请详细叙述您遇到的问题及法律诉求，便于律师解答您的问题（不少于15字）" placeholder-class="placeholder" maxlength="300" bindinput="strCount"></textarea>
       <view class="input_count">{{strCount}}/300</view>
     </view> 
   </view>
