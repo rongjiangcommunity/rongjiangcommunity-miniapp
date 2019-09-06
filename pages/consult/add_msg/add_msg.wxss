@@ -68,6 +68,8 @@ page{
   word-wrap: break-word;
   word-break:break-all;
   text-overflow: ellipsis;
+  display: flex;
+  justify-content: flex-start;
 }
 .bg-white-ellipsis{
   height: 30rpx;
