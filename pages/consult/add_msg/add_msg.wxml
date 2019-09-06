@@ -17,7 +17,7 @@
   </view>
 </view>
 
-<view class="bubble-content-wrapper" style="height:{{scrollH-180}}px;">
+<view class="bubble-content-wrapper" style="height:{{scrollH - fitHeight}}px;">
   <scroll-view class="bubble-content" bindscrolltoupper="loadMore" scroll-y="true" scroll-into-view="{{toView}}">
    <view>
      <view class="talk-box" wx:for="{{realConsultList}}" wx:for-index="index" wx:key="index">
@@ -29,9 +29,8 @@
     </view>
      </view>
     </view>
-
-  </scroll-view>
   <view class="bubble-bank-box"></view>
+  </scroll-view>
 </view>
 
 <view class="commit-wrap">
@@ -41,7 +40,7 @@
 
   <form  bindsubmit="submit" report-submit="true">
     <view class="commit-box" wx:if="{{status === '咨询中'}}">
-    <textarea class="weui-textarea" value="{{inputValue}}" placeholder="请输入" cursor-spacing="30rpx" bindinput="ins" auto-height='true' maxlength="300" name="formId"/>
+    <textarea class="weui-textarea" value="{{inputValue}}" placeholder="请输入" cursor-spacing="30rpx" bindinput="ins" auto-height='true' maxlength="300"/>
       <button type="primary" class="commit-btn" form-type="submit">发送</button>
     </view>
   </form>

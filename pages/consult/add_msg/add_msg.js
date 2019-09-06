@@ -74,6 +74,17 @@ Page({
    }
   },
 
+//适配高度函数
+  judgeFitHeight(userId, consulterId, status) {
+    if (userId === consulterId && status === '咨询中'){
+      return 200
+    }else if (status === '咨询中') {
+      return 150;
+    }else{
+      return 110;
+    }
+  },
+
   //加载函数
   onLoad: function (option) {  
     // console.log(app.data.userId)
@@ -104,20 +115,25 @@ Page({
 
   //获取留言列表以及当前留言
     this.requestData(9);
-    if (this.data.consultList && this.data.consultList.length !== 0) {
-      //标记已读，要判空时标记
-      util.send({
-        url: '/api/lawyer/msg/read/' + sid + '/' + self.data.pid,
-        method: 'POST',
-        callback: function (res) {
-          console.log(res.data);
-        }
-      });
-    }
-
+    //只能加载时调用一次，且消息记录不为空时候调用
+    util.send({
+      url: '/api/lawyer/msg/' + sid + '/' + self.data.pid,
+      method: 'GET',
+      callback: function (res) {
+        if (res.data.data.list){
+            //标记已读，要判空时标记
+            util.send({
+              url: '/api/lawyer/msg/read/' + sid + '/' + self.data.pid,
+              method: 'POST',
+            });
+          }     
+       }
+      })
+    
     this.setData({
       userId: app.data.userId
     })
+
   },
 
 //分页请求列表数据
@@ -140,38 +156,48 @@ Page({
         var copyConsultList;
         console.log(consultList)
         self.setData({
+          consultData,
           currentMsg: consultData.top.msg,
           fromUid: consultData.top[leftBubble],
           toUid: consultData.top[rightBubble],
           consulterId: consultData.top.fromUid
         })
         
+      //适配高度
+        var fitHeight = self.judgeFitHeight(app.data.userId, self.data.consulterId, self.data.status)
+        console.log(fitHeight)
+        self.setData({
+          fitHeight
+        })
         //连接
         if (consultList && consultList.length < count){
            //表示数据没了，不用再加载了
            self.setData({
              flag: false
            })
-          consultList.map(item => {
-            item.gmtCreate = util.formatTime(new Date(item.gmtCreate), true)
-          })
+
          }
 
-         consultList = self.data.consultList.concat(consultList)   
-         //实现数组的逆转，由于reverse会改变原来的数组，又要拼接不能改变原来的数组，所以在此再拷贝一个数组
-         console.log(self.data.consultList)
-         copyConsultList = self.data.consultList.concat(consultList);   
-         copyConsultList.reverse(); 
+        if (consultList){
+          //防止返回null的时候还继续连接数组
+           consultList.map(item => {
+             item.gmtCreate = util.formatTime(new Date(item.gmtCreate), true)
+           })
 
-        //连接完才能给consultList赋值
-         self.setData({
-           consultList,
-         })
+           consultList = self.data.consultList.concat(consultList)
+           //实现数组的逆转，由于reverse会改变原来的数组，又要拼接不能改变原来的数组，所以在此再拷贝一个数组
+           copyConsultList = self.data.consultList.concat(consultList);
+           copyConsultList.reverse(); 
+           //连接完才能给consultList赋值
+           self.setData({
+             consultList,
+           })
+         }
 
          var offset = self.data.offset + 9;
          if (copyConsultList && copyConsultList.length !== 0) {
         //定位可见范围为长度减1，保持滚动条可以上拉；改变返回数据的时间格式
-           console.log(copyConsultList.length)
+          //  console.log(copyConsultList.length)
            var len = copyConsultList.length - 1
            self.setData({
              consultList,

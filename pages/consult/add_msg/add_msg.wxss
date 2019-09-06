@@ -165,7 +165,7 @@ page{
 .bubble-bank-box{
   width: 100%;
   background:#fff;
-  height: 10rpx;
+  height: 20px;
 }
 .left-bubble, .right-bubble {
   font-size: 28rpx;
