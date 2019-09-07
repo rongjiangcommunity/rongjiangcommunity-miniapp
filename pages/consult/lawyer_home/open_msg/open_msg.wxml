@@ -1,0 +1,22 @@
+ <!--pages/consult/consult_input/consult_input.wxml-->
+<!-- 顶部律师信息 -->
+<view class="list_item">
+  <view class="item_name">{{lawyerInfo.name}}</view>
+  <view class="item_info"><text class="item_addr">广东广州</text><view class="line"></view><text class="item_firm">广州呵呵事务所</text></view>
+  <view class="info_pro">刑事辩护及控告，企业刑事风险防护，刑民交叉案件和其他相关方面的案件
+  </view>
+</view>
+<!-- 用户咨询输入框区域 -->
+<form bindsubmit="consultSubmit" report-submit="true">
+  <view class="consult_input" style="height:{{inputHeight}}rpx">
+    <view class="consult_title"><text>咨询内容</text></view>
+    <view class="consult_content">
+      <textarea name="message" value="" placeholder="请详细叙述您遇到的问题及法律诉求，便于律师解答您的问题（不少于15字）" placeholder-class="placeholder" maxlength="300" bindinput="strCount"></textarea>
+      <view class="input_count">{{strCount}}/300</view>
+    </view>
+  </view>
+<!-- 提交按钮 -->
+  <view class="submit_btn">
+    <button form-type="submit" disabled="{{disabled}}">提交</button>
+  </view>
+</form>
