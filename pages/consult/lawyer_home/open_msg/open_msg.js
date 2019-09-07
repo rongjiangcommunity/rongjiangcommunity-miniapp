@@ -7,12 +7,7 @@ Page({
   data: {
     lawyerInfo:{},
     strCount : 300,
-    modalTitle: "",
     disabled: true,
-    onFocus: false,                  //textarea焦点显示
-    isShowText: false,              //判断显示textarea  or  text
-    remark: '',                    //textarea与text内文字内容
-    inputVal: false,              //判断用户是否有输入内容
   },
 
   /**
@@ -68,48 +63,33 @@ Page({
   consultSubmit:function(e){
     const credentials = app.getCredentials();
     const that=this;
-    const formId=e.detail.formId;
-    console.log(e);
-    const msg = e.detail.value.message;
-    const fromUid = that.data.fromUid;
-    const toUid=that.data.lawyerInfo.uid;
-    if(that.data.strCount>285){
-      // 显示提示框
-      that.setData({
-        modalTitle: "提交失败",
-        modalMsg: "请详细描述您的问题，字数不少于15个字！",
-        modalBtn: "我知道了",
-        msgStatus: 0,
-        showModal: true
-      });
-    }else{
       // 调用打开信息接口
       wx.request({
         url: app.serverUrl + '/api/lawyer/msg/open/' + credentials,
         method: 'POST',
-        data: { "msg": msg, "fromUid": fromUid, "toUid": toUid,"formId":formId},
+        data: { "msg": e.detail.value.message, "fromUid": that.data.fromUid, "toUid": that.data.lawyerInfo.uid, "formId": e.detail.formId},
         success(res) {
-          console.log(res.data);
           if(res.data.success){
-            that.setData({
-              modalTitle: "提交成功",
-              modalMsg: "您的咨询已提交，请耐心等候律师解答",
-              modalBtn: "返回律师列表",
-              msgStatus: 1,
-              showModal: true
-            });
+            wx.showToast({
+              title: '提交成功',
+              duration: 2000,
+              success: function(){
+                setTimeout(function(){
+                  wx.navigateBack({
+                    delta: 2
+                  });
+                },1000);
+              }
+            })
           }else{
-            that.setData({
-              modalTitle: "提交失败",
-              modalMsg: "已存在进行中的对话，请到校友咨询中查看",
-              modalBtn: "返回律师列表",
-              msgStatus: 1,
-              showModal: true
-            });
+            wx.showToast({
+              title: '提交失败!已存在进行中的对话',
+              icon: 'none',
+              duration: 2000,
+            });        
           }   
         }
-      })     
-    }   
+      })        
   },
   getWindowHeight: function () {
     const that = this;
@@ -123,64 +103,6 @@ Page({
         });
       }
     });
-  },
-  btnHandle:function(e){
-    console.log(e)
-    const status = this.data.msgStatus;
-    if(status==0){
-      this.hideModal();
-    }
-    if(status==1){
-      this.backToList();
-    }
-  },
-  // 回到律师列表页面
-  backToList:function(){
-   wx.navigateBack({
-     delta: 2
-   })
-  },
-  // 隐藏提示框
-  hideModal:function(){
-    this.setData({
-      showModal: false,
-    })
-  },
-  // 点击textarea替代文本text时处理函数
-  onShowTextare() {
-    const inputVal=this.data.remark;
-    if (inputVal != '请详细叙述您遇到的问题及法律诉求，便于律师解答您的问题'){
-      this.setData({
-        isShowText: false,
-        onFocus: true
-      });
-    }else{
-      this.setData({
-        remark: '',
-        isShowText: false,
-        onFocus: true
-      })
-    }   
-    
-  },
-  // textarea失焦时处理函数
-  onRemarkInput(event) {               
-    var value = event.detail.value;
-    if (value != '') {
-      this.setData({
-        inputVal: true,
-        remark: value,
-        isShowText: true,
-        onFocus: false
-      });
-    }else{
-      this.setData({
-        inputVal: false,
-        remark: '请详细叙述您遇到的问题及法律诉求，便于律师解答您的问题',
-        isShowText: true,
-        onFocus: false
-      })
-    }
   },
   /**
    * 生命周期函数--监听页面显示

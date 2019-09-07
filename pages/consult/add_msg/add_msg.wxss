@@ -68,6 +68,8 @@ page{
   word-wrap: break-word;
   word-break:break-all;
   text-overflow: ellipsis;
+  display: flex;
+  justify-content: flex-start;
 }
 .bg-white-ellipsis{
   height: 30rpx;
@@ -158,6 +160,12 @@ page{
 }
 .bubble-box{ 
   margin-bottom: 40rpx;
+}
+/* 用空白区域设置在底部，实现顶起最后一条留言*/
+.bubble-bank-box{
+  width: 100%;
+  background:#fff;
+  height: 20px;
 }
 .left-bubble, .right-bubble {
   font-size: 28rpx;

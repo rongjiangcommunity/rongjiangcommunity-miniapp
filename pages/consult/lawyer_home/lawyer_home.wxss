@@ -133,6 +133,7 @@ button::after{
   background-color: #008DF8;
   border-radius: 0;
 }
+/* 信息弹窗组件 */
 .modal_content{
   margin: 20rpx 38rpx;
   height: 480rpx;
@@ -140,4 +141,9 @@ button::after{
   font-size: 28rpx;
   line-height: 40rpx;
   color: #666;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }

@@ -35,7 +35,8 @@
     "pages/consult/my_consult/my_consult",
     "pages/consult/lawyer_home/lawyer_home",
     "pages/consult/lawyer_home/open_msg/open_msg",
-    "pages/consult/add_msg/add_msg"
+    "pages/consult/add_msg/add_msg",
+    "pages/header/header"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -51,7 +52,7 @@
     "list": [
       {
         "text": "首页",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/header/header",
         "iconPath": "images/icons/home_h@2x (1).png",
         "selectedIconPath": "images/icons/home_h@2x.png"
       },
@@ -69,4 +70,3 @@
     "van-button": "/dist/button/index"
   }
 }
-
