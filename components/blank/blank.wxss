@@ -10,12 +10,12 @@ page{
   align-items: center;
 }
 .picture{
-  margin-top: 104rpx;
-  width: 248rpx;
-  height: 206rpx;
+  margin-top: 155rpx;
+  width: 295px;
+  height: 170px;
 }
 .text{
   margin-top: 20rpx;
   font-size: 28rpx;
-  color: #B2B2B2;
+  color: #9C9C9C;
 }

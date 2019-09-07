@@ -16,7 +16,7 @@
        
      </view>
   </view> 
-  <scroll-view scroll-y="true" style="height:542px" bindscrolltolower="lowerMoreClassify">
+  <scroll-view scroll-y="true" style='height:{{screenHight}}px' bindscrolltolower="lowerMoreClassify">
   <block wx:if="{{clickTitle==1}}">
       <block wx:if="{{undoneData[0].msg!=null}}">
           <block wx:for="{{undoneData}}" wx:key="{{index}}">

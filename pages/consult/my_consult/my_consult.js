@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    screenHight:0,//屏幕高度
     // "name": "肖律师",
     // "office": "XXXXXX律师事务所",
     // "chatState": "咨询中",
@@ -28,6 +28,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //获取屏幕尺寸
+    let windowHeight = wx.getSystemInfoSync().windowHeight;
+    console.log(windowHeight)
+    this.setData({
+      screenHight: windowHeight -60
+    })
   },
   //未完成的消息记录
   undonerequest: function (e) {

@@ -16,7 +16,7 @@
        
      </view>
   </view> 
-  <scroll-view scroll-y="true" style="height:542px" bindscrolltolower="lowerMoreClassify">
+  <scroll-view scroll-y="true" style='height:{{screenHight}}px'bindscrolltolower="lowerMoreClassify">
   <block wx:if="{{clickTitle==1}}">
    <!-- 如果undoneData中的第一个数据的信息未null，则表示没有数据 -->
       <block wx:if="{{undoneData[0].msg!=null}}">
