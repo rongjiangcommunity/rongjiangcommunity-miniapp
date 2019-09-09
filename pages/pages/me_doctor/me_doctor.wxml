@@ -1,0 +1,56 @@
+<!--pages/me_feedback/me_feedback.wxml-->
+<view class="page">
+ <view class="weui-flex">
+    <view class="weui-flex__item">
+      <navigator url="../me_doctor/doctor_about/doctor_about">
+        <view class="placeholder">
+          <image class="nav_icon" src="/images/icons/doctor-1.png"></image>
+          关于寻医
+        </view>
+      </navigator>
+    </view>
+    <view class="weui-flex__item">
+      <navigator url="../me_doctor/doctor_help/doctor_help">
+        <view class="placeholder">
+          <image class="nav_icon" src="/images/icons/doctor-2.png"></image>
+          支持建设
+        </view>
+      </navigator>
+    </view>
+    <view class="weui-flex__item">
+      <navigator url="../me_doctor/my_appointment/my_appointment">
+        <view class="placeholder">
+          <image class="nav_icon" src="/images/icons/doctor-3.png"></image>
+          我的预约
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class="nav_title">以下医生皆为一中校友</view>
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text" wx:for="{{doctorArr}}" bindtap='gotoDocotrInfo' data-info="{{item}}">
+        <image mode="aspectFit" class="doctor_icon" src="{{item.avatar}}" />
+        <view class="doctor_info" data-info="{{item}}">
+          <view class="doctor_info1">
+            <text class="doctor_name">{{item.name}}</text>
+            <text>{{item.title}}</text>
+          </view>
+          <view  class="doctor_info2">{{item.hospital}} - {{item.department}} </view>
+          <view  class="doctor_info3">
+            擅长：{{item.speciality}}>>
+          </view>
+        </view>
+        <view class="no_working" wx:if="{{item.status===0}}">停止预约</view>
+        <view class="working" wx:if="{{item.status===1}}">可预约</view>
+      </view>
+
+    </view>
+  </view>
+  <view class="weui-btn-area">
+    <navigator url="../add/add" wx:if="{{experience.length<3}}">
+      <button class="weui-btn" type="primary" bindtap="default">添加工作经历</button>
+    </navigator>
+  </view>
+
+</view>

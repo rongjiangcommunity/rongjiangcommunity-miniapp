@@ -1,0 +1,83 @@
+<view class="big_frame">
+<!-- Title   咨询中   已完成 -->
+<view class="frame_state">
+    <view class="frame_text">
+      <block wx:if="{{clickTitle==1}}">
+           <image src="/images/icons/3.png" class="border"></image>
+        </block>
+        <view class="{{clickTitle==1?'textB':'text'}}"  bindtap="changeClickTitle" data-xid="1">咨询中</view>
+
+     </view>
+     <view class="frame_text">
+      <block wx:if="{{clickTitle==0}}">
+           <image src="/images/icons/3.png" class="border"></image>
+        </block>
+      <view class="{{clickTitle==0?'textB':'text'}}" bindtap="changeClickTitle" data-xid="0">已完成</view>
+
+     </view>
+  </view>
+  <scroll-view scroll-y="true" style="height:542px" bindscrolltolower="lowerMoreClassify">
+  <block wx:if="{{clickTitle==1}}">
+   <!-- 如果undoneData中的第一个数据的信息未null，则表示没有数据 -->
+      <block wx:if="{{undoneData[0].msg!=null}}">
+          <block wx:for="{{undoneData}}" wx:key="{{index}}">
+            <!-- 蔡律师   XXXXXX事务所    咨询中  -->
+            <view class="frame_msg_icon_big">
+                <view class="frame_information">
+                  <view class="frame_PDocument">
+              <view class="frame_name_office">
+                  <view class="name">{{item.lawyer.name}}</view>
+                  <view class="office">{{item.lawyer.mobile}}</view>
+                </view>
+                  <view class="chatState">{{item.status}}</view>
+            </view>
+                  <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
+                  </view>
+                      <navigator hover-class="none" url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.lawyer.name}}&lawyerAdress={{item.lawyer.mobile}}&lawyerStatus={{item.status}}&from='my_consult'">
+                  <view class="frame">
+                  <image class="img"  src="/images/icons/massage.png" ></image>
+                  <block wx:if="{{item.hasUnread}}">
+                     <mp-badge extClass="badge"></mp-badge>
+                  </block>
+                  </view>
+                  </navigator>
+            </view>
+            </block>
+       </block>
+       <block wx:elif="{{undoneData[0].msg==null}}">
+        <mp-blank/>
+        </block>
+    </block>
+      <block wx:elif="{{clickTitle==0}}">
+      <!-- 如果doneData中的第一个数据的信息未null，则表示没有数据 -->
+          <block wx:if="{{doneData[0].msg!=null}}">
+          <block wx:for="{{doneData}}" wx:key="{{index}}">
+            <!-- 蔡律师   XXXXXX事务所    已完成  -->
+            <view class="frame_msg_icon_big">
+                <view class="frame_information">
+                  <view class="frame_PDocument">
+              <view class="frame_name_office">
+                  <view class="name">{{item.lawyer.name}}</view>
+                  <view class="office">{{item.lawyer.mobile}}</view>
+                </view>
+                  <view class=" {{item.status=='已完成'?'chatStatus':'chatStatusB'}}">{{item.status}}</view>
+            </view>
+                  <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
+                  </view>
+                      <navigator hover-class="none" url="../add_msg/add_msg?pid={{item.id}}&lawyerName={{item.lawyer.name}}&lawyerAdress={{item.lawyer.mobile}}&lawyerStatus={{item.status}}&from='my_consult'">
+                  <view class="frame">
+                     <image class="img"  src="/images/icons/massage.png" ></image>
+                      <block wx:if="{{item.hasUnread}}">
+                         <mp-badge extClass="badge"></mp-badge>
+                      </block>
+                  </view>
+                  </navigator>
+            </view>
+            </block>
+       </block>
+       <block wx:elif="{{doneData[0].msg==null}}">
+         <mp-blank/>
+        </block>
+      </block>
+    </scroll-view>
+</view>

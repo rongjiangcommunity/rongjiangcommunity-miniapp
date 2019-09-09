@@ -1,0 +1,57 @@
+
+.action-btn {
+  position:absolute;
+  top:50%;
+  right:15px;
+  margin-top:-15px;
+  border:none;
+}
+.weui-cells:first-child {
+  margin-top: 0;
+}
+.weui-cell__bd{
+  font-family: PingFang-SC-Regular;
+  font-size: 32rpx;
+  color: #333;
+}
+.weui-cell__bd picker {
+  text-align: right;
+}
+.weui-cell__dtl{
+  font-size: 26rpx;
+  background:#F8F8F8;
+  color:#666;
+  display: inline-block;
+  text-align: center;
+  width:100%;
+  padding: 20rpx 0;
+}
+.weui-cell__dtl__a{
+  display: inline;
+  color:#4e85c6;
+}
+
+/* 改变获取手机号码按钮样式 */
+.phone-btn{
+  color:#008DF8 !important;
+  background: transparent !important;
+  font-size: 32rpx;
+  outline: none !important;
+  border-radius: 0 !important;
+  border-left: 1px solid #999;
+  line-height: 1;
+  margin-top: -7px;
+}
+.phone-btn::after{
+  border: none;
+}
+.weui-cell__ft, .weui-input{
+  color: #B2B2B2;
+  font-size: 32rpx;
+}
+.weui-cell__ft_in-access::after {
+ height: 8px;
+ width: 8px;
+ border-width: 1px 1px 0 0;
+
+}

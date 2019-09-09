@@ -1,0 +1,103 @@
+.page{
+  overflow: hidden;
+  background: #eee;
+  height: 100vh;
+}
+.listItem {
+  position: relative;
+  background:#fff;
+  font-size: 26rpx;
+  padding: 20rpx 30rpx;
+  height: 40rpx;
+  margin-top: 2px;
+}
+.picker{
+  float: right;
+}
+.picker1{
+  display: inline-block;
+}
+.submit{
+  position: absolute;
+  margin-top: 100rpx;
+  left: 50%;
+  width: 300rpx;
+  transform: translateX(-50%);
+  background: #4e85c6;
+  color: #fff;
+}
+.weui-cell__bd {
+  font-size:16px;
+}
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 160rpx;
+  width: 690rpx;
+  height: 100rpx;
+  background-color: #008DF8;
+  border-radius: 10rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
+}
+/* 8/17 */
+.lable-bold{
+  display: flex;
+
+}
+.text{
+
+  font-size: 30rpx;
+  /* font-weight: bold; */
+  font-family: PingFang-SC-Regular;
+}
+.textB{
+
+  font-size: 30rpx;
+  font-family: PingFang-SC-Regular;
+  color: #B2B2B2;
+}
+
+.label{
+  width: 505.4rpx;
+  font-family: PingFang-SC-Regular;
+  font-size: 30rpx;
+  color: #666666;
+}
+.frame{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.frame_one{
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+
+}
+.frame_text{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid rgb(231, 231, 231);
+}
+.frame_school{
+  margin-right: 42rpx;
+  font-size: 32rpx;
+  color: #333333;
+}
+.icon{
+  align-self: center;
+  justify-self: flex-end;
+  margin-right: 30rpx;
+  height: 28rpx;
+  width: 16rpx;
+}
+/* picker weui-cell__bd */
+.display{
+  width: 505.4rpx;
+  display: flex;
+}

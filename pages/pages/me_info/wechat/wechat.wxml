@@ -1,0 +1,10 @@
+
+
+        <view class="frame_text">
+        <view class="text">微信号</view>
+            <input bindinput="handleInput" class="text_number"  value='{{wechat}}' />
+        </view>
+
+
+
+    <button bindtap="handleSubmit" class="button">保存</button>

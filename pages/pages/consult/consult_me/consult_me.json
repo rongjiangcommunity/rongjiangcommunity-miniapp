@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "mp-badge": "/components/badge/badge",
+    "mp-blank":"/components/blank/blank"
+  },
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTitleText": "校友咨询"
+}

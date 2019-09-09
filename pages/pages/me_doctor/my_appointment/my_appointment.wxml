@@ -1,0 +1,31 @@
+<!--pages/me_feedback/me_feedback.wxml-->
+<view class="page">
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+      <navigator wx:for="{{appointments}}" url="../appointment_detail/appointment_detail?id={{item.id}}" wx:if="{{item.id!==undefinded}}">
+        <view class="weui-media-box weui-media-box_text">
+          <view class="doctor_info">
+            <view class="doctor_info1">
+              <text class="doctor_name">{{item.dr_name}}</text>
+              <text>{{item.dr_title}}</text>
+            </view>
+            <view  class="doctor_info2">
+              {{item.dr_hospital}} - {{item.dr_department}}
+            </view>
+            <view  class="doctor_info3">
+              预约时间 {{item.reg_date}}
+            </view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">
+            <view class="wait" wx:if="{{item.status==='wait'}}">待受理</view>
+            <view class="active" wx:if="{{item.status==='active'}}">受理中</view>
+            <view class="completed" wx:if="{{item.status==='completed'}}">预约成功</view>
+            <view class="failed" wx:if="{{item.status==='failed'}}">预约失败</view>
+            <view class="cancel" wx:if="{{item.status==='cancel'}}">已撤销</view>
+          </view>
+        </view>
+      </navigator>
+
+    </view>
+  </view>
+</view>

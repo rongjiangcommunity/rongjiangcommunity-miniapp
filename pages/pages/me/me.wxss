@@ -1,0 +1,15 @@
+/* pages/me/me.wxss */
+.my-info{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  padding: 0 20rpx 0 30rpx;
+  border-top-left-radius: 30rpx;
+  border-bottom-left-radius: 30rpx;
+  background: #4e85c6;
+}

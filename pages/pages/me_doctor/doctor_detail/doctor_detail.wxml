@@ -1,0 +1,35 @@
+<!--pages/me_feedback/me_feedback.wxml-->
+<view class="page">
+    <view class="page__bd">
+      <view class="weui-panel weui-panel_access doctor_card">
+          <image mode="aspectFit" class="doctor_icon" src="{{doctorInfo.avatar}}"></image>
+          <view class="doctor_name">{{doctorInfo.name}}</view>
+          <view>{{doctorInfo.title}} - {{doctorInfo.department}}</view>
+          <view>{{doctorInfo.hospital}}</view>
+      </view>
+      <view class="weui-panel weui-panel_access">
+          <view class="weui-panel__hd">擅长领域：</view>
+          <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_text">{{doctorInfo.speciality}}</view>
+          </view>
+      </view>
+      <view class="weui-panel weui-panel_access">
+          <view class="weui-panel__hd">坐诊时间：</view>
+          <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_text">
+              <view wx:for="{{doctorInfo.detail}}">{{item}}</view>
+            </view>
+          </view>
+      </view>
+      <view class="weui-panel weui-panel_access ">
+          <view class="weui-panel__hd">专家信息：</view>
+          <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_text">
+              <view>{{doctorInfo.moreinfo}}</view>
+            </view>
+          </view>
+      </view>
+    </view>
+    <button class="weui-btn nosubmit" wx:if="{{doctorInfo.status===0}}">不可预约</button>
+    <button bindtap='gotoAppointment' class="weui-btn submit" wx:if="{{doctorInfo.status===1}}">预约挂号</button>
+</view>

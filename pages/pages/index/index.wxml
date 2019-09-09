@@ -1,0 +1,15 @@
+<!-- 微信授权部分 -->
+<view
+ style='display: {{!hasUserInfo? "flex": "none"}}'
+ wx:if="{{canIUse}}"
+ class="community-content"
+>
+  <image class="community-img" src="../../images/icons/Community.png" mode="aspectFill"/>
+  <text class="community-title">欢迎来到榕江社区小程序</text>
+  <text class="community-raw">进入前请先进行微信授权</text>
+  <button
+    open-type="getUserInfo"
+    bindgetuserinfo="bindGetUserInfo"
+    class="get-user-info-btn">微信授权</button>
+</view>
+<view wx:else>请升级微信版本</view>

@@ -1,0 +1,168 @@
+
+.page{
+  overflow: hidden;
+  background: #eee;
+  height: 100vh;
+}
+/* 最大框架布局设置 */
+.frame_big{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+  margin-top:22rpx;
+  background-color: #FFFFFF;
+}
+.listItem {
+  /* position: relative; */
+  background:#fff;
+  padding: 30rpx;
+  height: 80rpx;
+  margin-top: 10rpx;
+}
+.company{
+  font-family: PingFang-SC-Medium;
+  font-size: 30rpx;
+  display: flex;
+}
+.post{
+  border-radius: 4rpx;
+  margin-top: 3rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 相对于框架frame_school */
+  align-self: center;
+
+  background-color: rgba(0, 141, 248, 0.2);
+  margin-left: 11rpx;
+  font-size: 18rpx;
+  color: #008DF8;
+}
+.timeRange{
+  margin-top: 8rpx;
+  margin-bottom: 28rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #999999;
+}
+.editIcon{
+  margin-top: 50rpx;
+  margin-right: 10rpx;
+  right: 30rpx;
+  top: 10rpx;
+  width: 44rpx;
+  height: 44rpx;
+  padding: 20rpx;
+}
+.deleteIcon{
+  /* position: absolute; */
+  right: 10rpx;
+  bottom: 5rpx;
+  width: 30rpx;
+  height: 30rpx;
+  padding: 20rpx;
+}
+.industry{
+  /* position: absolute; */
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+.submit{
+  /* position: absolute; */
+  margin-top: 100rpx;
+  left: 50%;
+  width: 300rpx;
+  transform: translateX(-50%);
+  background: #4e85c6;
+  color: #fff;
+}
+.button{
+  width: 690rpx;
+  height: 100rpx;
+  background-color: #008DF8;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #ffffff;
+}
+.buttonB{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 160rpx;
+  width: 690rpx;
+  height: 100rpx;
+  background-color: #008DF8;
+  border-radius: 10rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
+}
+.frame_tips{
+  margin-top: 26rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+.tips{
+  margin-left: 9rpx;
+  font-family: PingFang-SC-Regular;
+  font-size: 24rpx;
+  color: #999999;
+}
+.tips_icon{
+  margin-top: 6rpx;
+  margin-left:28rpx;
+  height: 26rpx;
+  width: 26rpx;
+}
+/*我添加的*/
+/* 总显示框架 */
+.frame{
+  width: 716rpx;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.1rpx solid rgb(222, 222, 222);
+}
+.frameB{
+  width: 716rpx;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+.frame_name_type{
+  display: flex;
+}
+.frame_name_time{
+  margin-top: 26rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+/* 左滑删除*/
+.order-item {
+  margin-top: -3rpx;
+  /* height: 120rpx; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.remove{
+  width: 160rpx;
+  height: 100%;
+  background-color: red;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: -160rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
