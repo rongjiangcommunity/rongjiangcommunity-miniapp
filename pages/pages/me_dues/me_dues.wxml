@@ -1,0 +1,34 @@
+<!--pages/me_about/me_about.wxml-->
+<view class="weui-article">
+  <view class="weui-article__h1" style='text-align:center;'>收取会费通知</view>
+  <view class="weui-article__h2">各位校友：</view>
+  <view class="weui-article__p">
+    <text decode="true">&emsp;&emsp;</text>
+    根据《广州市揭阳一中校友会章程》第十一、十六条及第三届理事会第一次全体会议的决议，现就缴纳会费有关问题通知如下： 
+  </view>
+  <view class="weui-article__h2">一、收取会费年限及数额</view>
+  <view class="weui-article__p">
+    <text decode="true">&emsp;&emsp;</text>
+    第三届理事会任期从2019年至2023年，根据《广州市揭阳一中校友会章程》规定，每年每位会员需缴纳会费100元，5年共需缴纳会费500元。从2019年开始，原则上每年在9月30日前完成当年会费收缴工作。
+  </view>
+  <view class="weui-article__p">
+    <text decode="true">&emsp;&emsp;</text>
+    为方便会员缴纳，会员可选择每年缴纳100元，连续5年至2023年结束，共缴纳500元。也可选择一次性缴纳本届会费共500元。
+  </view>
+  <view class="weui-article__h2">二、缴纳流程</view>
+  <view class="weui-article__p">
+    <text decode="true">&emsp;&emsp;</text>
+    校友会开设微信号“jyyzgz”（昵称：广揭一）用于收取会费。可在微信搜索“jyyzgz”微信号，在添加通讯录时写上你的届别、班别、姓名。由黄汉光后台确认通过后即可微信转账。
+  </view>
+  <view class="weui-article__h2">三、监督管理</view>
+  <view class="weui-article__p">
+    <text decode="true">&emsp;&emsp;</text>
+    黄汉光收到你转来的会费后，即开出《会费收据》。
+  </view>
+  <view class="weui-article__p" style='text-align:right;'>
+    广州市揭阳一中校友会
+  </view>
+  <view class="weui-article__p" style='text-align:right;'>
+    2019年6月18日
+  </view>
+</view>

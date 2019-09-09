@@ -1,0 +1,20 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">支持说明 :</view>
+                    <view class="weui-article__p">
+                        一、“{{productName}}”是揭阳一中广州校友会自主开发、运营的小程序，旨在借助区块链技术，为广大校友营造一个合作共赢、信息共享、组织管理高效的虚拟空间。
+                    </view>
+                    <view class="weui-article__p">
+                        二、开发、运营一个小程序，需要一定的资金支持方能成事。IT界校友在开发小程序过程中付出了大量的时间、精力，微信认证、服务器租用、平台维护已产生费用。今后还须专人操作及团队不断开发新板块。
+                    </view>
+                    <view class="weui-article__p">
+                        三、“{{productName}}”在第一期开发过程中，得到了部分校友的经费资助，在今后运营中还需要热心校友给予经费支持，对于自愿捐款者，我们将开出由财政部门监制的正式“捐款收据”同时也欢迎有兴趣的校友与我们合作、共同进行“{{productName}}”公司化运作可行性研究并在条件成熟时付诸实施。详情请与黄汉光联系。
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

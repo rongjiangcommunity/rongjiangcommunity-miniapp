@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/me_info/education/add/add",
+    "pages/me_info/education/edit/edit",
+    "pages/me_info/education/list/list",
+    "pages/me_doctor/appointment_detail/appointment_detail",
+    "pages/me_doctor/doctor_appointment/doctor_appointment",
+    "pages/me_doctor/me_doctor",
+    "pages/me_doctor/my_appointment/my_appointment",
+    "pages/me_doctor/doctor_detail/doctor_detail",
+    "pages/me_doctor/doctor_about/doctor_about",
+    "pages/me_doctor/doctor_help/doctor_help",
+    "pages/me_info/me_info",
+    "pages/me_info/workInfo/add/add",
+    "pages/me_info/workInfo/edit/edit",
+    "pages/me_info/workInfo/list/list",
+    "pages/me/me",
+    "pages/register/register",
+    "pages/me_dues/me_dues",
+    "pages/me_feedback/me_feedback",
+    "pages/me_about/me_about",
+    "pages/me_info/email/email",
+    "pages/me_info/wechat/wechat",
+    "pages/me_info/address/address",
+    "pages/me_info/explanation/me_expl",
+    "pages/checklist/checklist",
+    "pages/appointment/list",
+    "pages/appointment/form",
+    "pages/appointment/content",
+    "pages/approve/approve",
+    "pages/audit_form/audit_form",
+    "pages/consult/consult",
+    "pages/consult/consult_me/consult_me",
+    "pages/consult/my_consult/my_consult",
+    "pages/consult/lawyer_home/lawyer_home",
+    "pages/consult/lawyer_home/open_msg/open_msg",
+    "pages/consult/add_msg/add_msg",
+    "pages/header/header"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "榕江社区",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#888",
+    "selectedColor": "#4e85c6",
+    "backgroundColor": "#ffffff",
+    "position": "bottom",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/header/header",
+        "iconPath": "images/icons/home_h@2x (1).png",
+        "selectedIconPath": "images/icons/home_h@2x.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/me/me",
+        "iconPath": "images/icons/accound@2x.png",
+        "selectedIconPath": "images/icons/accound@2x (1).png"
+      }
+    ]
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "/dist/button/index"
+  }
+}

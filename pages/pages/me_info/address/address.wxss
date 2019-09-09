@@ -1,0 +1,5 @@
+/* pages/me_info/address/address.wxss */
+
+.weui-cells:first-child {
+  margin-top: 0;
+}
