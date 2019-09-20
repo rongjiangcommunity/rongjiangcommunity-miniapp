@@ -63,6 +63,7 @@
   "debug": false,
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "van-button": "/dist/button/index"
+    "van-button": "vant-weapp/button/index",
+    "van-icon": "vant-weapp/icon/index"
   }
 }

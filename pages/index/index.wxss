@@ -79,10 +79,20 @@ page{
   color:#999;
 }
 /* 首页授权样式 */
+.community-content-wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+}
 .community-content{
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 .community-img{
   width: 100%;
@@ -140,4 +150,10 @@ page{
   font-size: 24rpx;
   background-color: transparent !important;
   margin-right: 0rpx;
+}
+.hide {
+  display: none;
+}
+.flex {
+  display: flex;
 }

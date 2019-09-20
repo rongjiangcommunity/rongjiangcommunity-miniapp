@@ -1,9 +1,14 @@
 <!--index.wxml-->
-<block wx:if="{{hasUserInfo}}">
+<block>
 <view class="container">
   <view class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"/>
-    <text class="userinfo-nickname">Hi, {{user && user.name || userInfo.nickName}}</text>
+    <view class='avatar'>
+      <view wx:if="{{!hasUserInfo}}">
+        <van-button type="info" size="small" bind:click="showGetUserInfoView" round>获取头像</van-button>
+      </view>
+      <image wx:else class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"/>
+    </view>
+    <text class="userinfo-nickname">Hi, {{user && user.name || userInfo.nickName || '同学'}}</text>
     <text class="welcom">欢迎来到{{productName}}</text>
   </view>
 
@@ -49,7 +54,7 @@
       </view>
   </view>
 
-<!-- 认证部分 -->
+  <!-- 认证部分 -->
   <view class='bottom-action' wx:if="{{!approved}}">
     <view class="weui-flex flex-content-center" wx:if="{{status==='pending'}}">
       <text>正在认证中，请等候工作人员完成认证。</text>
@@ -73,16 +78,20 @@
 
 <!-- 微信授权部分 -->
 <view
- style='display: {{!hasUserInfo? "flex": "none"}}'
- wx:if="{{canIUse}}"
- class="community-content"
+wx:if="{{!hasUserInfo}}"
+ class="community-content-wrap {{showGetUserInfo?'flex':'hide'}}"
 >
-  <image class="community-img" src="../../images/icons/Community.png" mode="aspectFill"/>
-  <text class="community-title">欢迎来到榕江社区小程序</text>
-  <text class="community-raw">进入前请先进行微信授权</text>
-  <button
-    open-type="getUserInfo"
-    bindgetuserinfo="bindGetUserInfo"
-    class="get-user-info-btn">微信授权</button>
+  <view class="community-content" wx:if="{{canIUse}}">
+    <image class="community-img" src="../../images/icons/Community.png" mode="aspectFill"/>
+    <text class="community-title">欢迎来到榕江社区小程序</text>
+    <text class="community-raw">进入前请先进行微信授权</text>
+    <button
+      open-type="getUserInfo"
+      bindgetuserinfo="bindGetUserInfo"
+      class="get-user-info-btn">微信授权</button>
+  </view>
+  <view wx:else style="width: 100%;text-align: center;color:crimson;">
+    当前微信版本低，请升级微信版本获得小程序最佳体验
+    <van-button type="warn" size="small" bind:click="hideGetUserInfoView">返回</van-button>
+  </view>
 </view>
-<view wx:else>请升级微信版本</view>
