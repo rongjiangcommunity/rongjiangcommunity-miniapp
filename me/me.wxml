@@ -1,0 +1,83 @@
+<!--pages/me/me.wxml-->
+<view class="weui-cells">
+  <view class="weui-cell">
+    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+      <navigator url="../me_info/me_info">
+        <image src="{{userInfo.avatarUrl}}" style="width: 50px; height: 50px; display: block"/>
+      </navigator>
+    </view>
+
+    <view class="weui-cell__hd my-info">
+      <navigator url="../me_info/me_info">
+        <view>我的资料</view>
+      </navigator>
+    </view>
+    
+    <view class="weui-cell__bd">
+      <view>{{name}}</view>
+      <view style="font-size: 13px;color: #888888;">
+        <view wx:if="{{approved}}">
+          <icon type='success' size="15"></icon>
+          <text> 已认证</text>
+        </view>
+        <view wx:if="{{!approved}}">
+          <view wx:if="{{status==='pending'}}">
+            <icon type='waiting' size="15"></icon>
+            <text> 认证中</text>
+          </view>
+          <view wx:if="{{status==='notok'}}">
+            <navigator url="../register/register">
+              <view class='weui-flex'>
+                <icon type="warn" size="15"></icon>
+                <text> 认证失败</text>
+                <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
+              </view>
+            </navigator>
+          </view>
+          <navigator wx:if="{{status!=='pending'&&status!=='notok'}}" url="../register/register">
+            <view class='weui-flex'>
+              <text>去认证</text>
+              <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells">
+  <navigator url="../checklist/checklist" class="weui-cell weui-cell_access" wx:if="{{role==='admin' || role==='cadmin' || role==='gadmin'}}">
+      <view class="weui-cell__bd">审核列表</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{reviewCount}}</view>
+  </navigator>
+  <navigator url="../me_doctor/me_doctor" class="weui-cell weui-cell_access">
+    <view class="weui-cell__bd">寻医问药</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+  <navigator url="../appointment/list" class="weui-cell weui-cell_access" wx:if="{{role==='admin'}}">
+      <view class="weui-cell__bd">寻医预约</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{undoneNum}}</view>
+  </navigator>
+  <navigator url="../me_feedback/me_feedback" class="weui-cell weui-cell_access">
+      <view class="weui-cell__bd">反馈建议</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+</view>
+
+<view class="weui-cells">
+  <navigator url="../me_dues/me_dues" class="weui-cell weui-cell_access">
+    <view class="weui-cell__bd">缴纳会费</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+
+  <navigator url="../me_lawyer/me_lawyer" class="weui-cell weui-cell_access"wx:if="{{role==='admin'}}">
+    <view class="weui-cell__bd">律师咨询</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+  
+  <navigator url="../me_about/me_about" class="weui-cell weui-cell_access">
+    <view class="weui-cell__bd">关于我们</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+</view>
