@@ -19,26 +19,45 @@ Page({
   onReady() {
   },
   onShow: function(){
+    this.checkInfo();
   },
   onLoad: function() {
     const ctx = this;
-    //授权判断
     wx.getSetting({
       success: function(res){
         if (res.authSetting['scope.userInfo']) {
           app.getWxUserInfo().then(userInfo => {
             ctx.setData({
               hasUserInfo: true,
+              userInfo,
             });
           });
         }
-        wx.switchTab({
-          url: '../header/header'
-        });
       }
     });
   },
-
+  checkInfo: function(){
+    app.appReady().then(() => {
+      Promise.all([app.getUserInfo(), app.getApplyInfo()])
+        .then(([user, applyInfo]) => {
+          const approved = user && user.approved === 'true' ? true:false;
+          const status = applyInfo ? applyInfo.status : '';
+          try {
+            wx.setStorageSync('isXiaoyou', approved);
+          } catch (error) {
+            console.error(error);
+          }
+          this.setData({
+            user,
+            applyInfo,
+            approved,
+            status,
+          });
+        }).catch((err) => {
+          console.log(err);
+        });
+    });
+  },
   bindGetUserInfo: function(e) {
     const ctx = this;
     if (e.detail.userInfo){
@@ -46,12 +65,9 @@ Page({
         app.synWxInfo(userInfo);
         ctx.setData({
           hasUserInfo: true,
-        });
-        wx.switchTab({
-          url: '../header/header'
+          userInfo: userInfo,
         });
       });
-
     } else {
       //用户按了拒绝按钮
     }
