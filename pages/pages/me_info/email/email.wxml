@@ -1,9 +1,0 @@
-<!-- <view class="weui-cells__title">常用邮箱</view> -->
-
-        <view class="frame_text">
-        <view class="text">电子邮箱</view>
-            <input bindinput="handleInput" class="text_number" placeholder="请输入您常用的邮箱" value='{{email}}' />
-        </view>
-
-
-    <button class="button"  bindtap="handleSubmit">保存</button>

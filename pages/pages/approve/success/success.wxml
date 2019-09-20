@@ -1,5 +1,0 @@
-<!--pages/approve/success/success.wxml-->
-<view class="text">
-  <text>提交成功，工作人员会尽快处理，请耐心等待！</text>
-</view>
-<button bindtap="gotoIndex"class="button">返回主页</button>
