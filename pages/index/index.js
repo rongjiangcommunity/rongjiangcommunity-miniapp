@@ -7,6 +7,7 @@ Page({
   tab: 'index',
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    showGetUserInfo: false,
     hasUserInfo: false,
     userInfo: null,
     user: null,
@@ -87,5 +88,15 @@ Page({
   },
   jumpToMsgCenter: function(){ // 跳到消息中心，也就是右上角的泡泡图标
     console.log('jumpToMsgCenter');
-  }
+  },
+  showGetUserInfoView: function(e){
+    this.setData({
+      showGetUserInfo: true,
+    });
+  },
+  hideGetUserInfoView: function(e){
+    this.setData({
+      showGetUserInfo: false,
+    });
+  },
 });

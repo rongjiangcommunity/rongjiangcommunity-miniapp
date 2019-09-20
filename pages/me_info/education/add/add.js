@@ -5,9 +5,16 @@ Page({
   data:{
     startDate: '2000-09-01',
     endDate: '2004-07-01',
+
+    temp_major:false,
+    temp_degree:false,
+    temp:false,
+
     multiIndex: [0, 0],
+    recordMultiIndex: [0, 0],
     multiArray: [app.provinceArr, app.collegeObj[app.provinceArr[0]]],
     multiMajorIndex: [0, 0, 0],
+    recordMajorMultiIndex: [0, 0, 0],
     multiMajorArray: [app.majorFirst, app.majorSecond[0], app.majorThird['哲学类']],
     degreeIndex: 0,
     degreeArr:['高中','大专','本科','硕士','博士']
@@ -61,9 +68,18 @@ Page({
       major: [ majorFir, majorSec, majorThir ]
     };
     education.push(tempDatas);
-    app.saveUserInfo({ education: education }).then(() => {
-      wx.navigateBack();
-    });
+      wx.showToast({
+        title: '保存成功',
+        icon: 'succes',
+        duration: 2000,
+        mask: true
+      })
+    setTimeout(function () {
+      app.saveUserInfo({ education: education }).then(() => {
+        wx.navigateBack();
+      })
+    }, 2000)
+
   },
   bindStartDateChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -86,9 +102,10 @@ Page({
 
   bindMultiPickerChange(e) {
     console.log('picker发送选择改变，携带值为：：：', e.detail)
+    let value = e.detail.value;
     this.setData({
-      multiIndex: e.detail.value,
-      recordMultiIndex: e.detail.value
+      multiIndex: value,
+      recordMultiIndex: [...value]
     })
   },
   bindMultiPickerColumnChange(e) {
@@ -125,9 +142,10 @@ Page({
 
   bindMultiMajorPickerChange(e) {
     console.log('picker发送选择改变，携带值为：：：', e.detail)
+    let { value } = e.detail;
     this.setData({
-      multiMajorIndex: e.detail.value,
-      recordMajorMultiIndex: e.detail.value
+      multiMajorIndex: value,
+      recordMajorMultiIndex: [...value]
     })
   },
   bindMultiMajorPickerColumnChange(e) {
@@ -159,6 +177,7 @@ Page({
     let recordMajorMultiIndex = this.data.recordMajorMultiIndex
     if (recordMajorMultiIndex) {
       this.setData({
+        temp_major:false,
         multiMajorArray:[app.majorFirst, app.majorSecond[recordMajorMultiIndex[0]], app.majorThird[app.majorSecond[recordMajorMultiIndex[0]][recordMajorMultiIndex[2]]]],
         multiMajorIndex: recordMajorMultiIndex
       });
@@ -167,5 +186,20 @@ Page({
         recordMajorMultiIndex: this.data.multiMajorIndex
       })
     }
+  },
+  changeTempMajor:function(e){
+    this.setData({
+      temp_major:true
+    })
+  },
+  changeTempDegress: function (e) {
+    this.setData({
+      temp_degree: true
+    })
+  },
+  display: function (e) {
+    this.setData({
+      temp: true
+    })
   }
 })

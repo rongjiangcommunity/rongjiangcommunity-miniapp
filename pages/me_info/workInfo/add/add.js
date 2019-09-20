@@ -3,10 +3,13 @@ const app = getApp()
 
 Page({
   data:{
+    focustemp:false,
     startDate: null,
     endDate: null,
     multiIndex: [0, 0],
+    recordMultiIndex: [0, 0],
     multiArray: [getApp().firstINdustry, getApp().secondIndustry[0]],
+    temp:false,
   },
 
   onLoad: function (options) {
@@ -49,6 +52,9 @@ Page({
     } else if (!startDate || !endDate) {
       return getApp().failAlert('请输在职时间！')
     }
+    if (endDate <= startDate ) {
+      return getApp().failAlert('在职时间的起始时间应小于结束时间！')
+    }
     console.log(multiIndex)
     let experience = this.data.experience;
     let tempDatas = {
@@ -58,28 +64,39 @@ Page({
       type: [getApp().firstINdustry[multiIndex[0]], getApp().secondIndustry[multiIndex[0]][multiIndex[1]]]
     };
     experience.push(tempDatas);
+    wx.showToast({
+      title: '保存成功',
+      icon: 'succes',
+      duration: 4000,
+      mask: true
+    })
+    setTimeout(function () {
+      app.saveUserInfo({ experience }).then(() => {
+        wx.navigateBack();
+      })
+    }, 2000)
 
-    app.saveUserInfo({ experience }).then(() => {
-      wx.navigateBack();
-    });
   },
   bindStartDateChange(e) {
     console.log('携带值为', e.detail.value)
     this.setData({
-      startDate: e.detail.value
+      startDate: e.detail.value,
+      focustemp: true,
     })
   },
   bindEndDateChange(e) {
     console.log('携带值为', e.detail.value)
     this.setData({
-      endDate: e.detail.value
+      endDate: e.detail.value,
+      focustemp:true,
     })
   },
   bindMultiPickerChange(e) {
     console.log('picker发送选择改变，携带值为：：：', e.detail)
+    let { value } = e.detail;
     this.setData({
-      multiIndex: e.detail.value,
-      recordMultiIndex: e.detail.value
+      multiIndex: value,
+      recordMultiIndex: [...value]
     })
   },
   bindMultiPickerColumnChange(e) {
@@ -112,5 +129,15 @@ Page({
         recordMultiIndex: this.data.multiIndex
       })
     }
+  },
+  display:function(e){
+    this.setData({
+      temp:true
+    })
+  },
+  focus:function(){
+    this.setData({
+      focustemp:true
+    })
   }
 })
