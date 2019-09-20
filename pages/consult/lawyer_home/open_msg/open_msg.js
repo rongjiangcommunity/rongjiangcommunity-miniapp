@@ -63,12 +63,18 @@ Page({
   consultSubmit:function(e){
     const credentials = app.getCredentials();
     const that=this;
+    const formId=e.detail.formId;
+    console.log(e);
+    const msg = e.detail.value.message;
+    const fromUid = that.data.fromUid;
+    const toUid=that.data.lawyerInfo.uid;
       // 调用打开信息接口
       wx.request({
         url: app.serverUrl + '/api/lawyer/msg/open/' + credentials,
         method: 'POST',
-        data: { "msg": e.detail.value.message, "fromUid": that.data.fromUid, "toUid": that.data.lawyerInfo.uid, "formId": e.detail.formId},
+        data: { "msg": msg, "fromUid": fromUid, "toUid": toUid,"formId":formId},
         success(res) {
+          console.log(res.data);
           if(res.data.success){
             wx.showToast({
               title: '提交成功',
