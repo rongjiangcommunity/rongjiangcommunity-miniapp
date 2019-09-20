@@ -1,0 +1,13 @@
+{
+  "name": "yizhong-miniapp",
+  "version": "1.0.0",
+  "description": "appid: wx6ceb2515d7e20fa3",
+  "dependencies": {
+    "vant-weapp": "^1.0.0-beta.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rongjiangcommunity/rongjiangcommunity-miniapp.git"
+  }
+}
