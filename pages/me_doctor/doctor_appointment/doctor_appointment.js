@@ -18,7 +18,7 @@ Page({
  
     
     wx.setNavigationBarTitle({
-      title: '预约挂号'
+      title: '预约'
     })
   },
 
