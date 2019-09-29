@@ -28,7 +28,7 @@
 <view class="lawyerList">
   <scroll-view scroll-y="true" style="height:{{scrollHeight}}rpx;">
   <view class="list_title">本版块律师皆为一中校友</view>
-  <view class="list_item" wx:for="{{lawyerList}}" wx:key="item.id" data-info="{{item}}" bindtap="goToLawyer">
+  <view class="list_item" wx:for="{{lawyerList}}" wx:key="item.id" data-info="{{item}}" bindtap="goToLawyer" data-itemId="{{index}}">
     <view class="item_name">{{item.name}}</view>
     <view class="item_info">
       <text class="item_addr">广东 广州</text>
