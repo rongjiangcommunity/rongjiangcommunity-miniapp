@@ -12,9 +12,10 @@ page{
   align-items: center;
 }
 .alum{
-  margin-left: 30rpx;
+  /* margin-left: 30rpx; */
   font-size: 32rpx;
   font-weight: 600;
+  color:#333333;
 }
 .consulting{
   margin-left: 15rpx;
@@ -24,41 +25,59 @@ page{
   margin-left: 15rpx;
   font-size: 32rpx;
   font-weight: 600;
+  color: #333333;
 }
 .time_difference{
-  margin-left: 30rpx;
+  /* margin-left: 30rpx; */
   color: red;
   font-size: 24rpx;
 }
 .frame_icon{
-  padding-top: 15rpx;
-  height: 145rpx;
+  margin-left: 30rpx;
+  border-bottom: 0.1rpx inset #DDDDDD;
+    height: 192rpx;
+
   display: flex;
   align-items: center;
-  background-color: rgb(255, 255, 255);
+ 
 }
 .img{
   margin-left: 38rpx;
-  height: 63rpx;
-  width: 63rpx;
+  height: 46rpx;
+  width: 46rpx;
 }
 .intime{
     display: flex;
     align-items: center;
     font-size: 24rpx;
-    margin-left: 30rpx;
+    /* margin-left: 30rpx; */
     width: 580rpx;
+    color: #999999;
+    margin-top: 7rpx;
 }
 .frame{
+  width: 126rpx;
   margin-left: 10rpx;
   border-left: 1rpx solid rgb(221, 221, 221);
-   height: 108rpx;
+   height: 128rpx;
    justify-content: center;
    align-items: center;
 }
 .call{
   margin-left: 22rpx;
   height: 63rpx;
-  font-size: 24rpx;
-  color:  rgb(0, 141, 248);
+  font-size: 22rpx;
+  color:  #008DF8;
+}
+.background{
+
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+}
+.tel{
+  margin-top: 34rpx;
+  display: flex;
+  margin-bottom: 6rpx;
 }

@@ -1,7 +1,11 @@
+const app = getApp();
 Page({
-  tel:function(){
+
+  tel:function(e){
+    let that = this
+    var telId = e.currentTarget.dataset.telid;
     wx:wx.makePhoneCall({
-      phoneNumber: '18565xxxxxx',
+      phoneNumber: that.data.cardData[telId].lawyer.mobile,
     })
   },
   /**
@@ -9,16 +13,58 @@ Page({
    */
   data:{
     cardData: [
-      { "alum": "王校友", "lawyer": "蔡律师","time_difference":"24小时未回复","intime":"2019-5-20 10:00:00" }]
+      ],
+    offset:0,
+    count:8,
+    screenHight:0 //屏幕高度
   },
-
-
   onLoad: function (options) {
+    let that = this;
+    //获取屏幕尺寸
+    let windowHeight = wx.getSystemInfoSync().windowHeight;
+    that.setData({
+      screenHight: windowHeight - 60
+    })
     wx.setNavigationBarTitle({
       title: '24小时未回复'
     })
+    that.getList();
   },
-
+  //获取消息列表
+  getList:function(e){
+    let that = this
+    const sid = app.getCredentials();
+    wx.request({
+      url: app.serverUrl + '/api/lawyer/msg/delay/' + sid,
+      header: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        hours: 24,
+        offset: that.data.offset,
+        count: that.data.count
+      },
+      success(res) {
+        if (res.data.success === true) {
+        let arr = res.data.data;
+        if(arr != null){
+          arr = that.data.cardData.concat(arr)
+          that.setData({
+            cardData: arr
+          })
+        }
+        }
+        console.log(that.data.cardData)
+      }
+    })
+  },
+lowerMoreClassify:function(e){
+  let that = this;
+    that.setData({
+      offset: that.data.offset + that.data.count,
+    })
+  that.getList(); //重新获取信息
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

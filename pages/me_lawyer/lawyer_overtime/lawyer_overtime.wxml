@@ -1,23 +1,31 @@
 <view class="big_frame">
-<scroll-view scroll-y="true" style="height:192rpx" bindscrolltolower="lowerMoreClassify">
-  <block wx:for="{{cardData}}" wx:key="{{alum}}">
+<block wx:if="{{cardData[0].user.id!=null}}">
+<scroll-view scroll-y="true" style="height:{{screenHight}}px" bindscrolltolower="lowerMoreClassify">
+ <view class="background">
+  <block wx:for="{{cardData}}" wx:key="{{index}}">
     <view class="frame_icon">
-      <view class="frame_left">
-        <view class="frame_card">
-          <view class="alum">{{item.alum}}</view>
-          <view class="consulting">正在咨询</view>
-          <view class="lawyer">{{item.lawyer}}</view>
-        </view>
-          <view class="time_difference">{{item.time_difference}}</view>
-          <view class="intime">{{item.intime}}</view>
-      </view>
-      <view class="frame">
-      <view class="tel" bindtap="tel">
-        <image class="img"  src="{{'/images/icons/Shape_phone.png'}}"></image>
-      </view>
-        <view class="call">联系律师</view>
-      </view>
+          <view class="frame_left">
+            <view class="frame_card">
+              <view class="alum">{{item.user.name}}</view>
+              <view class="consulting">正在咨询</view>
+              <view class="lawyer">{{item.lawyer.name}}</view>
+            </view>
+              <!-- <view class="time_difference">{{item.time_difference}}</view> -->
+               <view class="time_difference">24小时未回复</view>
+              <view class="intime">{{item.gmtCreate}}</view>
+          </view>
+          <view class="frame"bindtap="tel" data-telId="{{index}}">
+          <view class="tel" >
+            <image class="img"  src="/images/icons/Shape@3x.png"></image>
+          </view>
+            <view class="call">联系律师</view>
+          </view>
     </view>
   </block>
+    </view>
 </scroll-view>
+  </block>
+    <block wx:elif="{{cardData[0].user.id==null}}">
+        <mp-blank/>
+     </block>
 </view>
