@@ -25,9 +25,6 @@ Page({
     // 获取律师列表
     wx.request({
       url: app.serverUrl + '/api/lawyer/lawyers/' + credentials,
-      header: {
-        'Content-Type': 'application/json'
-      },
       success(res){
         if(res.data.success===true){
           that.setData({
@@ -47,6 +44,7 @@ Page({
         }
       }
     });
+    //判断user是否有消息未读
     wx.request({
       url: app.serverUrl + '/api/lawyer/user_has_unread/' + credentials,
       header: {
@@ -60,6 +58,7 @@ Page({
         }
       }
     });
+    //判断lawyer是否有消息未读
     wx.request({
       url: app.serverUrl + '/api/lawyer/lawyer_has_unread/' + credentials,
       header: {

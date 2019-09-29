@@ -36,62 +36,7 @@
     </view>
     <view class="info_pro">{{infoPro}}</view>
   </view>
-  <view class="list_item">
-    <view class="item_name">蔡律师</view>
-    <view class="item_info">
-      <text class="item_addr">广东 广州</text>
-      <text class="item_firm">广州榕水长事务所</text>
-    </view>
-    <view class="info_pro">但是但是大奥大多大奥多撒阿达大大</view>
-  </view>
-  <view class="list_item">
-    <view class="item_name">蔡律师</view>
-    <view class="item_info">
-      <text class="item_addr">广东 广州</text>
-      <text class="item_firm">广州榕水长事务所</text>
-    </view>
-    <view class="info_pro">但是但是大奥大多大奥多撒阿达大大</view>
-  </view>
-  <view class="list_item">
-    <view class="item_name">蔡律师</view>
-    <view class="item_info">
-      <text class="item_addr">广东 广州</text>
-      <text class="item_firm">广州榕水长事务所</text>
-    </view>
-    <view class="info_pro">但是但是大奥大多大奥多撒阿达大大</view>
-  </view>
-  <view class="list_item">
-    <view class="item_name">蔡律师</view>
-    <view class="item_info">
-      <text class="item_addr">广东 广州</text>
-      <text class="item_firm">广州榕水长事务所</text>
-    </view>
-    <view class="info_pro">但是但是大奥大多大奥多撒阿达大大</view>
-  </view>
-  <view class="list_item">
-    <view class="item_name">蔡律师</view>
-    <view class="item_info">
-      <text class="item_addr">广东 广州</text>
-      <text class="item_firm">广州榕水长事务所</text>
-    </view>
-    <view class="info_pro">但是但是大奥大多大奥多撒阿达大大</view>
-  </view>
-  <view class="list_item">
-    <view class="item_name">蔡律师</view>
-    <view class="item_info">
-      <text class="item_addr">广东 广州</text>
-      <text class="item_firm">广州榕水长事务所</text>
-    </view>
-    <view class="info_pro">但是但是大奥大多大奥多撒阿达大大</view>
-  </view>
-  <view class="list_item">
-    <view class="item_name">蔡律师</view>
-    <view class="item_info">
-      <text class="item_addr">广东 广州</text>
-      <text class="item_firm">广州榕水长事务所</text>
-    </view>
-    <view class="info_pro">但是但是大奥大多大奥多撒阿达大大</view>
-  </view>
+
   <!-- 页脚区域 -->
   <view class="footer">
     <navigator url="../me_feedback/me_feedback" hover-class="none">反馈建议</navigator> | <view bindtap="showModal">加入我们</view>
