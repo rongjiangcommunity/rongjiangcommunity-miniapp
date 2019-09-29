@@ -8,12 +8,11 @@ Page({
    */
   data: {
     lawyerInfo:{},
-    lawyerImg: [{ src: "/images/lawyer-test/lawyer1.jpg", id: 1 }, { src: "/images/lawyer-test/lawyer2.jpg", id: 2 }, { src: "/images/lawyer-test/lawyer3.jpg", id: 3 }],
     btnMsg: [
-        { title: '律所介绍', msg: '律所介绍律所介绍律所介绍律所介绍', disabled: false },
+        { title: '律所介绍', msg: '', disabled: false },
         { title: '其他资格', msg: '', disabled: false },
-        { title: '其他职务', msg: '其他职务其他职务其他职务其他职务', disabled: false },
-        { title: '获奖情况', msg: '万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容万能内容', disabled: false },
+        { title: '其他职务', msg: '', disabled: false },
+        { title: '获奖情况', msg: '', disabled: false },
         { title: '顾问单位', msg: '', disabled: false },
         { title: '专业著述', msg: '',disabled: false }
     ],
@@ -24,8 +23,20 @@ Page({
   onLoad: function (options) {
     const that=this;
     const lawyerInfo=JSON.parse(options.info);
+    var companyInfo = lawyerInfo.companyInfo;
+    var awards = lawyerInfo.awards;
+    var consultant = lawyerInfo.consultant; //顾问单位
+    var qualification = lawyerInfo.qualification  //其他资格
+    var writings = lawyerInfo.writings  //专业著述
+    var moreTitle = lawyerInfo.moreTitle //其他职务
     that.setData({
       lawyerInfo: lawyerInfo,
+      "btnMsg[0].msg": companyInfo,
+      "btnMsg[1].msg": qualification,
+      "btnMsg[2].msg": moreTitle,
+      "btnMsg[3].msg": awards,
+      "btnMsg[4].msg": consultant,
+      "btnMsg[5].msg": writings,
     });
     wx.setNavigationBarTitle({
       title: '律师主页'

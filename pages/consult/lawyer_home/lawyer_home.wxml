@@ -2,29 +2,35 @@
 <!-- 律师照片区域 -->
 <view class="info_img">
   <swiper>
-    <swiper-item wx:for="{{lawyerImg}}" wx:key="item.id">
-      <image src="{{item.src}}" mode="aspectFit"/>
+    <swiper-item>
+      <image src="{{lawyerInfo.avatar}}" mode="aspectFit"/>
+    </swiper-item>
+    <swiper-item>
+      <image src="{{lawyerInfo.avatar1}}" mode="aspectFit"/>
+    </swiper-item>
+    <swiper-item>
+      <image src="{{lawyerInfo.avatar2}}" mode="aspectFit"/>
     </swiper-item>
   </swiper>
 </view>
 <!-- 律师信息区域 -->
 <view class="info">
   <view class="info_name">{{lawyerInfo.name}}</view>
-  <view class="info_detail"><text class="info_addr">广东广州</text><view class="line"></view><text class="info_firm">美哲律师事务所 高级合伙人</text>
+  <view class="info_detail"><text class="info_addr">{{lawyerInfo.city}}</text><view class="line"></view><text class="info_firm">{{lawyerInfo.title}}</text>
   </view>
   <view class="info_id">
     <view class="info_title">
       <image src="/images/icons/dot@2x.png"></image>
       <view>执业证号</view>
     </view>
-    <view class="info_content">51561651516516</view>
+    <view class="info_content">{{lawyerInfo.licence}}</view>
   </view>
   <view class="info_area">
     <view class="info_title">
       <image src="/images/icons/dot@2x.png"></image>
       <view>执业领域</view>
     </view>
-    <view class="info_content">小程序建设提供资金说明小程序建设提供资金说明小程序建设提供资金说明小程序建设提供资金小程序建设提供资金小程序建设提供资
+    <view class="info_content">{{lawyerInfo.scope}}
     </view>
   </view>
   <view class="info_btn">
@@ -44,7 +50,7 @@
       <image src="/images/icons/dot@2x.png"></image>
       <view>教育背景</view>
     </view>
-    <view class="info_content">教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景教育背景
+    <view class="info_content">{{lawyerInfo.edu}}
     </view>
   </view>
   <view class="info_achieve">
@@ -52,7 +58,7 @@
       <image src="/images/icons/dot@2x.png"></image>
       <view>主要业绩</view>
     </view>
-    <view class="info_content">主要业绩主要业绩主要业绩主要业绩主要业绩主要业绩主要业绩主要业绩
+    <view class="info_content">{{lawyerInfo.keyPerformance}}
     </view>
   </view>
 </view>
