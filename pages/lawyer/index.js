@@ -81,11 +81,9 @@ Page({
   },
   // 跳转至律师主页
   goToLawyer:function(e){
-    console.log("asdasdasdasd")
-    console.log(e.currentTarget.dataset.info)
-    const info = JSON.stringify(e.currentTarget.dataset.info);
+    const id = e.currentTarget.dataset.info.id
     wx.navigateTo({
-      url: './lawyer_home/lawyer_home?info='+info,
+      url: './detail/index?id='+id
     })
   },
   showModal:function(){

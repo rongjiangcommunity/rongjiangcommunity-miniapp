@@ -2,13 +2,10 @@
 <!-- 律师照片区域 -->
 <view class="info_img">
   <swiper>
-    <swiper-item>
-      <image src="{{lawyerInfo.avatar}}" mode="aspectFit"/>
-    </swiper-item>
-    <swiper-item>
+      <swiper-item disabled="{{lawyerInfo.avatar1==null}}">
       <image src="{{lawyerInfo.avatar1}}" mode="aspectFit"/>
     </swiper-item>
-    <swiper-item>
+    <swiper-item  disabled="{{lawyerInfo.avatar2==null}}">
       <image src="{{lawyerInfo.avatar2}}" mode="aspectFit"/>
     </swiper-item>
   </swiper>
@@ -64,7 +61,7 @@
 </view>
 <!-- 咨询按钮 -->
 <view class="consult_btn">
-  <button bindtap="consultHandle">立即咨询</button>
+  <button bindtap="consultHandle" data-id="{{lawyerInfo.id}}">立即咨询</button>
 </view>
 <!-- button信息弹窗 -->
 <modal

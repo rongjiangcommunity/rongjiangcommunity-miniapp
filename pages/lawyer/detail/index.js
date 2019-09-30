@@ -2,7 +2,6 @@
 const app=getApp();
 const approved = wx.getStorageSync('isXiaoyou');
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -16,32 +15,38 @@ Page({
         { title: '顾问单位', msg: '', disabled: false },
         { title: '专业著述', msg: '',disabled: false }
     ],
+    userid:0, //获取律师ID
+    indexid:0,//
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const that=this;
-    const lawyerInfo=JSON.parse(options.info);
-    var companyInfo = lawyerInfo.companyInfo;
-    var awards = lawyerInfo.awards;
-    var consultant = lawyerInfo.consultant; //顾问单位
-    var qualification = lawyerInfo.qualification  //其他资格
-    var writings = lawyerInfo.writings  //专业著述
-    var moreTitle = lawyerInfo.moreTitle //其他职务
+    let that = this;
+    var userid = options.id
     that.setData({
-      lawyerInfo: lawyerInfo,
-      "btnMsg[0].msg": companyInfo,
-      "btnMsg[1].msg": qualification,
-      "btnMsg[2].msg": moreTitle,
-      "btnMsg[3].msg": awards,
-      "btnMsg[4].msg": consultant,
-      "btnMsg[5].msg": writings,
-    });
+      userid: userid
+    })
+    var sid = app.getCredentials();
+    wx.request({
+      url: app.serverUrl + '/api/lawyer/query' + '/' + that.data.userid + '/' + sid,
+      success(res) {
+        that.setData({
+          lawyerInfo: res.data.data,
+          "btnMsg[0].msg": res.data.data.companyInfo,
+          "btnMsg[1].msg": res.data.data.qualification,
+          "btnMsg[2].msg": res.data.data.moreTitle,
+          "btnMsg[3].msg": res.data.data.awards,
+          "btnMsg[4].msg": res.data.data.consultant,
+          "btnMsg[5].msg": res.data.data.writings,
+        });
+        that.btnShowCheck(that)
+      }
+    })
+    //设置标题
     wx.setNavigationBarTitle({
       title: '律师主页'
     });
-    that.btnShowCheck(that);
   },
   checkInfo: function () {
     app.appReady().then(() => {
@@ -67,11 +72,11 @@ Page({
   },
 
   // 检测信息按钮是否可点击
-  btnShowCheck:function(ctx){
+  btnShowCheck: function (ctx) {
     let arr = ctx.data.btnMsg;
     let len = arr.length;
     for (let i = 0; i < len; i++) {
-      if (arr[i].msg === '') {
+      if (arr[i].msg === '' || arr[i].msg == null) {
         let btnDisabled = 'btnMsg[' + i + '].disabled';
         ctx.setData({
           [btnDisabled]: true,
@@ -80,17 +85,17 @@ Page({
     }
   },
   // 立即咨询按钮检测
-  consultHandle:function(){
-    const that=this;
-    const info = JSON.stringify(this.data.lawyerInfo);
-    const approved=that.data.approved;
+  consultHandle:function(options){
+    const that = this;
+    var id = options.currentTarget.dataset.id
+    const approved = that.data.approved;
     if(!approved){
       that.setData({
         showModalApproved: true
       })
     }else{
       wx.navigateTo({
-        url: './open_msg/open_msg?info=' + info,
+        url: '../open_msg/index?id=' + id,
       })
     }
   },

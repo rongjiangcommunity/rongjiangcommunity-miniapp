@@ -1,7 +1,7 @@
 <!--pages/consult/consult.wxml-->
 <!-- 顶部tab区域 -->
 <view class="header">
-  <navigator url="./consult_me/consult_me" hover-class="none" wx:if="{{isLawyer}}">
+  <navigator url="./consult_me/index" hover-class="none" wx:if="{{isLawyer}}">
     <view class="btn_answer">
       <view class="btn_icon">
         <mp-badge extClass="badge" wx:if="{{lawyerMsg}}"></mp-badge>
@@ -11,7 +11,7 @@
     </view>
   </navigator>
   <view class="line" wx:if="{{isLawyer}}"></view>
-  <navigator url="./my_consult/my_consult" hover-class="none">
+  <navigator url="./my_consult/index" hover-class="none">
     <view class="btn_ask">
       <view class="btn_icon">
         <mp-badge extClass="badge" wx:if="{{userMsg}}"></mp-badge>

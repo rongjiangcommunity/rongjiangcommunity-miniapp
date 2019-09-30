@@ -16,10 +16,10 @@ Page({
     doneData: null,
     //下拉请求参数
     undoneOffset: 0,  //初始页
-    undoneCount: 10,
+    undoneCount: 6,
     undoneSet: 0,  //用于记录下拉请求了几次
     doneOffset: 0,  //初始页
-    doneCount: 10,
+    doneCount: 6,
     doneSet: 0,//用于记录下拉请求了几次
     clickTitle: 1 //1表示咨询中，0表示已完成
   },
@@ -30,7 +30,6 @@ Page({
   onLoad: function (options) {
     //获取屏幕尺寸
     let windowHeight = wx.getSystemInfoSync().windowHeight;
-    console.log(windowHeight)
     this.setData({
       screenHight: windowHeight -60
     })
@@ -65,7 +64,6 @@ Page({
           })
         } else {
           var arr = that.data.undoneData;
-          console.log(arr)
           if (temp != null) {
             arr = arr.concat(temp)
             that.setData({
@@ -73,9 +71,6 @@ Page({
             })
           }
         }
-        console.log("+++++++++++++++++++++++++++++++++++")
-        console.log(that.data.undoneData)
-
       }
     })
   },
@@ -116,24 +111,18 @@ Page({
               doneData: arr
             })
           }
-
-          // }
-          console.log("==========")
-          console.log(that.data.doneData)
         }
       }
     })
   },
   // 改变点击“咨询中”、“已完成”
   changeClickTitle: function (e) {
-    console.log(e)
     this.setData({
       clickTitle: e.currentTarget.dataset.xid
     })
   },
   //触底操作，查找更多
   lowerMoreClassify: function (e) {
-    // console.log(this.data.undoneData.length)
     let that = this;
     if (that.data.clickTitle == 1) {  //分辨已完成还是咨询中的内容
       that.setData({

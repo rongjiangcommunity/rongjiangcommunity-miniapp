@@ -87,8 +87,6 @@ Page({
 
   //加载函数
   onLoad: function (option) {
-    // console.log(app.data.userId)
-    // console.log(option)
     var self = this;
     let { pid, lawyerName, lawyerAdress, lawyerStatus, from} = option;
 
@@ -148,13 +146,11 @@ Page({
         count: count
       },
       callback: function (res) {
-        // console.log(self.data.from)
         var leftBubble = self.data.from === "'consult_me'" ? 'fromUid' : 'toUid';
         var rightBubble = leftBubble === 'fromUid' ? 'toUid' : 'fromUid';
         var consultData = res.data.data;
         var consultList = consultData.list;
         var copyConsultList;
-        console.log(consultList)
         self.setData({
           consultData,
           currentMsg: consultData.top.msg,
@@ -165,7 +161,6 @@ Page({
 
       //适配高度
         var fitHeight = self.judgeFitHeight(app.data.userId, self.data.consulterId, self.data.status)
-        console.log(fitHeight)
         self.setData({
           fitHeight
         })
@@ -197,7 +192,6 @@ Page({
          var offset = self.data.offset + 9;
          if (copyConsultList && copyConsultList.length !== 0) {
         //定位可见范围为长度减1，保持滚动条可以上拉；改变返回数据的时间格式
-          //  console.log(copyConsultList.length)
            var len = copyConsultList.length - 1
            self.setData({
              consultList,
@@ -206,8 +200,6 @@ Page({
              toView: toView ? toView : 'msg-' + len
 
            })
-
-           console.log(self.data.toView)
          }
        }
     });
@@ -242,8 +234,6 @@ Page({
         id: self.data.pid
       },
       callback: function (res) {
-        console.log(res.data)
-
         if (res.data.success) {
           wx.navigateBack()
         }

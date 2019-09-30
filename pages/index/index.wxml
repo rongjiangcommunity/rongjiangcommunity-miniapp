@@ -42,7 +42,7 @@
       <text class="item-title">社区集市</text>
       <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
     </view>
-    <navigator url="../consult/consult">
+    <navigator url="../lawyer/index">
       <view class="item-box">
         <image class="item-img" src="../../images/icons/lawyer@3x.png" background-size="cover"/>
         <text class="item-title">律师服务</text>

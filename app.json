@@ -34,12 +34,12 @@
     "pages/approve/approve",
     "pages/audit_form/audit_form",
 
-    "pages/consult/consult",
-    "pages/consult/consult_me/consult_me",
-    "pages/consult/my_consult/my_consult",
-    "pages/consult/lawyer_home/lawyer_home",
-    "pages/consult/lawyer_home/open_msg/open_msg",
-    "pages/consult/add_msg/add_msg"
+    "pages/lawyer/index",
+    "pages/lawyer/consult_me/index",
+    "pages/lawyer/my_consult/index",
+    "pages/lawyer/detail/index",
+    "pages/lawyer/open_msg/index",
+    "pages/lawyer/add_msg/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
