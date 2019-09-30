@@ -15,7 +15,7 @@ Page({
     submitTime: '',
     pid: '',
     name: '',
-    sessionOrAdress: '',
+    tel: '',
     status: '',
     userId: '',
     fromUid: '',
@@ -27,7 +27,62 @@ Page({
     from: '', //我的咨询还是咨询我的来的
     color: '',  //不同状态颜色
     toView: '',
-    flag: true
+    flag: true,
+    pid:0,
+  },
+  //获取律师信息
+  getLawyerInfo:function(e){
+    let that = this
+    var sid = app.getCredentials();
+    wx.request({
+      url: app.serverUrl + '/api/lawyer/msg/' + sid+'/'+that.data.pid,
+      success(res) {
+
+        that.setData({
+          lawyerInfo: res.data.data.user,
+          fromUid: res.data.data.top.fromUid,
+          toUid: res.data.data.top.toUid,
+        });
+        var from = that.data.from
+        console.log(from)
+        if(from == "'my_consult'"){
+          var name = that.data.lawyerInfo[that.data.toUid].name
+          var tel = that.data.lawyerInfo[that.data.toUid].mobile
+          that.setData({
+            name: name,
+            tel: tel
+          })
+        } else{
+          var name = that.data.lawyerInfo[that.data.fromUid].name
+          var tel = that.data.lawyerInfo[that.data.fromUid].mobile
+          that.setData({
+            name: name,
+            tel: tel
+          })
+        }
+    
+      
+        if (res.data.data.top.status == "active" || res.data.data.top.status == "created") {
+          that.setData({
+            status:"咨询中"
+          });
+        }
+        if (res.data.data.top.status == "closed" || res.data.data.top.status == "finished") {
+          that.setData({
+            status: "已完成",
+          });
+        } else if (res.data.data.top.status == "timeout") {
+          that.setData({
+            status: "超时关闭",
+          });
+        }
+        //设置状态颜色
+        that.setData({
+          color: that.judgeColor(that.data.status)
+        })
+      
+      }
+    })
   },
   //留言的伸展与收起
   ellipsis: function () {
@@ -37,7 +92,7 @@ Page({
     })
   },
   //提交留言后动态创建dom结点
-  submit: function(e) {
+  submit: function (e) {
     let sid = app.getCredentials();
     var self = this;
     this.setData({
@@ -56,7 +111,7 @@ Page({
         formId: e.detail.value.formId
       },
       callback: function (res) {
-        if(res.data.success){
+        if (res.data.success) {
           self.setData({
             inputValue: ''
           })
@@ -88,16 +143,14 @@ Page({
   //加载函数
   onLoad: function (option) {
     var self = this;
-    let { pid, lawyerName, lawyerAdress, lawyerStatus, from} = option;
+    let { pid, from} = option;
 
     this.setData({
       pid,
-      name: lawyerName,
-      sessionOrAdress: lawyerAdress,
-      status: lawyerStatus,
       from,
-      color: self.judgeColor(lawyerStatus)
     })
+    //获取律师信息
+    self.getLawyerInfo();
     // 获取微信服务凭证
     let sid = app.getCredentials();
 

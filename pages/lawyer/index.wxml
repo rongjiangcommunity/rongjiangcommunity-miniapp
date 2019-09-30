@@ -31,10 +31,10 @@
   <view class="list_item" wx:for="{{lawyerList}}" wx:key="item.id" data-info="{{item}}" bindtap="goToLawyer" data-itemId="{{index}}">
     <view class="item_name">{{item.name}}</view>
     <view class="item_info">
-      <text class="item_addr">广东 广州</text>
-      <text class="item_firm">广州榕水长事务所</text>
+      <text class="item_addr">{{item.city}}</text>
+      <text class="item_firm">{{item.company}}</text>
     </view>
-    <view class="info_pro">{{infoPro}}</view>
+    <view class="info_pro">{{item.scope}}</view>
   </view>
 
   <!-- 页脚区域 -->

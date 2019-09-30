@@ -34,7 +34,7 @@
             </view>
                   <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
                   </view>
-                      <navigator url="../add_msg/index?pid={{item.id}}&lawyerName={{item.user.name}}&lawyerAdress={{item.user.period}}&lawyerStatus={{item.status}}&from='consult_me'">
+                      <navigator url="../add_msg/index?pid={{item.id}}&from='consult_me'">
                   <view class="frame">
                    <image class="img"  src="/images/icons/envelope.png" ></image>
                    <block wx:if="{{item.hasUnread}}">
@@ -68,7 +68,7 @@
             </view>
                   <view class="{{item.msg.length<=44?'msgB':'msg'}}">{{item.msg}}</view>
                   </view>
-                      <navigator  url="../add_msg/index?pid={{item.id}}&lawyerName={{item.user.name}}&lawyerAdress={{item.user.period}}&lawyerStatus={{item.status}}&from='consult_me'">
+                      <navigator  url="../add_msg/index?pid={{item.id}}&from='consult_me'">
                   <view class="frame">
                   <image class="img"  src="/images/icons/envelope.png" ></image>
                    <block wx:if="{{item.hasUnread}}">

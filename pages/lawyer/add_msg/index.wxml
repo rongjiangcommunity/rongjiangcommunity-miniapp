@@ -3,7 +3,7 @@
   <view class="person-box">
     <view class="person-content">
       <text class="name">{{name}}</text>
-      <text class="session-adress">{{sessionOrAdress}}{{from === "'consult_me'"? '届': ''}}</text>
+      <text class="session-adress">{{tel}}{{from === "'consult_me'"? '届': ''}}</text>
     </view>
     <text class="consult-status {{color}}">{{status}}</text>
   </view>
