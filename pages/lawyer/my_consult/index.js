@@ -6,12 +6,6 @@ Page({
    */
   data: {
     screenHight:0,//屏幕高度
-    // "name": "肖律师",
-    // "office": "XXXXXX律师事务所",
-    // "chatState": "咨询中",
-    // "msg": "入党是指经过一定手续，得到某政党组织批准而成为该党之成员亦特指加入中国入党是指经过一定手续，得到某政党组织批准而成为该党之成员亦特指加入中国共产党入党条件为年",
-    // "readState": false,
-
     undoneData: null,
     doneData: null,
     //下拉请求参数

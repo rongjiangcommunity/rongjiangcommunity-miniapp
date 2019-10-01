@@ -10,10 +10,6 @@
 
   <view class="consult-box">
     <text id="consult-content"  class="consult-content {{ellipsis?'ellipsis':'unellipsis'}}">{{currentMsg}}</text>
-    <!-- <view class='bg-white-ellipsis' bindtap='ellipsis' style='display: {{isDisplay? "flex": "none"}}'>
-      <text class="text-ellipsis">{{ellipsis? '更多': '收起'}}</text>
-      <image class='img-ellipsis' src="{{ellipsis?'/images/icons/toDown.png':'/images/icons/toUp.png'}}"/>
-    </view> -->
   </view>
 </view>
 

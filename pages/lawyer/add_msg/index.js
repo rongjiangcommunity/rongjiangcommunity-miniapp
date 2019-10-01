@@ -44,7 +44,6 @@ Page({
           toUid: res.data.data.top.toUid,
         });
         var from = that.data.from
-        console.log(from)
         if(from == "'my_consult'"){
           var name = that.data.lawyerInfo[that.data.toUid].name
           var tel = that.data.lawyerInfo[that.data.toUid].mobile
@@ -144,7 +143,6 @@ Page({
   onLoad: function (option) {
     var self = this;
     let { pid, from} = option;
-
     this.setData({
       pid,
       from,

@@ -21,7 +21,6 @@ page{
   width: 375rpx;
   justify-content: center;
   height: 100rpx;
-  /* border: 1rpx solid rebeccapurple; */
 }
 .text{
   margin-top: 11rpx;
@@ -32,7 +31,6 @@ page{
   color: #B2B2B2;
 }
 .textB{
-  /* margin-top: 31rpx; */
   font-size: 28rpx;
   display: flex;
   justify-content: center;
@@ -69,7 +67,6 @@ page{
   color: #333333;
 }
 .userG3{
-  /* margin-top: 9rpx; */
   margin-left: 12rpx;
   font-size: 32rpx;
   color: #333333;
@@ -94,7 +91,6 @@ page{
 }
 .frame_information{
   display: flex;
-  /* align-items: center; */
   flex-direction: column;
 }
 .frame_msg_icon_big{
@@ -123,7 +119,6 @@ page{
    display: flex;
    align-items: center;
     font-size: 24rpx;
-    /* height: 121rpx; */
     margin-left: 30rpx;
     width: 562rpx;
     height: 102rpx;
@@ -131,7 +126,6 @@ page{
 
 }
 .img{
-  /* margin-left: 52rpx; */
   height: 52rpx;
   width: 52rpx;
 }
@@ -144,7 +138,6 @@ page{
    justify-content: center;
    align-items: center;
    width: 142rpx;
-   /* border:1rpx solid #DDDDDD; */
 }
 .badge{
   position: absolute;
