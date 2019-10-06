@@ -1,0 +1,14 @@
+<view class="community-content-wrap flex">
+  <view class="community-content" wx:if="{{canIUse}}">
+    <image class="community-img" src="../../images/icons/Community.png" mode="aspectFill"/>
+    <text class="community-title">欢迎来到榕江社区小程序</text>
+    <text class="community-raw">为了提供更好的服务，请进行微信授权，用于获取微信头像、昵称</text>
+    <button
+      open-type="getUserInfo"
+      bindgetuserinfo="bindGetUserInfo"
+      class="get-user-info-btn">微信授权</button>
+  </view>
+  <view wx:else style="width: 100%;text-align: center;color:crimson;">
+    当前微信版本低，请升级微信版本获得小程序最佳体验
+  </view>
+</view>
