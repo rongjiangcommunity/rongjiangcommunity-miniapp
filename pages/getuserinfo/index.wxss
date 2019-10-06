@@ -1,0 +1,36 @@
+.community-content-wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+}
+.community-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.community-img{
+  width: 100%;
+  margin: 160rpx auto 10rpx auto;
+}
+.community-title{
+  font-size: 36rpx;
+  color: #666;
+  margin-bottom: 38rpx;
+}
+.community-raw{
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 68rpx;
+}
+.get-user-info-btn{
+  height: 100rpx;
+  width: 480rpx;
+  line-height: 100rpx;
+  background-color: #008DF8;
+  color: #fff;
+}

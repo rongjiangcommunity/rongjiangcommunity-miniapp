@@ -70,7 +70,7 @@
         </view>
        
         <text class="text">注：预约提交后工作人员会尽快帮助您联系校友医生并反馈结果。</text>
-        <button formType="submit" class="weui-btn submit">预约挂号</button>
+        <button formType="submit" class="weui-btn submit">预约</button>
     </form>
 </view>
 
