@@ -29,7 +29,7 @@
   <view class="nav_title">以下医生皆为一中校友</view>
   <view class="weui-panel weui-panel_access">
     <view class="weui-panel__bd">
-      <view class="weui-media-box weui-media-box_text" wx:for="{{doctorArr}}" bindtap='gotoDocotrInfo' data-info="{{item}}">
+      <view class="weui-media-box weui-media-box_text" wx:for="{{doctorArr}}" wx:key="index" bindtap='gotoDocotrInfo' data-info="{{item}}">
         <image mode="aspectFit" class="doctor_icon" src="{{item.avatar}}" />
         <view class="doctor_info" data-info="{{item}}">
           <view class="doctor_info1">

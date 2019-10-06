@@ -17,7 +17,7 @@
           <view class="weui-panel__hd">坐诊时间：</view>
           <view class="weui-panel__bd">
             <view class="weui-media-box weui-media-box_text">
-              <view wx:for="{{doctorInfo.detail}}">{{item}}</view>
+              <view wx:for="{{doctorInfo.detail}}" wx:key="index">{{item}}</view>
             </view>
           </view>
       </view>
