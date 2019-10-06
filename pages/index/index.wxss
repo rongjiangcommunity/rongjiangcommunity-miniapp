@@ -157,3 +157,6 @@ page{
 .flex {
   display: flex;
 }
+.anchor {
+  color: #008DF8;
+}
