@@ -1,4 +1,5 @@
 // pages/love/management/audit.js
+import Dialog from '../../../miniprogram_npm/vant-weapp/dialog/dialog';
 Page({
 
   /**
@@ -62,5 +63,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  agree:function(){
+    Dialog.confirm({
+      message: '是否确认通过该用户的鹊桥相会权限申请'
+    }).then(() => {
+      // on confirm
+    }).catch(() => {
+      // on cancel
+    });
   }
 })

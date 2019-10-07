@@ -13,3 +13,7 @@
   border-bottom-left-radius: 30rpx;
   background: #4e85c6;
 }
+.anchor{
+  /* color: #4e85c6; */
+  color: #008DF8;
+}

@@ -2,10 +2,25 @@
 .nickname{
   font-size: 40rpx;
   font-weight:bold; 
+  color:#333333;
+}
+
+.period{
+  font-size: 40rpx;
+  color:#666666;
+  margin-left: 20rpx;
 }
 
 .card{
-  width: 700rpx;
+  width: 660rpx;
+  margin: 20rpx 25rpx 0rpx 25rpx;
+  background-color: #fff;
+  padding: 20rpx;
+  border-radius: 15rpx;
+}
+
+.card-content{
+  color:#999999;
 }
 
 .icon-sex{

@@ -1,0 +1,15 @@
+<van-search placeholder="可以按姓名、手机号码、微信号搜索" v-model="value" />
+<view class="couple">
+  <view class="card">
+  </view>
+  <image class="icon-relationship" src="../../../images/icons/relationship.png" background-size="cover"/>
+  <view class="card">
+  </view>
+</view>
+<view class="couple">
+  <view class="card">
+  </view>
+  <image class="icon-relationship" src="../../../images/icons/relationship.png" background-size="cover"/>
+  <view class="card">
+  </view>
+</view>

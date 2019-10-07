@@ -20,10 +20,6 @@
     <view class="item-right">{{appointment.user.period}}</view>
   </view>
   <view class="section">
-    <view class="item-left">预约类型</view>
-    <view class="item-right">挂号</view>
-  </view>
-  <view class="section">
     <view class="item-left">预约时间</view>
     <view class="item-right">{{appointment.reg_date}}</view>
   </view>
