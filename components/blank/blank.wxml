@@ -1,0 +1,5 @@
+<!-- 当无数据时的页面 -->
+<view class="frame">
+    <image src="/images/icons/pic_load@3x.png" class="picture" />
+    <text class="text">暂无数据</text>
+</view>

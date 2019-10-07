@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "mp-blank": "/components/blank/blank"
+  }
+}
