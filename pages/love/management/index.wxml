@@ -1,0 +1,9 @@
+<van-cell-group>
+  <van-cell title="审核列表" is-link url="audit" size="large"/>
+</van-cell-group>
+<van-cell-group>
+  <van-cell title="人员管理" is-link url="../love/index" size="large"/>
+</van-cell-group>
+<van-cell-group>
+  <van-cell title="互相心动" is-link url="../love/index" size="large"/>
+</van-cell-group>

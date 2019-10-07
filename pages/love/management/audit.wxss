@@ -1,0 +1,15 @@
+/* pages/love/management/audit.wxss */
+.nickname{
+  font-size: 40rpx;
+  font-weight:bold; 
+}
+
+.card{
+  width: 700rpx;
+}
+
+.icon-sex{
+  width:40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+}

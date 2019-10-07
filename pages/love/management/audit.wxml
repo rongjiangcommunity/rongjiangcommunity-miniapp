@@ -1,0 +1,18 @@
+<van-search placeholder="可以按姓名、手机号码、微信号搜索" v-model="value" />
+<van-panel class="card">
+  <van-row>
+    <van-col span="8" offset="1">
+      <text class="nickname">我是昵称</text>
+      <image class="icon-sex" src="../../../images/icons/man.png" background-size="cover"/>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="8" offset="1">微信:</van-col>
+  </van-row>
+  <van-row>
+    <van-col span="17" offset="1">手机号码:</van-col>
+    <van-col span="6">
+      <van-button type="info" size="small">同意申请</van-button>
+    </van-col>
+  </van-row>
+</van-panel>
