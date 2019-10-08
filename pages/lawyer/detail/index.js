@@ -7,6 +7,7 @@ Page({
    */
   data: {
     lawyerInfo:{},
+    picture: [{},],
     btnMsg: [
         { title: '律所介绍', msg: '', disabled: false },
         { title: '其他资格', msg: '', disabled: false },
@@ -40,6 +41,27 @@ Page({
           "btnMsg[4].msg": res.data.data.consultant,
           "btnMsg[5].msg": res.data.data.writings,
         });
+        if (res.data.data.avatar!=""){
+          var arr =res.data.data.avatar;
+          arr = that.data.picture.concat(arr)
+          that.setData({
+            picture:arr
+          })
+        }
+        if (res.data.data.avatar1 != "") {
+          var arr = res.data.data.avatar1;
+          arr = that.data.picture.concat(arr)
+          that.setData({
+            picture:arr
+          })
+        }
+        if (res.data.data.avatar2 != "") {
+          var arr = res.data.data.avatar2;
+          arr = that.data.picture.concat(arr)
+          that.setData({
+            picture:arr
+          })
+        }
         that.btnShowCheck(that)
       }
     })

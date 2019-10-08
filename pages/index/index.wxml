@@ -45,7 +45,7 @@
     <navigator url="../lawyer/index">
       <view class="item-box">
         <image class="item-img" src="../../images/icons/lawyer@3x.png" background-size="cover"/>
-        <text class="item-title">律师服务</text>
+        <text class="item-title">法律服务</text>
           <image class="item-raw" src="/images/icons/arrow@2x.png" background-size="cover"/>
       </view>
     </navigator>

@@ -1,15 +1,21 @@
 <!--pages/consult/lawyer_home/lawyer_home.wxml-->
 <!-- 律师照片区域 -->
-<view class="info_img">
-  <swiper>
-      <swiper-item disabled="{{lawyerInfo.avatar1==null}}">
-      <image src="{{lawyerInfo.avatar1}}" mode="aspectFit"/>
-    </swiper-item>
-    <swiper-item  disabled="{{lawyerInfo.avatar2==null}}">
-      <image src="{{lawyerInfo.avatar2}}" mode="aspectFit"/>
-    </swiper-item>
-  </swiper>
-</view>
+<block wx:if="{{picture.length==3}}">
+  <view class="info_img">
+    <swiper>
+      <block wx:for="{{picture}}" wx:key="{{index}}">
+        <block wx:if="{{index!=0}}">
+          <swiper-item>
+          <image src="{{item}}" mode="aspectFit"/>
+        </swiper-item>
+        </block>
+      </block>
+    </swiper>
+  </view>
+</block>
+<block wx:elif="{{picture.length==2}}">
+      <image src="{{picture[1]}}" class="picture"mode="aspectFit"></image>
+</block>
 <!-- 律师信息区域 -->
 <view class="info">
   <view class="info_name">{{lawyerInfo.name}}</view>

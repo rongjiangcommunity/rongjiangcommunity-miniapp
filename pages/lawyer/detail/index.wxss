@@ -6,6 +6,13 @@ page{
 .info_img swiper{
   height: 420rpx;
 }
+.picture{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400rpx;
+  margin-left:22%;
+}
 .info_img swiper-item{
   position: relative;
 }
