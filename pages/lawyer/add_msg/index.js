@@ -174,6 +174,7 @@ Page({
             util.send({
               url: '/api/lawyer/msg/read/' + sid + '/' + self.data.pid,
               method: 'POST',
+              callback: () => {},
             });
           }
        }

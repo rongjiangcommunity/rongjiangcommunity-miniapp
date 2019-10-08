@@ -1,6 +1,7 @@
 // pages/me/me.js
 const app = getApp();
 const data = {
+  avatarUrl: '/images/smile.png',
   userInfo: null,
   approved: false,
   status: '',
@@ -40,17 +41,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.getWxUserInfo().then((userInfo) => {
-      if (userInfo) {
-        const data = {
-          userInfo,
-        }
-        if (!this.data.name) {
-          data.name = userInfo.nickName || '';
-        }
-        this.setData(data);
-      }
-    });
+    
   },
 
   /**
@@ -66,6 +57,18 @@ Page({
   onShow: function () {
     const ctx = this;
     const credentials = app.getCredentials();
+
+    app.getWxUserInfo().then((userInfo) => {
+      if (userInfo) {
+        const data = {
+          userInfo,
+        }
+        if (!this.data.name) {
+          data.name = userInfo.nickName || '';
+        }
+        this.setData(data);
+      }
+    });
 
     this.fetchUserInfo().then(() => {
       // 获取寻医待办数目

@@ -4,7 +4,7 @@
   <view class="userinfo">
     <view class='avatar'>
       <view wx:if="{{!hasUserInfo}}">
-        <van-button type="info" size="small" bind:click="showGetUserInfoView" round>获取头像</van-button>
+        <navigator url="../getuserinfo/index" class="anchor">点击获取头像</navigator>
       </view>
       <image wx:else class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"/>
     </view>
@@ -37,11 +37,6 @@
           <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
       </view>
     </navigator>
-    <view class="item-box" bindtap='expect'>
-      <image class="item-img" src="../../images/icons/enterprise@3x.png" background-size="cover"/>
-      <text class="item-title">社区集市</text>
-      <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
-    </view>
     <navigator url="../lawyer/index">
       <view class="item-box">
         <image class="item-img" src="../../images/icons/lawyer@3x.png" background-size="cover"/>
@@ -49,6 +44,11 @@
           <image class="item-raw" src="/images/icons/arrow@2x.png" background-size="cover"/>
       </view>
     </navigator>
+    <view class="item-box" bindtap='expect'>
+      <image class="item-img" src="../../images/icons/enterprise@3x.png" background-size="cover"/>
+      <text class="item-title">社区集市</text>
+      <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
+    </view>
     <view class="item-box" bindtap='expect'>
       <image class="item-img" src="../../images/icons/love@3x.png" background-size="cover"/>
       <text class="item-title">鹊桥相会</text>
@@ -77,23 +77,3 @@
   </view>
 </view>
 </block>
-
-<!-- 微信授权部分 -->
-<view
-wx:if="{{!hasUserInfo}}"
- class="community-content-wrap {{showGetUserInfo?'flex':'hide'}}"
->
-  <view class="community-content" wx:if="{{canIUse}}">
-    <image class="community-img" src="../../images/icons/Community.png" mode="aspectFill"/>
-    <text class="community-title">欢迎来到榕江社区小程序</text>
-    <text class="community-raw">进入前请先进行微信授权</text>
-    <button
-      open-type="getUserInfo"
-      bindgetuserinfo="bindGetUserInfo"
-      class="get-user-info-btn">微信授权</button>
-  </view>
-  <view wx:else style="width: 100%;text-align: center;color:crimson;">
-    当前微信版本低，请升级微信版本获得小程序最佳体验
-    <van-button type="warn" size="small" bind:click="hideGetUserInfoView">返回</van-button>
-  </view>
-</view>

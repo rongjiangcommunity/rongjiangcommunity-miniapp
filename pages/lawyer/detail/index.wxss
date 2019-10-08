@@ -24,7 +24,7 @@ page{
 }
 /* 律师信息区域 */
 .info{
-  padding: 40rpx 30rpx 0;
+  padding: 40rpx 30rpx 120rpx;
   color: #333;
 }
 .info .info_name{
@@ -116,7 +116,7 @@ button::after{
   white-space: pre-wrap;
 }
 .info_achieve{
-  margin: 48rpx 0 120rpx 0;
+  margin: 48rpx 0 0 0;
   white-space: pre-wrap;
 }
 /* 咨询按钮 */
