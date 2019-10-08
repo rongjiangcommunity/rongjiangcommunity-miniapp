@@ -1,15 +1,79 @@
 <van-search placeholder="可以按姓名、手机号码、微信号搜索" v-model="value" />
 <view class="couple">
   <view class="card">
+    <view>
+      <text class="nickname">史小明</text>
+      <image class="icon-sex" src="../../../images/icons/man.png" background-size="cover"/>
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/period.png" background-size="cover"/>
+      <text class="desc">89届11班</text> 
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/phone.png" background-size="cover"/>
+      <text class="desc">64797345543</text> 
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/wechat.png" background-size="cover"/>
+      <text class="desc">Mumumumu144</text> 
+    </view>
   </view>
   <image class="icon-relationship" src="../../../images/icons/relationship.png" background-size="cover"/>
   <view class="card">
+    <view>
+      <text class="nickname">蒋小丽</text>
+      <image class="icon-sex" src="../../../images/icons/women.png" background-size="cover"/>
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/period.png" background-size="cover"/>
+      <text class="desc">89届11班</text> 
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/phone.png" background-size="cover"/>
+      <text class="desc">64797345543</text> 
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/wechat.png" background-size="cover"/>
+      <text class="desc">Mumumumu144</text> 
+    </view>
   </view>
 </view>
 <view class="couple">
   <view class="card">
+    <view>
+      <text class="nickname">史小明</text>
+      <image class="icon-sex" src="../../../images/icons/man.png" background-size="cover"/>
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/period.png" background-size="cover"/>
+      <text class="desc">89届11班</text> 
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/phone.png" background-size="cover"/>
+      <text class="desc">64797345543</text> 
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/wechat.png" background-size="cover"/>
+      <text class="desc">Mumumumu144</text> 
+    </view>
   </view>
   <image class="icon-relationship" src="../../../images/icons/relationship.png" background-size="cover"/>
   <view class="card">
+    <view>
+      <text class="nickname">蒋小丽</text>
+      <image class="icon-sex" src="../../../images/icons/women.png" background-size="cover"/>
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/period.png" background-size="cover"/>
+      <text class="desc">89届11班</text> 
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/phone.png" background-size="cover"/>
+      <text class="desc">64797345543</text> 
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/wechat.png" background-size="cover"/>
+      <text class="desc">Mumumumu144</text> 
+    </view>
   </view>
 </view>

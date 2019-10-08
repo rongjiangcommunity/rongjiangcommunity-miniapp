@@ -5,14 +5,37 @@
 }
 
 .card{
-  width: 320rpx;
+  width: 292rpx;
   height: 244rpx;
   display: inline-block;
   background-color: #FFFFFF;
+  padding: 28rpx 0rpx 0rpx 28rpx;
 }
 
 .icon-relationship{
   width: 26rpx;
   height: 24rpx;
-  margin: 110rpx 12rpx 110rpx 12rpx;
+  margin: 0rpx 12rpx 80rpx 12rpx;
+}
+
+.nickname{
+  font-size: 40rpx;
+  font-weight:bold; 
+  color:#333333;
+}
+
+.icon-sex{
+  width:40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+}
+
+.icon-left{
+  width:32rpx;
+  height: 32rpx;
+}
+
+.desc{
+  margin-left: 5rpx;
+  color: #999999;
 }
