@@ -7,7 +7,7 @@ Page({
    */
   data: {
     lawyerInfo:{},
-    picture: [{},],
+    picture: [],
     btnMsg: [
         { title: '律所介绍', msg: '', disabled: false },
         { title: '其他资格', msg: '', disabled: false },
@@ -62,6 +62,7 @@ Page({
             picture:arr
           })
         }
+        console.log(that.data.picture)
         that.btnShowCheck(that)
       }
     })

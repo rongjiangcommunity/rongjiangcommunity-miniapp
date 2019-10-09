@@ -1,20 +1,18 @@
 <!--pages/consult/lawyer_home/lawyer_home.wxml-->
 <!-- 律师照片区域 -->
-<block wx:if="{{picture.length==3}}">
+<block wx:if="{{picture.length==2}}">
   <view class="info_img">
     <swiper>
       <block wx:for="{{picture}}" wx:key="{{index}}">
-        <block wx:if="{{index!=0}}">
           <swiper-item>
           <image src="{{item}}" mode="aspectFit"/>
         </swiper-item>
-        </block>
       </block>
     </swiper>
   </view>
 </block>
-<block wx:elif="{{picture.length==2}}">
-      <image src="{{picture[1]}}" class="picture"mode="aspectFit"></image>
+<block wx:elif="{{picture.length==1}}">
+      <image src="{{picture[0]}}" class="picture"mode="aspectFit"></image>
 </block>
 <!-- 律师信息区域 -->
 <view class="info">
