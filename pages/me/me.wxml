@@ -69,7 +69,7 @@
     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
   <navigator url="../lawyer/index" class="weui-cell weui-cell_access" wx:if="{{approved}}">
-    <view class="weui-cell__bd">律师服务</view>
+    <view class="weui-cell__bd">法律服务</view>
     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
   <navigator url="../me_feedback/me_feedback" class="weui-cell weui-cell_access">

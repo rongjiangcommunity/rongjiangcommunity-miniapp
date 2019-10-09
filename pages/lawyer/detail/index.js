@@ -32,7 +32,18 @@ Page({
     wx.request({
       url: app.serverUrl + '/api/lawyer/query' + '/' + that.data.userid + '/' + sid,
       success(res) {
+        var arr = [];
+        if (res.data.data.avatar!=""){
+          var arr = arr.concat(res.data.data.avatar);
+        }
+        if (res.data.data.avatar1 != "") {
+          var arr = arr.concat(res.data.data.avatar1);
+        }
+        if (res.data.data.avatar2 != "") {
+          var arr = arr.concat(res.data.data.avatar2);
+        }
         that.setData({
+          picture: arr,
           lawyerInfo: res.data.data,
           "btnMsg[0].msg": res.data.data.companyInfo,
           "btnMsg[1].msg": res.data.data.qualification,
@@ -40,29 +51,7 @@ Page({
           "btnMsg[3].msg": res.data.data.awards,
           "btnMsg[4].msg": res.data.data.consultant,
           "btnMsg[5].msg": res.data.data.writings,
-        });
-        if (res.data.data.avatar!=""){
-          var arr =res.data.data.avatar;
-          arr = that.data.picture.concat(arr)
-          that.setData({
-            picture:arr
-          })
-        }
-        if (res.data.data.avatar1 != "") {
-          var arr = res.data.data.avatar1;
-          arr = that.data.picture.concat(arr)
-          that.setData({
-            picture:arr
-          })
-        }
-        if (res.data.data.avatar2 != "") {
-          var arr = res.data.data.avatar2;
-          arr = that.data.picture.concat(arr)
-          that.setData({
-            picture:arr
-          })
-        }
-        console.log(that.data.picture)
+        })
         that.btnShowCheck(that)
       }
     })
