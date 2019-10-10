@@ -33,14 +33,14 @@ Page({
       url: app.serverUrl + '/api/lawyer/query' + '/' + that.data.userid + '/' + sid,
       success(res) {
         var arr = [];
-        if (res.data.data.avatar!=""){
-          var arr = arr.concat(res.data.data.avatar);
+        if (res.data.data.avatar){
+          var arr = arr.push(res.data.data.avatar);
         }
-        if (res.data.data.avatar1 != "") {
-          var arr = arr.concat(res.data.data.avatar1);
+        if (res.data.data.avatar1) {
+          var arr = arr.push(res.data.data.avatar1);
         }
-        if (res.data.data.avatar2 != "") {
-          var arr = arr.concat(res.data.data.avatar2);
+        if (res.data.data.avatar2) {
+          var arr = arr.push(res.data.data.avatar2);
         }
         that.setData({
           picture: arr,
