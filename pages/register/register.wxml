@@ -7,7 +7,6 @@
           name="name"
           value="{{applyInfo.name||''}}"
           disabled='{{!editable}}'
-          bindinput="msg_contentHandle"
           placeholder="{{applyInfo.name||'真实姓名'}}"
           placeholder-class='placeholder'
           />
@@ -31,7 +30,6 @@
           type="number"
           value="{{applyInfo.mobile||''}}"
           disabled='{{!editable}}'
-          bindinput="msg_contentHandle"
           placeholder="{{applyInfo.mobile||'请输入手机号码'}}"
           placeholder-class='placeholder'
           />
@@ -44,7 +42,6 @@
           name="wechat"
           value="{{applyInfo.wechat||''}}"
           disabled='{{!editable}}'
-          bindinput="msg_contentHandle"
           placeholder="{{applyInfo.wechat||'请输入微信号'}}"
           placeholder-class='placeholder'
           />
@@ -60,7 +57,6 @@
           type="number"
           value="{{applyInfo.period||''}}"
           disabled='{{!editable}}'
-          bindinput="msg_contentHandle"
           placeholder="{{applyInfo.period||'格式为数字，如89届填89'}}"
           placeholder-class='placeholder'
           />
@@ -74,7 +70,6 @@
           type="number"
           value="{{applyInfo.g3||''}}"
           disabled='{{!editable}}'
-          bindinput="msg_contentHandle"
           placeholder="{{applyInfo.g3||'高三班级，格式同上'}}"
           placeholder-class='placeholder'
           />
@@ -92,7 +87,6 @@
           name="classmate1"
           label="同学一"
           disabled="{{!editable}}"
-          bindinput="msg_contentHandle"
           value="{{classMates[0]||''}}"
           placeholder="{{classMates[0]||'请输入同学的真实姓名'}}"
           placeholder-class='placeholder'
@@ -106,7 +100,6 @@
           name="classmate2"
           label="同学二"
           disabled="{{!editable}}"
-          bindinput="msg_contentHandle"
           value="{{classMates[1]||''}}"
           placeholder="{{classMates[1]||'请输入同学的真实姓名'}}"
           placeholder-class='placeholder'
@@ -120,7 +113,6 @@
           name="classmate3"
           label="同学三"
           disabled="{{!editable}}"
-          bindinput="msg_contentHandle"
           value="{{classMates[2]||''}}"
           placeholder="{{classMates[2]||'请输入同学的真实姓名'}}"
           placeholder-class='placeholder'
@@ -136,8 +128,8 @@
   </view>
   <view class="btn" wx:if="{{!approved}}">
     <button wx:if="{{status===''}}" form-type="submit" disabled="{{disabled}}">提交审核</button>
-    <button wx:if="{{status==='ok'}}" formType="submit" disabled='{{disabled}}'>重新提交</button>
-    <button wx:if="{{status==='notok'}}" formType="submit" disabled='{{disabled}}'>重新提交</button>
+    <button wx:if="{{status==='ok'}}" form-type="submit" disabled='{{disabled}}'>重新提交</button>
+    <button wx:if="{{status==='notok'}}" form-type="submit" disabled='{{disabled}}'>重新提交</button>
     <button wx:if="{{status==='pending'}}" disabled>审核中</button>
   </view>
 </form>
