@@ -1318,7 +1318,7 @@ App({
         success(res) {
           const data = res && res.data && res.data.success ? res.data.data : null;
           //获取用户id
-          app.data.userId = data.id;
+          app.data.userId = data && data.id;
           resolve(data);
         },
         fail(err) {
