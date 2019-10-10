@@ -7,11 +7,12 @@ Page({
    */
   data: {
     disabled: false,
-    editable: false,
+    editable: true,
     applyInfo: {},
     approved,
     status: '',
-    gender: null,
+    gender: '',
+    classMates: [],
   },
   /**
      * 生命周期函数--监听页面显示
@@ -46,7 +47,7 @@ Page({
   // radio性别选择切换
   onChange(event) {
     this.setData({
-      gender: event.detail,
+      gender: event.detail.value,
     });
   },
   // 表单提交
@@ -130,30 +131,22 @@ Page({
         .then(([user, applyInfo]) => {
           const approved = user && user.approved === 'true' ? true : false;
           const status = applyInfo ? applyInfo.status : '';
+          const gender = user ? user.gender : applyInfo ? applyInfo.gender : '';
+          const classMates = applyInfo && applyInfo.classmates ? applyInfo.classmates.split(',') : [];
           // console.log(approved)
           this.setData({
             user,
             applyInfo,
             approved,
             status,
+            classMates,
+            editable: !approved,
+            gender,
           });
-          this.setClassMates(applyInfo && applyInfo.classmates);
-          this.checkIfEditable(approved, status);
         }).catch((err) => {
           console.log(err);
         });
     });
-  },
-  setClassMates: function ( classmatesStr ) {
-    let classMates = classmatesStr ? classmatesStr.split(',') : [];
-    this.setData({ classMates })
-  },
-  checkIfEditable: function ( approved, status  ){
-    if ( approved ){
-      this.setData({ editable: false })
-    } else {
-      this.setData({ editable: true })
-    }
   },
 
   /**
