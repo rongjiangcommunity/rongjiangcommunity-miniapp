@@ -12,6 +12,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   data:{
+    timeTemp:[],//时间显示列表
+    timeIntervalime:24, //时间间隔列表
+    times:[],
     cardData: [
       ],
     offset:0,
@@ -40,7 +43,6 @@ Page({
         'Content-Type': 'application/json'
       },
       data: {
-        hours: 24,
         offset: that.data.offset,
         count: that.data.count
       },
@@ -48,13 +50,16 @@ Page({
         if (res.data.success === true) {
         let arr = res.data.data;
         if(arr != null){
-          arr = that.data.cardData.concat(arr)
+          var temp = that.data.cardData.concat(arr)
+          var timeTemp = that.datatoString(arr)  //处理时间显示
+          var timeInter = that.getTime(arr) //时间间隔计算
           that.setData({
-            cardData: arr
+            cardData: temp,
+            timeTemp:timeTemp,
+            timeIntervalime: timeInter
           })
         }
         }
-        console.log(that.data.cardData)
       }
     })
   },
@@ -65,6 +70,46 @@ lowerMoreClassify:function(e){
     })
   that.getList(); //重新获取信息
 },
+/**
+ * 字符串格式转换
+ */
+datatoString:function(detail){
+  let that = this;
+  var time;
+  var i = 0
+  var timeTemp = [];
+  for (i; i < detail.length; i++) {
+      time = detail[i].gmtCreate; 
+      var temp = time.split("T");
+      time = temp[0];
+      time = time.concat(" " + temp[1])
+      var temp2 = time.split(".000Z");
+      time = temp2[0];
+    timeTemp.push(time)
+  }
+  return timeTemp;
+},
+/**
+ * 时间间隔计算
+ */
+  getTime:function(detail){
+    let that = this;
+    detail = that.datatoString(detail)
+    var timeInter = [];
+      for(var i = 0;i<detail.length;i++){
+        var temp = detail[i]
+      temp = temp.replace(/-/g, "/"); //字符串处理y-m-d =>y/m/d
+      var nowTime = new Date();   //当前时间
+      var thatTime = new Date(temp);  //创立时间
+      var time = (nowTime.getTime() - thatTime.getTime()) / (1000 * 60 * 60)
+      var timeInterTemp = Math.round(time)  //四舍五入
+        if (timeInterTemp>24){
+          timeInterTemp = '超过24'
+        }
+      timeInter.push(timeInterTemp)
+      }
+    return timeInter;
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
