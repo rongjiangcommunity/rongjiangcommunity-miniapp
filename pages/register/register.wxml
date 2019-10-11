@@ -15,9 +15,9 @@
     </view>
     <view class="info_p1_sex">
       <text class="title_text">性别</text>
-       <radio-group name="gender" class="info_p1_sex_radio" value="{{applyInfo.gender||gender}}" bind:change="onChange">
-          <label class="radio_male"><radio value="male" color="#008DF8"/>男</label>
-          <label class="radio_male"><radio value="female" color="#008DF8"/>女</label>
+       <radio-group name="gender" class="info_p1_sex_radio" value="{{gender}}" bind:change="onChange">
+          <label class="radio_male"><radio value="male" checked="{{gender=='male'}}" color="#008DF8"/>男</label>
+          <label class="radio_male"><radio value="female" checked="{{gender=='female'}}" color="#008DF8"/>女</label>
         </radio-group>
     </view>
   </view>
