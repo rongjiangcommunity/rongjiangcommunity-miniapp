@@ -1,4 +1,5 @@
 const app = getApp();
+var util = require('../../utils/util.js');
 Page({
 
   tel:function(e){
@@ -51,7 +52,8 @@ Page({
         let arr = res.data.data;
         if(arr != null){
           var temp = that.data.cardData.concat(arr)
-          var timeTemp = that.datatoString(arr)  //处理时间显示
+          //处理时间显示
+          var timeTemp = that.datatoString(arr)  
           var timeInter = that.getTime(arr) //时间间隔计算
           that.setData({
             cardData: temp,
@@ -76,15 +78,10 @@ lowerMoreClassify:function(e){
 datatoString:function(detail){
   let that = this;
   var time;
-  var i = 0
   var timeTemp = [];
-  for (i; i < detail.length; i++) {
-      time = detail[i].gmtCreate; 
-      var temp = time.split("T");
-      time = temp[0];
-      time = time.concat(" " + temp[1])
-      var temp2 = time.split(".000Z");
-      time = temp2[0];
+  for (var i = 0; i < detail.length; i++) {
+    var data = new Date(detail[i].gmtCreate)
+    time = util.formatTime(data)
     timeTemp.push(time)
   }
   return timeTemp;
@@ -98,7 +95,6 @@ datatoString:function(detail){
     var timeInter = [];
       for(var i = 0;i<detail.length;i++){
         var temp = detail[i]
-      temp = temp.replace(/-/g, "/"); //字符串处理y-m-d =>y/m/d
       var nowTime = new Date();   //当前时间
       var thatTime = new Date(temp);  //创立时间
       var time = (nowTime.getTime() - thatTime.getTime()) / (1000 * 60 * 60)
