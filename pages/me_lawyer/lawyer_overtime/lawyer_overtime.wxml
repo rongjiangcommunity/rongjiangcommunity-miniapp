@@ -11,8 +11,8 @@
               <view class="lawyer">{{item.lawyer.name}}</view>
             </view>
               <!-- <view class="time_difference">{{item.time_difference}}</view> -->
-               <view class="time_difference">24小时未回复</view>
-              <view class="intime">{{item.gmtCreate}}</view>
+               <view class="time_difference">{{timeIntervalime[index]}}小时未回复</view>
+              <view class="intime">{{timeTemp[index]}}</view>
           </view>
           <view class="frame"bindtap="tel" data-telId="{{index}}">
           <view class="tel" >
