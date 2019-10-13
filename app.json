@@ -5,7 +5,6 @@
     "pages/me_info/education/add/add",
     "pages/me_info/education/edit/edit",
     "pages/me_info/education/list/list",
-    
     "pages/me_doctor/appointment_detail/appointment_detail",
     "pages/me_doctor/doctor_appointment/doctor_appointment",
     "pages/me_doctor/me_doctor",
@@ -13,7 +12,6 @@
     "pages/me_doctor/doctor_detail/doctor_detail",
     "pages/me_doctor/doctor_about/doctor_about",
     "pages/me_doctor/doctor_help/doctor_help",
-
     "pages/me_info/me_info",
     "pages/me_info/workInfo/add/add",
     "pages/me_info/workInfo/edit/edit",
@@ -28,19 +26,24 @@
     "pages/me_info/address/address",
     "pages/me_info/explanation/me_expl",
     "pages/checklist/checklist",
-    
     "pages/appointment/list",
     "pages/appointment/form",
     "pages/appointment/content",
     "pages/approve/approve",
     "pages/audit_form/audit_form",
-
     "pages/lawyer/index",
     "pages/lawyer/consult_me/index",
     "pages/lawyer/my_consult/index",
     "pages/lawyer/detail/index",
     "pages/lawyer/open_msg/index",
-    "pages/lawyer/add_msg/index"
+    "pages/lawyer/add_msg/index",
+    "pages/community/community",
+    "pages/community/enterprise/enterprise",
+    "pages/community/recruit/recruit",
+    "pages/community/product/product",
+    "pages/community/demand/demand",
+    "pages/community/enterprise/enterprise_detail/enterprise_detail",
+    "pages/community/recruit/recruit_detail/recruit_detail"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -1,0 +1,63 @@
+/* pages/community/enterprise/enterprise.wxss */
+.community-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.bottom-action {
+  width:92%;
+  text-align:center;
+  color: #999;
+  margin-top:52rpx;
+}
+
+.item-box{
+  position: relative;
+  height: 458rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, .06);
+}
+
+.item-img{
+  height: 340rpx;
+  margin: 30rpx 30rpx 30rpx 25rpx;
+  float: left;
+}
+
+.item-title{
+  float: left;
+  margin-left: 45rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium;
+  color: #333333;
+}
+
+.item-company-title{
+  float: right;
+  margin-right: 45rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium;
+  color: #333333;
+}
+
+.item-bottom-nomore{
+  text-align:center;
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium;
+  color: #333333;
+}
+
+.item-bottom-join{
+  text-align:center;
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium;
+  color: #008DF8;
+}

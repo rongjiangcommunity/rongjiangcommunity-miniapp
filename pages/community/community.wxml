@@ -1,0 +1,35 @@
+<!--community.wxml-->
+<block>
+<view class="community-container">
+  <view class='bottom-action'>
+    <navigator url="enterprise/enterprise">
+      <view class="item-box">
+        <image class="item-img" src="../../images/icons/enterprise@3x.png" background-size="cover"/>
+        <text class="item-title">企业风采</text>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
+      </view>
+    </navigator>
+    <navigator url="recruit/recruit">
+      <view class="item-box">
+        <image class="item-img" src="../../images/icons/recruit@3x.png" background-size="cover"/>
+        <text class="item-title">招聘启事</text>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
+      </view>
+    </navigator>
+    <navigator url="product/product">
+      <view class="item-box">
+        <image class="item-img" src="../../images/icons/product@3x.png" background-size="cover"/>
+        <text class="item-title">产品展示</text>
+          <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
+      </view>
+    </navigator>
+    <navigator url="demand/demand">
+      <view class="item-box">
+        <image class="item-img" src="../../images/icons/demand@3x.png" background-size="cover"/>
+        <text class="item-title">校友需求</text>
+          <image class="item-raw" src="/images/icons/arrow@2x.png" background-size="cover"/>
+      </view>
+    </navigator>
+  </view>
+</view>
+</block>

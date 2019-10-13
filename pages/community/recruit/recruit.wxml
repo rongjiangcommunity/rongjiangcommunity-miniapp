@@ -1,0 +1,20 @@
+<!--pages/community/recruit/recruit.wxml-->
+<!--pages/community/enterprise/enterprise.wxml-->
+<block>
+<view class="community-container">
+  <view class='bottom-action'>
+    <navigator url="recruit_detail/recruit_detail">
+      <view class="item-box">
+        <view item-title-container>
+          <text class="item-position">前端开发工程师</text>
+          <image class="item-img" src="../../../images/icons/icon_recruit_socical@2x.png" mode="scaleToFit"/>
+          <text class="item-wage">面议</text>
+        </view>
+        <view item-company-container>
+          <text item-company-container>阿里巴巴 | 广州 | 三年工作经验</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+</block>

@@ -1,0 +1,66 @@
+/* pages/community/recruit/recruit.wxss */
+.community-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+
+.bottom-action {
+  width:92%;
+  color: #999;
+  margin-top:52rpx;
+}
+
+.item-box{
+  height: 150rpx;
+  position: relative;
+  background: #fff;
+  margin-bottom: 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, .06);
+}
+
+.item-title-container{
+  float: left;
+  margin-left: 45rpx;
+  margin-top: 32rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium;
+  color: #333333;
+}
+
+.item-img{
+  width: 34rpx;
+  height: 34rpx;
+  margin-top: 35rpx;
+  margin-left: 13rpx;
+}
+
+.item-position{
+  float: left;
+  margin-left: 45rpx;
+  margin-top: 32rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium;
+  color: #333333;
+}
+
+.item-wage{
+  float: right;
+  margin-top: 32rpx;
+  margin-right: 45rpx;
+  font-size: 24rpx;
+  color: #FEAB00;
+}
+
+.item-company-container{
+  float: left;
+  margin-left: 50rpx;
+  margin-top: 95rpx;
+  font-size: 30rpx;
+  color: #999999;
+}

@@ -1,0 +1,26 @@
+<!--pages/community/enterprise/enterprise.wxml-->
+<block>
+<view class="community-container">
+  <view class='bottom-action'>
+    <navigator url="enterprise_detail/enterprise_detail">
+      <view class="item-box">
+        <image class="item-img" src="../../../images/icons/dot@3x.png" mode="scaleToFill"/>
+        <text class="item-title">公司代表</text>
+        <text class="item-company-title">企业名称</text>
+      </view>
+    </navigator>
+  </view>
+  <text class="item-bottom-nomore">--暂无更多--</text>
+  <view bindtap="showModal" class="item-bottom-join">加入我们</view>
+</view>
+</block>
+<!-- 弹窗组件 -->
+<modal
+wx:if="{{showModalJoin}}"
+modalTitle="加入我们"
+modalMsg="如您为一中校友且为企业创始人、合伙人、 高管等，欢迎联系校友会办公室黄汉光"
+modalBtnConfirm="拨打电话"
+modalBtnCancel="再看看"
+bindcancel="onCancel"
+bindconfirm="callNow">
+</modal>

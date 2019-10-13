@@ -1,0 +1,89 @@
+.community-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.item-company-name{
+  text-align:center;
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium;
+  color: #333333;
+}
+
+.item-company-title{
+  text-align: left;
+  margin: 30rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium;
+  color: #333333;
+}
+
+.page-section{
+  width: 100%;
+  margin-bottom: 60rpx;
+}
+
+.page-section-spacing{
+  box-sizing: border-box;
+  padding: 0 80rpx;
+}
+
+.demo-text-1{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #1AAD19;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+.demo-text-1:before{
+  content: 'A';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.demo-text-2{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #2782D7;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+.demo-text-2:before{
+  content: 'B';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.demo-text-3{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #F1F1F1;
+  color: #353535;
+  font-size: 36rpx;
+}
+.demo-text-3:before{
+  content: 'C';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.swiper-item{
+  display: block;
+  height: 150px;
+}
+.page-section-title{
+  margin-top: 60rpx;
+  position: relative;
+}

@@ -1,0 +1,48 @@
+<!--pages/community/enterprise/enterprise_detail/enterprise_detail.wxml-->
+<block>
+<view class="community-container">
+    <text class="item-company-name">广州宇宙无敌公司</text>
+
+        <view class="page-section page-section-spacing swiper">
+      <swiper
+        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item {{item}}"></view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    
+      <view class="item-company-title">
+          <view class="item-company-introduction">企业介绍：</view>
+          <view class="weui-media-box weui-media-box_text">
+            <view>
+              <text>鹤浪险鹤浪险鹤浪险鹤浪险鹤浪险</text>
+            </view>
+          </view>
+      </view>
+
+      <view class="item-company-title">
+          <view class="item-company-introduction">校友信息：</view>
+          <view class="weui-media-box weui-media-box_text">
+            <view>
+              <text>鹤浪险鹤浪险鹤浪险鹤浪险鹤浪险</text>
+            </view>
+          </view>
+      </view>
+
+            <view class="item-company-title">
+          <view class="item-company-introduction">联系企业：</view>
+          <view class="weui-media-box weui-media-box_text">
+            <view>
+              <text>鹤浪险鹤浪险鹤浪险鹤浪险鹤浪险</text>
+            </view>
+          </view>
+      </view>
+
+</view>
+</block>
+
+
