@@ -34,13 +34,13 @@ Page({
       success(res) {
         var arr = [];
         if (res.data.data.avatar){
-          var arr = arr.push(res.data.data.avatar);
+          arr.push(res.data.data.avatar);
         }
         if (res.data.data.avatar1) {
-          var arr = arr.push(res.data.data.avatar1);
+          arr.push(res.data.data.avatar1);
         }
         if (res.data.data.avatar2) {
-          var arr = arr.push(res.data.data.avatar2);
+          arr.push(res.data.data.avatar2);
         }
         that.setData({
           picture: arr,
