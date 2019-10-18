@@ -60,28 +60,6 @@ Page({
       title: '律师主页'
     });
   },
-  checkInfo: function () {
-    app.appReady().then(() => {
-      Promise.all([app.getUserInfo(), app.getApplyInfo()])
-        .then(([user, applyInfo]) => {
-          const approved = user && user.approved === 'true' ? true : false;
-          const status = applyInfo ? applyInfo.status : '';
-          try {
-            wx.setStorageSync('isXiaoyou', approved);
-          } catch (error) {
-            console.error(error);
-          }
-          this.setData({
-            user,
-            applyInfo,
-            approved,
-            status,
-          });
-        }).catch((err) => {
-          console.log(err);
-        });
-    });
-  },
 
   // 检测信息按钮是否可点击
   btnShowCheck: function (ctx) {
@@ -149,7 +127,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.checkInfo();
   },
 
   /**

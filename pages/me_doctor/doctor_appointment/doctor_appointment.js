@@ -1,4 +1,3 @@
-// pages/me_feedback/me_feedback.js
 //获取应用实例
 const app = getApp()
 
@@ -55,7 +54,7 @@ Page({
 
     const credentials = app.getCredentials();
     wx.request({
-      url: `https://www.rongjiangcommunity.cn/api/doctor/booking/${credentials}`,
+      url: `${app.serverUrl}/api/doctor/booking/${credentials}`,
       method: 'POST',
       header: {
         'Content-Type': 'application/json'

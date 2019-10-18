@@ -1,4 +1,3 @@
-// pages/me_feedback/me_feedback.js
 //获取应用实例
 const app = getApp()
 let dictionary = {
@@ -58,7 +57,7 @@ Page({
     const ctx = this;
     const credentials = app.getCredentials();
     wx.request({
-      url: `https://www.rongjiangcommunity.cn/api/doctor/booking/cancel/${credentials}/${bid}`,
+      url: `${app.serverUrl}/api/doctor/booking/cancel/${credentials}/${bid}`,
       method: 'POST',
       header: {
         'Content-Type': 'application/json'
@@ -94,7 +93,7 @@ Page({
     if (!data.note || !this.data.note) { app.failAlert('请输入预约内容'); return }
     if (!data.regDate || !this.data.regDate) { app.failAlert('请选择预约时间'); return }
     wx.request({
-      url: `https://www.rongjiangcommunity.cn/api/doctor/booking/rebook/${credentials}/${bid}`,
+      url: `${app.serverUrl}/api/doctor/booking/rebook/${credentials}/${bid}`,
       method: 'POST',
       header: {
         'Content-Type': 'application/json'
@@ -129,7 +128,7 @@ Page({
       title: '预约详情'
     })
     wx.request({
-      url: `https://www.rongjiangcommunity.cn/api/doctor/booking/${credentials}/${options.id}`,
+      url: `${app.serverUrl}/api/doctor/booking/${credentials}/${options.id}`,
       method: 'GET',
       header: {
         'Content-Type': 'application/json'
