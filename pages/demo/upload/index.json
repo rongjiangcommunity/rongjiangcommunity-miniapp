@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    
+    "mp-uploader": "../weui-components/uploader/uploader",
+    "mp-cells": "../weui-components/cells/cells",
+    "mp-cell": "../weui-components/cell/cell"
+  },
+  "navigationBarTitleText": "UI组件库"
+}

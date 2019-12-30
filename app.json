@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/demo/upload/index",
     "pages/geo/index",
     "pages/getuserinfo/index",
     "pages/me_info/education/add/add",
