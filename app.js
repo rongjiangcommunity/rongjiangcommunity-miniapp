@@ -1358,6 +1358,44 @@ App({
       });
     });
   },
+  getLocation: async function() {
+    await this.appReady();
+    return new Promise(resolve => {
+      wx.getLocation({
+        type: 'wgs84',
+        success (res) {
+          // const latitude = res.latitude
+          // const longitude = res.longitude
+          // const speed = res.speed
+          // const accuracy = res.accuracy
+          resolve(res);
+        }
+       })
+    });
+  },
+  saveLocation: async function({longitude, latitude}) {
+    await this.appReady();
+    const sid = this.getCredentials();
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: `${serverUrl}/api/geo/${sid}`,
+        method: 'POST',
+        data: {
+          longitude,
+          latitude,
+        },
+        success(res) {
+          if (res && res.statusCode === 200) {
+            return resolve(res.data && res.data.success);
+          }
+          reject();
+        },
+        fail() {
+          reject();
+        }
+      });
+    });
+  },
   /**
    * 错误提示框
    */

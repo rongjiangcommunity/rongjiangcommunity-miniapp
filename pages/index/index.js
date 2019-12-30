@@ -16,6 +16,7 @@ Page({
     productName: getApp().productName
   },
   onReady() {
+    
   },
   onShow: function(){
     const ctx = this;
@@ -29,11 +30,20 @@ Page({
             });
           });
         }
+        if(res.authSetting['scope.userLocation']) {
+          app.getLocation().then(res => {
+            app.saveLocation(res);
+          });
+        }
       }
     });
     this.checkInfo();
   },
   onLoad: function() {
+    // TODO
+    // wx.navigateTo({
+    //   url: '../geo/index'
+    // });
   },
   checkInfo: function(){
     app.appReady().then(() => {
