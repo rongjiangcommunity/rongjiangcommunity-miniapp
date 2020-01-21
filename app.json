@@ -31,15 +31,15 @@
     "pages/appointment/content",
     "pages/approve/approve",
     "pages/audit_form/audit_form",
-    "pages/love/management/audit",
-    "pages/love/management/member",
+    "pages/magpie/management/audit",
+    "pages/magpie/management/member",
     "pages/lawyer/index",
     "pages/lawyer/consult_me/index",
     "pages/lawyer/my_consult/index",
     "pages/lawyer/detail/index",
     "pages/lawyer/open_msg/index",
     "pages/lawyer/add_msg/index",
-    "pages/love/management/relationship"
+    "pages/magpie/management/relationship"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -1,0 +1,43 @@
+<van-search placeholder="可以按姓名、手机号码、微信号搜索" v-model="value" />
+<view class="couple" wx:for="{{relationshipList}}" wx:key="{{item.id}}">
+  <view class="card">
+    <view>
+      <text class="nickname">{{item.fromWxInfo.name}}</text>
+      <image wx:if="{{item.fromWxInfo.gender=='male'}}" class="icon-sex" src="../../../images/icons/man.png" background-size="cover"/>
+      <image wx:else class="icon-sex" src="../../../images/icons/women.png" background-size="cover"/>
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/period.png" background-size="cover"/>
+      <text class="desc">{{item.fromWxInfo.period}}届{{item.fromWxInfo.g3}}班</text> 
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/phone.png" background-size="cover"/>
+      <text class="desc">{{item.fromWxInfo.mobile}}</text> 
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/wechat.png" background-size="cover"/>
+      <text class="desc">{{item.fromWxInfo.wechat}}</text> 
+    </view>
+  </view>
+  <image class="icon-relationship" src="../../../images/icons/relationship.png" background-size="cover"/>
+  <view class="card">
+    <view>
+      <text class="nickname">{{item.toWxInfo.name}}</text>
+      <image wx:if="{{item.toWxInfo.gender=='male'}}" class="icon-sex" src="../../../images/icons/man.png" background-size="cover"/>
+      <image wx:else class="icon-sex" src="../../../images/icons/women.png" background-size="cover"/>
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/period.png" background-size="cover"/>
+      <text class="desc">{{item.toWxInfo.period}}届{{item.toWxInfo.g3}}班</text> 
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/phone.png" background-size="cover"/>
+      <text class="desc">{{item.toWxInfo.mobile}}</text> 
+    </view>
+    <view>
+      <image class="icon-left" src="../../../images/icons/wechat.png" background-size="cover"/>
+      <text class="desc">{{item.toWxInfo.wechat}}</text> 
+    </view>
+  </view>
+</view>
+

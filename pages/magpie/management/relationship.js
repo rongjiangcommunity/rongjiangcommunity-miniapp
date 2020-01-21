@@ -1,12 +1,13 @@
-// pages/love/management/audit.js
-import Dialog from '../../../miniprogram_npm/vant-weapp/dialog/dialog';
+// pages/love/management/relationship.js
+const util = require('../../utils/util.js');
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    relationshipList:[],
   },
 
   /**
@@ -27,7 +28,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var sid = app.getCredentials();
+    var _this = this;
+    util.send({
+      url: '/api/magpie/admin/jupiter/'+sid,
+      method: 'GET',
+      callback: function (res) {
+        console.log(res);
+        var userInfo = res.data.data.userInfo;
+        _this.setData({
+          relationshipList: res.data.data.items.map(x => {
+            x.fromWxInfo = userInfo[x.fromWxid];
+            x.toWxInfo = userInfo[x.toWxid];
+            return x;
+          }),
+        });
+      },
+    });
   },
 
   /**
@@ -63,15 +80,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  agree:function(){
-    Dialog.confirm({
-      message: '是否确认通过该用户的鹊桥相会权限申请'
-    }).then(() => {
-      // on confirm
-    }).catch(() => {
-      // on cancel
-    });
   }
 })

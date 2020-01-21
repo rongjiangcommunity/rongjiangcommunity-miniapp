@@ -2,5 +2,5 @@
   <van-cell title="寻医问药" is-link url="../appointment/list" size="large"/>
 </van-cell-group>
 <van-cell-group>
-  <van-cell title="鹊桥相会" is-link url="../love/management/index" size="large"/>
+  <van-cell title="鹊桥相会" is-link url="../magpie/management/index" size="large"/>
 </van-cell-group>

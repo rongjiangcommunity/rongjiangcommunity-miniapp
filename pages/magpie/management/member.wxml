@@ -1,24 +1,25 @@
 <van-search placeholder="可以按姓名、手机号码、微信号搜索" v-model="value" />
 <van-dialog id="van-dialog" />
-<view class="card">
+<view class="card" wx:for="{{memberList}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-index="{{index}}">
   <van-row>
     <van-col span="24">
-      <text class="nickname">王小明</text>
-      <text class="period">89届11班</text>
+      <text class="nickname">{{item.name}}</text>
+      <text class="period">{{item.period}}届{{item.g3}}班</text>
       <image class="icon-sex" src="../../../images/icons/man.png" background-size="cover"/>
     </van-col>
   </van-row>
   <van-row>
-    <van-col span="18" class="card-content">微信:1345779022ng</van-col>
+    <van-col span="18" class="card-content">微信:{{item.wechat}}</van-col>
     <van-col span="6">
-      <van-button type="info" size="small" bind:click="agree">同意</van-button>
+      <van-button type="danger" wx:if="{{item.status=='ok'}}"  size="small" bind:click="disable"  data-opid="{{item.wechatOpenid}}" >禁止</van-button>
+      <van-button type="danger" wx:else  size="small" bind:click="enable" plain  data-opid="{{item.wechatOpenid}}" >取消禁止</van-button>
     </van-col>
   </van-row>
   <van-row>
-    <van-col span="24" class="card-content">手机号码:5786768672</van-col>
+    <van-col span="24" class="card-content">手机号码:{{item.mobile}}</van-col>
   </van-row>
 </view>
-<view class="card">
+<!-- <view class="card">
   <van-row>
     <van-col span="24">
       <text class="nickname">王小明</text>
@@ -29,10 +30,10 @@
   <van-row>
     <van-col span="18" class="card-content">微信:1345779022ng</van-col>
     <van-col span="6">
-      <van-button type="info" size="small" bind:click="agree">同意</van-button>
+      <van-button type="danger" plain size="small" bind:click="enable">取消禁用</van-button>
     </van-col>
   </van-row>
   <van-row>
     <van-col span="24" class="card-content">手机号码:5786768672</van-col>
   </van-row>
-</view>
+</view> -->
