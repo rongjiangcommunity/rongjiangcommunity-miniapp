@@ -49,14 +49,10 @@
   </view>
 </view>
 
-<view class="weui-cells" wx:if="{{role==='admin' || role==='cadmin' || role==='gadmin'}}">
-  <navigator url="../checklist/checklist" class="weui-cell weui-cell_access" wx:if="{{role==='admin' || role==='cadmin' || role==='gadmin'}}">
-    <view class="weui-cell__bd">审核列表</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access">{{reviewCount}}</view>
-  </navigator>
-  <navigator url="../appointment/list" class="weui-cell weui-cell_access" wx:if="{{role==='admin'}}">
-    <view class="weui-cell__bd">寻医预约</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access">{{undoneNum}}</view>
+<view class="weui-cells">
+  <navigator url="../audit_list/audit_list" class="weui-cell weui-cell_access" wx:if="{{role==='admin' || role==='cadmin' || role==='gadmin'}}">
+      <view class="weui-cell__bd">审核列表</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{reviewCount}}</view>
   </navigator>
   <navigator url="../me_lawyer/me_lawyer" class="weui-cell weui-cell_access" wx:if="{{role==='admin'}}">
     <view class="weui-cell__bd">律师咨询</view>

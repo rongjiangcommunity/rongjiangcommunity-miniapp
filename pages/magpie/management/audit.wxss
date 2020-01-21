@@ -1,0 +1,43 @@
+/* pages/love/management/audit.wxss */
+.nickname{
+  font-size: 40rpx;
+  font-weight:bold; 
+  color:#333333;
+}
+
+.period{
+  font-size: 40rpx;
+  color:#666666;
+  margin-left: 20rpx;
+}
+
+.card{
+  width: 660rpx;
+  margin: 20rpx 25rpx 0rpx 25rpx;
+  background-color: #fff;
+  padding: 20rpx;
+  border-radius: 15rpx;
+}
+
+.card-content{
+  color:#999999;
+}
+
+.icon-sex{
+  width:40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+}
+.ant-empty {
+  height: 40px; 
+  display: block;
+  margin: 8px 0;
+  text-align: center;
+}
+.ant-empty__img{
+  display: inline;
+}
+.ant-empty__description{
+  color: #00000040;
+  text-align: center;
+}

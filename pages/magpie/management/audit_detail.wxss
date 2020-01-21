@@ -1,0 +1,36 @@
+/* pages/love/management/audit_detail.wxss */
+.audit-detail-group{
+  display: block;
+  margin-bottom: 16rpx;
+}
+.van-cell__title{
+  color:#333333;
+}
+.audit-detail-imgwrap{
+  height: 522rpx;
+  background-color: #FFFFFF;
+  margin-bottom: 16rpx;
+}
+.audit-detail-imgwrap .text-box{
+  height: 64rpx;
+  padding: 30rpx 0rpx 0rpx 30rpx;
+}
+.audit-detail-imgwrap .img-box{
+  width: 690rpx;
+  height: 388rpx;
+  background-color: #F8F8F8;
+  margin: 0rpx auto;
+  border-radius: 16rpx;
+}
+.audit-detail-imgwrap .img-box image{
+  height: 100%;
+  width: 100%;
+}
+.van-button.van-button--normal{
+  width: 50%;
+  border-radius: 0rpx;
+  border:none;
+}
+.refuse-btn .van-button{
+  color:#666666;
+}

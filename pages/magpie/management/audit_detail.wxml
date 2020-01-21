@@ -1,0 +1,48 @@
+<!--pages/love/management/audit_detail.wxml-->
+<!--<text>pages/love/management/audit_detail.wxml</text>-->
+<van-dialog id="van-dialog" />
+<view class="audit-detail-wrap">
+  <van-cell-group class="audit-detail-group">
+    <van-cell title="姓名" value="{{detailData.name}}" />
+    <van-cell title="微信号" value="{{detailData.wechat}}"/>
+    <van-cell title="手机号" value="{{detailData.mobile}}"/>
+    <van-cell title="出生年月" value="{{detailData.birth}}"/>
+    <van-cell title="届别" value="{{detailData.period + '届'}}"/>
+    <van-cell title="班级" value="{{detailData.g3 + '班'}}"/>
+  </van-cell-group>
+  <van-cell-group class="audit-detail-group">
+    <van-cell wx:if="{{detailData.gender=='female'}}" title="性别" value="女"/>
+    <van-cell wx:else title="性别" value="男"/>
+    <van-cell title="身高" value="{{detailData.cm}}"/>
+    <van-cell title="单身状态" value="{{detailData.singleStatus}}"/>
+  </van-cell-group>
+  <van-cell-group class="audit-detail-group">
+    <van-cell title="最高学历" value="{{detailData.degree}}"/>
+    <van-cell title="毕业院校" value="{{detailData.college}}"/>
+    <van-cell title="专业名称" value="{{detailData.major}}"/>
+  </van-cell-group>
+  <van-cell-group class="audit-detail-group">
+    <van-cell title="生活区域" value="{{detailData.livingArea}}"/>
+    <van-cell title="学籍状态" value="{{detailData.schoolStatus}}"/>
+    <van-cell title="工作单位" value="{{detailData.workFor}}"/>
+    <van-cell title="年总收入" value="{{detailData.yearlyIncome}}"/>
+  </van-cell-group>
+  <view  class="audit-detail-imgwrap">
+    <view class="text-box">
+      <text>身份证</text>
+    </view>
+    <view class="img-box">
+      <image src="{{detailData.idImgFront}}" ></image>
+    </view>
+  </view>
+  <view  class="audit-detail-imgwrap">
+    <view class="text-box">
+      <text>学历证明</text>
+    </view>
+    <view class="img-box">
+      <image></image>
+    </view>
+  </view>
+  <van-button class="refuse-btn" type="default"  bind:click="refuseAction">拒绝申请</van-button>
+  <van-button class="agree-btn" type="info" bind:click="agreeAction">同意申请</van-button>
+</view>
