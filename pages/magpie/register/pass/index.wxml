@@ -1,0 +1,7 @@
+<!--pages/magpie/register/pass/index.wxml-->
+  <view class="info_p1">
+    <image class="img" src="/images/icons/pass@2x.png"></image>
+    <view class="title">审核通过</view>
+    <view class="info">您的资料已认证通过，马上完善您的个人信息，开启鹊桥之旅吧！</view>
+    <button form-type="submit">马上完善</button>
+  </view>

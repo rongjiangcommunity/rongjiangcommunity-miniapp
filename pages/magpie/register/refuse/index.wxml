@@ -1,0 +1,9 @@
+<!--pages/magpie/register/refuse/index.wxml-->
+  <view class="info_p1">
+    <image class="img" src="/images/icons/refuse@2x.png"></image>
+    <view class="title">审核不通过</view>
+    <view class="info">您的资料认证失败，请修改并重新提交申请，如有疑问，请联系XXXXXX</view>
+    <navigator url="/pages/magpie/register/index">
+      <button>马上修改</button>
+    </navigator>
+  </view>

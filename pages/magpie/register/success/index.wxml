@@ -1,0 +1,11 @@
+<!--pages/magpie/register/success/index.wxml-->
+  <view class="info_p1">
+    <image class="img" src="/images/icons/success@2x.png"></image>
+    <view class="title">提交成功</view>
+    <view class="info">您的资料申请已成功提交，请耐心等待后台审核，谢谢！</view>
+    <button bindtap="close">关闭</button>
+  </view>
+
+
+
+

@@ -42,7 +42,12 @@
     "pages/magpie/management/relationship",
     "pages/magpie/index",
     "pages/magpie/index/index",
-    "pages/magpie/index/filter/index"
+    "pages/magpie/index/filter/index",
+    "pages/magpie/register/index",
+    "pages/magpie/register/upload/index",
+    "pages/magpie/register/success/index",
+    "pages/magpie/register/refuse/index",
+    "pages/magpie/register/pass/index",
   ],
   "window": {
     "navigationBarTextStyle": "black",

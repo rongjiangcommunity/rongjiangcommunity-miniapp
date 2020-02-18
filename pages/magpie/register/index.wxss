@@ -1,0 +1,148 @@
+/* pages/register/register.wxss */
+.info_p1{
+  margin-top: 20rpx;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+.info_input{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+}
+input[disabled=true]{
+  color: gray;
+}
+.info_input input, .info_input picker, .info_input .radio{
+  font-size: 32rpx;
+  line-height: 44rpx;
+  width: 470rpx;
+}
+.radio_label{
+  margin-right:100rpx;
+}
+.info_content{
+  height: 100rpx;
+  margin-left: 30rpx;
+  border-bottom: 1rpx solid #DDDDDD;
+  box-sizing: border-box;
+}
+.info_content_nb{
+  height: 100rpx;
+  margin-left: 30rpx;
+  box-sizing: border-box;
+}
+.title_text{
+  font-size: 32rpx;
+  color: #333333;
+  line-height: 44rpx;
+  width: 200rpx;
+}
+.placeholder{
+  font-size: 32rpx;
+  color: #B2B2B2;
+  line-height: 44rpx;
+}
+.border_none{
+  border: none;
+}
+.info_p1_sex{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+  margin-left: 30rpx;
+  background-color: #FFFFFF;
+}
+radio{
+  margin-right: 22rpx;
+}
+.info_p1_sex_radio{
+  display: flex;
+  flex-direction: row;
+  color: #666;
+  font-size: 32rpx;
+  line-height: 44rpx;
+}
+.info_p1_sex text{
+  font-size: 32rpx;
+  color: #333333;
+  line-height: 44rpx;
+}
+.info_p1_sex .radio_male{
+  margin-left: 85rpx;
+}
+.info_p1_sex .radio_female{
+  margin-left: 90rpx;
+}
+.info_p2{
+  margin-top: 30rpx;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+.info_p3{
+  margin-top: 30rpx;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+.info_p4{
+  margin-top: 30rpx;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+.info_p3_title{
+  display: flex;
+  align-items: center;
+  margin-top: 34rpx;
+  margin-left: 30rpx;
+}
+.info_p3_title text{
+  margin-left: 13rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #999999;
+}
+.text{
+  display: inline-block;
+}
+.message{
+  display: flex;
+  flex-direction: row;
+  margin-top: 30rpx;
+  padding-left: 30rpx;
+  width: 100%;
+  height: 200rpx;
+  background-color: #FFFFFF;
+}
+
+.btn{
+  margin-top: 124rpx;
+  width: 100%;
+  height: 100rpx;
+  /* position: fixed; */
+  bottom: 0;
+}
+.btn button{
+  width: 100%;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  color: #FFFFFF;
+  background-color: #008DF8;
+  border-radius: 0;
+}
+.btn button[disabled]{
+  width: 100%;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  color: #FFFFFF;
+  background-color: #95CDF8;
+  border-radius: 0;
+}
+radio .wx-radio-input{
+  width: 41rpx;
+  height: 41rpx;
+}
