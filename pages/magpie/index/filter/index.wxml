@@ -1,0 +1,50 @@
+<!--pages/magpie/index/filter/index.wxml-->
+<view class="select-box">
+  <view>
+    <view class="select-tip">年龄</view>
+    <view class="select-group">
+      <checkbox-group data-name="olds" bindchange="checkboxChange">
+        <label class="{{item.checked==true?'active':''}}" wx:for="{{olds}}">
+          <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
+
+  <view>
+    <view class="select-tip">学历</view>
+    <view class="select-group">
+      <checkbox-group data-name="degree" bindchange="checkboxChange">
+        <label class="{{item.checked==true?'active':''}}" wx:for="{{degree}}">
+          <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
+
+  <view>
+    <view class="select-tip">学籍状态</view>
+    <view class="select-group">
+      <checkbox-group data-name="eduStatus" bindchange="checkboxChange">
+        <label class="{{item.checked==true?'active':''}}" wx:for="{{eduStatus}}">
+          <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
+
+  <view>
+    <view class="select-tip">工作地区</view>
+    <view class="select-group">
+      <checkbox-group data-name="workArea" bindchange="checkboxChange">
+        <label class="{{item.checked==true?'active':''}}" wx:for="{{workArea}}">
+          <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
+
+</view>
+<view class="btn">
+  <button bindtap="save">保存</button>
+</view>

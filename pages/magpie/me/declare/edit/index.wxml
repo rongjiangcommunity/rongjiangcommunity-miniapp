@@ -1,0 +1,8 @@
+<!--pages/magpie/me/declare/edit/index.wxml-->
+<view class="edit-box">
+  <view class="edit-tip">编辑内容</view>
+  <textarea class="edit-area" placeholder="{{placeholder}}"></textarea>
+</view>
+<view class="btn">
+  <button bindtap="saveTag">保存</button>
+</view>

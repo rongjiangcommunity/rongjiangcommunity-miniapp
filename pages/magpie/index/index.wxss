@@ -1,0 +1,100 @@
+/* pages/magpie/index/index.wxss */
+page{
+  height: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 16rpx 60rpx 0;
+  z-index: 1;
+  width: 650rpx;
+}
+.header text{
+  font-size: 32rpx;
+  color: #b2b2b2;
+  margin-right: 40rpx;
+}
+.header text.active{
+  font-size: 42rpx;
+  color: #333;
+  font-weight: bolder;
+}
+.header .aside{
+  float: right;
+  width: 42rpx;
+  height: 40rpx;
+  margin-top: 15rpx;
+}
+swiper{
+  height: calc(100vh - 80rpx);
+  margin-top: 80rpx;
+}
+
+.swiperItem{
+  overflow-x: hidden;
+  overflow-y: scroll; 
+  transform: scale(.9);
+  position: relative;
+  width: 630rpx;
+  margin: 5% auto;
+  height: 92%;
+  border-radius: 16rpx;
+  box-shadow: 0rpx 4rpx 20rpx rgba(0, 0, 0, .08);
+  transition:all .3s ease-in 0s;
+}
+.swiperItem.active{
+  transform: scale(1);
+}
+.itemImg{
+  width: 630rpx;
+  height: 350rpx;
+  background: #f2f8fc;
+}
+.itemSave{
+  position: absolute;
+  right: 0rpx;
+  top: 266rpx;
+  width: 180rpx;
+  height: 180rpx;
+}
+.infoBox{
+  padding: 32rpx 40rpx;
+}
+.infoBox .name{
+  font-size: 40rpx;
+  color: #333;
+  line-height: 56rpx;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.infoBox .address{
+  font-size: 28rpx;
+  color: #666;
+  line-height: 56rpx;
+  margin-left: 20rpx;
+}
+.infoBox .title{
+  font-size: 28rpx;
+  color: #666;
+  line-height: 56rpx;
+  margin: 25rpx 0 5rpx;
+}
+.infoBox .label{
+  display: inline-block;
+  font-size: 28rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  color: #008DF8;
+  background: #F2F8FC;
+  padding: 0 30rpx;
+  letter-spacing: 1px;
+  margin: 10rpx;
+}
+.infoBox .info{
+  color: #333;
+  font-size: 28rpx;
+}

@@ -1,0 +1,52 @@
+/* pages/magpie/me/declare/index.wxss */
+page{
+  background: #fff;
+}
+.bottom-action {
+  width:92%;
+  text-align:center;
+  color: #999;
+  margin:30rpx auto;
+}
+.item-box{
+  text-align: left;
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, .06);
+}
+.item-title{
+  position: relative;
+  margin-left: 26rpx;
+  display: inline-block;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  color: #333333;
+  font-weight: 600;
+}
+.item-title::before{
+  position: absolute;
+  left: -24rpx;
+  top: 18rpx;
+  content: ' ';
+  width: 16rpx;
+  height: 16rpx;
+  background: #008DF8;
+}
+.item-edit{
+  float: right;
+  font-size: 30rpx;
+  color: #008DF8;
+}
+.item-tip{
+  margin-top: 10rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.item-info{
+  margin-top: 10rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+

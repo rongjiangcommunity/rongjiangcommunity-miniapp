@@ -1,0 +1,39 @@
+/* pages/magpie/register/refuse/index.wxss */
+page{
+  height: 100%;
+}
+.info_p1{
+  border-top: 1rpx solid #ccc;
+  padding: 30rpx;
+  background-color: #FFFFFF;
+  text-align: center;
+  height: 100%;
+}
+.img{
+  margin: 130rpx auto 60rpx;
+  width: 176rpx;
+  height: 176rpx;
+}
+.title{
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 30rpx;
+}
+.info{
+  width: 500rpx;
+  font-size: 28rpx;
+  color: #666;
+  margin:0 auto;
+}
+
+button{
+  margin-top: 50rpx;
+  width: 580rpx;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  color: #FFFFFF;
+  background-color: #008DF8;
+  border-radius: 16rpx;
+}

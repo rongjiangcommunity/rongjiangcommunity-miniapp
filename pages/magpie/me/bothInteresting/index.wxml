@@ -1,0 +1,59 @@
+<!--pages/magpie/me/bothInteresting/index.wxml-->
+<view class="interestingList">
+  <view class="item">
+    <view class="imgBox leftImg">
+      <image class="img" src="/images/icons/IDCard@2x.png"></image>
+    </view>
+    <text class="leftName">王富贵</text>
+
+    <image class="centerImg" src="/images/icons/bothInteresting@2x.png"></image>
+
+    <view class="imgBox rightImg">
+      <image class="img" src="/images/icons/IDCard@2x.png"></image>
+    </view>
+    <text class="rightName">李二狗</text>
+  </view>
+
+  <view class="item">
+    <view class="imgBox leftImg">
+      <image class="img" src="/images/icons/IDCard@2x.png"></image>
+    </view>
+    <text class="leftName">王富贵</text>
+
+    <image class="centerImg" src="/images/icons/bothInteresting@2x.png"></image>
+
+    <view class="imgBox rightImg">
+      <image class="img" src="/images/icons/IDCard@2x.png"></image>
+    </view>
+    <text class="rightName">李二狗</text>
+  </view>
+
+  <view class="item">
+    <view class="imgBox leftImg">
+      <image class="img" src="/images/icons/IDCard@2x.png"></image>
+    </view>
+    <text class="leftName">王富贵</text>
+
+    <image class="centerImg" src="/images/icons/bothInteresting@2x.png"></image>
+
+    <view class="imgBox rightImg">
+      <image class="img" src="/images/icons/IDCard@2x.png"></image>
+    </view>
+    <text class="rightName">李二狗</text>
+  </view>
+
+  <view class="item">
+    <view class="imgBox leftImg">
+      <image class="img" src="/images/icons/IDCard@2x.png"></image>
+    </view>
+    <text class="leftName">王富贵</text>
+
+    <image class="centerImg" src="/images/icons/bothInteresting@2x.png"></image>
+
+    <view class="imgBox rightImg">
+      <image class="img" src="/images/icons/IDCard@2x.png"></image>
+    </view>
+    <text class="rightName">李二狗</text>
+  </view>
+</view>
+

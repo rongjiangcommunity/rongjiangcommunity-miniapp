@@ -49,7 +49,7 @@
       <text class="item-title">社区集市</text>
       <image class="item-raw" src="../../images/icons/arrow@2x.png" background-size="cover"/>
     </view>
-    <view class="item-box" bindtap='expect'>
+    <view class="item-box" bindtap="gotoMagpie">
       <image class="item-img" src="../../images/icons/love@3x.png" background-size="cover"/>
       <text class="item-title">鹊桥相会</text>
         <image class="item-raw" src="/images/icons/arrow@2x.png" background-size="cover"/>

@@ -1,0 +1,283 @@
+<!--pages/magpie/register/index.wxml-->
+<view class="info_p1">
+  <view class="info_content">
+    <view class="info_input">
+      <text class="title_text">姓名</text>
+      <input
+        name="name"
+        disabled="{{true}}"
+        placeholder="{{name}}"
+        />
+    </view>
+  </view>
+  <view class="info_content">
+    <view class="info_input">
+      <text class="title_text">微信号</text>
+      <input
+        value='{{wechat}}'
+        data-name="wechat"
+        bindinput="bindInputChange"
+        />
+    </view>
+  </view>
+  <view class="info_content">
+    <view class="info_input">
+      <text class="title_text">手机号码</text>
+      <input
+        value='{{mobile}}'
+        data-name="mobile"
+        bindinput="bindInputChange"
+        />
+    </view>
+  </view>
+  
+  <view class="info_content">
+    <view class="info_input">
+      <text class="title_text">出生年月</text>
+      <view class="weui-cell__ft_in-access">
+        <picker mode="date" value="{{birth}}" fields="month" bindchange="bindBirthDateChange">
+          <view class="picker">
+            {{birth || '请填写生日'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="info_content">
+    <view class="info_input">
+      <text class="title_text">届别</text>
+      <input
+        value='{{period}}'
+        data-name="period"
+        bindinput="bindInputChange"
+        />
+    </view>
+  </view>
+  <view class="info_content_nb">
+    <view class="info_input">
+      <text class="title_text">班级</text>
+      <input
+        value='{{g3}}'
+        data-name="g3"
+        bindinput="bindInputChange"
+        />
+    </view>
+  </view>
+</view>
+
+<view class="info_p2">
+  <view class="info_content">
+    <view class="info_input">
+      <text class="title_text">性别</text>
+      <view class="weui-cell__ft_in-access">
+        <picker range="{{genders}}" value="{{genderIndex}}" bindchange="bindIndexChange"
+          data-name='gender' data-range='genders'>
+          <view class="weui-input">{{genders[genderIndex]? genders[genderIndex]: '请选择'}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="info_content">
+    <view class="info_input">
+      <text class="title_text">身高</text>
+      <input
+        type="number"
+        value='{{cm}}'
+        data-name="cm"
+        bindinput="bindInputChange"
+        placeholder="请填写身高"
+        placeholder-class='placeholder'
+        />
+    </view>
+  </view>
+
+  <view class="info_content_nb">
+    <view class="info_input">
+      <text class="title_text">情感状态</text>
+      <view class="weui-cell__ft_in-access">
+        <picker class="item_picker" value="{{personalStatusIndex}}" range="{{personalStatuses}}" bindchange="bindIndexChange"
+        data-name='personalStatus' data-range='personalStatuses'>
+          <view class="weui-input">{{personalStatuses[personalStatusIndex]? personalStatuses[personalStatusIndex]: '请选择'}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="info_p3">
+  <view class="info_content">
+    <view class="info_input">
+      <text class="title_text">最高学历</text>
+      <view class="weui-cell__ft_in-access">
+        <picker 
+          class="item_picker" 
+          custom-item="选择学历" 
+          bindchange="bindIndexChange" 
+          value="{{degreeIndex}}" 
+          range="{{degrees}}" 
+          data-name='degree' 
+          data-range='degrees'
+        >
+          <view class="lable-bold">
+            <block wx:if="{{degreeIndex > -1}}">
+              {{degrees[degreeIndex]}}
+            </block>
+            <!-- <block wx:elif="{{temp_degree==false}}" >
+              <view class="label" >请选择学历</view>
+            </block> -->
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="info_content">
+    <view class="info_input ">
+      <view class="title_text">毕业院校</view>
+      <view class="weui-cell__ft_in-access">
+        <picker
+          class="picker weui-cell__bd"
+          mode="multiSelector"
+          bindchange="bindMultiSchoolPickerChange"
+          bindcolumnchange="bindMultiSchoolPickerColumnChange"
+          bindcancel="bindMultiSchoolPickercancel"
+          value="{{multiSchoolIndex}}"
+          range="{{multiSchoolArray}}"
+          data-name='multiSchool' 
+        >
+            
+            <view class="lable-bold">
+              <block wx:if="{{multiSchoolIndex}}">
+                {{multiSchoolArray[1][multiSchoolIndex[1]]}}
+              </block>
+              <!-- <block wx:elif="{{temp_multiSchool==false}}" >
+                <view class="label" >请选择毕业院校</view>
+              </block> -->
+            </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="info_content_nb">
+    <view class="info_input">
+      <text class="title_text">专业名称</text>
+      <view class="weui-cell__ft_in-access">
+        <picker
+          class="picker weui-cell__bd"
+          mode="multiSelector"
+          bindchange="bindMultiMajorPickerChange"
+          bindcolumnchange="bindMultiMajorPickerColumnChange"
+          bindcancel="bindMultiMajorPickercancel"
+          value="{{multiMajorIndex}}"
+          range="{{multiMajorArray}}"
+          data-name='major' 
+        >
+          <view class="lable-bold">
+            <block wx:if="{{multiMajorIndex}}">
+              {{multiMajorArray[2][multiMajorIndex[2]]}}
+            </block>
+            <!-- <block wx:elif="{{temp_major==false}}" >
+              <view class="label" >请选择所学专业</view>
+            </block> -->
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="info_p4">
+  <view class="info_content">
+    <view class="info_input">
+      <text class="title_text">工作区域</text>
+      <view class="weui-cell__ft_in-access">
+        <picker 
+          mode="region" 
+          bindchange="bindRegionChange" 
+          value="{{region}}" 
+          custom-item="{{customItem}}"
+          data-name='working_area' 
+        >
+          <view class="lable-bold">
+            <block wx:if="{{region}}">
+              {{region[0]}}，{{region[1]}}，{{region[2]}}
+            </block>
+            <!-- <block wx:elif="{{temp_working_area==false}}" >
+              <view class="label" >请选择工作区域</view>
+            </block> -->
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="info_content">
+    <view class="info_input">
+      <text class="title_text">学籍状态</text>
+      <view class="weui-cell__ft_in-access">
+        <picker 
+          bindchange="bindIndexChange" 
+          value="{{eduIndex}}" 
+          range="{{eduRange}}"
+          data-range='eduRange'
+          data-name='edu'
+        >
+          <view class="lable-bold">
+            <block wx:if="{{eduIndex>-1}}">
+              {{eduRange[eduIndex]}}
+            </block>
+            <!-- <block wx:elif="{{temp_edu==false}}" >
+              <view class="label" >请选择学籍状态</view>
+            </block> -->
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="info_content">
+    <view class="info_input">
+      <text class="title_text">工作单位</text>
+      <input
+        name="height"
+        type="text"
+        value="{{workFor}}"
+        data-name="workFor"
+        bindinput="bindInputChange"
+        placeholder="请填写工作单位"
+        placeholder-class='placeholder'
+        />
+    </view>
+  </view>
+
+  <view class="info_content_nb">
+    <view class="info_input">
+      <text class="title_text">年总收入</text>
+      <view class="weui-cell__ft_in-access">
+        <picker 
+          bindchange="bindIndexChange" 
+          value="{{incomeIndex}}" 
+          range="{{incomeRanges}}"
+          data-name='income'
+          data-range='incomeRanges'
+        >
+          <view class="lable-bold">
+            <block wx:if="{{incomeIndex>-1}}">
+              {{incomeRanges[incomeIndex]}}
+            </block>
+            <!-- <block wx:elif="{{temp_income==false}}" >
+              <view class="label" >请选择年收入范围</view>
+            </block> -->
+          </view>
+          <view class="picker">
+            
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+

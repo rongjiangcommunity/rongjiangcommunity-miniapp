@@ -1,0 +1,17 @@
+<!--pages/magpie/me/interesting/index.wxml-->
+<view class="interestingList">
+  <view class="item" wx:for="{{interestingList}}">
+    <image class="item_img" src="{{item.album}}"></image>
+    <text class="item_name">{{item.name}}</text>
+    <text class="item_address">{{item.workingArea}}</text>
+    <view class="item_labelBox">
+      <view class="label">{{item.birth}}</view>
+      <view class="label">{{item.degree}}</view>
+      <view class="label">{{item.singleStatus}}</view>
+    </view>
+    <image class="item_Ctrl" bindtap="removeLike" data-wechatOpenid="{{item.toWxid}}" src="/images/icons/heart@2x.png"></image>
+    <navigator url="../othersInfo/index?userInfo={{item.userInfo}}">
+      <image class="item-raw" src="/images/icons/account_arrow@2x.png"/>
+    </navigator>
+  </view>
+</view>

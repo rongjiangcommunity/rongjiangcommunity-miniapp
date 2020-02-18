@@ -1,0 +1,24 @@
+<!--pages/magpie/register/index.wxml-->
+<form bindsubmit="formSubmit" report-submit="true">
+  <view class="info_p1">
+  为确保校友信息的真实性，营造良好的交友氛围，请您上传真实有效的身份信息，否则将无法通过认证，请悉知！我们将保证对您的信息严格保密，您的身份信息将仅用于本次信息认证。感谢配合！
+  </view>
+
+  <view class="info_p2">
+    <view class="title">请您上传身份证正面照片(完整、清晰）</view>
+    <image class="img-l" src="/images/icons/IDCard@2x.png"></image>
+    <image mode="aspectFit" wx:if="{{IDCardImg}}" bindtap="chooseIDCard" class="img-r" src="{{IDCardImg}}"></image>
+    <image wx:if="{{!IDCardImg}}" bindtap="chooseIDCard" class="img-r" src="/images/icons/addIDCard@2x.png"></image>
+  </view>
+
+  <view class="info_p3">
+    <view class="title">请您上传最高学历毕业证书、学历证书或学生证的照片(完整、清晰）</view>
+    <image class="img-l" src="/images/icons/bachelor@2x.png"></image>
+    <image mode="aspectFit" wx:if="{{DegreeImg}}" bindtap="chooseDegreeImg" class="img-r" src="{{DegreeImg}}"></image>
+    <image wx:if="{{!DegreeImg}}" bindtap="chooseDegreeImg" class="img-r" src="/images/icons/addIDCard@2x.png"></image>
+  </view>
+
+  <button disabled="{{disabled}}" bindtap="uplaodFile">提交审核</button>
+</form>
+
+

@@ -1,0 +1,11 @@
+<!--pages/magpie/index.wxml-->
+<view class="page">
+  <image src="/images/icons/magpie@2x.png" mode="aspectFit" class="cover"/>
+  <view class="info">
+    <view>请先简单介绍一下自己吧</view>
+    <view>再开始你的鹊桥之旅</view>
+  </view>
+  <navigator url="../magpie/register/index">
+    <button class="start">开始介绍</button>
+  </navigator>
+</view>

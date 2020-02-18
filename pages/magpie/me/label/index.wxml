@@ -1,0 +1,30 @@
+<!--pages/magpie/me/label/index.wxml-->
+<view class="mylabelBox">
+  <view class="title">我的标签</view>
+  <view class="labelBox">
+    <view class="label" wx:for="{{myTags}}">
+      {{item}} 
+      <text bindtap="removeTag" data-index="{{index}}" class="close">×</text>
+    </view>
+  </view>
+</view>
+<view class="systemLabelBox">
+  <view class="title">选择标签</view>
+  <view class="labelBox">
+    <view>
+      <view class="label" bindtap="showModal">+ 添加标签</view>
+      <view bindtap="addTag" data-tag="{{item}}" class="systemLabel" wx:for="{{tagsArr}}">{{item}}</view>
+    </view>
+  </view>
+</view>
+<view class="btn">
+  <button bindtap="saveTag">保存</button>
+</view>
+<view class="modalDialog" wx:if="{{ifShowModal}}">
+  <view class="inputModal">
+    <view class="title">请输入标签名：</view>
+    <view class="closeModal" bindtap="hideModal">×</view>
+    <textarea bindinput="changeLabelText" value="{{newTag}}" class="labelInput" placeholder="请输入新建标签名称"/>
+    <button bindtap="newTag">添加</button>
+  </view>
+</view>
