@@ -1,0 +1,40 @@
+/* pages/magpie/index.wxss */
+page{
+  position: relative;
+  height: 100%;
+  background: #fff;
+}
+.cover{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650rpx;
+  height: 450rpx;
+}
+.info{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+}
+.info view{
+  width: 750px;
+  text-align: center;
+}
+.start{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 590rpx;
+  height: 100rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background: #008DF8;
+  border-radius: 16rpx;
+  line-height: 100rpx;
+}

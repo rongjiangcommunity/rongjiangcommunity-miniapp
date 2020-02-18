@@ -1,0 +1,51 @@
+<!--pages/magpie/index/index.wxml-->
+<view class="header">
+  <text class="active">鹊桥相会</text>
+  <navigator url="../me/index" style="display:inline-block;">我的</navigator>
+  <!-- <navigator url="../index/filter/index">
+    <image class="aside" src="/images/icons/aside@2x.png"/>
+  </navigator> -->
+</view>
+<swiper wx:if="{{infoArr.length > 0}}" previous-margin='60rpx'  next-margin='60rpx'
+  bindchange="handleSwiperChange"
+  duration="{{500}}"
+>
+  <block wx:for="{{infoArr}}" wx:key="{{index}}">
+    <swiper-item>
+      <view class="swiperItem {{currentIndex == index ? 'active': ''}}" style="background:#fff">
+        <swiper style="margin-top:0;" indicator-dots="{{true}}" indicator-color="#f2f8fc" 
+  indicator-active-color="#008DF8" class="itemImg" duration="{{500}}">
+          <block wx:for="{{item.album}}" wx:for-item="album">
+            <swiper-item>
+             <image mode="aspectFill" class="itemImg" src="{{album}}"/>
+            </swiper-item>
+          </block>
+        </swiper>
+
+        <image class="itemSave" data-wechatOpenid="{{item.wechatOpenid}}" bindtap="addLike" wx:if="{{item.like===false}}" src="/images/icons/unsave@2x.png"/>
+        <image class="itemSave" data-wechatOpenid="{{item.wechatOpenid}}" bindtap="removeLike" wx:if="{{item.like===true}}" src="/images/icons/save@2x.png"/>
+        <view class="infoBox">
+          <view>
+            <text class="name">{{item.name}}</text>
+            <text class="address">{{item.workingArea}}</text>
+          </view>
+          <view>
+            <view class="title">基本信息</view>
+            <text class="label">{{item.birth}}</text>
+            <text class="label">{{item.degree}}</text>
+            <text class="label">{{item.singleStatus}}</text>
+          </view>
+          <view>
+            <view class="title">个性标签</view>
+            <text class="label" wx:for="{{item.tags}}" wx:for-item="tag">{{tag}}</text>
+          </view>
+          <!-- <view>
+            <view class="title">恋爱宣言</view>
+            <text class="info">很高兴遇到你很高兴遇到你很高兴遇到你, 很高兴遇到你很高兴遇到, 你很高兴遇到你很遇到你很高兴遇到你很高兴遇哈哈哈到你很ferfwergtrwgf16e4f68er4 f68r4f6e4f86er4f6er4f6 er4f86er4f8re48fe你很遇到你很高兴遇到你很高兴遇哈哈哈到你很你很遇到你很高兴遇到你很高兴遇哈哈哈到你很你很遇到你很高兴遇到你很高兴遇哈哈哈到你很…</text>
+          </view> -->
+        </view>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
+<view wx:if="{{infoArr.length === 0}}" style="margin: 100rpx 60rpx;">暂无推荐数据</view>

@@ -1,0 +1,48 @@
+/* pages/magpie/index/filter/index.wxss */
+.select-box{
+  width: 100%;
+  height: calc(100vh - 101rpx);
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-top: 1rpx solid #f8f8f8;
+}
+.select-tip{
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 600;
+}
+.select-group checkbox{
+  display: none;
+}
+.select-group label{
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 16rpx 30rpx;
+  height: 72rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  color: #999;
+  background: #f8f8f8;
+  border-radius: 16rpx;
+  margin: 16rpx 16rpx 16rpx 0;
+}
+.select-group label.active{
+  background: #f2fcf8;
+  color: #008df8;
+}
+.btn{
+  width: 100%;
+  height: 100rpx;
+  position: absolute;
+  bottom: 0;
+}
+.btn button{
+  width: 100%;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  color: #FFFFFF;
+  background-color: #008DF8;
+  border-radius: 0;
+}

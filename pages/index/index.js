@@ -88,4 +88,58 @@ Page({
   jumpToMsgCenter: function(){ // 跳到消息中心，也就是右上角的泡泡图标
     console.log('jumpToMsgCenter');
   },
+  // 前往鹊桥相会,有信息跳转到主页，没信息跳转到注册页
+  gotoMagpie: function () { 
+    const credentials = app.getCredentials();
+    wx.request({
+      url: `${app.serverUrl}/api/magpie/info/${credentials}`,
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success(res) {
+        if (res.data.success) {
+          let { status } = res.data.data;
+          wx.setStorage({
+            key: 'magpieIndexData',
+            data: JSON.stringify(res.data.data)
+          });
+          if (status === 'created') { // 已提交注册信息
+            wx.navigateTo({
+              url: '../magpie/index/index'
+            });
+          } else if (status === 'ok') { // 注册通过
+            wx.navigateTo({
+              url: '../magpie/register/pass/index'
+            });
+          } else if (status === 'notok') { // 注册不通过
+            wx.navigateTo({
+              url: '../magpie/register/refuse/index'
+            });
+          } else if (status === 'disabled') { // 封禁账号
+            wx.showToast({
+              title: '账号存在风险，已被冻结。',
+              duration: 2000
+            })
+          } else { // 开始注册
+            wx.navigateTo({
+              url: '../magpie/index'
+            });
+          }
+          if (res.data.data) {
+            wx.navigateTo({
+              url: '../magpie/index/index'
+            });
+          } else {
+            wx.navigateTo({
+              url: '../magpie/index'
+            });
+          }
+        }
+      },
+      fail(err) {
+        console.error(err)
+      }
+    })
+  }
 });

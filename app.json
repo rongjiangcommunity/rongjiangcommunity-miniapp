@@ -39,7 +39,10 @@
     "pages/lawyer/detail/index",
     "pages/lawyer/open_msg/index",
     "pages/lawyer/add_msg/index",
-    "pages/magpie/management/relationship"
+    "pages/magpie/management/relationship",
+    "pages/magpie/index",
+    "pages/magpie/index/index",
+    "pages/magpie/index/filter/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
