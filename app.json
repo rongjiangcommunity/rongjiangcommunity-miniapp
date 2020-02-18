@@ -48,6 +48,14 @@
     "pages/magpie/register/success/index",
     "pages/magpie/register/refuse/index",
     "pages/magpie/register/pass/index",
+    "pages/magpie/me/index",
+    "pages/magpie/me/othersInfo/index",
+    "pages/magpie/me/info/index",
+    "pages/magpie/me/interesting/index",
+    "pages/magpie/me/declare/index",
+    "pages/magpie/me/label/index",
+    "pages/magpie/me/declare/edit/index",
+    "pages/magpie/me/bothInteresting/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",

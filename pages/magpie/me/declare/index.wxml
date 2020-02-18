@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class='bottom-action'>
+  <view class="item-box">
+    <view class="item-title">关于我</view>
+    <navigator url="./edit/index?title=关于我&tip=可以写写自己的外貌、性格、兴趣、爱好等等" class="item-edit">编辑</navigator>
+    <view class="item-tip" wx:if="{{true}}">可以写写自己的外貌、性格、兴趣、爱好等等</view>
+    <view class="item-info" wx:if="{{false}}">过去的经验都是为了遇见你</view>
+  </view>
+
+  <view class="item-box">
+    <view class="item-title">成长经验</view>
+    <navigator url="./edit/index?title=成长经验&tip=可以写写自己的成长经历，工作经历等等" class="item-edit">编辑</navigator>
+    <view class="item-tip" wx:if="{{true}}">可以写写自己的成长经历，工作经历等等</view>
+    <view class="item-info" wx:if="{{false}}">可以写写自己的成长经历，工作经历等等</view>
+  </view>
+
+  <view class="item-box">
+    <view class="item-title">对未来的规划</view>
+    <navigator url="./edit/index?title=对未来的规划&tip=可以写写自己对未来的期待与计划" class="item-edit">编辑</navigator>
+    <view class="item-tip" wx:if="{{true}}">可以写写自己对未来的期待与计划</view>
+    <view class="item-info" wx:if="{{false}}">过去的经验都是为了遇见你</view>
+  </view>
+
+  <view class="item-box">
+    <view class="item-title">你希望TA是怎样的</view>
+    <navigator url="./edit/index?title=你希望TA是怎样的&tip=可以写写希望的TA的外貌、性格、兴趣、爱好等等" class="item-edit">编辑</navigator>
+    <view class="item-tip" wx:if="{{true}}">可以写写希望的TA的外貌、性格、兴趣、爱好等等</view>
+    <view class="item-info" wx:if="{{false}}">过去的经验都是为了遇见你</view>
+  </view>
+</view>
+

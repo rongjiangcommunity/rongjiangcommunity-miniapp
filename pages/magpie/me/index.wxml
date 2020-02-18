@@ -1,0 +1,54 @@
+<!--pages/magpie/index/index.wxml-->
+<view class="header">
+  <navigator url="../index/index" style="display:inline-block;margin-right:40px;">
+    鹊桥相会       
+  </navigator>
+  <text class="active">我的</text>
+</view>
+<view class="main">
+  <navigator url="../me/info/index" class="infoBox">
+    <image class="bg" src="/images/icons/magpie_me_bg@2x.png"/>
+    <view class="name">
+      {{name}}
+      <image wx:if="{{gender==='男'}}" class="sex" src="/images/icons/male@2x.png"/>
+      <image wx:if="{{gender==='女'}}" class="sex" src="/images/icons/female@2x.png"/>
+    </view>
+    <view class="address">{{workingArea}}</view>
+    <view class="labelBox">
+      <view class="label" wx:for="{{tagArr}}">{{item}}</view>
+    </view>
+    <image class="arrow" src="/images/icons/account_arrow@2x.png"/>
+  </navigator>
+
+  <view class="lifeInfo">
+    <text class="title">上传生活照</text>
+    <text class="tip">建议尺寸比例16:9</text>
+    <view class="imgBox">
+      <view class="addIcon">
+        <image bindtap="addImg" src="/images/icons/addIcon@2x.png"/>
+      </view>
+      <view class="photo" wx:for="{{albumDatas}}">
+        <image mode="aspectFill" src="{{item}}"/>
+        <image bindtap="removeImg" class="close" data-index="{{index}}" src="/images/icons/close@2x.png"/>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="info_p2">
+    <navigator url="../me/label/index" class="info_content">
+      <text class="title_text">个性标签</text>
+      <image class="arrow" src="/images/icons/account_arrow@2x.png"/>
+    </navigator>
+    <navigator url="../me/declare/index" class="info_content">
+      <text class="title_text">恋爱宣言</text>
+      <image class="arrow" src="/images/icons/account_arrow@2x.png"/>
+    </navigator>
+    <navigator url="../me/interesting/index" class="info_content">
+      <text class="title_text">我的心动</text>
+      <image class="arrow" src="/images/icons/account_arrow@2x.png"/>
+    </navigator>
+    <navigator url="../me/bothInteresting/index" class="info_content_nb">
+      <text class="title_text">互相心动</text>
+      <image class="arrow" src="/images/icons/account_arrow@2x.png"/>
+    </navigator>
+  </view>

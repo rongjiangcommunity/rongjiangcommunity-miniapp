@@ -1,0 +1,41 @@
+<!--pages/magpie/me/OthersInfo/index.wxml-->
+<view class="top_part">
+  <image class="bg_img" src="{{albumUrl}}"/>
+  <view class="infoBox">
+    <view class="name">
+      {{name}}
+      <image wx:if="{{gender==='男'}}" class="sex" src="/images/icons/male_blue@2x.png"/>
+      <image wx:if="{{gender==='女'}}" class="sex" src="/images/icons/female@2x.png"/>
+    </view>
+    <view class="address">{{workingArea}}</view>
+    <view class="labelBox">
+      <view class="label" wx:for="{{tagArr}}">{{item}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="item-box">
+  <view class="item-title">个性标签</view>
+  <view class="item-labelBox">
+    <view class="label" wx:for="{{tags}}">{{item}}</view>
+  </view>
+</view>
+<view class="item-box">
+  <view class="item-title">关于我</view>
+  <view class="item-tip">过去的经验都是为了遇见你</view>
+</view>
+<view class="item-box">
+  <view class="item-title">成长经验</view>
+  <view class="item-tip">可以写写自己的成长经历，工作经历等等</view>
+</view>
+<view class="item-box">
+  <view class="item-title">对未来的规划</view>
+  <view class="item-tip">可以写写自己对未来的期待与计划</view>
+</view>
+<view class="item-box">
+  <view class="item-title">希望TA是怎样的</view>
+  <view class="item-tip">可以写写希望的TA的外貌、性格、兴趣、爱好等等</view>
+</view>
+<view class="btn">
+  <button bindtap="bindToNextStep">我要联系Ta</button>
+</view>
